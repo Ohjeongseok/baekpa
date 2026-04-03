@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ã«Â°Â±Ã­ÅÅ(Baekpa) Ã¢â¬â Ã­â¢Â´Ã¬ÆÂ Ã¬Â âÃ«Â¬Â¸ Ã«Â²â¢Ã«Â¥Â  Ã¬Â â¢Ã«Â³Â´ Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼</title>
+<title>ë°±íŒŒ(Baekpa) â€” í•´ìƒ ì „ë¬¸ ë²•ë¥  ì •ë³´ í”Œëž«í¼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,7 +14,7 @@
 }
 body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);display:flex;height:100vh;overflow:hidden}
 
-/* Ã¢ââ¬Ã¢ââ¬ SIDEBAR Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ SIDEBAR â”€â”€ */
 .sidebar{width:var(--sidebar);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;height:100vh;overflow-y:auto}
 .sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.1)}
 .sb-logo-main{display:flex;align-items:center;gap:10px}
@@ -37,7 +37,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .user-name{font-size:13px;color:rgba(255,255,255,0.8);font-weight:500}
 .user-email{font-size:11px;color:rgba(255,255,255,0.35)}
 
-/* Ã¢ââ¬Ã¢ââ¬ MAIN Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ MAIN â”€â”€ */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;gap:16px;flex-shrink:0}
 .search-wrap{flex:1;max-width:560px;position:relative}
@@ -53,13 +53,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .notif{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;background:#fff;position:relative}
 .notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:#EF4444;border-radius:50%;border:1.5px solid #fff}
 
-/* Ã¢ââ¬Ã¢ââ¬ CONTENT AREA Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ CONTENT AREA â”€â”€ */
 .content{flex:1;overflow-y:auto;padding:28px}
 
-/* Ã¢ââ¬Ã¢ââ¬ VIEWS (show/hide) Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ VIEWS (show/hide) â”€â”€ */
 .view{display:none}.view.active{display:block}
 
-/* Ã¢ââ¬Ã¢ââ¬ DASHBOARD Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ DASHBOARD â”€â”€ */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:box-shadow 0.2s}
 .stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
@@ -72,7 +72,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .view-all{font-size:13px;color:var(--blue);cursor:pointer;font-weight:500;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
 .view-all:hover{text-decoration:underline}
 
-/* Ã¢ââ¬Ã¢ââ¬ TABLE Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ TABLE â”€â”€ */
 .table-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 table{width:100%;border-collapse:collapse}
 th{background:var(--lgray);padding:11px 16px;font-size:11px;font-weight:600;color:var(--gray);text-align:left;letter-spacing:0.5px;text-transform:uppercase;font-family:'Inter',sans-serif;border-bottom:1px solid var(--border)}
@@ -87,9 +87,9 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .badge-purple{background:#F5F3FF;color:#6D28D9}
 .flag{font-size:15px}
 .ai-done{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#059669;font-weight:600;font-family:'Inter',sans-serif}
-.ai-done::before{content:'Ã¢Åâ';font-weight:800}
+.ai-done::before{content:'âœ“';font-weight:800}
 
-/* Ã¢ââ¬Ã¢ââ¬ TREND CARDS Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ TREND CARDS â”€â”€ */
 .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
 .trend-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.2s;cursor:pointer}
 .trend-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(46,117,182,0.1)}
@@ -100,7 +100,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .trend-bar{height:4px;background:var(--lgray);border-radius:2px;margin-top:12px;overflow:hidden}
 .trend-bar-fill{height:100%;background:var(--blue);border-radius:2px;transition:width 0.8s}
 
-/* Ã¢ââ¬Ã¢ââ¬ SEARCH VIEW Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ SEARCH VIEW â”€â”€ */
 .search-filters{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .filter-select{padding:8px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);outline:none;cursor:pointer;background:#fff;transition:border-color 0.2s}
 .filter-select:focus{border-color:var(--blue)}
@@ -121,7 +121,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .conf-track{width:60px;height:4px;background:var(--lgray);border-radius:2px;overflow:hidden}
 .conf-fill{height:100%;background:#10B981;border-radius:2px}
 
-/* Ã¢ââ¬Ã¢ââ¬ DETAIL VIEW Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ DETAIL VIEW â”€â”€ */
 .detail-back{display:flex;align-items:center;gap:8px;color:var(--blue);cursor:pointer;font-size:14px;font-weight:500;margin-bottom:20px;background:none;border:none;font-family:'Noto Sans KR',sans-serif;padding:0}
 .detail-back:hover{color:var(--navy)}
 .detail-header{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:20px}
@@ -137,7 +137,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .analysis-text{font-size:14px;color:var(--dark);line-height:1.8}
 .analysis-list{list-style:none;display:flex;flex-direction:column;gap:8px}
 .analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:20px;position:relative}
-.analysis-list li::before{content:'Ã¢â¬Â¢';position:absolute;left:0;color:var(--blue);font-weight:700}
+.analysis-list li::before{content:'â€¢';position:absolute;left:0;color:var(--blue);font-weight:700}
 .implication-item{background:#F0F7FF;border-left:3px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13px;color:var(--dark);line-height:1.7}
 .info-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}
 .info-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
@@ -150,7 +150,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .related-flag{font-size:14px;flex-shrink:0;margin-top:1px}
 .related-text{font-size:12px;color:var(--navy);line-height:1.5;font-weight:500}
 
-/* Ã¢ââ¬Ã¢ââ¬ TREND REPORT VIEW Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ TREND REPORT VIEW â”€â”€ */
 .report-header{background:var(--navy);border-radius:16px;padding:32px;margin-bottom:24px;color:#fff}
 .report-header h2{font-size:22px;font-weight:700;margin-bottom:6px}
 .report-header p{font-size:14px;color:rgba(255,255,255,0.6)}
@@ -170,14 +170,14 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .highlight-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.4}
 .highlight-body{font-size:13px;color:var(--gray);line-height:1.7}
 
-/* Ã¢ââ¬Ã¢ââ¬ DETAIL TABS Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ DETAIL TABS â”€â”€ */
 .detail-tabs{display:flex;gap:4px;margin-bottom:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:6px}
 .detail-tab{flex:1;padding:9px;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--gray);background:none;transition:all 0.15s}
 .detail-tab.active{background:var(--navy);color:#fff}
 .detail-tab:hover:not(.active){background:var(--lgray);color:var(--navy)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 
-/* Ã¢ââ¬Ã¢ââ¬ ORIGINAL TEXT Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ ORIGINAL TEXT â”€â”€ */
 .original-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px}
 .original-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .original-stamp{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;font-family:'Inter',sans-serif;letter-spacing:1px}
@@ -185,7 +185,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .original-body .ruling{font-weight:700;color:var(--navy)}
 .original-section-title{font-size:13px;font-weight:700;color:var(--navy);margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--lb)}
 
-/* Ã¢ââ¬Ã¢ââ¬ PROVISIONS Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ PROVISIONS â”€â”€ */
 .provision-item{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
 .provision-header{padding:14px 18px;background:var(--lgray);display:flex;align-items:center;gap:10px;cursor:pointer}
 .provision-law{font-size:11px;font-weight:700;color:var(--blue);font-family:'Inter',sans-serif;letter-spacing:0.5px}
@@ -193,19 +193,19 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .provision-body{padding:16px 18px;font-size:13px;color:var(--dark);line-height:1.9;border-top:1px solid var(--border)}
 .provision-relevance{margin-top:12px;padding:10px 14px;background:#F0F7FF;border-radius:8px;font-size:12px;color:var(--blue);font-weight:600;border-left:3px solid var(--blue)}
 
-/* Ã¢ââ¬Ã¢ââ¬ EMPTY / LOADING Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ EMPTY / LOADING â”€â”€ */
 .empty{text-align:center;padding:60px;color:var(--gray)}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty p{font-size:14px}
 
-/* Ã¢ââ¬Ã¢ââ¬ TOAST Ã¢ââ¬Ã¢ââ¬ */
+/* â”€â”€ TOAST â”€â”€ */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px)}
 .toast.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- Ã¢â¢ÂÃ¢â¢Â SIDEBAR Ã¢â¢ÂÃ¢â¢Â -->
+<!-- â•â• SIDEBAR â•â• -->
 <aside class="sidebar">
   <div class="sb-logo">
     <div class="sb-logo-main">
@@ -216,218 +216,218 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         </svg>
       </div>
       <div>
-        <div class="sb-name">Ã«Â°Â±Ã­ÅÅ</div>
+        <div class="sb-name">ë°±íŒŒ</div>
         <div class="sb-en">BAEKPA</div>
       </div>
     </div>
   </div>
 
-  <div class="sb-section">Ã«Â©âÃ«â°Â´</div>
-  <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">Ã°Å¸âÅ </span>Ã«Åâ¬Ã¬â¹ÅÃ«Â³Â´Ã«âÅ</div>
-  <div class="sb-item" onclick="nav('search')"><span class="icon">Ã°Å¸âÂ</span>Ã­ÅÂÃ«Â¡â¬ ÃªÂ²â¬Ã¬Æâ°<span class="sb-badge">12,847</span></div>
-  <div class="sb-item" onclick="nav('trend')"><span class="icon">Ã°Å¸âË</span>Ã­Å Â¸Ã«Â ÅÃ«âÅ Ã«Â¦Â¬Ã­ÂÂ¬Ã­Å Â¸</div>
-  <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">Ã°Å¸ââ</span>Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬</div>
+  <div class="sb-section">ë©”ë‰´</div>
+  <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">ðŸ“Š</span>ëŒ€ì‹œë³´ë“œ</div>
+  <div class="sb-item" onclick="nav('search')"><span class="icon">ðŸ”</span>íŒë¡€ ê²€ìƒ‰<span class="sb-badge">12,847</span></div>
+  <div class="sb-item" onclick="nav('trend')"><span class="icon">ðŸ“ˆ</span>íŠ¸ë Œë“œ ë¦¬í¬íŠ¸</div>
+  <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">ðŸ”–</span>ë¶ë§ˆí¬</div>
 
-  <div class="sb-section">Ã¬âÂ¬ÃªÂ±Â´ Ã¬ÅÂ Ã­Ëâ¢</div>
+  <div class="sb-section">ì‚¬ê±´ ìœ í˜•</div>
   <div class="sb-filter-section">
     <div style="display:flex;flex-wrap:wrap">
-      <div class="sf-tag on" onclick="toggleFilter(this)">Ã¬Â âÃ¬Â²Â´</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã­â¢Â´Ã«âÅÃªÂµÂ¬Ã¬Â¡Â°</div>
+      <div class="sf-tag on" onclick="toggleFilter(this)">ì „ì²´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ì„ í•˜ì¦ê¶Œ</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">í•´ìƒë³´í—˜</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ì„ ë°•ì¶©ëŒ</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">í™”ë¬¼ì†í•´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ìš©ì„ ê³„ì•½</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">í•´ë‚œêµ¬ì¡°</div>
     </div>
   </div>
 
-  <div class="sb-section">ÃªÂµÂ­ÃªÂ°â¬</div>
+  <div class="sb-section">êµ­ê°€</div>
   <div class="sb-filter-section">
     <div style="display:flex;flex-wrap:wrap">
-      <div class="sf-tag on" onclick="toggleFilter(this)">Ã°Å¸ÅÂ Ã¬Â âÃ¬Â²Â´</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã°Å¸â¡Â°Ã°Å¸â¡Â· Ã­â¢ÅÃªÂµÂ­</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã°Å¸â¡Â¬Ã°Å¸â¡Â§ Ã¬ËÂÃªÂµÂ­</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬ Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã°Å¸â¡Â­Ã°Å¸â¡Â° Ã­â¢ÂÃ¬Â½Â©</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">Ã°Å¸â¡ÂºÃ°Å¸â¡Â¸ Ã«Â¯Â¸ÃªÂµÂ­</div>
+      <div class="sf-tag on" onclick="toggleFilter(this)">ðŸŒ ì „ì²´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðŸ‡°ðŸ‡· í•œêµ­</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðŸ‡¬ðŸ‡§ ì˜êµ­</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðŸ‡¸ðŸ‡¬ ì‹±ê°€í¬ë¥´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðŸ‡­ðŸ‡° í™ì½©</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðŸ‡ºðŸ‡¸ ë¯¸êµ­</div>
     </div>
   </div>
 
   <div class="sb-bottom">
     <div class="user-row">
-      <div class="user-avatar">Ã¬ËÂ¤</div>
+      <div class="user-avatar">ì˜¤</div>
       <div>
-        <div class="user-name">Ã¬ËÂ¤Ã¬Â â¢Ã¬âÂ</div>
+        <div class="user-name">ì˜¤ì •ì„</div>
         <div class="user-email">ojs8851@gmail.com</div>
       </div>
     </div>
   </div>
 </aside>
 
-<!-- Ã¢â¢ÂÃ¢â¢Â MAIN Ã¢â¢ÂÃ¢â¢Â -->
+<!-- â•â• MAIN â•â• -->
 <div class="main">
   <!-- TOPBAR -->
   <div class="topbar">
     <div class="search-wrap">
-      <span class="search-icon">Ã°Å¸âÂ</span>
-      <input id="mainSearch" type="text" placeholder="Ã­ÅÂÃ«Â¡â¬ Ã­âÂ¤Ã¬âºÅÃ«âÅ, Ã¬âÂ¬ÃªÂ±Â´Ã«Â²ËÃ­ËÂ¸, Ã«Â²â¢Ã«Â¥Â  Ã¬Å¸ÂÃ¬Â Â ÃªÂ²â¬Ã¬Æâ°..." onkeydown="if(event.key==='Enter')doSearch()">
+      <span class="search-icon">ðŸ”</span>
+      <input id="mainSearch" type="text" placeholder="íŒë¡€ í‚¤ì›Œë“œ, ì‚¬ê±´ë²ˆí˜¸, ë²•ë¥  ìŸì  ê²€ìƒ‰..." onkeydown="if(event.key==='Enter')doSearch()">
     </div>
     <div class="tb-right">
-      <div class="notif" title="Ã¬â¢ÅÃ«Â¦Â¼"><span>Ã°Å¸ââ</span><div class="notif-dot"></div></div>
-      <button class="tb-btn tb-btn-outline" onclick="nav('search')">ÃªÂ³Â ÃªÂ¸â° ÃªÂ²â¬Ã¬Æâ°</button>
-      <button class="tb-btn tb-btn-primary" onclick="showToast('Ã¢Åâ¦ Ã¬ÆË Ã­ÅÂÃ«Â¡â¬ Ã¬â¢ÅÃ«Â¦Â¼Ã¬ÂÂ´ Ã¬âÂ¤Ã¬Â â¢Ã«ÂËÃ¬âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤')">Ã¬â¢ÅÃ«Â¦Â¼ Ã¬âÂ¤Ã¬Â â¢</button>
+      <div class="notif" title="ì•Œë¦¼"><span>ðŸ””</span><div class="notif-dot"></div></div>
+      <button class="tb-btn tb-btn-outline" onclick="nav('search')">ê³ ê¸‰ ê²€ìƒ‰</button>
+      <button class="tb-btn tb-btn-primary" onclick="showToast('âœ… ìƒˆ íŒë¡€ ì•Œë¦¼ì´ ì„¤ì •ë˜ì—ˆìŠµë‹ˆë‹¤')">ì•Œë¦¼ ì„¤ì •</button>
     </div>
   </div>
 
   <!-- CONTENT -->
   <div class="content">
 
-    <!-- Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ DASHBOARD Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ -->
+    <!-- â”€â”€â”€ DASHBOARD â”€â”€â”€ -->
     <div class="view active" id="v-dashboard">
       <div style="margin-bottom:24px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">Ã«Åâ¬Ã¬â¹ÅÃ«Â³Â´Ã«âÅ</h2>
-        <p style="font-size:13px;color:var(--gray);margin-top:4px">2026Ã«â¦â 3Ã¬âºâ 26Ã¬ÂÂ¼ ÃªÂ¸Â°Ã¬Â¤â¬</p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">ëŒ€ì‹œë³´ë“œ</h2>
+        <p style="font-size:13px;color:var(--gray);margin-top:4px">2026ë…„ 3ì›” 26ì¼ ê¸°ì¤€</p>
       </div>
 
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-label">Ã¬Â´Â Ã­ÅÂÃ«Â¡â¬ Ã¬ËË</div>
+          <div class="stat-label">ì´ íŒë¡€ ìˆ˜</div>
           <div class="stat-val">12,847</div>
-          <div class="stat-sub">Ã¢âÂ² 234ÃªÂ±Â´ Ã¬ÂÂ´Ã«Â²ËÃ«â¹Â¬ Ã¬â¹Â ÃªÂ·Å</div>
+          <div class="stat-sub">â–² 234ê±´ ì´ë²ˆë‹¬ ì‹ ê·œ</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">AI Ã«Â¶âÃ¬âÂ Ã¬â¢âÃ«Â£Å</div>
+          <div class="stat-label">AI ë¶„ì„ ì™„ë£Œ</div>
           <div class="stat-val">98.2<span style="font-size:18px">%</span></div>
-          <div class="stat-sub">12,615ÃªÂ±Â´ Ã«Â¶âÃ¬âÂ Ã¬â¢âÃ«Â£Å</div>
+          <div class="stat-sub">12,615ê±´ ë¶„ì„ ì™„ë£Œ</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Ã¬ÂÂ´Ã«Â²ËÃ¬Â£Â¼ Ã¬â¹Â ÃªÂ·Å</div>
+          <div class="stat-label">ì´ë²ˆì£¼ ì‹ ê·œ</div>
           <div class="stat-val">47</div>
-          <div class="stat-sub">Ã¢âÂ² Ã¬Â§â¬Ã«âÅÃ¬Â£Â¼ Ã«Åâ¬Ã«Â¹â +12%</div>
+          <div class="stat-sub">â–² ì§€ë‚œì£¼ ëŒ€ë¹„ +12%</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Ã«âÂ´ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬</div>
+          <div class="stat-label">ë‚´ ë¶ë§ˆí¬</div>
           <div class="stat-val">23</div>
-          <div class="stat-sub">Ã¬ÂµÅÃªÂ·Â¼ 3ÃªÂ±Â´ Ã¬ââ¦Ã«ÂÂ°Ã¬ÂÂ´Ã­Å Â¸</div>
+          <div class="stat-sub">ìµœê·¼ 3ê±´ ì—…ë°ì´íŠ¸</div>
         </div>
       </div>
 
-      <!-- Ã«Â¶âÃ¬Å¸Â Ã¬ÅÂ Ã­Ëâ¢Ã«Â³â Ã­ËâÃ­â¢Â© -->
+      <!-- ë¶„ìŸ ìœ í˜•ë³„ í˜„í™© -->
       <div class="trend-grid">
-        <div class="trend-card" onclick="filterAndSearch('Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å')">
+        <div class="trend-card" onclick="filterAndSearch('ì„ í•˜ì¦ê¶Œ')">
           <div class="trend-num">01</div>
-          <div class="trend-type"><span class="badge badge-blue">Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å</span></div>
-          <div><span class="trend-count">3,241</span><span class="trend-change">Ã¢âÂ² 8%</span></div>
+          <div class="trend-type"><span class="badge badge-blue">ì„ í•˜ì¦ê¶Œ</span></div>
+          <div><span class="trend-count">3,241</span><span class="trend-change">â–² 8%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:75%"></div></div>
         </div>
-        <div class="trend-card" onclick="filterAndSearch('Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË')">
+        <div class="trend-card" onclick="filterAndSearch('í•´ìƒë³´í—˜')">
           <div class="trend-num">02</div>
-          <div class="trend-type"><span class="badge badge-green">Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË</span></div>
-          <div><span class="trend-count">2,887</span><span class="trend-change">Ã¢âÂ² 5%</span></div>
+          <div class="trend-type"><span class="badge badge-green">í•´ìƒë³´í—˜</span></div>
+          <div><span class="trend-count">2,887</span><span class="trend-change">â–² 5%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:66%;background:#059669"></div></div>
         </div>
-        <div class="trend-card" onclick="filterAndSearch('Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´')">
+        <div class="trend-card" onclick="filterAndSearch('í™”ë¬¼ì†í•´')">
           <div class="trend-num">03</div>
-          <div class="trend-type"><span class="badge badge-yellow">Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´</span></div>
-          <div><span class="trend-count">2,103</span><span class="trend-change">Ã¢âÂ² 3%</span></div>
+          <div class="trend-type"><span class="badge badge-yellow">í™”ë¬¼ì†í•´</span></div>
+          <div><span class="trend-count">2,103</span><span class="trend-change">â–² 3%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:48%;background:#D97706"></div></div>
         </div>
       </div>
 
-      <!-- Ã¬ÂµÅÃ¬â¹Â  Ã­ÅÂÃ«Â¡â¬ -->
+      <!-- ìµœì‹  íŒë¡€ -->
       <div class="section-head">
-        <h3>Ã¬ÂµÅÃ¬â¹Â  Ã«âÂ±Ã«Â¡Â Ã­ÅÂÃ«Â¡â¬</h3>
-        <button class="view-all" onclick="nav('search')">Ã¬Â âÃ¬Â²Â´ Ã«Â³Â´ÃªÂ¸Â° Ã¢â â</button>
+        <h3>ìµœì‹  ë“±ë¡ íŒë¡€</h3>
+        <button class="view-all" onclick="nav('search')">ì „ì²´ ë³´ê¸° â†’</button>
       </div>
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>Ã¬âÂ¬ÃªÂ±Â´Ã«Â²ËÃ­ËÂ¸</th><th>Ã¬âÂ¬ÃªÂ±Â´Ã¬ÅÂ Ã­Ëâ¢</th><th>ÃªÂµÂ­ÃªÂ°â¬/Ã«Â²â¢Ã¬âºÂ</th><th>Ã¬âÂ ÃªÂ³Â Ã¬ÂÂ¼</th><th>AI Ã«Â¶âÃ¬âÂ</th>
+            <th>ì‚¬ê±´ë²ˆí˜¸</th><th>ì‚¬ê±´ìœ í˜•</th><th>êµ­ê°€/ë²•ì›</th><th>ì„ ê³ ì¼</th><th>AI ë¶„ì„</th>
           </tr></thead>
           <tbody id="dashTable"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ SEARCH Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ -->
+    <!-- â”€â”€â”€ SEARCH â”€â”€â”€ -->
     <div class="view" id="v-search">
       <div style="margin-bottom:20px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">Ã­ÅÂÃ«Â¡â¬ ÃªÂ²â¬Ã¬Æâ°</h2>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">íŒë¡€ ê²€ìƒ‰</h2>
       </div>
       <div class="search-filters">
-        <span class="filter-label">ÃªÂµÂ­ÃªÂ°â¬</span>
+        <span class="filter-label">êµ­ê°€</span>
         <select class="filter-select" id="f-country" onchange="renderSearch()">
-          <option>Ã¬Â âÃ¬Â²Â´</option><option>Ã°Å¸â¡Â°Ã°Å¸â¡Â· Ã­â¢ÅÃªÂµÂ­</option><option>Ã°Å¸â¡Â¬Ã°Å¸â¡Â§ Ã¬ËÂÃªÂµÂ­</option>
-          <option>Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬ Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´</option><option>Ã°Å¸â¡Â­Ã°Å¸â¡Â° Ã­â¢ÂÃ¬Â½Â©</option><option>Ã°Å¸â¡ÂºÃ°Å¸â¡Â¸ Ã«Â¯Â¸ÃªÂµÂ­</option>
+          <option>ì „ì²´</option><option>ðŸ‡°ðŸ‡· í•œêµ­</option><option>ðŸ‡¬ðŸ‡§ ì˜êµ­</option>
+          <option>ðŸ‡¸ðŸ‡¬ ì‹±ê°€í¬ë¥´</option><option>ðŸ‡­ðŸ‡° í™ì½©</option><option>ðŸ‡ºðŸ‡¸ ë¯¸êµ­</option>
         </select>
-        <span class="filter-label">Ã¬âÂ¬ÃªÂ±Â´Ã¬ÅÂ Ã­Ëâ¢</span>
+        <span class="filter-label">ì‚¬ê±´ìœ í˜•</span>
         <select class="filter-select" id="f-type" onchange="renderSearch()">
-          <option>Ã¬Â âÃ¬Â²Â´</option><option>Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å</option><option>Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË</option>
-          <option>Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ</option><option>Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´</option><option>Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½</option>
-          <option>Ã­â¢Â´Ã«âÅÃªÂµÂ¬Ã¬Â¡Â°</option>
+          <option>ì „ì²´</option><option>ì„ í•˜ì¦ê¶Œ</option><option>í•´ìƒë³´í—˜</option>
+          <option>ì„ ë°•ì¶©ëŒ</option><option>í™”ë¬¼ì†í•´</option><option>ìš©ì„ ê³„ì•½</option>
+          <option>í•´ë‚œêµ¬ì¡°</option>
         </select>
-        <span class="filter-label">ÃªÂ¸Â°ÃªÂ°â</span>
+        <span class="filter-label">ê¸°ê°„</span>
         <select class="filter-select" id="f-year" onchange="renderSearch()">
-          <option>Ã¬Â âÃ¬Â²Â´</option><option>2024~2025</option><option>2022~2023</option><option>~2021</option>
+          <option>ì „ì²´</option><option>2024~2025</option><option>2022~2023</option><option>~2021</option>
         </select>
-        <span class="filter-label">Ã¬Â â¢Ã«Â Â¬</span>
+        <span class="filter-label">ì •ë ¬</span>
         <select class="filter-select" id="f-sort" onchange="renderSearch()">
-          <option>Ã¬ÂµÅÃ¬â¹Â Ã¬ËÅ</option><option>Ã¬â¹Â Ã«Â¢Â°Ã«ÂâÃ¬ËÅ</option><option>ÃªÂ´â¬Ã«Â Â¨Ã«ÂâÃ¬ËÅ</option>
+          <option>ìµœì‹ ìˆœ</option><option>ì‹ ë¢°ë„ìˆœ</option><option>ê´€ë ¨ë„ìˆœ</option>
         </select>
       </div>
       <div class="result-count" id="resultCount"></div>
       <div id="searchResults"></div>
     </div>
 
-    <!-- Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ DETAIL Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ -->
+    <!-- â”€â”€â”€ DETAIL â”€â”€â”€ -->
     <div class="view" id="v-detail">
-      <button class="detail-back" onclick="goBack()">Ã¢â Â Ã«ÂªÂ©Ã«Â¡ÂÃ¬ÅÂ¼Ã«Â¡Å</button>
+      <button class="detail-back" onclick="goBack()">â† ëª©ë¡ìœ¼ë¡œ</button>
       <div id="detailContent"></div>
     </div>
 
-    <!-- Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ TREND Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ -->
+    <!-- â”€â”€â”€ TREND â”€â”€â”€ -->
     <div class="view" id="v-trend">
       <div class="report-header">
         <p style="font-size:11px;letter-spacing:2px;opacity:.5;font-family:'Inter',sans-serif;margin-bottom:8px">MONTHLY REPORT</p>
-        <h2>2026Ã«â¦â 3Ã¬âºâ Ã­â¢Â´Ã¬ÆÂ Ã­ÅÂÃ«Â¡â¬ Ã­Å Â¸Ã«Â ÅÃ«âÅ Ã«Â¦Â¬Ã­ÂÂ¬Ã­Å Â¸</h2>
-        <p>Ã¬ÂÂ´Ã«â¹Â¬ Ã¬ËËÃ¬Â§â Ã­ÅÂÃ«Â¡â¬ 234ÃªÂ±Â´ Ã«Â¶âÃ¬âÂ | Ã«Â°ÅÃ­ââ°Ã¬ÂÂ¼: 2026.03.26</p>
+        <h2>2026ë…„ 3ì›” í•´ìƒ íŒë¡€ íŠ¸ë Œë“œ ë¦¬í¬íŠ¸</h2>
+        <p>ì´ë‹¬ ìˆ˜ì§‘ íŒë¡€ 234ê±´ ë¶„ì„ | ë°œí–‰ì¼: 2026.03.26</p>
       </div>
       <div class="chart-wrap">
-        <div class="chart-title">Ã¬âÂ¬ÃªÂ±Â´ Ã¬ÅÂ Ã­Ëâ¢Ã«Â³â Ã­ÅÂÃ«Â¡â¬ Ã¬ËË (2026Ã«â¦â 3Ã¬âºâ)</div>
+        <div class="chart-title">ì‚¬ê±´ ìœ í˜•ë³„ íŒë¡€ ìˆ˜ (2026ë…„ 3ì›”)</div>
         <div class="bar-chart" id="barChart"></div>
       </div>
       <div class="section-head">
-        <h3>Ã¬ÂÂ´Ã«â¹Â¬Ã¬ÂË Ã¬Â£Â¼Ã«ÂªÂ© Ã­ÅÂÃ«Â¡â¬ 3Ã¬âÂ </h3>
+        <h3>ì´ë‹¬ì˜ ì£¼ëª© íŒë¡€ 3ì„ </h3>
       </div>
       <div class="report-highlight">
         <div class="highlight-item" onclick="openDetail(0)">
           <div class="highlight-num">1</div>
           <div>
-            <div class="highlight-title">Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2025Ã«â¹Â¤31205 Ã¢â¬â Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã«Â©Â´Ã¬Â±â¦ Ã«Â²âÃ¬Åâ Ã¬Å¾Â¬Ã¬Â â¢Ã«Â¦Â½</div>
-            <div class="highlight-body">Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ¬ÂË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬ÂÂ´ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â Ã¬â¢â¬ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ââ Ã«Å â ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Ââ Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ Ã«Â©Â´Ã¬Â±â¦Ã«ÂÂ  Ã¬ËË Ã¬Å¾ËÃ«Å âÃ¬Â§â¬Ã¬âÂ Ã«Åâ¬Ã­â¢Â´ Ã«Åâ¬Ã«Â²â¢Ã¬âºÂÃ¬ÂÂ´ ÃªÂ¸Â°Ã¬Â¡Â´ Ã­ÅÂÃ«Â¡â¬Ã«Â¥Â¼ Ã«Â³â¬ÃªÂ²Â½, Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â Ã­â¢âÃ¬Å¡âÃ¬âÂ±Ã¬Ââ Ã«Âªâ¦Ã¬â¹ÅÃ­â¢ËÃ¬Ëâ¬Ã¬Å ÂµÃ«â¹ËÃ«â¹Â¤. ÃªÂµÂ­Ã«âÂ´ Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË Ã¬â¹Â¤Ã«Â¬Â´Ã¬âÂ Ã¬Â¦â°ÃªÂ°ÂÃ¬Â Â Ã¬ËÂÃ­âÂ¥Ã¬ÂÂ´ Ã¬ËËÃ¬ÆÂÃ«ÂÂ©Ã«â¹ËÃ«â¹Â¤.</div>
+            <div class="highlight-title">ëŒ€ë²•ì› 2025ë‹¤31205 â€” í•´ìƒë³´í—˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ ë©´ì±… ë²”ìœ„ ìž¬ì •ë¦½</div>
+            <div class="highlight-body">í”¼ë³´í—˜ìžì˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì´ ë³´í—˜ì‚¬ê³ ì™€ ì¸ê³¼ê´€ê³„ê°€ ì—†ëŠ” ê²½ìš°ì—ë„ ë³´í—˜ìžê°€ ë©´ì±…ë  ìˆ˜ ìžˆëŠ”ì§€ì— ëŒ€í•´ ëŒ€ë²•ì›ì´ ê¸°ì¡´ íŒë¡€ë¥¼ ë³€ê²½, ì¸ê³¼ê´€ê³„ í•„ìš”ì„±ì„ ëª…ì‹œí•˜ì˜€ìŠµë‹ˆë‹¤. êµ­ë‚´ í•´ìƒë³´í—˜ ì‹¤ë¬´ì— ì¦‰ê°ì  ì˜í–¥ì´ ì˜ˆìƒë©ë‹ˆë‹¤.</div>
           </div>
         </div>
         <div class="highlight-item" onclick="openDetail(1)">
           <div class="highlight-num">2</div>
           <div>
-            <div class="highlight-title">[2025] EWHC 441 Ã¢â¬â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã¬Â âÃ¬Å¾ÂÃ­â¢âÃ¬â¢â¬ ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â â Ã¬ÅÂ Ã­Å¡Â¨Ã¬âÂ±</div>
-            <div class="highlight-body">Ã¬ËÂÃªÂµÂ­ High CourtÃªÂ°â¬ Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å(e-B/L)Ã¬ÂË Ã«Â°Â°Ã¬âÅÃ¬âÂ Ã¬ÂËÃ­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â âÃ¬ÂË Ã«Â²â¢Ã¬Â Â Ã¬ÅÂ Ã­Å¡Â¨Ã¬âÂ±Ã¬Ââ Ã¬ÂµÅÃ¬Â´ËÃ«Â¡Å Ã¬ÂÂ¸Ã¬Â â¢Ã­â¢Å Ã­ÅÂÃªÂ²Â°Ã«Â¡Å, ÃªÂµÂ­Ã¬Â Å Ã¬Â âÃ¬Å¾ÂÃ«Â¬Â´Ã¬âÂ­ Ã¬âÅÃ«Â¥Ë Ã¬â¹Â¤Ã«Â¬Â´Ã¬âÂ Ã¬Â¤âÃ«Åâ¬Ã­â¢Å Ã¬ËÂÃ­âÂ¥Ã¬Ââ Ã«Â¯Â¸Ã¬Â¹Â  ÃªÂ²ÆÃ¬ÅÂ¼Ã«Â¡Å Ã¬ËËÃ¬ÆÂÃ«ÂÂ©Ã«â¹ËÃ«â¹Â¤.</div>
+            <div class="highlight-title">[2025] EWHC 441 â€” ì„ í•˜ì¦ê¶Œ ì „ìží™”ì™€ ê¶Œë¦¬ ì´ì „ ìœ íš¨ì„±</div>
+            <div class="highlight-body">ì˜êµ­ High Courtê°€ ì „ìž ì„ í•˜ì¦ê¶Œ(e-B/L)ì˜ ë°°ì„œì— ì˜í•œ ê¶Œë¦¬ ì´ì „ì˜ ë²•ì  ìœ íš¨ì„±ì„ ìµœì´ˆë¡œ ì¸ì •í•œ íŒê²°ë¡œ, êµ­ì œ ì „ìžë¬´ì—­ ì„œë¥˜ ì‹¤ë¬´ì— ì¤‘ëŒ€í•œ ì˜í–¥ì„ ë¯¸ì¹  ê²ƒìœ¼ë¡œ ì˜ˆìƒë©ë‹ˆë‹¤.</div>
           </div>
         </div>
         <div class="highlight-item" onclick="openDetail(2)">
           <div class="highlight-num">3</div>
           <div>
-            <div class="highlight-title">[2025] SGCA 12 Ã¢â¬â Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â Å Ã¬â¹Å Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ Ã«Â²âÃ¬Åâ</div>
-            <div class="highlight-body">Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´ Court of AppealÃ¬ÂÂ´ Ã¬Â â¢ÃªÂ¸Â°Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã¬Â¡Â°ÃªÂ¸Â°Ã­â¢Â´Ã¬Â Å Ã¬â¹Å Ã¬Å¾âÃ¬Â¡Â´ Ã¬Å¡Â©Ã¬âÂ ÃªÂ¸Â°ÃªÂ°â Ã¬Â âÃ¬Â²Â´Ã¬âÂ Ã«Åâ¬Ã­â¢Å Ã¬ÂÂ¼Ã¬â¹Â¤Ã¬ÂÂ´Ã¬ÂÂµ Ã«Â°Â°Ã¬ÆÂÃ¬Ââ Ã¬ÂÂ¸Ã¬Â â¢Ã­â¢ËÃ¬âÂ¬, Ã¬â¢âÃ¬â¹ÅÃ¬â¢â Ã­â¢Â´Ã¬Å¡Â´ Ã«Â¶âÃ¬Å¸ÂÃ¬ÂË Ã¬ÆËÃ«Â¡ÅÃ¬Å¡Â´ ÃªÂ¸Â°Ã¬Â¤â¬Ã¬Ââ Ã¬Â ÅÃ¬â¹ÅÃ­âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤.</div>
+            <div class="highlight-title">[2025] SGCA 12 â€” ìš©ì„ ê³„ì•½ í•´ì œ ì‹œ ì†í•´ë°°ìƒ ë²”ìœ„</div>
+            <div class="highlight-body">ì‹±ê°€í¬ë¥´ Court of Appealì´ ì •ê¸°ìš©ì„ ê³„ì•½ ì¡°ê¸°í•´ì œ ì‹œ ìž”ì¡´ ìš©ì„ ê¸°ê°„ ì „ì²´ì— ëŒ€í•œ ì¼ì‹¤ì´ìµ ë°°ìƒì„ ì¸ì •í•˜ì—¬, ì•„ì‹œì•„ í•´ìš´ ë¶„ìŸì˜ ìƒˆë¡œìš´ ê¸°ì¤€ì„ ì œì‹œí–ˆìŠµë‹ˆë‹¤.</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ BOOKMARKS Ã¢ââ¬Ã¢ââ¬Ã¢ââ¬ -->
+    <!-- â”€â”€â”€ BOOKMARKS â”€â”€â”€ -->
     <div class="view" id="v-bookmarks">
       <div style="margin-bottom:20px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬</h2>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">ë¶ë§ˆí¬</h2>
       </div>
       <div id="bookmarkResults"></div>
     </div>
@@ -438,52 +438,52 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 <div class="toast" id="toast"></div>
 
 <script>
-// Ã¢â¢ÂÃ¢â¢Â DATA Ã¢â¢ÂÃ¢â¢Â
+// â•â• DATA â•â•
 const CASES = [
-  {id:0, caseNum:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2025Ã«â¹Â¤31205", type:"Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË", country:"Ã­â¢ÅÃªÂµÂ­", flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·", court:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ", date:"2025.12.18", conf:0.94,
-   title:"Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã¬â¹Å Ã«Â³Â´Ã­âËÃ¬Å¾Â Ã«Â©Â´Ã¬Â±â¦ÃªÂ³Â¼ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â Ã¬Å¡âÃ«Â¶â¬",
-   summary:"Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ¬ÂË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬ÂÂ´ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂÃªÂ³Â¼ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ââ Ã«Å â ÃªÂ²Â½Ã¬Å¡Â° Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ¬ÂË Ã«Â©Â´Ã¬Â±â¦ Ã¬Â£Â¼Ã¬Å¾Â¥Ã¬ÂÂ´ Ã­âËÃ¬Å¡Â©Ã«ÂËÃ«Å âÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ Ã¬Â âÃ¬âºÂÃ­â¢Â©Ã¬ÂËÃ¬Â²Â´ Ã­ÅÂÃªÂ²Â°",
-   facts:"Ã¬âºÂÃªÂ³Â (Ã­â¢âÃ¬Â£Â¼)Ã«Å â Ã­âÂ¼ÃªÂ³Â (Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂ¬)Ã¬â¢â¬ Ã¬Â ÂÃ­â¢ËÃ«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢ËÃ«Â©Â´Ã¬âÅ Ã­â¢âÃ«Â¬Â¼Ã¬ÂË Ã­ÂÂ¬Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬Â¤âÃ¬Å¡âÃ¬âÂ¬Ã­â¢Â­Ã¬Ââ ÃªÂ³Â Ã¬Â§â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢Å Ã¬â¢ËÃ«â¹Â¤. Ã­â¢Â­Ã­â¢Â´ Ã¬Â¤â Ã¬âÂ Ã«Â°â¢Ã¬ÂÂ´ ÃªÂ¸Â°Ã¬ÆÂ Ã¬â¢â¦Ã­â¢âÃ«Â¡Å Ã­â¢âÃ«Â¬Â¼Ã¬ÂË Ã¬ÂÂ¼Ã«Â¶â¬ÃªÂ°â¬ Ã¬â ÂÃ¬ÆÂÃ«ÂËÃ¬âËÃ¬ÅÂ¼Ã«âË, Ã¬â ÂÃ¬ÆÂ Ã¬âºÂÃ¬ÂÂ¸Ã¬Ââ¬ Ã­ÂÂ¬Ã¬Å¾Â¥ Ã«Â¶ËÃ«Å¸â°ÃªÂ³Â¼ Ã«Â¬Â´ÃªÂ´â¬Ã­â¢Å Ã­ÅÅÃ«Ââ Ã¬Â¶Â©ÃªÂ²Â©Ã¬ÂÂ´Ã¬âËÃ«â¹Â¤. Ã«Â³Â´Ã­âËÃ¬âÂ¬Ã«Å â ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬Ââ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢ËÃ¬Ëâ¬ÃªÂ³Â , Ã¬ÂÂ´Ã¬âÂ Ã­â¢âÃ¬Â£Â¼ÃªÂ°â¬ Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â° Ã¬Â²Â­ÃªÂµÂ¬ Ã¬â ÅÃ¬â Â¡Ã¬Ââ Ã¬Â ÅÃªÂ¸Â°Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂÃ¬âÅ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã¬â¹Å Ã«Â³Â´Ã­âËÃ¬Å¾Â Ã«Â©Â´Ã¬Â±â¦Ã¬ÂË Ã¬Å¡âÃªÂ±Â´Ã¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã­â¢âÃ¬Å¡âÃ­â¢ÅÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å651Ã¬Â¡Â°Ã¬ÂË Ã­â¢Â´Ã¬âÂÃªÂ³Â¼ Ã¬ËÂÃ«Â¯Â¸Ã«Â²â¢ÃªÂ³â Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË Ã«Â²â¢Ã«Â¦Â¬Ã¬ÂË Ã¬ËËÃ¬Å¡Â© Ã«Â²âÃ¬Åâ","ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬ÂË Ã¬Â¤âÃ¬Å¡âÃ¬âÂ± Ã­ÅÂÃ«â¹Â¨ ÃªÂ¸Â°Ã¬Â¤â¬"],
-   holding:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ Ã¬Â âÃ¬âºÂÃ­â¢Â©Ã¬ÂËÃ¬Â²Â´Ã«Å â Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ¬ÂË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃªÂ³Â¼ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂ Ã¬âÂ¬Ã¬ÂÂ´Ã¬âÂ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ÂÂ¸Ã¬Â â¢Ã«ÂËÃ¬Â§â¬ Ã¬â¢Å Ã«Å â ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Å â Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬Ââ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢ËÃªÂ±Â°Ã«âË Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢Â  Ã¬ËË Ã¬ââ Ã«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ¬â¹ÅÃ­â¢ËÃ¬âÂ¬ ÃªÂ¸Â°Ã¬Â¡Â´ Ã­ÅÂÃ«Â¡â¬Ã«Â¥Â¼ Ã«Â³â¬ÃªÂ²Â½Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬ÂÂ´Ã«Å â Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«Â³Â´Ã­ËÂ¸Ã¬â¢â¬ Ã¬â¹Â Ã¬ÂËÃ¬âÂ±Ã¬â¹Â¤Ã¬ÂË Ã¬âºÂÃ¬Â¹â¢Ã¬âÂ Ã«Â¶â¬Ã­â¢Â©Ã­â¢ËÃ«Å â Ã­â¢Â´Ã¬âÂÃ¬ÂÂ´Ã«ÂÂ¼ÃªÂ³Â  Ã¬âÂ¤Ã«Âªâ¦Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂ¬: ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã«Â©Â´Ã¬Â±â¦ Ã¬Â£Â¼Ã¬Å¾Â¥ Ã¬â¹Å Ã«Â°ËÃ«âÅÃ¬â¹Å Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â Ã¬Å¾â¦Ã¬Â¦Â Ã­â¢âÃ¬Å¡â Ã¢â¬â ÃªÂ¸Â°Ã¬Â¡Â´ Ã«Â©Â´Ã¬Â±â¦ ÃªÂ±Â°Ã¬Â Ë ÃªÂ´â¬Ã­ââ° Ã¬Â âÃ«Â©Â´ Ã¬Å¾Â¬ÃªÂ²â¬Ã­â Â  Ã¬Å¡âÃ«Â§Â","Ã­â¢âÃ¬Â£Â¼ÃÂ·Ã¬âÂ Ã¬âÂ¬: ÃªÂ²Â½Ã«Â¯Â¸Ã­â¢Å ÃªÂ³Â Ã¬Â§â¬ Ã«ËâÃ«ÂÂ½Ã¬ÂÂ´ Ã¬Å¾ËÃ«ÂâÃ«ÂÂ¼Ã«Ââ Ã¬âÂ¬ÃªÂ³Â  Ã¬âºÂÃ¬ÂÂ¸ÃªÂ³Â¼ Ã«Â¬Â´ÃªÂ´â¬Ã­â¢ËÃ«Â©Â´ Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â²Â­ÃªÂµÂ¬ ÃªÂ°â¬Ã«Å Â¥ Ã¢â¬â Ã­ÂÂ´Ã«Â ËÃ¬Å¾â Ã¬Â âÃ«Å¾Âµ Ã¬Å¾Â¬Ã¬ËËÃ«Â¦Â½","Ã«Â³Â´Ã­âË ÃªÂ³âÃ¬â¢Â½Ã¬âÅ: ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬Â¡Â°Ã­â¢Â­Ã¬Ââ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â Ã¬Å¡âÃªÂ±Â´ Ã«Âªâ¦Ã¬â¹Å Ã«Â°Â©Ã­âÂ¥Ã¬ÅÂ¼Ã«Â¡Å Ã¬ËËÃ¬Â â¢ Ã­â¢âÃ¬Å¡â"],
-   laws:["Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å651Ã¬Â¡Â°","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å652Ã¬Â¡Â°","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å663Ã¬Â¡Â°"],
-   related:[{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2018Ã«â¹Â¤271919 Ã¢â¬â ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã­ÅÂÃ«â¹Â¨ÃªÂ¸Â°Ã¬Â¤â¬"},{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2022] UKSC 11 Ã¢â¬â Marine Insurance Act 1906"},{flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬",text:"[2021] SGCA 44 Ã¢â¬â Good Faith in Insurance"}],
-   original:`Ã£â¬ÂÃ«Åâ¬Ã«Â²â¢Ã¬âºÂ 2025. 12. 18. Ã¬âÂ ÃªÂ³Â  2025Ã«â¹Â¤31205 Ã¬Â âÃ¬âºÂÃ­â¢Â©Ã¬ÂËÃ¬Â²Â´ Ã­ÅÂÃªÂ²Â°Ã£â¬â
+  {id:0, caseNum:"ëŒ€ë²•ì› 2025ë‹¤31205", type:"í•´ìƒë³´í—˜", country:"í•œêµ­", flag:"ðŸ‡°ðŸ‡·", court:"ëŒ€ë²•ì›", date:"2025.12.18", conf:0.94,
+   title:"í•´ìƒë³´í—˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ ì‹œ ë³´í—˜ìž ë©´ì±…ê³¼ ì¸ê³¼ê´€ê³„ ìš”ë¶€",
+   summary:"í”¼ë³´í—˜ìžì˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì´ ë³´í—˜ì‚¬ê³  ë°œìƒê³¼ ì¸ê³¼ê´€ê³„ê°€ ì—†ëŠ” ê²½ìš° ë³´í—˜ìžì˜ ë©´ì±… ì£¼ìž¥ì´ í—ˆìš©ë˜ëŠ”ì§€ ì—¬ë¶€ì— ê´€í•œ ëŒ€ë²•ì› ì „ì›í•©ì˜ì²´ íŒê²°",
+   facts:"ì›ê³ (í™”ì£¼)ëŠ” í”¼ê³ (í•´ìƒë³´í—˜ì‚¬)ì™€ ì í•˜ë³´í—˜ê³„ì•½ì„ ì²´ê²°í•˜ë©´ì„œ í™”ë¬¼ì˜ í¬ìž¥ ìƒíƒœì— ê´€í•œ ì¤‘ìš”ì‚¬í•­ì„ ê³ ì§€í•˜ì§€ ì•Šì•˜ë‹¤. í•­í•´ ì¤‘ ì„ ë°•ì´ ê¸°ìƒ ì•…í™”ë¡œ í™”ë¬¼ì˜ ì¼ë¶€ê°€ ì†ìƒë˜ì—ˆìœ¼ë‚˜, ì†ìƒ ì›ì¸ì€ í¬ìž¥ ë¶ˆëŸ‰ê³¼ ë¬´ê´€í•œ íŒŒë„ ì¶©ê²©ì´ì—ˆë‹¤. ë³´í—˜ì‚¬ëŠ” ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì„ ì´ìœ ë¡œ ë³´í—˜ê¸ˆ ì§€ê¸‰ì„ ê±°ì ˆí•˜ì˜€ê³ , ì´ì— í™”ì£¼ê°€ ë³´í—˜ê¸ˆ ì§€ê¸‰ ì²­êµ¬ ì†Œì†¡ì„ ì œê¸°í•˜ì˜€ë‹¤.",
+   issues:["í•´ìƒë³´í—˜ì—ì„œ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ ì‹œ ë³´í—˜ìž ë©´ì±…ì˜ ìš”ê±´ìœ¼ë¡œ ì¸ê³¼ê´€ê³„ê°€ í•„ìš”í•œì§€ ì—¬ë¶€","ìƒë²• ì œ651ì¡°ì˜ í•´ì„ê³¼ ì˜ë¯¸ë²•ê³„ í•´ìƒë³´í—˜ ë²•ë¦¬ì˜ ìˆ˜ìš© ë²”ìœ„","ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì˜ ì¤‘ìš”ì„± íŒë‹¨ ê¸°ì¤€"],
+   holding:"ëŒ€ë²•ì› ì „ì›í•©ì˜ì²´ëŠ” í”¼ë³´í—˜ìžì˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ê³¼ ë³´í—˜ì‚¬ê³  ë°œìƒ ì‚¬ì´ì— ì¸ê³¼ê´€ê³„ê°€ ì¸ì •ë˜ì§€ ì•ŠëŠ” ê²½ìš°ì—ëŠ” ë³´í—˜ìžê°€ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì„ ì´ìœ ë¡œ ê³„ì•½ì„ í•´ì§€í•˜ê±°ë‚˜ ë³´í—˜ê¸ˆ ì§€ê¸‰ì„ ê±°ì ˆí•  ìˆ˜ ì—†ë‹¤ê³  íŒì‹œí•˜ì—¬ ê¸°ì¡´ íŒë¡€ë¥¼ ë³€ê²½í•˜ì˜€ë‹¤. ì´ëŠ” ë³´í—˜ê³„ì•½ìž ë³´í˜¸ì™€ ì‹ ì˜ì„±ì‹¤ì˜ ì›ì¹™ì— ë¶€í•©í•˜ëŠ” í•´ì„ì´ë¼ê³  ì„¤ëª…í•˜ì˜€ë‹¤.",
+   implications:["í•´ìƒë³´í—˜ì‚¬: ê³ ì§€ì˜ë¬´ ìœ„ë°˜ ë©´ì±… ì£¼ìž¥ ì‹œ ë°˜ë“œì‹œ ì¸ê³¼ê´€ê³„ ìž…ì¦ í•„ìš” â€” ê¸°ì¡´ ë©´ì±… ê±°ì ˆ ê´€í–‰ ì „ë©´ ìž¬ê²€í†  ìš”ë§","í™”ì£¼Â·ì„ ì‚¬: ê²½ë¯¸í•œ ê³ ì§€ ëˆ„ë½ì´ ìžˆë”ë¼ë„ ì‚¬ê³  ì›ì¸ê³¼ ë¬´ê´€í•˜ë©´ ë³´í—˜ê¸ˆ ì²­êµ¬ ê°€ëŠ¥ â€” í´ë ˆìž„ ì „ëžµ ìž¬ìˆ˜ë¦½","ë³´í—˜ ê³„ì•½ì„œ: ê³ ì§€ì˜ë¬´ ì¡°í•­ì„ ì¸ê³¼ê´€ê³„ ìš”ê±´ ëª…ì‹œ ë°©í–¥ìœ¼ë¡œ ìˆ˜ì • í•„ìš”"],
+   laws:["ìƒë²• ì œ651ì¡°","ìƒë²• ì œ652ì¡°","ìƒë²• ì œ663ì¡°"],
+   related:[{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2018ë‹¤271919 â€” ê³ ì§€ì˜ë¬´ ìœ„ë°˜ íŒë‹¨ê¸°ì¤€"},{flag:"ðŸ‡¬ðŸ‡§",text:"[2022] UKSC 11 â€” Marine Insurance Act 1906"},{flag:"ðŸ‡¸ðŸ‡¬",text:"[2021] SGCA 44 â€” Good Faith in Insurance"}],
+   original:`ã€ëŒ€ë²•ì› 2025. 12. 18. ì„ ê³  2025ë‹¤31205 ì „ì›í•©ì˜ì²´ íŒê²°ã€‘
 
-Ã£â¬ÂÃ­ÅÂÃ¬â¹ÅÃ¬âÂ¬Ã­â¢Â­Ã£â¬â
-Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬âÂÃ¬âÅ Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´Ã«Â¥Â¼ Ã¬ÅâÃ«Â°ËÃ­â¢Å ÃªÂ²Â½Ã¬Å¡Â°, ÃªÂ·Â¸ Ã¬ÅâÃ«Â°ËÃ¬âÂ¬Ã­â¢Â­ÃªÂ³Â¼ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂ Ã¬âÂ¬Ã¬ÂÂ´Ã¬âÂ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ââ Ã¬Ââ Ã«â¢Å Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢ËÃªÂ³Â  Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«Å âÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬ (Ã¬â ÅÃªÂ·Â¹)
+ã€íŒì‹œì‚¬í•­ã€‘
+í•´ìƒë³´í—˜ê³„ì•½ì—ì„œ í”¼ë³´í—˜ìžê°€ ê³ ì§€ì˜ë¬´ë¥¼ ìœ„ë°˜í•œ ê²½ìš°, ê·¸ ìœ„ë°˜ì‚¬í•­ê³¼ ë³´í—˜ì‚¬ê³  ë°œìƒ ì‚¬ì´ì— ì¸ê³¼ê´€ê³„ê°€ ì—†ì„ ë•Œ ë³´í—˜ìžê°€ ê³„ì•½ì„ í•´ì§€í•˜ê³  ë³´í—˜ê¸ˆ ì§€ê¸‰ì„ ê±°ì ˆí•  ìˆ˜ ìžˆëŠ”ì§€ ì—¬ë¶€ (ì†Œê·¹)
 
-Ã£â¬ÂÃ­ÅÂÃªÂ²Â°Ã¬Å¡âÃ¬Â§â¬Ã£â¬â
-[Ã«â¹Â¤Ã¬ËËÃ¬ÂËÃªÂ²Â¬] Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å651Ã¬Â¡Â°Ã«Å â Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«ËÂÃ«Å â Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³Â Ã¬ÂË Ã«ËÂÃ«Å â Ã¬Â¤âÃ«Åâ¬Ã­â¢Å ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¡Å Ã¬Â¤âÃ¬Å¡âÃ­â¢Å Ã¬âÂ¬Ã­â¢Â­Ã¬Ââ ÃªÂ³Â Ã¬Â§â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃªÂ±Â°Ã«âË Ã«Â¶â¬Ã¬â¹Â¤Ã¬ÂË ÃªÂ³Â Ã¬Â§â¬Ã«Â¥Â¼ Ã­â¢Å ÃªÂ²Â½Ã¬Å¡Â° Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«â¹Â¤ÃªÂ³Â  ÃªÂ·ÅÃ¬Â â¢Ã­â¢ËÃªÂ³Â  Ã¬Å¾ËÃ«â¹Â¤. ÃªÂ·Â¸Ã«Å¸Â¬Ã«âË ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃªÂ³Â¼ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂ Ã¬âÂ¬Ã¬ÂÂ´Ã¬âÂ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ÂÂ¸Ã¬Â â¢Ã«ÂËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«Å â ÃªÂ²Â½Ã¬Å¡Â°, Ã¬Â¦â° Ã¬âÂ¤Ã«Â Â¹ Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ·Â¸ Ã¬âÂ¬Ã­â¢Â­Ã¬Ââ Ã¬Â â¢Ã­â¢â¢Ã­Å¾Ë ÃªÂ³Â Ã¬Â§â¬Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤ Ã­â¢ËÃ«ÂâÃ«ÂÂ¼Ã«Ââ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â ÃªÂ°â¬ Ã«Ââ¢Ã¬ÂÂ¼Ã­â¢ËÃªÂ²Å Ã«Â°ÅÃ¬ÆÂÃ­â¢ËÃ¬Ëâ¬Ã¬Ââ ÃªÂ²ÆÃ¬ÂÂ´ Ã«Âªâ¦Ã«Â°Â±Ã­â¢Å ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Å â, Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬Ââ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢ËÃªÂ±Â°Ã«âË Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢ËÃ«Å â ÃªÂ²ÆÃ¬Ââ¬ Ã¬â¹Â Ã¬ÂËÃ¬âÂ±Ã¬â¹Â¤Ã¬ÂË Ã¬âºÂÃ¬Â¹â¢Ã¬âÂ Ã«Â°ËÃ­â¢ËÃªÂ³Â  Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«Â³Â´Ã­ËÂ¸Ã¬ÂË Ã«ÂªÂ©Ã¬Â ÂÃ¬âÂÃ«Ââ Ã«Â¶â¬Ã­â¢Â©Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ÅÃ«â¹Â¤.
+ã€íŒê²°ìš”ì§€ã€‘
+[ë‹¤ìˆ˜ì˜ê²¬] ìƒë²• ì œ651ì¡°ëŠ” ë³´í—˜ê³„ì•½ìž ë˜ëŠ” í”¼ë³´í—˜ìžê°€ ê³ ì˜ ë˜ëŠ” ì¤‘ëŒ€í•œ ê³¼ì‹¤ë¡œ ì¤‘ìš”í•œ ì‚¬í•­ì„ ê³ ì§€í•˜ì§€ ì•„ë‹ˆí•˜ê±°ë‚˜ ë¶€ì‹¤ì˜ ê³ ì§€ë¥¼ í•œ ê²½ìš° ë³´í—˜ìžê°€ ê³„ì•½ì„ í•´ì§€í•  ìˆ˜ ìžˆë‹¤ê³  ê·œì •í•˜ê³  ìžˆë‹¤. ê·¸ëŸ¬ë‚˜ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ê³¼ ë³´í—˜ì‚¬ê³  ë°œìƒ ì‚¬ì´ì— ì¸ê³¼ê´€ê³„ê°€ ì¸ì •ë˜ì§€ ì•„ë‹ˆí•˜ëŠ” ê²½ìš°, ì¦‰ ì„¤ë ¹ í”¼ë³´í—˜ìžê°€ ê·¸ ì‚¬í•­ì„ ì •í™•ížˆ ê³ ì§€í•˜ì˜€ë‹¤ í•˜ë”ë¼ë„ ë³´í—˜ì‚¬ê³ ê°€ ë™ì¼í•˜ê²Œ ë°œìƒí•˜ì˜€ì„ ê²ƒì´ ëª…ë°±í•œ ê²½ìš°ì—ëŠ”, ë³´í—˜ìžê°€ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ì„ ì´ìœ ë¡œ ê³„ì•½ì„ í•´ì§€í•˜ê±°ë‚˜ ë³´í—˜ê¸ˆ ì§€ê¸‰ì„ ê±°ì ˆí•˜ëŠ” ê²ƒì€ ì‹ ì˜ì„±ì‹¤ì˜ ì›ì¹™ì— ë°˜í•˜ê³  ë³´í—˜ê³„ì•½ìž ë³´í˜¸ì˜ ëª©ì ì—ë„ ë¶€í•©í•˜ì§€ ì•„ë‹ˆí•œë‹¤.
 
-Ã£â¬ÂÃ¬Â£Â¼Ã«Â¬Â¸Ã£â¬â
-Ã¬âºÂÃ¬â¹Â¬Ã­ÅÂÃªÂ²Â°Ã¬Ââ Ã­ÅÅÃªÂ¸Â°Ã­â¢ËÃªÂ³Â , Ã¬âÂ¬ÃªÂ±Â´Ã¬Ââ Ã«Â¶â¬Ã¬âÂ°ÃªÂ³Â Ã«âÂ±Ã«Â²â¢Ã¬âºÂÃ¬âÂ Ã­â¢ËÃ¬â Â¡Ã­â¢ÅÃ«â¹Â¤.
+ã€ì£¼ë¬¸ã€‘
+ì›ì‹¬íŒê²°ì„ íŒŒê¸°í•˜ê³ , ì‚¬ê±´ì„ ë¶€ì‚°ê³ ë“±ë²•ì›ì— í™˜ì†¡í•œë‹¤.
 
-Ã£â¬ÂÃ¬ÂÂ´Ã¬ÅÂ Ã£â¬â
-1. Ã¬âÂ¬Ã¬â¢ËÃ¬ÂË ÃªÂ°ÅÃ¬Å¡â
-Ã¬âºÂÃªÂ³Â Ã«Å â Ã­âÂ¼ÃªÂ³Â Ã¬â¢â¬ Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã¬Â ÂÃ­â¢ËÃ«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢ËÃ«Â©Â´Ã¬âÅ Ã­â¢âÃ«Â¬Â¼Ã¬ÂË Ã­ÂÂ¬Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬Â¤âÃ¬Å¡â Ã¬âÂ¬Ã­â¢Â­Ã¬Ââ ÃªÂ³Â Ã¬Â§â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. ÃªÂ·Â¸Ã«Å¸Â°Ã«ÂÂ° Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã¬â ÂÃ­â¢Â´Ã«Å â Ã­â¢Â­Ã­â¢Â´ Ã¬Â¤â Ã¬ËËÃ¬ÆÂÃ¬Â¹Ë Ã«ÂªÂ»Ã­â¢Å Ã­ÅÅÃ«Ââ Ã¬Â¶Â©ÃªÂ²Â©Ã¬âÂ Ã¬ÂËÃ­â¢ËÃ¬âÂ¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢Å ÃªÂ²ÆÃ¬ÅÂ¼Ã«Â¡ÅÃ¬âÅ, Ã­ÂÂ¬Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬ÂË Ã«Â¶ËÃ«Å¸â°ÃªÂ³Â¼Ã«Å â Ã¬Â§ÂÃ¬Â âÃ¬Â ÂÃ¬ÂÂ¸ Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³âÃªÂ°â¬ Ã¬ââ Ã¬ÂÅÃ¬ÂÂ´ Ã¬ÂÂ¸Ã¬Â â¢Ã«ÂÅÃ«â¹Â¤.
+ã€ì´ìœ ã€‘
+1. ì‚¬ì•ˆì˜ ê°œìš”
+ì›ê³ ëŠ” í”¼ê³ ì™€ ì´ ì‚¬ê±´ ì í•˜ë³´í—˜ê³„ì•½ì„ ì²´ê²°í•˜ë©´ì„œ í™”ë¬¼ì˜ í¬ìž¥ ìƒíƒœì— ê´€í•œ ì¤‘ìš” ì‚¬í•­ì„ ê³ ì§€í•˜ì§€ ì•„ë‹ˆí•˜ì˜€ë‹¤. ê·¸ëŸ°ë° ì´ ì‚¬ê±´ ì†í•´ëŠ” í•­í•´ ì¤‘ ì˜ˆìƒì¹˜ ëª»í•œ íŒŒë„ ì¶©ê²©ì— ì˜í•˜ì—¬ ë°œìƒí•œ ê²ƒìœ¼ë¡œì„œ, í¬ìž¥ ìƒíƒœì˜ ë¶ˆëŸ‰ê³¼ëŠ” ì§ì ‘ì ì¸ ì¸ê³¼ê´€ê³„ê°€ ì—†ìŒì´ ì¸ì •ëœë‹¤.
 
-2. Ã­ÅÂÃ«â¹Â¨
-ÃªÂ°â¬. ÃªÂ´â¬Ã«Â Â¨ Ã«Â²â¢Ã«Â¦Â¬
-Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å651Ã¬Â¡Â°Ã¬âÂÃ¬âÅ ÃªÂ·ÅÃ¬Â â¢Ã­â¢ËÃ«Å â ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´Ã«Å â Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ Ã¬ÅâÃ­âËÃ¬Ââ Ã¬Â â¢Ã­â¢â¢Ã­Å¾Ë Ã­Ââ°ÃªÂ°â¬Ã­â¢ËÃ¬âÂ¬ ÃªÂ³âÃ¬â¢Â½ Ã¬Â²Â´ÃªÂ²Â° Ã¬âÂ¬Ã«Â¶â¬ Ã«Â°Â Ã«Â³Â´Ã­âËÃ«Â£ÅÃ«Â¥Â¼ ÃªÂ²Â°Ã¬Â â¢Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«ÂâÃ«Â¡Â Ã­â¢ËÃªÂ¸Â° Ã¬ÅâÃ­â¢Å ÃªÂ²ÆÃ¬ÂÂ´Ã«â¹Â¤.
-Ã«âË. Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´Ã¬âÂÃ¬ÂË Ã¬Â ÂÃ¬Å¡Â©
-Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë(Ã­ÂÂ¬Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅ Ã«Â¯Â¸ÃªÂ³Â Ã¬Â§â¬)Ã¬ÂÂ´ Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã«Â³Â´Ã­âËÃ¬âÂ¬ÃªÂ³Â (Ã­ÅÅÃ«Ââ Ã¬Â¶Â©ÃªÂ²Â©Ã¬âÂ Ã¬ÂËÃ­â¢Å Ã­â¢âÃ«Â¬Â¼ Ã¬â ÂÃ¬ÆÂ)Ã¬ÂË Ã«Â°ÅÃ¬ÆÂÃ¬âÂ Ã¬â¢âÃ«Â¬Â´Ã«Å¸Â° Ã¬ËÂÃ­âÂ¥Ã¬Ââ Ã«Â¯Â¸Ã¬Â¹ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ¬Ëâ¬Ã¬ÂÅÃ¬ÂÂ´ Ã«Âªâ¦Ã«Â°Â±Ã­â¢ËÃ«â¹Â¤. Ã«âÂ°Ã«ÂÂ¼Ã¬âÅ Ã­âÂ¼ÃªÂ³Â ÃªÂ°â¬ Ã¬ÂÂ´Ã«Â¥Â¼ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å Ã«Â³Â´Ã­âËÃªÂ¸Ë Ã¬Â§â¬ÃªÂ¸â°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢Å ÃªÂ²ÆÃ¬Ââ¬ Ã­âËÃ¬Å¡Â©Ã«ÂËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ÅÃ«â¹Â¤.`,
+2. íŒë‹¨
+ê°€. ê´€ë ¨ ë²•ë¦¬
+ìƒë²• ì œ651ì¡°ì—ì„œ ê·œì •í•˜ëŠ” ê³ ì§€ì˜ë¬´ëŠ” ë³´í—˜ìžê°€ ìœ„í—˜ì„ ì •í™•ížˆ í‰ê°€í•˜ì—¬ ê³„ì•½ ì²´ê²° ì—¬ë¶€ ë° ë³´í—˜ë£Œë¥¼ ê²°ì •í•  ìˆ˜ ìžˆë„ë¡ í•˜ê¸° ìœ„í•œ ê²ƒì´ë‹¤.
+ë‚˜. ì´ ì‚¬ê±´ì—ì˜ ì ìš©
+ì´ ì‚¬ê±´ ê³ ì§€ì˜ë¬´ ìœ„ë°˜(í¬ìž¥ ìƒíƒœ ë¯¸ê³ ì§€)ì´ ì´ ì‚¬ê±´ ë³´í—˜ì‚¬ê³ (íŒŒë„ ì¶©ê²©ì— ì˜í•œ í™”ë¬¼ ì†ìƒ)ì˜ ë°œìƒì— ì•„ë¬´ëŸ° ì˜í–¥ì„ ë¯¸ì¹˜ì§€ ì•„ë‹ˆí•˜ì˜€ìŒì´ ëª…ë°±í•˜ë‹¤. ë”°ë¼ì„œ í”¼ê³ ê°€ ì´ë¥¼ ì´ìœ ë¡œ ë³´í—˜ê¸ˆ ì§€ê¸‰ì„ ê±°ì ˆí•œ ê²ƒì€ í—ˆìš©ë˜ì§€ ì•„ë‹ˆí•œë‹¤.`,
    provisions:[
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å651Ã¬Â¡Â°",title:"ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢Å ÃªÂ³âÃ¬â¢Â½Ã­â¢Â´Ã¬Â§â¬",text:"Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½ Ã«â¹Â¹Ã¬â¹ÅÃ¬âÂ Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«ËÂÃ«Å â Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³Â Ã¬ÂË Ã«ËÂÃ«Å â Ã¬Â¤âÃ«Åâ¬Ã­â¢Å ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬Â¤âÃ¬Å¡âÃ­â¢Å Ã¬âÂ¬Ã­â¢Â­Ã¬Ââ ÃªÂ³Â Ã¬Â§â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃªÂ±Â°Ã«âË Ã«Â¶â¬Ã¬â¹Â¤Ã¬ÂË ÃªÂ³Â Ã¬Â§â¬Ã«Â¥Â¼ Ã­â¢Å Ã«â¢ÅÃ¬âÂÃ«Å â Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ«Å â ÃªÂ·Â¸ Ã¬âÂ¬Ã¬â¹Â¤Ã¬Ââ Ã¬â¢Ë Ã«âÂ Ã«Â¡ÅÃ«Â¶â¬Ã­âÂ° 1Ã¬âºâÃ«âÂ´Ã¬âÂ, ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢Å Ã«âÂ Ã«Â¡ÅÃ«Â¶â¬Ã­âÂ° 3Ã«â¦âÃ«âÂ´Ã¬âÂ Ã­â¢ÅÃ­â¢ËÃ¬âÂ¬ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«â¹Â¤. ÃªÂ·Â¸Ã«Å¸Â¬Ã«âË Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ ÃªÂ³âÃ¬â¢Â½ Ã«â¹Â¹Ã¬â¹ÅÃ¬âÂ ÃªÂ·Â¸ Ã¬âÂ¬Ã¬â¹Â¤Ã¬Ââ Ã¬â¢ÅÃ¬â¢ËÃªÂ±Â°Ã«âË Ã¬Â¤âÃ«Åâ¬Ã­â¢Å ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬â¢ÅÃ¬Â§â¬ Ã«ÂªÂ»Ã­â¢Å Ã«â¢ÅÃ¬âÂÃ«Å â ÃªÂ·Â¸Ã«Å¸Â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«â¹Â¤.",relevance:"Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â°Ã¬âÂÃ¬âÅ ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã­â¢Â´Ã¬Â§â¬ÃªÂ¶ÅÃ¬ÂË Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â Ã¬Å¡âÃªÂ±Â´Ã¬Ââ Ã¬â¹Â Ã¬âÂ¤Ã­â¢ËÃ«Å â Ã«Â²â¢Ã«Â¦Â¬ Ã­â¢Â´Ã¬âÂÃ¬ÂË ÃªÂ·Â¼ÃªÂ±Â° Ã¬Â¡Â°Ã«Â¬Â¸"},
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å652Ã¬Â¡Â°",title:"Ã¬ÅâÃ­âËÃ«Â³â¬ÃªÂ²Â½Ã¬Â¦ÂÃªÂ°â¬Ã¬ÂË Ã­â ÂµÃ¬Â§â¬Ã¬â¢â¬ ÃªÂ³âÃ¬â¢Â½Ã­â¢Â´Ã¬Â§â¬",text:"Ã«Â³Â´Ã­âËÃªÂ¸Â°ÃªÂ°â Ã¬Â¤âÃ¬âÂ Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«ËÂÃ«Å â Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃªÂ°â¬ Ã¬âÂ¬ÃªÂ³Â Ã«Â°ÅÃ¬ÆÂÃ¬ÂË Ã¬ÅâÃ­âËÃ¬ÂÂ´ Ã­ËâÃ¬Â â¬Ã­â¢ËÃªÂ²Å Ã«Â³â¬ÃªÂ²Â½ Ã«ËÂÃ«Å â Ã¬Â¦ÂÃªÂ°â¬Ã«ÂÅ Ã¬âÂ¬Ã¬â¹Â¤Ã¬Ââ Ã¬â¢Ë Ã«â¢ÅÃ¬âÂÃ«Å â Ã¬Â§â¬Ã¬Â²Â´Ã¬ââ Ã¬ÂÂ´ Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ¬âÂÃªÂ²Å Ã­â ÂµÃ¬Â§â¬Ã­â¢ËÃ¬âÂ¬Ã¬â¢Â¼ Ã­â¢ÅÃ«â¹Â¤. Ã¬ÂÂ´Ã«Â¥Â¼ Ã­â¢Â´Ã­ÆÅÃ­â¢Å Ã«â¢ÅÃ¬âÂÃ«Å â Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ«Å â ÃªÂ·Â¸ Ã¬âÂ¬Ã¬â¹Â¤Ã¬Ââ Ã¬â¢Ë Ã«âÂ Ã«Â¡ÅÃ«Â¶â¬Ã­âÂ° 1Ã¬âºâÃ«âÂ´Ã¬âÂ Ã­â¢ÅÃ­â¢ËÃ¬âÂ¬ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã­â¢Â´Ã¬Â§â¬Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«â¹Â¤.",relevance:"ÃªÂ³Â Ã¬Â§â¬Ã¬ÂËÃ«Â¬Â´Ã¬â¢â¬ Ã­â ÂµÃ¬Â§â¬Ã¬ÂËÃ«Â¬Â´Ã¬ÂË Ã¬Â²Â´ÃªÂ³âÃ¬Â Â Ã­â¢Â´Ã¬âÂÃ¬Ââ Ã¬ÅâÃ­â¢Â´ Ã¬Â°Â¸Ã¬Â¡Â°"},
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å663Ã¬Â¡Â°",title:"Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«âÂ±Ã¬ÂË Ã«Â¶ËÃ¬ÂÂ´Ã¬ÂÂµÃ«Â³â¬ÃªÂ²Â½ÃªÂ¸ËÃ¬Â§â¬",text:"Ã¬ÂÂ´ Ã­Å½Â¸Ã¬ÂË ÃªÂ·ÅÃ¬Â â¢Ã¬Ââ¬ Ã«â¹Â¹Ã¬âÂ¬Ã¬Å¾Â ÃªÂ°âÃ¬ÂË Ã­Å Â¹Ã¬â¢Â½Ã¬ÅÂ¼Ã«Â¡Å Ã«Â³Â´Ã­âËÃªÂ³âÃ¬â¢Â½Ã¬Å¾Â Ã«ËÂÃ«Å â Ã­âÂ¼Ã«Â³Â´Ã­âËÃ¬Å¾ÂÃ«âË Ã«Â³Â´Ã­âËÃ¬ËËÃ¬ÂÂµÃ¬Å¾ÂÃ¬ÂË Ã«Â¶ËÃ¬ÂÂ´Ã¬ÂÂµÃ¬ÅÂ¼Ã«Â¡Å Ã«Â³â¬ÃªÂ²Â½Ã­â¢ËÃ¬Â§â¬ Ã«ÂªÂ»Ã­â¢ÅÃ«â¹Â¤. ÃªÂ·Â¸Ã«Å¸Â¬Ã«âË Ã¬Å¾Â¬Ã«Â³Â´Ã­âË Ã«Â°Â Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË ÃªÂ¸Â°Ã­Æâ¬ Ã¬ÂÂ´Ã¬â¢â¬ Ã¬ÅÂ Ã¬âÂ¬Ã­â¢Å Ã«Â³Â´Ã­âËÃ¬ÂË ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Å â ÃªÂ·Â¸Ã«Å¸Â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«â¹Â¤.",relevance:"Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂÃ¬âÅ Ã¬ÆÂÃ«Â²â¢ ÃªÂ·ÅÃ¬Â â¢Ã¬ÂË Ã¬Å¾âÃ¬ÂË Ã«Â³â¬ÃªÂ²Â½ Ã­âËÃ¬Å¡Â© Ã«Â²âÃ¬Åâ Ã­ÅÂÃ«â¹Â¨ ÃªÂ¸Â°Ã¬Â¤â¬"}
+     {law:"ìƒë²•",article:"ì œ651ì¡°",title:"ê³ ì§€ì˜ë¬´ ìœ„ë°˜ìœ¼ë¡œ ì¸í•œ ê³„ì•½í•´ì§€",text:"ë³´í—˜ê³„ì•½ ë‹¹ì‹œì— ë³´í—˜ê³„ì•½ìž ë˜ëŠ” í”¼ë³´í—˜ìžê°€ ê³ ì˜ ë˜ëŠ” ì¤‘ëŒ€í•œ ê³¼ì‹¤ë¡œ ì¸í•˜ì—¬ ì¤‘ìš”í•œ ì‚¬í•­ì„ ê³ ì§€í•˜ì§€ ì•„ë‹ˆí•˜ê±°ë‚˜ ë¶€ì‹¤ì˜ ê³ ì§€ë¥¼ í•œ ë•Œì—ëŠ” ë³´í—˜ìžëŠ” ê·¸ ì‚¬ì‹¤ì„ ì•ˆ ë‚ ë¡œë¶€í„° 1ì›”ë‚´ì—, ê³„ì•½ì„ ì²´ê²°í•œ ë‚ ë¡œë¶€í„° 3ë…„ë‚´ì— í•œí•˜ì—¬ ê³„ì•½ì„ í•´ì§€í•  ìˆ˜ ìžˆë‹¤. ê·¸ëŸ¬ë‚˜ ë³´í—˜ìžê°€ ê³„ì•½ ë‹¹ì‹œì— ê·¸ ì‚¬ì‹¤ì„ ì•Œì•˜ê±°ë‚˜ ì¤‘ëŒ€í•œ ê³¼ì‹¤ë¡œ ì¸í•˜ì—¬ ì•Œì§€ ëª»í•œ ë•Œì—ëŠ” ê·¸ëŸ¬í•˜ì§€ ì•„ë‹ˆí•˜ë‹¤.",relevance:"ì´ íŒê²°ì—ì„œ ê³ ì§€ì˜ë¬´ ìœ„ë°˜ í•´ì§€ê¶Œì˜ ì¸ê³¼ê´€ê³„ ìš”ê±´ì„ ì‹ ì„¤í•˜ëŠ” ë²•ë¦¬ í•´ì„ì˜ ê·¼ê±° ì¡°ë¬¸"},
+     {law:"ìƒë²•",article:"ì œ652ì¡°",title:"ìœ„í—˜ë³€ê²½ì¦ê°€ì˜ í†µì§€ì™€ ê³„ì•½í•´ì§€",text:"ë³´í—˜ê¸°ê°„ ì¤‘ì— ë³´í—˜ê³„ì•½ìž ë˜ëŠ” í”¼ë³´í—˜ìžê°€ ì‚¬ê³ ë°œìƒì˜ ìœ„í—˜ì´ í˜„ì €í•˜ê²Œ ë³€ê²½ ë˜ëŠ” ì¦ê°€ëœ ì‚¬ì‹¤ì„ ì•ˆ ë•Œì—ëŠ” ì§€ì²´ì—†ì´ ë³´í—˜ìžì—ê²Œ í†µì§€í•˜ì—¬ì•¼ í•œë‹¤. ì´ë¥¼ í•´íƒœí•œ ë•Œì—ëŠ” ë³´í—˜ìžëŠ” ê·¸ ì‚¬ì‹¤ì„ ì•ˆ ë‚ ë¡œë¶€í„° 1ì›”ë‚´ì— í•œí•˜ì—¬ ê³„ì•½ì„ í•´ì§€í•  ìˆ˜ ìžˆë‹¤.",relevance:"ê³ ì§€ì˜ë¬´ì™€ í†µì§€ì˜ë¬´ì˜ ì²´ê³„ì  í•´ì„ì„ ìœ„í•´ ì°¸ì¡°"},
+     {law:"ìƒë²•",article:"ì œ663ì¡°",title:"ë³´í—˜ê³„ì•½ìž ë“±ì˜ ë¶ˆì´ìµë³€ê²½ê¸ˆì§€",text:"ì´ íŽ¸ì˜ ê·œì •ì€ ë‹¹ì‚¬ìž ê°„ì˜ íŠ¹ì•½ìœ¼ë¡œ ë³´í—˜ê³„ì•½ìž ë˜ëŠ” í”¼ë³´í—˜ìžë‚˜ ë³´í—˜ìˆ˜ìµìžì˜ ë¶ˆì´ìµìœ¼ë¡œ ë³€ê²½í•˜ì§€ ëª»í•œë‹¤. ê·¸ëŸ¬ë‚˜ ìž¬ë³´í—˜ ë° í•´ìƒë³´í—˜ ê¸°íƒ€ ì´ì™€ ìœ ì‚¬í•œ ë³´í—˜ì˜ ê²½ìš°ì—ëŠ” ê·¸ëŸ¬í•˜ì§€ ì•„ë‹ˆí•˜ë‹¤.",relevance:"í•´ìƒë³´í—˜ì—ì„œ ìƒë²• ê·œì •ì˜ ìž„ì˜ ë³€ê²½ í—ˆìš© ë²”ìœ„ íŒë‹¨ ê¸°ì¤€"}
    ]},
 
-  {id:1, caseNum:"[2025] EWHC 441 (Comm)", type:"Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å", country:"Ã¬ËÂÃªÂµÂ­", flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§", court:"High Court (Comm)", date:"2025.11.03", conf:0.91,
-   title:"Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å(e-B/L) Ã«Â°Â°Ã¬âÅÃ¬âÂ Ã¬ÂËÃ­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â âÃ¬ÂË Ã«Â²â¢Ã¬Â Â Ã¬ÅÂ Ã­Å¡Â¨Ã¬âÂ±",
-   summary:"Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼Ã¬Ââ Ã­â ÂµÃ­â¢Å Ã«Â°Â°Ã¬âÅÃªÂ°â¬ Ã¬ËÂÃªÂµÂ­ Ã«Â²â¢Ã¬ÆÂ Ã¬ÅÂ Ã­Å¡Â¨Ã­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â âÃ¬Ââ ÃªÂµÂ¬Ã¬âÂ±Ã­â¢ËÃ«Å âÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬ËÂÃªÂµÂ­ Ã¬ÂµÅÃ¬Â´ËÃ¬ÂË Ã¬Â§ÂÃ¬Â â Ã­ÅÂÃªÂ²Â°",
-   facts:"Ã¬âºÂÃªÂ³Â Ã«Å â Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼ BOLEROÃ«Â¥Â¼ Ã­â ÂµÃ­â¢Â´ Ã«Â°Â°Ã¬âÅÃ«ÂÅ e-B/LÃ¬Ââ Ã¬Â·Â¨Ã«âÂÃ­â¢ËÃ¬âÂ¬ Ã­â¢âÃ«Â¬Â¼Ã¬âÂ Ã«Åâ¬Ã­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬Ã«Â¥Â¼ Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã­âÂ¼ÃªÂ³Â  Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬Ââ¬ e-B/LÃ¬ÂË Ã«Â°Â°Ã¬âÅÃªÂ°â¬ Ã¬ËÂÃªÂµÂ­ Bills of Lading Act 1855 Ã«Â°Â Carriage of Goods by Sea Act 1992Ã¬ÂË Ã¬Å¡âÃªÂ±Â´Ã¬Ââ Ã¬Â¶Â©Ã¬Â¡Â±Ã­â¢ËÃ¬Â§â¬ Ã«ÂªÂ»Ã­â¢ËÃ¬âÂ¬ Ã¬ÅÂ Ã­Å¡Â¨Ã­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â âÃ¬ÂÂ´ Ã«Â°ÅÃ¬ÆÂÃ­â¢ËÃ¬Â§â¬ Ã¬â¢Å Ã¬â¢ËÃ«â¹Â¤ÃªÂ³Â  Ã­â¢Â­Ã«Â³â¬Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶ÅÃ¬ÂË Ã«Â°Â°Ã¬âÅÃªÂ°â¬ COGSA 1992Ã¬ÆÂ Ã¬ÅÂ Ã­Å¡Â¨Ã­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â âÃ¬Ââ ÃªÂµÂ¬Ã¬âÂ±Ã­â¢ËÃ«Å âÃ¬Â§â¬","e-B/L Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼Ã¬ÂË ÃªÂ¸Â°Ã¬ËÂ Ã¬Â Â Ã«Â©âÃ¬Â»Â¤Ã«â¹ËÃ¬Â¦ËÃ¬ÂÂ´ Ã«Â²â¢Ã¬Â Â Ã¬Å¡âÃªÂ±Â´Ã¬Ââ Ã¬Â¶Â©Ã¬Â¡Â±Ã­â¢ËÃ«Å âÃ¬Â§â¬","Ã¬Â âÃ¬Å¾ÂÃ¬ÆÂÃªÂ±Â°Ã«Å¾Ë Ã­â¢ËÃªÂ²Â½Ã¬âÂÃ¬âÅ Ã¬Â âÃ­â ÂµÃ¬Â Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã«Â²â¢Ã«Â¦Â¬Ã¬ÂË Ã¬Â ÂÃ¬Å¡Â© ÃªÂ°â¬Ã«Å Â¥Ã¬âÂ±"],
-   holding:"High CourtÃ«Å â BOLERO Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼Ã¬ÂË Ã¬Â âÃ¬Å¾Â Ã«Â°Â°Ã¬âÅ Ã¬â¹ÅÃ¬Å Â¤Ã­â¦ÅÃ¬ÂÂ´ ÃªÂ¸Â°Ã«Å Â¥Ã¬Â ÂÃ¬ÅÂ¼Ã«Â¡Å Ã¬Â¢â¦Ã¬ÂÂ´ Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶ÅÃ¬ÂË Ã«Â°Â°Ã¬âÅÃ¬â¢â¬ Ã«Ââ¢Ã«âÂ±Ã­â¢Å Ã«Â²â¢Ã¬Â Â Ã­Å¡Â¨ÃªÂ³Â¼Ã«Â¥Â¼ ÃªÂ°âÃ«Å âÃ«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ¬â¹ÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬Â âÃ¬Å¾Â ÃªÂ¸Â°Ã«Â¡ÂÃ¬ÂË Ã¬ÂÂ´Ã¬Â âÃ¬ÂÂ´ COGSA 1992 Ã¬Â Å2Ã¬Â¡Â°Ã¬ÂË Ã¬Å¡âÃªÂ±Â´Ã¬Ââ Ã¬Â¶Â©Ã¬Â¡Â±Ã­â¢ËÃ«Â©Â°, Ã¬âºÂÃªÂ³Â Ã«Å â Ã¬ÅÂ Ã­Å¡Â¨Ã­â¢ËÃªÂ²Å Ã­â¢âÃ«Â¬Â¼Ã¬âÂ Ã«Åâ¬Ã­â¢Å ÃªÂ¶ÅÃ«Â¦Â¬Ã«Â¥Â¼ Ã¬Â·Â¨Ã«âÂÃ­â¢ËÃ¬Ëâ¬Ã¬ÂÅÃ¬Ââ Ã¬ÂÂ¸Ã¬Â â¢Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã­ÂÂ¬Ã¬âºÅÃ«ÂâÃÂ·Ã¬âÂ Ã¬âÂ¬: e-B/L Ã­âÅÃ«Å¾Â«Ã­ÂÂ¼ Ã¬âÂ¬Ã¬Å¡Â© Ã¬â¹Å ÃªÂ¶ÅÃ«Â¦Â¬ Ã¬ÂÂ´Ã¬Â â Ã¬ÅÂ Ã­Å¡Â¨Ã¬âÂ± Ã­â¢â¢Ã¬ÂÂ¸ Ã¬Â ËÃ¬Â°Â¨ Ã¬ËËÃ«Â¦Â½ ÃªÂ¶ÅÃªÂ³Â ","ÃªÂµÂ­Ã«âÂ´ Ã­â¢Â´Ã¬Å¡Â´Ã¬âÂ¬: Ã¬ËÂÃªÂµÂ­Ã«Â²â¢ Ã¬Â¤â¬ÃªÂ±Â° ÃªÂ³âÃ¬â¢Â½Ã¬âÂÃ¬âÅ e-B/L Ã¬Â±âÃ­ÆÂ Ã¬â¹Å Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â° ÃªÂ¸Â°Ã¬Â¤â¬ Ã¬Â ÂÃ¬Å¡Â© ÃªÂ²â¬Ã­â Â ","Ã«Â¬Â´Ã¬âÂ­ÃªÂ¸ËÃ¬ÅÂµ: e-B/L Ã«â¹Â´Ã«Â³Â´Ã«Â¡Å Ã­â¢Å Ã¬â¹Â Ã¬Å¡Â©Ã¬Å¾Â¥ ÃªÂ±Â°Ã«Å¾ËÃ¬ÂË Ã«Â²â¢Ã¬Â Â Ã¬â¢ËÃ¬Â â¢Ã¬âÂ± Ã­âÂ¥Ã¬ÆÂ ÃªÂ¸Â°Ã«Åâ¬"],
+  {id:1, caseNum:"[2025] EWHC 441 (Comm)", type:"ì„ í•˜ì¦ê¶Œ", country:"ì˜êµ­", flag:"ðŸ‡¬ðŸ‡§", court:"High Court (Comm)", date:"2025.11.03", conf:0.91,
+   title:"ì „ìž ì„ í•˜ì¦ê¶Œ(e-B/L) ë°°ì„œì— ì˜í•œ ê¶Œë¦¬ ì´ì „ì˜ ë²•ì  ìœ íš¨ì„±",
+   summary:"ì „ìž ì„ í•˜ì¦ê¶Œ í”Œëž«í¼ì„ í†µí•œ ë°°ì„œê°€ ì˜êµ­ ë²•ìƒ ìœ íš¨í•œ ê¶Œë¦¬ ì´ì „ì„ êµ¬ì„±í•˜ëŠ”ì§€ ì—¬ë¶€ì— ê´€í•œ ì˜êµ­ ìµœì´ˆì˜ ì§ì ‘ íŒê²°",
+   facts:"ì›ê³ ëŠ” ì „ìž ì„ í•˜ì¦ê¶Œ í”Œëž«í¼ BOLEROë¥¼ í†µí•´ ë°°ì„œëœ e-B/Lì„ ì·¨ë“í•˜ì—¬ í™”ë¬¼ì— ëŒ€í•œ ê¶Œë¦¬ë¥¼ ì£¼ìž¥í•˜ì˜€ë‹¤. í”¼ê³  ìš´ì†¡ì¸ì€ e-B/Lì˜ ë°°ì„œê°€ ì˜êµ­ Bills of Lading Act 1855 ë° Carriage of Goods by Sea Act 1992ì˜ ìš”ê±´ì„ ì¶©ì¡±í•˜ì§€ ëª»í•˜ì—¬ ìœ íš¨í•œ ê¶Œë¦¬ ì´ì „ì´ ë°œìƒí•˜ì§€ ì•Šì•˜ë‹¤ê³  í•­ë³€í•˜ì˜€ë‹¤.",
+   issues:["ì „ìž ì„ í•˜ì¦ê¶Œì˜ ë°°ì„œê°€ COGSA 1992ìƒ ìœ íš¨í•œ ê¶Œë¦¬ ì´ì „ì„ êµ¬ì„±í•˜ëŠ”ì§€","e-B/L í”Œëž«í¼ì˜ ê¸°ìˆ ì  ë©”ì»¤ë‹ˆì¦˜ì´ ë²•ì  ìš”ê±´ì„ ì¶©ì¡±í•˜ëŠ”ì§€","ì „ìžìƒê±°ëž˜ í™˜ê²½ì—ì„œ ì „í†µì  ì„ í•˜ì¦ê¶Œ ë²•ë¦¬ì˜ ì ìš© ê°€ëŠ¥ì„±"],
+   holding:"High CourtëŠ” BOLERO í”Œëž«í¼ì˜ ì „ìž ë°°ì„œ ì‹œìŠ¤í…œì´ ê¸°ëŠ¥ì ìœ¼ë¡œ ì¢…ì´ ì„ í•˜ì¦ê¶Œì˜ ë°°ì„œì™€ ë™ë“±í•œ ë²•ì  íš¨ê³¼ë¥¼ ê°–ëŠ”ë‹¤ê³  íŒì‹œí•˜ì˜€ë‹¤. ì „ìž ê¸°ë¡ì˜ ì´ì „ì´ COGSA 1992 ì œ2ì¡°ì˜ ìš”ê±´ì„ ì¶©ì¡±í•˜ë©°, ì›ê³ ëŠ” ìœ íš¨í•˜ê²Œ í™”ë¬¼ì— ëŒ€í•œ ê¶Œë¦¬ë¥¼ ì·¨ë“í•˜ì˜€ìŒì„ ì¸ì •í•˜ì˜€ë‹¤.",
+   implications:["í¬ì›Œë”Â·ì„ ì‚¬: e-B/L í”Œëž«í¼ ì‚¬ìš© ì‹œ ê¶Œë¦¬ ì´ì „ ìœ íš¨ì„± í™•ì¸ ì ˆì°¨ ìˆ˜ë¦½ ê¶Œê³ ","êµ­ë‚´ í•´ìš´ì‚¬: ì˜êµ­ë²• ì¤€ê±° ê³„ì•½ì—ì„œ e-B/L ì±„íƒ ì‹œ ì´ íŒê²° ê¸°ì¤€ ì ìš© ê²€í† ","ë¬´ì—­ê¸ˆìœµ: e-B/L ë‹´ë³´ë¡œ í•œ ì‹ ìš©ìž¥ ê±°ëž˜ì˜ ë²•ì  ì•ˆì •ì„± í–¥ìƒ ê¸°ëŒ€"],
    laws:["COGSA 1992 s.2","Bills of Lading Act 1855","Electronic Communications Act 2000"],
-   related:[{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2023] EWHC 1208 Ã¢â¬â Electronic Trade Documents Act"},{flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬",text:"[2022] SGCA 31 Ã¢â¬â e-B/L Singapore"},{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2019Ã«â¹Â¤281299 Ã¢â¬â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã«Â°Â°Ã¬âÅ Ã­Å¡Â¨Ã«Â Â¥"}],
+   related:[{flag:"ðŸ‡¬ðŸ‡§",text:"[2023] EWHC 1208 â€” Electronic Trade Documents Act"},{flag:"ðŸ‡¸ðŸ‡¬",text:"[2022] SGCA 31 â€” e-B/L Singapore"},{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2019ë‹¤281299 â€” ì„ í•˜ì¦ê¶Œ ë°°ì„œ íš¨ë ¥"}],
    original:`[2025] EWHC 441 (Comm)
 
 IN THE HIGH COURT OF JUSTICE
@@ -507,20 +507,20 @@ The Claimant acquired rights to the cargo through a series of electronic endorse
 
 ORDER: Judgment for the Claimant. Costs to be assessed if not agreed.`,
    provisions:[
-     {law:"COGSA 1992",article:"s.2(1)",title:"Rights under shipping documents",text:"Subject to the following provisions of this section, a person who has becomeÃ¢â¬â (a) the holder of a bill of lading; (b) the person to whom delivery of the goods to which a sea waybill relates is to be made; or (c) the person to whom delivery of the goods to which a ship's delivery order relates is to be made, shall (by virtue of becoming the holder of the bill or, as the case may be, the person to whom delivery is to be made) have transferred to and vested in him all rights of suit under the contract of carriage as if he had been an original party to that contract.",relevance:"Ã«Â³Â¸ Ã­ÅÂÃªÂ²Â°Ã¬ÂË Ã­â¢ÂµÃ¬â¹Â¬ Ã¢â¬â Ã¬Â âÃ¬Å¾Â Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å Ã«Â°Â°Ã¬âÅÃªÂ°â¬ Ã¬ÂÂ´ Ã¬Â¡Â°Ã­â¢Â­Ã¬ÆÂ 'holder'ÃªÂ°â¬ Ã«ÂËÃ«Å âÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬"},
-     {law:"COGSA 1992",article:"s.5(2)",title:"Meaning of 'bill of lading'",text:"References in this Act to a bill of lading do not include references to a document which is incapable of transfer either by endorsement or, as a bearer bill, by delivery without endorsement; and references to the holder of a bill of lading shall be construed in accordance with subsection (3) below.",relevance:"Ã¬Â âÃ¬Å¾Â Ã«Â°Â°Ã¬âÅÃªÂ°â¬ Ã¬ÂÂ´ Ã¬Â â¢Ã¬ÂËÃ«Â¥Â¼ Ã¬Â¶Â©Ã¬Â¡Â±Ã­â¢ËÃ«Å âÃ¬Â§â¬ Ã­â¢Â´Ã¬âÂÃ¬ÂË ÃªÂ·Â¼ÃªÂ±Â°"},
-     {law:"Electronic Trade Documents Act 2023",article:"s.3",title:"Electronic trade documents",text:"An electronic trade document has the same effect as the equivalent paper trade document. A person may possess an electronic trade document. A transfer of an electronic trade document has the same effect as a transfer of the equivalent paper trade document.",relevance:"2023Ã«â¦â Ã¬Å¾â¦Ã«Â²â¢ Ã¢â¬â Ã«Â³Â¸ Ã­ÅÂÃªÂ²Â° Ã¬ÂÂ´Ã­âºâ Ã¬Â âÃ¬Å¾Â Ã«Â¬Â´Ã¬âÂ­Ã¬âÅÃ«Â¥ËÃ¬ÂË Ã«Â²â¢Ã¬Â Â Ã¬Â§â¬Ã¬ÅâÃ«Â¥Â¼ Ã«Âªâ¦Ã­â¢â¢Ã­Å¾Ë Ã­â¢Å Ã¬Â¡Â°Ã«Â¬Â¸"}
+     {law:"COGSA 1992",article:"s.2(1)",title:"Rights under shipping documents",text:"Subject to the following provisions of this section, a person who has becomeâ€” (a) the holder of a bill of lading; (b) the person to whom delivery of the goods to which a sea waybill relates is to be made; or (c) the person to whom delivery of the goods to which a ship's delivery order relates is to be made, shall (by virtue of becoming the holder of the bill or, as the case may be, the person to whom delivery is to be made) have transferred to and vested in him all rights of suit under the contract of carriage as if he had been an original party to that contract.",relevance:"ë³¸ íŒê²°ì˜ í•µì‹¬ â€” ì „ìž ì„ í•˜ì¦ê¶Œ ë°°ì„œê°€ ì´ ì¡°í•­ìƒ 'holder'ê°€ ë˜ëŠ”ì§€ ì—¬ë¶€"},
+     {law:"COGSA 1992",article:"s.5(2)",title:"Meaning of 'bill of lading'",text:"References in this Act to a bill of lading do not include references to a document which is incapable of transfer either by endorsement or, as a bearer bill, by delivery without endorsement; and references to the holder of a bill of lading shall be construed in accordance with subsection (3) below.",relevance:"ì „ìž ë°°ì„œê°€ ì´ ì •ì˜ë¥¼ ì¶©ì¡±í•˜ëŠ”ì§€ í•´ì„ì˜ ê·¼ê±°"},
+     {law:"Electronic Trade Documents Act 2023",article:"s.3",title:"Electronic trade documents",text:"An electronic trade document has the same effect as the equivalent paper trade document. A person may possess an electronic trade document. A transfer of an electronic trade document has the same effect as a transfer of the equivalent paper trade document.",relevance:"2023ë…„ ìž…ë²• â€” ë³¸ íŒê²° ì´í›„ ì „ìž ë¬´ì—­ì„œë¥˜ì˜ ë²•ì  ì§€ìœ„ë¥¼ ëª…í™•ížˆ í•œ ì¡°ë¬¸"}
    ]},
 
-  {id:2, caseNum:"[2025] SGCA 12", type:"Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½", country:"Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´", flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬", court:"Court of Appeal", date:"2025.10.15", conf:0.89,
-   title:"Ã¬Â â¢ÃªÂ¸Â°Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã¬Â¡Â°ÃªÂ¸Â°Ã­â¢Â´Ã¬Â Å Ã¬â¹Å Ã¬Å¾âÃ¬Â¡Â´ ÃªÂ¸Â°ÃªÂ°â Ã¬ÂÂ¼Ã¬â¹Â¤Ã¬ÂÂ´Ã¬ÂÂµ Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ Ã«Â²âÃ¬Åâ",
-   summary:"Ã¬Å¡Â©Ã¬âÂ Ã¬Å¾ÂÃªÂ°â¬ Ã¬Â â¢ÃªÂ¸Â°Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â¡Â°ÃªÂ¸Â° Ã­â¢Â´Ã¬Â ÅÃ­â¢Å ÃªÂ²Â½Ã¬Å¡Â° Ã¬âÂ Ã¬Â£Â¼Ã¬ÂË Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ Ã«Â²âÃ¬ÅâÃªÂ°â¬ Ã¬Å¾âÃ¬Â¡Â´ Ã¬Å¡Â©Ã¬âÂ ÃªÂ¸Â°ÃªÂ°â Ã¬Â âÃ¬Â²Â´Ã¬âÂ ÃªÂ±Â¸Ã¬Â¹Å Ã¬ÂÂ¼Ã¬â¹Â¤Ã¬ÂÂ´Ã¬ÂÂµÃ¬Ââ Ã­ÂÂ¬Ã­â¢Â¨Ã­â¢ËÃ«Å âÃ¬Â§â¬Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´ Ã­â¢Â­Ã¬â ÅÃ«Â²â¢Ã¬âºÂ Ã­ÅÂÃªÂ²Â°",
-   facts:"Ã¬âºÂÃªÂ³Â (Ã¬âÂ Ã¬Â£Â¼)Ã«Å â Ã­âÂ¼ÃªÂ³Â (Ã¬Å¡Â©Ã¬âÂ Ã¬Å¾Â)Ã¬â¢â¬ 2Ã«â¦âÃ¬ÂË Ã¬Â â¢ÃªÂ¸Â°Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢ËÃ¬Ëâ¬Ã¬ÅÂ¼Ã«âË, Ã­âÂ¼ÃªÂ³Â Ã«Å â ÃªÂ³âÃ¬â¢Â½ ÃªÂ°ÅÃ¬â¹Å 6ÃªÂ°ÅÃ¬âºâ Ã­âºâ Ã¬â¹ÅÃ­â¢Â© Ã¬â¢â¦Ã­â¢âÃ«Â¥Â¼ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å ÃªÂ³âÃ¬â¢Â½ Ã¬ÂÂ´Ã­ââ°Ã¬Ââ ÃªÂ±Â°Ã¬Â ËÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬âºÂÃªÂ³Â Ã«Å â Ã«Åâ¬Ã¬Â²Â´ Ã¬Å¡Â©Ã¬âÂ Ã¬Ââ Ã¬Â°Â¾Ã¬Â§â¬ Ã«ÂªÂ»Ã­â¢Å Ã¬Â±â Ã¬Å¾âÃ¬Â¡Â´ 18ÃªÂ°ÅÃ¬âºâÃ¬ÂË Ã¬Å¡Â©Ã¬âÂ Ã«Â£Å Ã¬ÆÂÃ«â¹Â¹ Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂÃ¬Ââ Ã¬Â²Â­ÃªÂµÂ¬Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã¬Å¡Â©Ã¬âÂ Ã¬Å¾ÂÃ¬ÂË ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â Å Ã¬â¹Å Ã¬âÂ Ã¬Â£Â¼ÃªÂ°â¬ Ã¬Â²Â­ÃªÂµÂ¬Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«Å â Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂÃ¬ÂË Ã«Â²âÃ¬Åâ","Ã«Åâ¬Ã¬Â²Â´ Ã¬Å¡Â©Ã¬âÂ  Ã­ÆÂÃ¬Æâ° Ã¬ÂËÃ«Â¬Â´Ã¬â¢â¬ Ã¬â ÂÃ­â¢Â´ ÃªÂ²Â½ÃªÂ°Â Ã¬ÂËÃ«Â¬Â´Ã¬ÂË Ã«Â²âÃ¬Åâ","Ã­â¢Â´Ã¬Å¡Â´ Ã¬â¹ÅÃ­â¢Â© Ã«Â³â¬Ã«Ââ¢Ã¬Ââ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å Ã­â¢Å ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â ÅÃ¬ÂË Ã­âËÃ¬Å¡Â© Ã¬âÂ¬Ã«Â¶â¬"],
-   holding:"Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´ Ã­â¢Â­Ã¬â ÅÃ«Â²â¢Ã¬âºÂÃ¬Ââ¬ Ã¬Å¡Â©Ã¬âÂ Ã¬Å¾ÂÃ¬ÂË Ã¬Â¡Â°ÃªÂ¸Â°Ã­â¢Â´Ã¬Â ÅÃªÂ°â¬ Ã¬Â±âÃ«Â¬Â´Ã«Â¶ËÃ¬ÂÂ´Ã­ââ°Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ«Â©Â°, Ã¬âÂ Ã¬Â£Â¼Ã«Å â Ã¬Å¾âÃ¬Â¡Â´ Ã¬Å¡Â©Ã¬âÂ ÃªÂ¸Â°ÃªÂ°â Ã¬Â âÃ¬Â²Â´Ã¬âÂ Ã«Åâ¬Ã­â¢Å Ã¬ÂÂ¼Ã¬â¹Â¤Ã¬ÂÂ´Ã¬ÂÂµÃ¬Ââ Ã¬Â²Â­ÃªÂµÂ¬Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ¬â¹ÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã«â¹Â¤Ã«Â§Å Ã¬âÂ Ã¬Â£Â¼Ã«Å â Ã­â¢Â©Ã«Â¦Â¬Ã¬Â ÂÃ¬ÂÂ¸ Ã«Â²âÃ¬ÅâÃ¬âÂÃ¬âÅ Ã«Åâ¬Ã¬Â²Â´ Ã¬Å¡Â©Ã¬âÂ  Ã­ÆÂÃ¬Æâ° Ã«â¦Â¸Ã«Â Â¥Ã¬Ââ Ã«â¹Â¤Ã­âËÃ¬ÂÅÃ¬Ââ Ã¬Å¾â¦Ã¬Â¦ÂÃ­â¢Â´Ã¬â¢Â¼ Ã­â¢ÅÃ«â¹Â¤ÃªÂ³Â  Ã«Â¶â¬ÃªÂ°â¬ Ã¬Â¡Â°ÃªÂ±Â´Ã¬Ââ Ã¬âÂ¤Ã¬Â â¢Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã¬âÂ Ã¬Â£Â¼: Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â Å Ã¬â¹Å Ã«Åâ¬Ã¬Â²Â´ Ã¬Å¡Â©Ã¬âÂ  Ã­ÆÂÃ¬Æâ° Ã«â¦Â¸Ã«Â Â¥ ÃªÂ¸Â°Ã«Â¡Â Ã«Â³Â´Ã¬Â¡Â´ Ã­â¢âÃ¬ËË Ã¢â¬â Ã¬â ÂÃ­â¢Â´ÃªÂ²Â½ÃªÂ°Â Ã¬ÂËÃ«Â¬Â´ Ã¬Å¾â¦Ã¬Â¦Â Ã¬Å¾ÂÃ«Â£ÅÃ«Â¡Å Ã­â¢ÅÃ¬Å¡Â©","Ã¬Å¡Â©Ã¬âÂ Ã¬Å¾Â: ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â Å ÃªÂ²Â°Ã¬Â â¢ Ã¬Â â Ã«Â²â¢Ã«Â¥Â  ÃªÂ²â¬Ã­â Â  Ã­â¢âÃ¬ËË Ã¢â¬â Ã¬Å¾âÃ¬Â¡Â´ ÃªÂ¸Â°ÃªÂ°â Ã¬Â âÃ¬Â²Â´Ã¬âÂ Ã«Åâ¬Ã­â¢Å Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ Ã«Â¦Â¬Ã¬Å Â¤Ã­ÂÂ¬ Ã¬ÂÂ¸Ã¬â¹Â","ÃªÂµÂ­Ã«âÂ´ Ã­â¢Â´Ã¬Å¡Â´Ã¬âÂ¬: Ã¬â¹Â±ÃªÂ°â¬Ã­ÂÂ¬Ã«Â¥Â´Ã«Â²â¢ Ã¬Â¤â¬ÃªÂ±Â° Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã¬â¹Å Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â° ÃªÂ¸Â°Ã¬Â¤â¬ Ã«Â°ËÃ¬ËÂÃ­â¢Å ÃªÂ³âÃ¬â¢Â½ Ã¬Â¡Â°Ã­â¢Â­ Ã¬âÂ¤ÃªÂ³â Ã­â¢âÃ¬Å¡â"],
-   laws:["Singapore Contracts (Rights of Third Parties) Act","Common Law Ã¢â¬â Damages for Breach","Hadley v Baxendale principle"],
-   related:[{flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬",text:"[2023] SGCA 41 Ã¢â¬â Charter Party Damages"},{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2021] EWCA Civ 811 Ã¢â¬â Time Charter Repudiation"},{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2017Ã«â¹Â¤258109 Ã¢â¬â Ã¬Å¡Â©Ã¬âÂ Ã«Â£Å Ã¬Â²Â­ÃªÂµÂ¬"}],
+  {id:2, caseNum:"[2025] SGCA 12", type:"ìš©ì„ ê³„ì•½", country:"ì‹±ê°€í¬ë¥´", flag:"ðŸ‡¸ðŸ‡¬", court:"Court of Appeal", date:"2025.10.15", conf:0.89,
+   title:"ì •ê¸°ìš©ì„ ê³„ì•½ ì¡°ê¸°í•´ì œ ì‹œ ìž”ì¡´ ê¸°ê°„ ì¼ì‹¤ì´ìµ ì†í•´ë°°ìƒ ë²”ìœ„",
+   summary:"ìš©ì„ ìžê°€ ì •ê¸°ìš©ì„ ê³„ì•½ì„ ì¡°ê¸° í•´ì œí•œ ê²½ìš° ì„ ì£¼ì˜ ì†í•´ë°°ìƒ ë²”ìœ„ê°€ ìž”ì¡´ ìš©ì„ ê¸°ê°„ ì „ì²´ì— ê±¸ì¹œ ì¼ì‹¤ì´ìµì„ í¬í•¨í•˜ëŠ”ì§€ì— ê´€í•œ ì‹±ê°€í¬ë¥´ í•­ì†Œë²•ì› íŒê²°",
+   facts:"ì›ê³ (ì„ ì£¼)ëŠ” í”¼ê³ (ìš©ì„ ìž)ì™€ 2ë…„ì˜ ì •ê¸°ìš©ì„ ê³„ì•½ì„ ì²´ê²°í•˜ì˜€ìœ¼ë‚˜, í”¼ê³ ëŠ” ê³„ì•½ ê°œì‹œ 6ê°œì›” í›„ ì‹œí™© ì•…í™”ë¥¼ ì´ìœ ë¡œ ê³„ì•½ ì´í–‰ì„ ê±°ì ˆí•˜ì˜€ë‹¤. ì›ê³ ëŠ” ëŒ€ì²´ ìš©ì„ ì„ ì°¾ì§€ ëª»í•œ ì±„ ìž”ì¡´ 18ê°œì›”ì˜ ìš©ì„ ë£Œ ìƒë‹¹ ì†í•´ë°°ìƒì„ ì²­êµ¬í•˜ì˜€ë‹¤.",
+   issues:["ìš©ì„ ìžì˜ ê³„ì•½ í•´ì œ ì‹œ ì„ ì£¼ê°€ ì²­êµ¬í•  ìˆ˜ ìžˆëŠ” ì†í•´ë°°ìƒì˜ ë²”ìœ„","ëŒ€ì²´ ìš©ì„  íƒìƒ‰ ì˜ë¬´ì™€ ì†í•´ ê²½ê° ì˜ë¬´ì˜ ë²”ìœ„","í•´ìš´ ì‹œí™© ë³€ë™ì„ ì´ìœ ë¡œ í•œ ê³„ì•½ í•´ì œì˜ í—ˆìš© ì—¬ë¶€"],
+   holding:"ì‹±ê°€í¬ë¥´ í•­ì†Œë²•ì›ì€ ìš©ì„ ìžì˜ ì¡°ê¸°í•´ì œê°€ ì±„ë¬´ë¶ˆì´í–‰ì— í•´ë‹¹í•˜ë©°, ì„ ì£¼ëŠ” ìž”ì¡´ ìš©ì„ ê¸°ê°„ ì „ì²´ì— ëŒ€í•œ ì¼ì‹¤ì´ìµì„ ì²­êµ¬í•  ìˆ˜ ìžˆë‹¤ê³  íŒì‹œí•˜ì˜€ë‹¤. ë‹¤ë§Œ ì„ ì£¼ëŠ” í•©ë¦¬ì ì¸ ë²”ìœ„ì—ì„œ ëŒ€ì²´ ìš©ì„  íƒìƒ‰ ë…¸ë ¥ì„ ë‹¤í–ˆìŒì„ ìž…ì¦í•´ì•¼ í•œë‹¤ê³  ë¶€ê°€ ì¡°ê±´ì„ ì„¤ì •í•˜ì˜€ë‹¤.",
+   implications:["ì„ ì£¼: ìš©ì„ ê³„ì•½ í•´ì œ ì‹œ ëŒ€ì²´ ìš©ì„  íƒìƒ‰ ë…¸ë ¥ ê¸°ë¡ ë³´ì¡´ í•„ìˆ˜ â€” ì†í•´ê²½ê° ì˜ë¬´ ìž…ì¦ ìžë£Œë¡œ í™œìš©","ìš©ì„ ìž: ê³„ì•½ í•´ì œ ê²°ì • ì „ ë²•ë¥  ê²€í†  í•„ìˆ˜ â€” ìž”ì¡´ ê¸°ê°„ ì „ì²´ì— ëŒ€í•œ ì†í•´ë°°ìƒ ë¦¬ìŠ¤í¬ ì¸ì‹","êµ­ë‚´ í•´ìš´ì‚¬: ì‹±ê°€í¬ë¥´ë²• ì¤€ê±° ìš©ì„ ê³„ì•½ ì‹œ ì´ íŒê²° ê¸°ì¤€ ë°˜ì˜í•œ ê³„ì•½ ì¡°í•­ ì„¤ê³„ í•„ìš”"],
+   laws:["Singapore Contracts (Rights of Third Parties) Act","Common Law â€” Damages for Breach","Hadley v Baxendale principle"],
+   related:[{flag:"ðŸ‡¸ðŸ‡¬",text:"[2023] SGCA 41 â€” Charter Party Damages"},{flag:"ðŸ‡¬ðŸ‡§",text:"[2021] EWCA Civ 811 â€” Time Charter Repudiation"},{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2017ë‹¤258109 â€” ìš©ì„ ë£Œ ì²­êµ¬"}],
    original:`[2025] SGCA 12
 
 COURT OF APPEAL OF THE REPUBLIC OF SINGAPORE
@@ -543,58 +543,58 @@ DECISION
 
 ORDERS: Appeal allowed. Damages assessed at USD 4.2 million representing 18 months' net charter hire.`,
    provisions:[
-     {law:"Singapore Common Law",article:"Hadley v Baxendale (1854)",title:"Remoteness of damage",text:"Where two parties have made a contract which one of them has broken, the damages which the other party ought to receive in respect of such breach of contract should be such as may fairly and reasonably be considered either arising naturally, i.e., according to the usual course of things, from such breach of contract itself, or such as may reasonably be supposed to have been in the contemplation of both parties, at the time they made the contract, as the probable result of the breach of it.",relevance:"Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã¬Â¡Â°ÃªÂ¸Â°Ã­â¢Â´Ã¬Â Å Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ Ã«Â²âÃ¬Åâ Ã¬âÂ°Ã¬Â â¢Ã¬ÂË ÃªÂ¸Â°Ã«Â³Â¸ Ã¬âºÂÃ¬Â¹â¢"},
-     {law:"Singapore Common Law",article:"British Westinghouse principle",title:"Duty to mitigate",text:"The plaintiff is under a duty to take all reasonable steps to mitigate the loss consequent on the breach, and cannot recover damages for any such loss as results from his neglect to take such steps.",relevance:"Ã¬âÂ Ã¬Â£Â¼Ã¬ÂË Ã«Åâ¬Ã¬Â²Â´ Ã¬Å¡Â©Ã¬âÂ  Ã­ÆÂÃ¬Æâ° Ã¬ÂËÃ«Â¬Â´ Ã¢â¬â Ã¬â ÂÃ­â¢Â´ÃªÂ²Â½ÃªÂ°Â Ã«â¦Â¸Ã«Â Â¥ Ã¬Å¾â¦Ã¬Â¦Â Ã¬Å¡âÃªÂ±Â´"},
-     {law:"Singapore Law",article:"BIMCO NYPE 2015",title:"Time Charter Party Ã¢â¬â Off-hire and Termination",text:"In the event of loss of time due to deficiency of men including strike of Officers and/or crew, or deficiency and/or default and/or strike of Officers, Crew or Pilots, or breakdown of machinery or damage to hull or other accident, either hindering or preventing the working of the vessel and continuing for more than 24 consecutive hours, payment of hire shall cease until she is again in efficient state.",relevance:"Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½ Ã­â¢Â´Ã¬Â Å Ã¬Â¡Â°ÃªÂ±Â´ Ã«Â°Â Ã¬â ÂÃ­â¢Â´ Ã¬âÂ°Ã¬Â â¢Ã¬ÂË ÃªÂ¸Â°Ã¬Â¤â¬Ã¬ÂÂ´ Ã«ÂËÃ«Å â Ã­âÅÃ¬Â¤â¬ Ã¬â¢Â½ÃªÂ´â¬ Ã¬Â¡Â°Ã­â¢Â­"}
+     {law:"Singapore Common Law",article:"Hadley v Baxendale (1854)",title:"Remoteness of damage",text:"Where two parties have made a contract which one of them has broken, the damages which the other party ought to receive in respect of such breach of contract should be such as may fairly and reasonably be considered either arising naturally, i.e., according to the usual course of things, from such breach of contract itself, or such as may reasonably be supposed to have been in the contemplation of both parties, at the time they made the contract, as the probable result of the breach of it.",relevance:"ìš©ì„ ê³„ì•½ ì¡°ê¸°í•´ì œ ì†í•´ë°°ìƒ ë²”ìœ„ ì‚°ì •ì˜ ê¸°ë³¸ ì›ì¹™"},
+     {law:"Singapore Common Law",article:"British Westinghouse principle",title:"Duty to mitigate",text:"The plaintiff is under a duty to take all reasonable steps to mitigate the loss consequent on the breach, and cannot recover damages for any such loss as results from his neglect to take such steps.",relevance:"ì„ ì£¼ì˜ ëŒ€ì²´ ìš©ì„  íƒìƒ‰ ì˜ë¬´ â€” ì†í•´ê²½ê° ë…¸ë ¥ ìž…ì¦ ìš”ê±´"},
+     {law:"Singapore Law",article:"BIMCO NYPE 2015",title:"Time Charter Party â€” Off-hire and Termination",text:"In the event of loss of time due to deficiency of men including strike of Officers and/or crew, or deficiency and/or default and/or strike of Officers, Crew or Pilots, or breakdown of machinery or damage to hull or other accident, either hindering or preventing the working of the vessel and continuing for more than 24 consecutive hours, payment of hire shall cease until she is again in efficient state.",relevance:"ìš©ì„ ê³„ì•½ í•´ì œ ì¡°ê±´ ë° ì†í•´ ì‚°ì •ì˜ ê¸°ì¤€ì´ ë˜ëŠ” í‘œì¤€ ì•½ê´€ ì¡°í•­"}
    ]},
 
-  {id:3, caseNum:"Ã«Â¶â¬Ã¬âÂ°Ã¬Â§â¬Ã«Â²â¢ 2025ÃªÂ°â¬Ã­â¢Â©10234", type:"Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´", country:"Ã­â¢ÅÃªÂµÂ­", flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·", court:"Ã«Â¶â¬Ã¬âÂ°Ã¬Â§â¬Ã«Â°Â©Ã«Â²â¢Ã¬âºÂ", date:"2025.09.30", conf:0.87,
-   title:"Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âË Ã¬ËÂ¨Ã«Ââ Ã¬ÂÂ´Ã­ÆËÃ«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã­â¢âÃ«Â¬Â¼ Ã¬â ÂÃ¬ÆÂ Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸ Ã¬Â±â¦Ã¬Å¾â Ã«Â²âÃ¬Åâ",
-   summary:"Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âË Ã¬Å¡Â´Ã¬â Â¡ Ã¬Â¤â Ã¬Â âÃ¬âºÂ ÃªÂ³ÂµÃªÂ¸â° Ã¬Â¤âÃ«â¹Â¨Ã¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã¬ËÂ¨Ã«Ââ Ã¬ÂÂ´Ã­ÆËÃ«Â¡Å Ã­â¢âÃ«Â¬Â¼Ã¬ÂÂ´ Ã¬â ÂÃ¬ÆÂÃ«ÂÅ ÃªÂ²Â½Ã¬Å¡Â° Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË Ã«Â©Â´Ã¬Â±â¦ Ã¬Â£Â¼Ã¬Å¾Â¥ ÃªÂ°â¬Ã«Å Â¥ Ã¬âÂ¬Ã«Â¶â¬",
-   facts:"Ã¬âºÂÃªÂ³Â (Ã­â¢âÃ¬Â£Â¼)Ã«Å â Ã­âÂ¼ÃªÂ³Â (Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸)Ã¬â¢â¬ Ã«Æâ°Ã«Ââ¢ Ã¬ËËÃ¬âÂ°Ã«Â¬Â¼ Ã¬Å¡Â´Ã¬â Â¡ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬Å¡Â´Ã¬â Â¡ Ã¬Â¤â Ã¬âÂ Ã«Â°â¢ Ã¬Â âÃªÂ¸Â° Ã¬â¹ÅÃ¬Å Â¤Ã­â¦Å ÃªÂ³Â Ã¬Å¾Â¥Ã¬ÅÂ¼Ã«Â¡Å Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âË Ã¬ËÂ¨Ã«ÂâÃªÂ°â¬ Ã¬âÂ¤Ã¬Â â¢Ã¬Â¹ËÃ«Â¥Â¼ Ã¬Â´ËÃªÂ³Â¼Ã­â¢ËÃ¬âÂ¬ Ã­â¢âÃ«Â¬Â¼ Ã¬Â âÃ«Å¸â°Ã¬ÂÂ´ Ã­ÂÂÃªÂ¸Â° Ã¬Â²ËÃ«Â¶âÃ«ÂËÃ¬âËÃ«â¹Â¤. Ã­âÂ¼ÃªÂ³Â Ã«Å â Ã¬âÂ Ã«Â°â¢ ÃªÂ¸Â°ÃªÂ´â¬ ÃªÂ³Â Ã¬Å¾Â¥Ã¬ÂÂ´ Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬âÂ¬ Ã¬ÆÂÃ«Â²â¢Ã¬ÆÂ Ã«Â©Â´Ã¬Â±â¦Ã«ÂÅÃ«â¹Â¤ÃªÂ³Â  Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã«Æâ°Ã«Ââ¢ Ã­â¢âÃ«Â¬Â¼ Ã¬ËÂ¨Ã«Ââ ÃªÂ´â¬Ã«Â¦Â¬ Ã¬â¹Â¤Ã­ÅÂ¨ÃªÂ°â¬ Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ¸Ã¬Â§â¬ Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ¸Ã¬Â§â¬ ÃªÂµÂ¬Ã«Â³â ÃªÂ¸Â°Ã¬Â¤â¬","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å796Ã¬Â¡Â° Ã«Â©Â´Ã¬Â±â¦Ã¬âÂ¬Ã¬ÅÂ Ã¬ÂË Ã­â¢Â´Ã¬âÂÃªÂ³Â¼ Ã«Æâ°Ã«Ââ¢ Ã¬Å¡Â´Ã¬â Â¡ Ã­Å Â¹Ã¬ËËÃ¬âÂ±","Ã­â¢âÃ«Â¬Â¼ Ã¬Â âÃ¬â Â Ã¬â¹Å Ã¬â ÂÃ­â¢Â´Ã¬â¢Â¡ Ã¬âÂ°Ã¬Â â¢ ÃªÂ¸Â°Ã¬Â¤â¬"],
-   holding:"Ã«Â²â¢Ã¬âºÂÃ¬Ââ¬ Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âËÃ¬ÂË Ã¬Â âÃ¬âºÂ ÃªÂ³ÂµÃªÂ¸â° Ã¬ÅÂ Ã¬Â§â¬Ã«Å â Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂ Ã¬ÂËÃ«Â¬Â´Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ«Â©Â°, Ã¬ÂÂ´Ã«Â¥Â¼ ÃªÂ²ÅÃ¬ÂâÃ«Â¦Â¬Ã­â¢Å ÃªÂ²ÆÃ¬Ââ¬ Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ´ Ã¬â¢âÃ«â¹Å Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¡ÅÃ¬âÅ Ã«Â©Â´Ã¬Â±â¦ Ã¬âÂ¬Ã¬ÅÂ Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬Â§â¬ Ã¬â¢Å Ã«Å âÃ«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ¬â¹ÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬âÂÃªÂ²Å Ã­â¢âÃ«Â¬Â¼ Ã­Ââ°ÃªÂ°â¬Ã¬â¢Â¡ Ã¬Â âÃ¬â¢Â¡ Ã«Â°Â°Ã¬ÆÂÃ¬Ââ Ã«Âªâ¦Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã«Æâ°Ã«Ââ¢ Ã¬Å¡Â´Ã¬â Â¡ Ã­â¢âÃ¬Â£Â¼: Ã¬ËÂ¨Ã«Ââ Ã¬ÂÂ´Ã­ÆË Ã¬âÂ¬ÃªÂ³Â  Ã¬â¹Å Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂ ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â©Â´Ã¬Â±â¦ Ã¬Â£Â¼Ã¬Å¾Â¥Ã¬âÂ Ã¬Â ÂÃªÂ·Â¹ Ã«Â°ËÃ«Â°â¢ ÃªÂ°â¬Ã«Å Â¥","Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸: Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âË Ã¬Â âÃ¬âºÂ ÃªÂ´â¬Ã«Â¦Â¬ Ã¬ÂÂ´Ã¬Â¤âÃ­â¢â Ã«âÂ± ÃªÂ¸Â°Ã¬ËÂ Ã¬Â Â Ã¬â¢ËÃ¬Â âÃ¬Å¾Â¥Ã¬Â¹Ë ÃªÂ°â¢Ã­â¢â Ã­â¢âÃ¬Å¡â","Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂ¬: Ã«Æâ°Ã«Ââ¢ Ã­â¢âÃ«Â¬Â¼ Ã¬Â ÂÃ­â¢ËÃ«Â³Â´Ã­âË Ã¬â¢Â½ÃªÂ´â¬Ã¬ÆÂ Ã«Â©Â´Ã¬Â±â¦ Ã¬Â¡Â°Ã­â¢Â­ Ã¬Å¾Â¬ÃªÂ²â¬Ã­â Â  ÃªÂ¶ÅÃªÂ³Â "],
-   laws:["Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å796Ã¬Â¡Â°","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å794Ã¬Â¡Â°","Ã­âÂ¤Ã¬ÂÂ´ÃªÂ·Â¸-Ã«Â¹âÃ¬Å Â¤Ã«Â¹â ÃªÂ·ÅÃ¬Â¹â¢ Art.IV"],
-   related:[{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2019Ã«â¹Â¤200450 Ã¢â¬â Ã«Æâ°Ã«Ââ¢Ã­â¢âÃ«Â¬Â¼ Ã¬Å¡Â´Ã¬â Â¡Ã¬Â±â¦Ã¬Å¾â"},{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2020] EWHC 1234 Ã¢â¬â Reefer Container"},{flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬",text:"[2022] SGCA 28 Ã¢â¬â Temperature Excursion"}],
-   original:`Ã£â¬ÂÃ«Â¶â¬Ã¬âÂ°Ã¬Â§â¬Ã«Â°Â©Ã«Â²â¢Ã¬âºÂ 2025. 9. 30. Ã¬âÂ ÃªÂ³Â  2025ÃªÂ°â¬Ã­â¢Â©10234 Ã­ÅÂÃªÂ²Â°Ã£â¬â
+  {id:3, caseNum:"ë¶€ì‚°ì§€ë²• 2025ê°€í•©10234", type:"í™”ë¬¼ì†í•´", country:"í•œêµ­", flag:"ðŸ‡°ðŸ‡·", court:"ë¶€ì‚°ì§€ë°©ë²•ì›", date:"2025.09.30", conf:0.87,
+   title:"ëƒ‰ë™ ì»¨í…Œì´ë„ˆ ì˜¨ë„ ì´íƒˆë¡œ ì¸í•œ í™”ë¬¼ ì†ìƒ ìš´ì†¡ì¸ ì±…ìž„ ë²”ìœ„",
+   summary:"ëƒ‰ë™ ì»¨í…Œì´ë„ˆ ìš´ì†¡ ì¤‘ ì „ì› ê³µê¸‰ ì¤‘ë‹¨ìœ¼ë¡œ ì¸í•œ ì˜¨ë„ ì´íƒˆë¡œ í™”ë¬¼ì´ ì†ìƒëœ ê²½ìš° ìš´ì†¡ì¸ì˜ ë©´ì±… ì£¼ìž¥ ê°€ëŠ¥ ì—¬ë¶€",
+   facts:"ì›ê³ (í™”ì£¼)ëŠ” í”¼ê³ (ìš´ì†¡ì¸)ì™€ ëƒ‰ë™ ìˆ˜ì‚°ë¬¼ ìš´ì†¡ê³„ì•½ì„ ì²´ê²°í•˜ì˜€ë‹¤. ìš´ì†¡ ì¤‘ ì„ ë°• ì „ê¸° ì‹œìŠ¤í…œ ê³ ìž¥ìœ¼ë¡œ ëƒ‰ë™ ì»¨í…Œì´ë„ˆ ì˜¨ë„ê°€ ì„¤ì •ì¹˜ë¥¼ ì´ˆê³¼í•˜ì—¬ í™”ë¬¼ ì „ëŸ‰ì´ íê¸° ì²˜ë¶„ë˜ì—ˆë‹¤. í”¼ê³ ëŠ” ì„ ë°• ê¸°ê´€ ê³ ìž¥ì´ í•­í•´ìƒì˜ ê³¼ì‹¤ì— í•´ë‹¹í•˜ì—¬ ìƒë²•ìƒ ë©´ì±…ëœë‹¤ê³  ì£¼ìž¥í•˜ì˜€ë‹¤.",
+   issues:["ëƒ‰ë™ í™”ë¬¼ ì˜¨ë„ ê´€ë¦¬ ì‹¤íŒ¨ê°€ í•­í•´ìƒì˜ ê³¼ì‹¤ì¸ì§€ ìƒì—…ìƒì˜ ê³¼ì‹¤ì¸ì§€ êµ¬ë³„ ê¸°ì¤€","ìƒë²• ì œ796ì¡° ë©´ì±…ì‚¬ìœ ì˜ í•´ì„ê³¼ ëƒ‰ë™ ìš´ì†¡ íŠ¹ìˆ˜ì„±","í™”ë¬¼ ì „ì† ì‹œ ì†í•´ì•¡ ì‚°ì • ê¸°ì¤€"],
+   holding:"ë²•ì›ì€ ëƒ‰ë™ ì»¨í…Œì´ë„ˆì˜ ì „ì› ê³µê¸‰ ìœ ì§€ëŠ” ìš´ì†¡ì¸ì˜ ìƒì—…ìƒ ì˜ë¬´ì— í•´ë‹¹í•˜ë©°, ì´ë¥¼ ê²Œì„ë¦¬í•œ ê²ƒì€ í•­í•´ìƒì˜ ê³¼ì‹¤ì´ ì•„ë‹Œ ìƒì—…ìƒì˜ ê³¼ì‹¤ë¡œì„œ ë©´ì±… ì‚¬ìœ ì— í•´ë‹¹í•˜ì§€ ì•ŠëŠ”ë‹¤ê³  íŒì‹œí•˜ì˜€ë‹¤. ìš´ì†¡ì¸ì—ê²Œ í™”ë¬¼ í‰ê°€ì•¡ ì „ì•¡ ë°°ìƒì„ ëª…í•˜ì˜€ë‹¤.",
+   implications:["ëƒ‰ë™ ìš´ì†¡ í™”ì£¼: ì˜¨ë„ ì´íƒˆ ì‚¬ê³  ì‹œ í•­í•´ìƒ ê³¼ì‹¤ ë©´ì±… ì£¼ìž¥ì— ì ê·¹ ë°˜ë°• ê°€ëŠ¥","ìš´ì†¡ì¸: ëƒ‰ë™ ì»¨í…Œì´ë„ˆ ì „ì› ê´€ë¦¬ ì´ì¤‘í™” ë“± ê¸°ìˆ ì  ì•ˆì „ìž¥ì¹˜ ê°•í™” í•„ìš”","í•´ìƒë³´í—˜ì‚¬: ëƒ‰ë™ í™”ë¬¼ ì í•˜ë³´í—˜ ì•½ê´€ìƒ ë©´ì±… ì¡°í•­ ìž¬ê²€í†  ê¶Œê³ "],
+   laws:["ìƒë²• ì œ796ì¡°","ìƒë²• ì œ794ì¡°","í—¤ì´ê·¸-ë¹„ìŠ¤ë¹„ ê·œì¹™ Art.IV"],
+   related:[{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2019ë‹¤200450 â€” ëƒ‰ë™í™”ë¬¼ ìš´ì†¡ì±…ìž„"},{flag:"ðŸ‡¬ðŸ‡§",text:"[2020] EWHC 1234 â€” Reefer Container"},{flag:"ðŸ‡¸ðŸ‡¬",text:"[2022] SGCA 28 â€” Temperature Excursion"}],
+   original:`ã€ë¶€ì‚°ì§€ë°©ë²•ì› 2025. 9. 30. ì„ ê³  2025ê°€í•©10234 íŒê²°ã€‘
 
-Ã£â¬ÂÃ¬âÂ¬ÃªÂ±Â´Ã£â¬â Ã¬â ÂÃ­â¢Â´Ã«Â°Â°Ã¬ÆÂ(ÃªÂ¸Â°)
+ã€ì‚¬ê±´ã€‘ ì†í•´ë°°ìƒ(ê¸°)
 
-Ã£â¬ÂÃ¬âºÂÃªÂ³Â Ã£â¬â Ã¢ââ¹Ã¢ââ¹Ã¬ËËÃ¬âÂ°Ã«Â¬Â¼ Ã¬Â£Â¼Ã¬â¹ÂÃ­Å¡ÅÃ¬âÂ¬ (Ã¬â ÅÃ¬â Â¡Ã«Åâ¬Ã«Â¦Â¬Ã¬ÂÂ¸ Ã«Â²â¢Ã«Â¬Â´Ã«Â²â¢Ã¬ÂÂ¸ Ã­â¢Â´Ã¬ââ)
+ã€ì›ê³ ã€‘ â—‹â—‹ìˆ˜ì‚°ë¬¼ ì£¼ì‹íšŒì‚¬ (ì†Œì†¡ëŒ€ë¦¬ì¸ ë²•ë¬´ë²•ì¸ í•´ì–‘)
 
-Ã£â¬ÂÃ­âÂ¼ÃªÂ³Â Ã£â¬â Ã¢âÂ³Ã¢âÂ³Ã­â¢Â´Ã¬Å¡Â´ Ã¬Â£Â¼Ã¬â¹ÂÃ­Å¡ÅÃ¬âÂ¬ (Ã¬â ÅÃ¬â Â¡Ã«Åâ¬Ã«Â¦Â¬Ã¬ÂÂ¸ Ã«Â²â¢Ã«Â¬Â´Ã«Â²â¢Ã¬ÂÂ¸ Ã«Â¶â¬Ã¬âÂ°Ã­â¢Â­)
+ã€í”¼ê³ ã€‘ â–³â–³í•´ìš´ ì£¼ì‹íšŒì‚¬ (ì†Œì†¡ëŒ€ë¦¬ì¸ ë²•ë¬´ë²•ì¸ ë¶€ì‚°í•­)
 
-Ã£â¬ÂÃ¬Â£Â¼Ã«Â¬Â¸Ã£â¬â
-1. Ã­âÂ¼ÃªÂ³Â Ã«Å â Ã¬âºÂÃªÂ³Â Ã¬âÂÃªÂ²Å ÃªÂ¸Ë 385,000,000Ã¬âºÂ Ã«Â°Â Ã¬ÂÂ´Ã¬âÂ Ã«Åâ¬Ã­â¢ËÃ¬âÂ¬ 2025. 6. 15.Ã«Â¶â¬Ã­âÂ° Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â° Ã¬âÂ ÃªÂ³Â Ã¬ÂÂ¼ÃªÂ¹ÅÃ¬Â§â¬Ã«Å â Ã¬âÂ° 5%, ÃªÂ·Â¸ Ã«â¹Â¤Ã¬ÂÅÃ«âÂ Ã«Â¶â¬Ã­âÂ° Ã«â¹Â¤ ÃªÂ°Å¡Ã«Å â Ã«âÂ ÃªÂ¹ÅÃ¬Â§â¬Ã«Å â Ã¬âÂ° 12%Ã¬ÂË ÃªÂ°Â Ã«Â¹âÃ¬ÅÂ¨Ã¬âÂ Ã¬ÂËÃ­â¢Å ÃªÂ¸ËÃ¬âºÂÃ¬Ââ Ã¬Â§â¬ÃªÂ¸â°Ã­â¢ËÃ«ÂÂ¼.
-2. Ã¬â ÅÃ¬â Â¡Ã«Â¹âÃ¬Å¡Â©Ã¬Ââ¬ Ã­âÂ¼ÃªÂ³Â ÃªÂ°â¬ Ã«Â¶â¬Ã«â¹Â´Ã­â¢ÅÃ«â¹Â¤.
-3. Ã¬Â Å1Ã­â¢Â­Ã¬Ââ¬ ÃªÂ°â¬Ã¬Â§âÃ­ââ°Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«â¹Â¤.
+ã€ì£¼ë¬¸ã€‘
+1. í”¼ê³ ëŠ” ì›ê³ ì—ê²Œ ê¸ˆ 385,000,000ì› ë° ì´ì— ëŒ€í•˜ì—¬ 2025. 6. 15.ë¶€í„° ì´ íŒê²° ì„ ê³ ì¼ê¹Œì§€ëŠ” ì—° 5%, ê·¸ ë‹¤ìŒë‚ ë¶€í„° ë‹¤ ê°šëŠ” ë‚ ê¹Œì§€ëŠ” ì—° 12%ì˜ ê° ë¹„ìœ¨ì— ì˜í•œ ê¸ˆì›ì„ ì§€ê¸‰í•˜ë¼.
+2. ì†Œì†¡ë¹„ìš©ì€ í”¼ê³ ê°€ ë¶€ë‹´í•œë‹¤.
+3. ì œ1í•­ì€ ê°€ì§‘í–‰í•  ìˆ˜ ìžˆë‹¤.
 
-Ã£â¬ÂÃ¬ÂÂ´Ã¬ÅÂ Ã£â¬â
-1. ÃªÂ¸Â°Ã¬Â´ËÃ¬âÂ¬Ã¬â¹Â¤
-ÃªÂ°â¬. Ã¬Å¡Â´Ã¬â Â¡ÃªÂ³âÃ¬â¢Â½ Ã¬Â²Â´ÃªÂ²Â°
-Ã¬âºÂÃªÂ³Â Ã«Å â 2025. 5. 10. Ã­âÂ¼ÃªÂ³Â Ã¬â¢â¬ Ã¬âÂ¬Ã¬ÂÂ´Ã¬âÂ Ã«Æâ°Ã«Ââ¢ Ã«Âªâ¦Ã­ÆÅ 20Ã­â Â¤(Ã¬ÂÂ´Ã­â¢Ë 'Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã­â¢âÃ«Â¬Â¼')Ã¬Ââ Ã«Â¶â¬Ã¬âÂ°Ã­â¢Â­Ã¬âÂÃ¬âÅ Ã«Â¸âÃ«ÂÂ¼Ã«ââÃ«Â³Â´Ã¬Å Â¤Ã­â Â Ã­ÂÂ¬Ã­â¢Â­ÃªÂ¹ÅÃ¬Â§â¬ Ã¬Å¡Â´Ã¬â Â¡Ã­â¢ËÃ«Å â ÃªÂ³âÃ¬â¢Â½Ã¬Ââ Ã¬Â²Â´ÃªÂ²Â°Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.
+ã€ì´ìœ ã€‘
+1. ê¸°ì´ˆì‚¬ì‹¤
+ê°€. ìš´ì†¡ê³„ì•½ ì²´ê²°
+ì›ê³ ëŠ” 2025. 5. 10. í”¼ê³ ì™€ ì‚¬ì´ì— ëƒ‰ë™ ëª…íƒœ 20í†¤(ì´í•˜ 'ì´ ì‚¬ê±´ í™”ë¬¼')ì„ ë¶€ì‚°í•­ì—ì„œ ë¸”ë¼ë””ë³´ìŠ¤í† í¬í•­ê¹Œì§€ ìš´ì†¡í•˜ëŠ” ê³„ì•½ì„ ì²´ê²°í•˜ì˜€ë‹¤.
 
-Ã«âË. Ã¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂ
-2025. 6. 10. Ã­âÂ¼ÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã¬Â âÃªÂ¸Â° Ã¬â¹ÅÃ¬Å Â¤Ã­â¦Å ÃªÂ³Â Ã¬Å¾Â¥Ã¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã­â¢âÃ«Â¬Â¼Ã¬ÂÂ´ Ã¬Â ÂÃ¬Å¾â¦Ã«ÂÅ Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âËÃ¬ÂË Ã¬Â âÃ¬âºÂ ÃªÂ³ÂµÃªÂ¸â°Ã¬ÂÂ´ Ã¬â¢Â½ 18Ã¬â¹ÅÃªÂ°â Ã«Ââ¢Ã¬â¢Ë Ã¬Â¤âÃ«â¹Â¨Ã«ÂËÃ¬âËÃªÂ³Â , Ã¬ÂÂ´Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âË Ã«âÂ´Ã«Â¶â¬ Ã¬ËÂ¨Ã«ÂâÃªÂ°â¬ Ã¬ËÂÃ¬ÆÂ 8Ã«ÂâÃªÂ¹ÅÃ¬Â§â¬ Ã¬ÆÂÃ¬Å Â¹Ã­â¢ËÃ¬âÂ¬ Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã­â¢âÃ«Â¬Â¼ Ã¬Â âÃ«Å¸â°Ã¬ÂÂ´ Ã«Â³â¬Ã¬Â§ËÃ«ÂËÃ¬âËÃ«â¹Â¤.
+ë‚˜. ì‚¬ê³  ë°œìƒ
+2025. 6. 10. í”¼ê³  ì„ ë°•ì˜ ì „ê¸° ì‹œìŠ¤í…œ ê³ ìž¥ìœ¼ë¡œ ì¸í•˜ì—¬ ì´ ì‚¬ê±´ í™”ë¬¼ì´ ì ìž…ëœ ëƒ‰ë™ ì»¨í…Œì´ë„ˆì˜ ì „ì› ê³µê¸‰ì´ ì•½ 18ì‹œê°„ ë™ì•ˆ ì¤‘ë‹¨ë˜ì—ˆê³ , ì´ë¡œ ì¸í•˜ì—¬ ì»¨í…Œì´ë„ˆ ë‚´ë¶€ ì˜¨ë„ê°€ ì˜ìƒ 8ë„ê¹Œì§€ ìƒìŠ¹í•˜ì—¬ ì´ ì‚¬ê±´ í™”ë¬¼ ì „ëŸ‰ì´ ë³€ì§ˆë˜ì—ˆë‹¤.
 
-2. Ã­âÂ¼ÃªÂ³Â Ã¬ÂË Ã­â¢Â­Ã«Â³â¬Ã¬âÂ Ã«Åâ¬Ã­â¢Å Ã­ÅÂÃ«â¹Â¨
-Ã­âÂ¼ÃªÂ³Â Ã«Å â Ã¬ÂÂ´ Ã¬âÂ¬ÃªÂ±Â´ Ã¬Â âÃªÂ¸Â° Ã¬â¹ÅÃ¬Å Â¤Ã­â¦Å ÃªÂ³Â Ã¬Å¾Â¥Ã¬ÂÂ´ Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å796Ã¬Â¡Â° Ã¬Â Å1Ã­ËÂ¸Ã¬ÂË 'Ã­â¢Â­Ã­â¢Â´Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬âÂ Ã¬Å¾Â¥ÃÂ·Ã­â¢Â´Ã¬âºÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤'Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬âÂ¬ Ã«Â©Â´Ã¬Â±â¦Ã«ÂÅÃ«â¹Â¤ÃªÂ³Â  Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ÅÃ«â¹Â¤. ÃªÂ·Â¸Ã«Å¸Â¬Ã«âË Ã«Æâ°Ã«Ââ¢ Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âËÃ¬ÂË Ã¬Â âÃ¬âºÂÃ¬Ââ Ã¬Â§â¬Ã¬â ÂÃ¬Â ÂÃ¬ÅÂ¼Ã«Â¡Å ÃªÂ³ÂµÃªÂ¸â°ÃÂ·Ã¬ÅÂ Ã¬Â§â¬Ã­â¢ËÃ«Å â ÃªÂ²ÆÃ¬Ââ¬ Ã­â¢âÃ«Â¬Â¼Ã¬ÂË Ã¬â¢ËÃ¬Â âÃ­â¢Å Ã«Â³Â´ÃªÂ´â¬ÃªÂ³Â¼ Ã¬Â§ÂÃªÂ²Â°Ã«ÂËÃ«Å â Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂÃ¬ÂË Ã¬ÂËÃ«Â¬Â´Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃªÂ³Â , Ã¬ÂÂ´Ã«Â¥Â¼ Ã¬ÂÂ´Ã­ââ°Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢Å ÃªÂ²ÆÃ¬Ââ¬ Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ´ Ã¬â¢âÃ«â¹Å Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂÃ¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¡ÅÃ¬âÅ Ã«Â©Â´Ã¬Â±â¦ Ã¬âÂ¬Ã¬ÅÂ Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ÅÃ«â¹Â¤.`,
+2. í”¼ê³ ì˜ í•­ë³€ì— ëŒ€í•œ íŒë‹¨
+í”¼ê³ ëŠ” ì´ ì‚¬ê±´ ì „ê¸° ì‹œìŠ¤í…œ ê³ ìž¥ì´ ìƒë²• ì œ796ì¡° ì œ1í˜¸ì˜ 'í•­í•´ì— ê´€í•œ ì„ ìž¥Â·í•´ì›ì˜ ê³¼ì‹¤'ì— í•´ë‹¹í•˜ì—¬ ë©´ì±…ëœë‹¤ê³  ì£¼ìž¥í•œë‹¤. ê·¸ëŸ¬ë‚˜ ëƒ‰ë™ ì»¨í…Œì´ë„ˆì˜ ì „ì›ì„ ì§€ì†ì ìœ¼ë¡œ ê³µê¸‰Â·ìœ ì§€í•˜ëŠ” ê²ƒì€ í™”ë¬¼ì˜ ì•ˆì „í•œ ë³´ê´€ê³¼ ì§ê²°ë˜ëŠ” ìƒì—…ìƒì˜ ì˜ë¬´ì— í•´ë‹¹í•˜ê³ , ì´ë¥¼ ì´í–‰í•˜ì§€ ì•„ë‹ˆí•œ ê²ƒì€ í•­í•´ìƒì˜ ê³¼ì‹¤ì´ ì•„ë‹Œ ìƒì—…ìƒì˜ ê³¼ì‹¤ë¡œì„œ ë©´ì±… ì‚¬ìœ ì— í•´ë‹¹í•˜ì§€ ì•„ë‹ˆí•œë‹¤.`,
    provisions:[
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å796Ã¬Â¡Â°",title:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË Ã«Â©Â´Ã¬Â±â¦Ã¬âÂ¬Ã¬ÅÂ ",text:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬Ââ¬ Ã¬Å¾ÂÃªÂ¸Â° Ã«ËÂÃ«Å â Ã¬âÂ¬Ã¬Å¡Â©Ã¬ÂÂ¸Ã¬ÂÂ´ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬ÂË Ã¬ËËÃ«Â Â¹, Ã¬âÂ Ã¬Â Â, Ã¬Â ÂÃ«Â¶â¬, Ã¬Å¡Â´Ã¬â Â¡, Ã«Â³Â´ÃªÂ´â¬, Ã¬ââÃ«Â¥â¢ÃªÂ³Â¼ Ã¬ÂÂ¸Ã«ÂâÃ¬âÂ ÃªÂ´â¬Ã­â¢ËÃ¬âÂ¬ Ã¬Â£Â¼Ã¬ÂËÃ«Â¥Â¼ Ã­â¢Â´Ã­ÆÅÃ­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ¬Ëâ¬Ã¬ÂÅÃ¬Ââ Ã¬Â¦ÂÃ«Âªâ¦Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«Â©Â´ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬ÂË Ã«Â©Â¸Ã¬â¹Â¤, Ã­âºÂ¼Ã¬â Â Ã«ËÂÃ«Å â Ã¬âÂ°Ã¬Â°Â©Ã¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã¬â ÂÃ­â¢Â´Ã«Â¥Â¼ Ã«Â°Â°Ã¬ÆÂÃ­â¢Â  Ã¬Â±â¦Ã¬Å¾âÃ¬ÂÂ´ Ã¬Å¾ËÃ«â¹Â¤. Ã«â¹Â¤Ã«Â§Å, Ã«â¹Â¤Ã¬ÂÅ ÃªÂ°Â Ã­ËÂ¸Ã¬ÂË Ã¬âÂ´Ã«Å Â Ã­â¢ËÃ«âËÃ¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ«Å â ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Å â ÃªÂ·Â¸Ã«Å¸Â¬Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«â¹Â¤. 1. Ã­â¢Â­Ã­â¢Â´Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬âÂ Ã¬Å¾Â¥ÃÂ·Ã­â¢Â´Ã¬âºÂÃÂ·Ã«ÂâÃ¬âÂ Ã¬âÂ¬ ÃªÂ¸Â°Ã­Æâ¬Ã¬ÂË Ã¬âÂ¬Ã¬Å¡Â©Ã¬ÂÂ¸Ã¬ÂË Ã­ââ°Ã¬Åâ, Ã­â¢Â´Ã­ÆÅ Ã«ËÂÃ«Å â ÃªÂ³Â¼Ã¬â¹Â¤",relevance:"Ã­â¢Â­Ã­â¢Â´Ã¬ÆÂ ÃªÂ³Â¼Ã¬â¹Â¤ vs Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂ ÃªÂ³Â¼Ã¬â¹Â¤ ÃªÂµÂ¬Ã«Â¶â Ã¢â¬â Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â°Ã¬ÂË Ã­â¢ÂµÃ¬â¹Â¬ Ã¬Å¸ÂÃ¬Â Â"},
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å794Ã¬Â¡Â°",title:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË Ã¬ÂËÃ«Â¬Â´",text:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬Ââ¬ Ã¬Å¾ÂÃªÂ¸Â° Ã«ËÂÃ«Å â Ã¬âÂ¬Ã¬Å¡Â©Ã¬ÂÂ¸Ã¬ÂÂ´ Ã«Â°ÅÃ­â¢Â­ Ã«â¹Â¹Ã¬â¹Å Ã«â¹Â¤Ã¬ÂÅ ÃªÂ°Â Ã­ËÂ¸Ã¬ÂË Ã¬âÂ¬Ã­â¢Â­Ã¬âÂ ÃªÂ´â¬Ã­â¢ËÃ¬âÂ¬ Ã¬Â£Â¼Ã¬ÂËÃ«Â¥Â¼ Ã­â¢Â´Ã­ÆÅÃ­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ¬Ëâ¬Ã¬ÂÅÃ¬Ââ Ã¬Â¦ÂÃ«Âªâ¦Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«Â©Â´ ÃªÂ·Â¸Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬ÆÂÃªÂ¸Â´ Ã¬â ÂÃ­â¢Â´Ã«Â¥Â¼ Ã«Â°Â°Ã¬ÆÂÃ­â¢Â  Ã¬Â±â¦Ã¬Å¾âÃ¬ÂÂ´ Ã¬Å¾ËÃ«â¹Â¤. 1. Ã¬âÂ Ã«Â°â¢Ã¬Ââ ÃªÂ°ÂÃ­â¢Â­Ã«Å Â¥Ã«Â Â¥ Ã¬Å¾ËÃ«Å â Ã¬ÆÂÃ­ÆÅÃ¬âÂ Ã«âË ÃªÂ²Æ 2. Ã¬âÂ Ã¬âºÂÃ¬ÂË Ã¬Å Â¹Ã¬âÂ , Ã¬âÂ Ã«Â°â¢Ã¬ÂËÃ¬Å¾Â¥ÃªÂ³Â¼ Ã­â¢âÃ¬Å¡âÃ­âËÃ¬ÂË Ã«Â³Â´ÃªÂ¸â° 3. Ã¬âÂ Ã¬Â°Â½, Ã«Æâ°Ã¬Å¾Â¥Ã¬â¹Â¤ ÃªÂ·Â¸ Ã«Â°âÃ¬âÂ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬Ââ Ã¬Â ÂÃ¬Å¾Â¬Ã­â¢ËÃ«Å â Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã«Â¶â¬Ã«Â¶âÃ¬Ââ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬ÂË Ã¬ËËÃ«Â Â¹, Ã¬Å¡Â´Ã¬â Â¡ÃªÂ³Â¼ Ã«Â³Â´Ã¬Â¡Â´Ã¬âÂ Ã¬Â ÂÃ­â¢Â©Ã­â¢Å Ã¬ÆÂÃ­ÆÅÃ¬âÂ Ã«âË ÃªÂ²Æ",relevance:"Ã«Æâ°Ã«Ââ¢ Ã¬âÂ¤Ã«Â¹â Ã¬ÅÂ Ã¬Â§â¬Ã«Å â Ã¬Â Å3Ã­ËÂ¸Ã¬ÂË Ã¬ÂËÃ«Â¬Â´Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹ Ã¢â¬â Ã¬ÆÂÃ¬ââ¦Ã¬ÆÂ Ã¬ÂËÃ«Â¬Â´Ã¬Å¾âÃ¬Ââ Ã«âÂ·Ã«Â°âºÃ¬Â¹Â¨"},
-     {law:"Ã­âÂ¤Ã¬ÂÂ´ÃªÂ·Â¸-Ã«Â¹âÃ¬Å Â¤Ã«Â¹â ÃªÂ·ÅÃ¬Â¹â¢",article:"Art. IV Rule 2(a)",title:"Ã­â¢Â­Ã­â¢Â´ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â©Â´Ã¬Â±â¦",text:"Neither the carrier nor the ship shall be responsible for loss or damage arising or resulting from: (a) Act, neglect, or default of the master, mariner, pilot, or the servants of the carrier in the navigation or in the management of the ship.",relevance:"ÃªÂµÂ­Ã¬Â Å ÃªÂ¸Â°Ã¬Â¤â¬Ã¬ÆÂ Ã­â¢Â­Ã­â¢Â´(navigation) vs Ã¬âÂ Ã«Â°â¢ÃªÂ´â¬Ã«Â¦Â¬(management of the ship) ÃªÂ³Â¼Ã¬â¹Â¤ ÃªÂµÂ¬Ã«Â¶â ÃªÂ¸Â°Ã¬Â¤â¬"}
+     {law:"ìƒë²•",article:"ì œ796ì¡°",title:"ìš´ì†¡ì¸ì˜ ë©´ì±…ì‚¬ìœ ",text:"ìš´ì†¡ì¸ì€ ìžê¸° ë˜ëŠ” ì‚¬ìš©ì¸ì´ ìš´ì†¡ë¬¼ì˜ ìˆ˜ë ¹, ì„ ì , ì ë¶€, ìš´ì†¡, ë³´ê´€, ì–‘ë¥™ê³¼ ì¸ë„ì— ê´€í•˜ì—¬ ì£¼ì˜ë¥¼ í•´íƒœí•˜ì§€ ì•„ë‹ˆí•˜ì˜€ìŒì„ ì¦ëª…í•˜ì§€ ì•„ë‹ˆí•˜ë©´ ìš´ì†¡ë¬¼ì˜ ë©¸ì‹¤, í›¼ì† ë˜ëŠ” ì—°ì°©ìœ¼ë¡œ ì¸í•œ ì†í•´ë¥¼ ë°°ìƒí•  ì±…ìž„ì´ ìžˆë‹¤. ë‹¤ë§Œ, ë‹¤ìŒ ê° í˜¸ì˜ ì–´ëŠ í•˜ë‚˜ì— í•´ë‹¹í•˜ëŠ” ê²½ìš°ì—ëŠ” ê·¸ëŸ¬í•˜ì§€ ì•„ë‹ˆí•˜ë‹¤. 1. í•­í•´ì— ê´€í•œ ì„ ìž¥Â·í•´ì›Â·ë„ì„ ì‚¬ ê¸°íƒ€ì˜ ì‚¬ìš©ì¸ì˜ í–‰ìœ„, í•´íƒœ ë˜ëŠ” ê³¼ì‹¤",relevance:"í•­í•´ìƒ ê³¼ì‹¤ vs ìƒì—…ìƒ ê³¼ì‹¤ êµ¬ë¶„ â€” ì´ íŒê²°ì˜ í•µì‹¬ ìŸì "},
+     {law:"ìƒë²•",article:"ì œ794ì¡°",title:"ìš´ì†¡ì¸ì˜ ì˜ë¬´",text:"ìš´ì†¡ì¸ì€ ìžê¸° ë˜ëŠ” ì‚¬ìš©ì¸ì´ ë°œí•­ ë‹¹ì‹œ ë‹¤ìŒ ê° í˜¸ì˜ ì‚¬í•­ì— ê´€í•˜ì—¬ ì£¼ì˜ë¥¼ í•´íƒœí•˜ì§€ ì•„ë‹ˆí•˜ì˜€ìŒì„ ì¦ëª…í•˜ì§€ ì•„ë‹ˆí•˜ë©´ ê·¸ë¡œ ì¸í•˜ì—¬ ìƒê¸´ ì†í•´ë¥¼ ë°°ìƒí•  ì±…ìž„ì´ ìžˆë‹¤. 1. ì„ ë°•ì„ ê°í•­ëŠ¥ë ¥ ìžˆëŠ” ìƒíƒœì— ë‘˜ ê²ƒ 2. ì„ ì›ì˜ ìŠ¹ì„ , ì„ ë°•ì˜ìž¥ê³¼ í•„ìš”í’ˆì˜ ë³´ê¸‰ 3. ì„ ì°½, ëƒ‰ìž¥ì‹¤ ê·¸ ë°–ì— ìš´ì†¡ë¬¼ì„ ì ìž¬í•˜ëŠ” ì„ ë°•ì˜ ë¶€ë¶„ì„ ìš´ì†¡ë¬¼ì˜ ìˆ˜ë ¹, ìš´ì†¡ê³¼ ë³´ì¡´ì— ì í•©í•œ ìƒíƒœì— ë‘˜ ê²ƒ",relevance:"ëƒ‰ë™ ì„¤ë¹„ ìœ ì§€ëŠ” ì œ3í˜¸ì˜ ì˜ë¬´ì— í•´ë‹¹ â€” ìƒì—…ìƒ ì˜ë¬´ìž„ì„ ë’·ë°›ì¹¨"},
+     {law:"í—¤ì´ê·¸-ë¹„ìŠ¤ë¹„ ê·œì¹™",article:"Art. IV Rule 2(a)",title:"í•­í•´ê³¼ì‹¤ ë©´ì±…",text:"Neither the carrier nor the ship shall be responsible for loss or damage arising or resulting from: (a) Act, neglect, or default of the master, mariner, pilot, or the servants of the carrier in the navigation or in the management of the ship.",relevance:"êµ­ì œ ê¸°ì¤€ìƒ í•­í•´(navigation) vs ì„ ë°•ê´€ë¦¬(management of the ship) ê³¼ì‹¤ êµ¬ë¶„ ê¸°ì¤€"}
    ]},
 
-  {id:4, caseNum:"[2025] HKCFI 2156", type:"Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ", country:"Ã­â¢ÂÃ¬Â½Â©", flag:"Ã°Å¸â¡Â­Ã°Å¸â¡Â°", court:"CFI Admiralty", date:"2025.09.18", conf:0.88,
-   title:"Ã¬â¢Â¼ÃªÂ°â Ã­â¢Â­Ã­ââ° Ã¬Â¤â Ã¬Â¶Â©Ã«ÂÅÃ¬âÂ¬ÃªÂ³Â Ã¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â¹âÃ¬ÅÂ¨ÃªÂ³Â¼ Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥Ë Ã¬Å¡âÃªÂ±Â´",
-   summary:"Ã­â¢ÂÃ¬Â½Â© Ã­â¢Â­ÃªÂµÂ¬ Ã«âÂ´ Ã¬â¢Â¼ÃªÂ°â Ã­â¢Â­Ã­ââ° Ã¬Â¤â Ã¬Â¶Â©Ã«ÂÅÃ¬âÂ¬ÃªÂ³Â  Ã«Â°ÅÃ¬ÆÂ Ã¬â¹Å Ã¬ââ Ã¬âÂ Ã«Â°â¢Ã¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â¹âÃ¬ÅÂ¨ Ã¬âÂ°Ã¬Â â¢ Ã«Â°Â Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥Ë Ã¬Â ËÃ¬Â°Â¨Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã­ÅÂÃªÂ²Â°",
-   facts:"Ã¬âºÂÃªÂ³Â  Ã¬â ÅÃ¬ÅÂ  Ã¬Â»Â¨Ã­â¦ÅÃ¬ÂÂ´Ã«âËÃ¬âÂ ÃªÂ³Â¼ Ã­âÂ¼ÃªÂ³Â  Ã¬â ÅÃ¬ÅÂ  Ã«Â²ÅÃ­ÂÂ¬Ã¬âÂ Ã¬ÂÂ´ Ã­â¢ÂÃ¬Â½Â© Ã«Â¹â¦Ã­â Â Ã«Â¦Â¬Ã¬â¢â Ã­â¢Â­Ã«Â§Å Ã«âÂ´Ã¬âÂÃ¬âÅ Ã¬â¢Â¼ÃªÂ°â Ã­â¢Â­Ã­ââ° Ã¬Â¤â Ã¬Â¶Â©Ã«ÂÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬âºÂÃªÂ³Â Ã«Å â Ã­âÂ¼ÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã¬Â ÂÃ¬Â ËÃ­â¢Å Ã«Â§ÂÃ«Â£Â¨ Ã¬ÅÂ Ã¬Â§â¬ Ã¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬Ââ Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ËÃ¬Ëâ¬ÃªÂ³Â , Ã­âÂ¼ÃªÂ³Â Ã«Å â Ã¬âºÂÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË ÃªÂ³Â¼Ã¬â ÂÃ¬Ââ Ã«Â°ËÃ¬â Å Ã¬Â²Â­ÃªÂµÂ¬Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬âºÂÃªÂ³Â Ã«Å â Ã¬Å¾âÃ¬â¹Å Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥ËÃ«Â¥Â¼ Ã¬â¹Â Ã¬Â²Â­Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã­â¢Â­Ã«Â§Å Ã«âÂ´ Ã¬â¢Â¼ÃªÂ°â Ã­â¢Â­Ã­ââ° Ã¬â¹Å Ã«Â§ÂÃ«Â£Â¨ Ã¬ÅÂ Ã¬Â§â¬ Ã¬ÂËÃ«Â¬Â´Ã¬ÂË ÃªÂ¸Â°Ã¬Â¤â¬","Ã¬Â¶Â©Ã«ÂÅ Ã¬âÂ¬ÃªÂ³Â Ã¬âÂÃ¬âÅ Ã¬ââ Ã¬âÂ Ã«Â°â¢Ã¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â¹âÃ¬ÅÂ¨ Ã¬âÂ°Ã¬Â â¢","Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥Ë Ã¬Å¡âÃªÂ±Â´ Ã¬Â¶Â©Ã¬Â¡Â± Ã¬âÂ¬Ã«Â¶â¬ Ã­ÅÂÃ«â¹Â¨"],
-   holding:"Ã«Â²â¢Ã¬âºÂÃ¬Ââ¬ Ã¬ââ Ã¬âÂ Ã«Â°â¢ Ã«ÂªÂ¨Ã«âÂ ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ´ Ã¬Å¾ËÃ«â¹Â¤ÃªÂ³Â  Ã¬ÂÂ¸Ã¬Â â¢Ã­â¢ËÃ«Â©Â´Ã¬âÅ, Ã­âÂ¼ÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã«Â§ÂÃ«Â£Â¨ Ã¬â ÅÃ­â¢â¬Ã¬âÂ 60%, Ã¬âºÂÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË ÃªÂ³Â¼Ã¬â ÂÃ¬âÂ 40%Ã¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤Ã¬Ââ Ã«Â°Â°Ã«Â¶âÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥Ë Ã¬â¹Â Ã¬Â²Â­ÃªÂ³Â¼ ÃªÂ´â¬Ã«Â Â¨Ã­â¢ËÃ¬âÂ¬ Ã¬âºÂÃªÂ³Â Ã¬ÂË Ã¬Â²Â­ÃªÂµÂ¬ÃªÂ°â¬ prima facie Ã¬ÂÂ¸Ã¬Â â¢Ã«ÂËÃ«Â¯â¬Ã«Â¡Å ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥ËÃ«Â¥Â¼ Ã­âËÃªÂ°â¬Ã­â¢ËÃ«ÂË Ã¬Â ÂÃ¬Â â¢ Ã«â¹Â´Ã«Â³Â´ Ã¬Â ÅÃªÂ³ÂµÃ¬Ââ Ã¬Â¡Â°ÃªÂ±Â´Ã¬ÅÂ¼Ã«Â¡Å Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã¬âÂ Ã«Â°â¢ Ã¬Å¡Â´Ã­â¢Â­: Ã­â¢Â­Ã«Â§Å Ã«âÂ´ Ã¬â¢Â¼ÃªÂ°â Ã­â¢Â­Ã­ââ° Ã¬â¹Å Ã«Âªâ¦Ã­â¢â¢Ã­â¢Å Ã«Â§ÂÃ«Â£Â¨ Ã«â¹Â¹Ã¬Â§Â ÃªÂ¸Â°Ã«Â¡Â Ã¬ÅÂ Ã¬Â§â¬ Ã­â¢âÃ¬ËË","Ã¬âÂ Ã¬Â£Â¼/P&I Ã­ÂÂ´Ã«Å¸Â½: Ã¬Â¶Â©Ã«ÂÅ Ã¬âÂ¬ÃªÂ³Â  Ã¬â¹Å Ã¬Â¦â°ÃªÂ°ÂÃ¬Â ÂÃ¬ÂÂ¸ Ã¬Â¦ÂÃªÂ±Â° Ã«Â³Â´Ã¬Â âÃªÂ³Â¼ Ã«Â²â¢Ã«Â¥Â  Ã¬Â¡Â°Ã¬âÂ¸ Ã­â¢âÃ¬Å¡â","Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âËÃ¬âÂ¬: Ã¬Â¶Â©Ã«ÂÅ Ã¬â ÂÃ­â¢Â´ Ã¬Â²ËÃ«Â¦Â¬ Ã¬â¹Å ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â¹âÃ¬ÅÂ¨ Ã¬âÂ°Ã¬Â â¢Ã¬âÂ Ã¬ÂÂ´ Ã­ÅÂÃªÂ²Â° ÃªÂ¸Â°Ã¬Â¤â¬ Ã­â¢ÅÃ¬Å¡Â©"],
+  {id:4, caseNum:"[2025] HKCFI 2156", type:"ì„ ë°•ì¶©ëŒ", country:"í™ì½©", flag:"ðŸ‡­ðŸ‡°", court:"CFI Admiralty", date:"2025.09.18", conf:0.88,
+   title:"ì•¼ê°„ í•­í–‰ ì¤‘ ì¶©ëŒì‚¬ê³ ì˜ ê³¼ì‹¤ ë¹„ìœ¨ê³¼ ì„ ë°• ê°€ì••ë¥˜ ìš”ê±´",
+   summary:"í™ì½© í•­êµ¬ ë‚´ ì•¼ê°„ í•­í–‰ ì¤‘ ì¶©ëŒì‚¬ê³  ë°œìƒ ì‹œ ì–‘ ì„ ë°•ì˜ ê³¼ì‹¤ ë¹„ìœ¨ ì‚°ì • ë° ì„ ë°• ê°€ì••ë¥˜ ì ˆì°¨ì— ê´€í•œ íŒê²°",
+   facts:"ì›ê³  ì†Œìœ  ì»¨í…Œì´ë„ˆì„ ê³¼ í”¼ê³  ì†Œìœ  ë²Œí¬ì„ ì´ í™ì½© ë¹…í† ë¦¬ì•„ í•­ë§Œ ë‚´ì—ì„œ ì•¼ê°„ í•­í–‰ ì¤‘ ì¶©ëŒí•˜ì˜€ë‹¤. ì›ê³ ëŠ” í”¼ê³  ì„ ë°•ì˜ ì ì ˆí•œ ë§ë£¨ ìœ ì§€ ì˜ë¬´ ìœ„ë°˜ì„ ì£¼ìž¥í•˜ì˜€ê³ , í”¼ê³ ëŠ” ì›ê³  ì„ ë°•ì˜ ê³¼ì†ì„ ë°˜ì†Œ ì²­êµ¬í•˜ì˜€ë‹¤. ì›ê³ ëŠ” ìž„ì‹œ ì„ ë°• ê°€ì••ë¥˜ë¥¼ ì‹ ì²­í•˜ì˜€ë‹¤.",
+   issues:["í•­ë§Œ ë‚´ ì•¼ê°„ í•­í–‰ ì‹œ ë§ë£¨ ìœ ì§€ ì˜ë¬´ì˜ ê¸°ì¤€","ì¶©ëŒ ì‚¬ê³ ì—ì„œ ì–‘ ì„ ë°•ì˜ ê³¼ì‹¤ ë¹„ìœ¨ ì‚°ì •","ì„ ë°• ê°€ì••ë¥˜ ìš”ê±´ ì¶©ì¡± ì—¬ë¶€ íŒë‹¨"],
+   holding:"ë²•ì›ì€ ì–‘ ì„ ë°• ëª¨ë‘ ê³¼ì‹¤ì´ ìžˆë‹¤ê³  ì¸ì •í•˜ë©´ì„œ, í”¼ê³  ì„ ë°•ì˜ ë§ë£¨ ì†Œí™€ì— 60%, ì›ê³  ì„ ë°•ì˜ ê³¼ì†ì— 40%ì˜ ê³¼ì‹¤ì„ ë°°ë¶„í•˜ì˜€ë‹¤. ì„ ë°• ê°€ì••ë¥˜ ì‹ ì²­ê³¼ ê´€ë ¨í•˜ì—¬ ì›ê³ ì˜ ì²­êµ¬ê°€ prima facie ì¸ì •ë˜ë¯€ë¡œ ê°€ì••ë¥˜ë¥¼ í—ˆê°€í•˜ë˜ ì ì • ë‹´ë³´ ì œê³µì„ ì¡°ê±´ìœ¼ë¡œ í•˜ì˜€ë‹¤.",
+   implications:["ì„ ë°• ìš´í•­: í•­ë§Œ ë‚´ ì•¼ê°„ í•­í–‰ ì‹œ ëª…í™•í•œ ë§ë£¨ ë‹¹ì§ ê¸°ë¡ ìœ ì§€ í•„ìˆ˜","ì„ ì£¼/P&I í´ëŸ½: ì¶©ëŒ ì‚¬ê³  ì‹œ ì¦‰ê°ì ì¸ ì¦ê±° ë³´ì „ê³¼ ë²•ë¥  ì¡°ì–¸ í•„ìš”","í•´ìƒë³´í—˜ì‚¬: ì¶©ëŒ ì†í•´ ì²˜ë¦¬ ì‹œ ê³¼ì‹¤ ë¹„ìœ¨ ì‚°ì •ì— ì´ íŒê²° ê¸°ì¤€ í™œìš©"],
    laws:["Collision Regulations (COLREGS)","Admiralty Jurisdiction Regulation Ordinance (Hong Kong)","International Regulations for Preventing Collisions at Sea 1972"],
-   related:[{flag:"Ã°Å¸â¡Â­Ã°Å¸â¡Â°",text:"[2023] HKCFI 1892 Ã¢â¬â Collision in HK Waters"},{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2022] EWHC 588 Ã¢â¬â Night Navigation Duty"},{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2020Ã«â¹Â¤215678 Ã¢â¬â Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ ÃªÂ³Â¼Ã¬â¹Â¤Ã«Â¹âÃ¬ÅÂ¨"}],
+   related:[{flag:"ðŸ‡­ðŸ‡°",text:"[2023] HKCFI 1892 â€” Collision in HK Waters"},{flag:"ðŸ‡¬ðŸ‡§",text:"[2022] EWHC 588 â€” Night Navigation Duty"},{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2020ë‹¤215678 â€” ì„ ë°•ì¶©ëŒ ê³¼ì‹¤ë¹„ìœ¨"}],
    original:`[2025] HKCFI 2156
 
 IN THE HIGH COURT OF THE HONG KONG SPECIAL ADMINISTRATIVE REGION
@@ -615,45 +615,45 @@ FINDINGS OF FACT
 
 APPORTIONMENT OF LIABILITY
 5. Applying the principles in The Miraflores and The Abadesa [1967] 1 AC 826, I apportion liability as follows:
-   - Defendant (MV PACIFIC WIND): 60% Ã¢â¬â failure to maintain proper lookout
-   - Plaintiff (MV SEOUL STAR): 40% Ã¢â¬â excessive speed in harbour
+   - Defendant (MV PACIFIC WIND): 60% â€” failure to maintain proper lookout
+   - Plaintiff (MV SEOUL STAR): 40% â€” excessive speed in harbour
 6. The Plaintiff's application for arrest of MV PACIFIC WIND is granted, subject to the provision of security in the sum of USD 2.5 million.`,
    provisions:[
-     {law:"COLREGS",article:"Rule 5",title:"Look-out",text:"Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision.",relevance:"Ã­âÂ¼ÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã«Â§ÂÃ«Â£Â¨ Ã¬â ÅÃ­â¢â¬ Ã¢â¬â 60% ÃªÂ³Â¼Ã¬â¹Â¤ ÃªÂ·â¬Ã¬â ÂÃ¬ÂË ÃªÂ·Â¼ÃªÂ±Â°"},
-     {law:"COLREGS",article:"Rule 6",title:"Safe speed",text:"Every vessel shall at all times proceed at a safe speed so that she can take proper and effective action to avoid collision and be stopped within a distance appropriate to the prevailing circumstances and conditions. In determining a safe speed the following factors shall be among those taken into account: (a) By all vessels: (i) the state of visibility; (ii) the traffic density including concentrations of fishing vessels or any other vessels; (iii) the manoeuvrability of the vessel.",relevance:"Ã¬âºÂÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã­â¢Â­Ã«Â§Å Ã«âÂ´ ÃªÂ³Â¼Ã¬â Â Ã¢â¬â 40% ÃªÂ³Â¼Ã¬â¹Â¤ ÃªÂ·â¬Ã¬â ÂÃ¬ÂË ÃªÂ·Â¼ÃªÂ±Â°"},
-     {law:"AJRO (Hong Kong)",article:"s.12A",title:"Arrest of ship",text:"The Court has jurisdiction to hear and determine any claim arising in connection with a ship if, at the time when the action is brought, the ship is in Hong Kong or the defendant submits to the jurisdiction of the Court. A warrant of arrest may be issued where the plaintiff establishes a good arguable case.",relevance:"Ã¬âÂ Ã«Â°â¢ ÃªÂ°â¬Ã¬â¢â¢Ã«Â¥Ë Ã­âËÃªÂ°â¬ Ã¬Å¡âÃªÂ±Â´ Ã¢â¬â prima facie Ã¬Â²Â­ÃªÂµÂ¬ Ã¬ÂÂ¸Ã¬Â â¢ ÃªÂ¸Â°Ã¬Â¤â¬"}
+     {law:"COLREGS",article:"Rule 5",title:"Look-out",text:"Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision.",relevance:"í”¼ê³  ì„ ë°•ì˜ ë§ë£¨ ì†Œí™€ â€” 60% ê³¼ì‹¤ ê·€ì†ì˜ ê·¼ê±°"},
+     {law:"COLREGS",article:"Rule 6",title:"Safe speed",text:"Every vessel shall at all times proceed at a safe speed so that she can take proper and effective action to avoid collision and be stopped within a distance appropriate to the prevailing circumstances and conditions. In determining a safe speed the following factors shall be among those taken into account: (a) By all vessels: (i) the state of visibility; (ii) the traffic density including concentrations of fishing vessels or any other vessels; (iii) the manoeuvrability of the vessel.",relevance:"ì›ê³  ì„ ë°•ì˜ í•­ë§Œ ë‚´ ê³¼ì† â€” 40% ê³¼ì‹¤ ê·€ì†ì˜ ê·¼ê±°"},
+     {law:"AJRO (Hong Kong)",article:"s.12A",title:"Arrest of ship",text:"The Court has jurisdiction to hear and determine any claim arising in connection with a ship if, at the time when the action is brought, the ship is in Hong Kong or the defendant submits to the jurisdiction of the Court. A warrant of arrest may be issued where the plaintiff establishes a good arguable case.",relevance:"ì„ ë°• ê°€ì••ë¥˜ í—ˆê°€ ìš”ê±´ â€” prima facie ì²­êµ¬ ì¸ì • ê¸°ì¤€"}
    ]},
 
-  {id:5, caseNum:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2025Ã«â¹Â¤19472", type:"Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ", country:"Ã­â¢ÅÃªÂµÂ­", flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·", court:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ", date:"2025.08.22", conf:0.92,
-   title:"Ã«Â ËÃ¬ÂÂ´Ã«Ââ Ã«Â¯Â¸Ã¬Å¾âÃ«Ââ¢ Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã¬Â¶Â©Ã«ÂÅ Ã¬âÂ¬ÃªÂ³Â Ã¬â¢â¬ Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥ Ã­â¢Â­Ã«Â³â¬ Ã«Â²âÃ¬Åâ",
-   summary:"Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥Ã¬Ââ Ã¬ÂÂ¸Ã¬Â§â¬Ã­â¢ËÃªÂ³Â Ã«Ââ Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ ÃªÂ³âÃ¬â ÂÃ­â¢ËÃ«â¹Â¤ Ã¬Â¶Â©Ã«ÂÅÃ¬âÂ¬ÃªÂ³Â ÃªÂ°â¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢Å ÃªÂ²Â½Ã¬Å¡Â° Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥ Ã«ËÂÃ«Å â Ã¬âÂ Ã¬Â£Â¼ Ã«Â¬Â´Ã­â¢ÅÃ¬Â±â¦Ã¬Å¾â ÃªÂ°ÂÃªÂ²Â½ Ã¬Â£Â¼Ã¬Å¾Â¥ Ã­âËÃ¬Å¡Â© Ã¬âÂ¬Ã«Â¶â¬",
-   facts:"Ã­âÂ¼ÃªÂ³Â  Ã¬âÂ Ã«Â°â¢Ã¬Ââ¬ Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅ Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ ÃªÂ³âÃ¬â ÂÃ­â¢ËÃ«ÂË Ã¬Â¤â Ã¬âºÂÃªÂ³Â  Ã¬âÂ Ã«Â°â¢ÃªÂ³Â¼ Ã¬Â¶Â©Ã«ÂÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã­âÂ¼ÃªÂ³Â Ã«Å â Ã¬Â¶Â©Ã«ÂÅ Ã«â¹Â¹Ã¬â¹Å Ã¬Â§â¢Ã¬Ââ¬ Ã¬â¢ËÃªÂ°ÅÃ«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥Ã¬Ââ Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ËÃ¬Ëâ¬Ã¬ÅÂ¼Ã«âË, Ã¬âºÂÃªÂ³Â Ã«Å â Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅÃ¬ÂË Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ° Ã¬Å¾ÂÃ¬Â²Â´ÃªÂ°â¬ ÃªÂ³Â¼Ã¬â¹Â¤Ã¬ÂÂ´Ã«ÂÂ¼ÃªÂ³Â  Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   issues:["Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÂÂ¸Ã¬Â§â¬ Ã­âºâ Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ°Ã¬ÂÂ´ Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥ Ã­â¢Â­Ã«Â³â¬Ã¬Ââ Ã«Â°Â°Ã¬Â ÅÃ­â¢ËÃ«Å âÃ¬Â§â¬","Ã­â¢Â­Ã­â¢Â´ ÃªÂ³âÃ¬â Â Ã¬âÂ¬Ã«Â¶â¬ ÃªÂ²Â°Ã¬Â â¢Ã¬âÂ Ã«Åâ¬Ã­â¢Å Ã¬âÂ Ã¬Å¾Â¥Ã¬ÂË Ã¬Å¾Â¬Ã«Å¸â°ÃªÂ³Â¼ Ã¬Â£Â¼Ã¬ÂËÃ¬ÂËÃ«Â¬Â´ Ã«Â²âÃ¬Åâ","Ã¬â¢ËÃªÂ°Å Ã¬Â¤â Ã¬Â¶Â©Ã«ÂÅÃªÂ³Â¼ Ã­â¢Â­Ã«Â²â¢ Ã¬ÅâÃ«Â°ËÃ¬ÂË Ã¬ÂÂ¸ÃªÂ³Â¼ÃªÂ´â¬ÃªÂ³â"],
-   holding:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂÃ¬Ââ¬ Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥Ã¬Ââ Ã¬ÂÂ¸Ã¬Â§â¬Ã­â¢Å Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅ Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ ÃªÂ°â¢Ã­ââ°Ã­â¢Å ÃªÂ²ÆÃ¬Ââ¬ ÃªÂ·Â¸ Ã¬Å¾ÂÃ¬Â²Â´Ã«Â¡Å Ã¬Â£Â¼Ã¬ÂËÃ¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°ËÃ¬ÂÂ´Ã«Â©Â°, Ã¬ÂÂ´Ã­âºâ Ã¬Â§â¢Ã¬Ââ¬ Ã¬â¢ËÃªÂ°Å Ã«âÂ± Ã¬â¢â¦Ã¬Â²ÅÃ­âºâÃªÂ°â¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢ËÃ«ÂâÃ«ÂÂ¼Ã«Ââ Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥ Ã­â¢Â­Ã«Â³â¬Ã¬ÂÂ´ Ã­âËÃ¬Å¡Â©Ã«ÂËÃ¬Â§â¬ Ã¬â¢Å Ã«Å âÃ«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ¬â¹ÅÃ­â¢ËÃ¬Ëâ¬Ã«â¹Â¤. Ã­âÂ¼ÃªÂ³Â Ã¬ÂË ÃªÂ³Â¼Ã¬â¹Â¤ Ã«Â¹âÃ¬ÅÂ¨Ã¬Ââ 80%Ã«Â¡Å Ã¬ÂÂ¸Ã¬Â â¢Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.",
-   implications:["Ã¬âÂ Ã¬Å¾Â¥/Ã¬âÂ Ã«Â°â¢ÃªÂ´â¬Ã«Â¦Â¬Ã¬âÂ¬: Ã­â¢Â­Ã­â¢Â´ Ã¬â¢ËÃ¬Â âÃ¬Å¾Â¥Ã«Â¹â ÃªÂ²Â°Ã­â¢Â¨ Ã«Â°ÅÃªÂ²Â¬ Ã¬â¹Å Ã¬Â¶ÅÃ­â¢Â­ Ã«ËÂÃ«Å â ÃªÂ¸Â°Ã­â¢Â­ ÃªÂ²Â°Ã¬Â â¢ Ã«Â¬Â¸Ã¬âÅÃ­â¢â Ã¬ÂËÃ«Â¬Â´ ÃªÂ°â¢Ã­â¢â","P&I Ã­ÂÂ´Ã«Å¸Â½: Ã«Â³Â´Ã­âË Ã¬Â²ËÃ«Â¦Â¬ Ã¬â¹Å ÃªÂ²Â°Ã­â¢Â¨ Ã¬ÂÂ¸Ã¬Â§â¬ Ã¬â¹ÅÃ¬Â Â Ã­â¢â¢Ã¬ÂÂ¸Ã¬Ââ Ã¬ÅâÃ­â¢Å Ã­â¢Â­Ã­â¢Â´Ã¬ÂÂ¼Ã¬Â§â¬ Ã«Â¶âÃ¬âÂ Ã­â¢âÃ¬ËË","Ã¬âÂ Ã¬âÂ¬: Ã¬Å¡Â´Ã­â¢Â­ Ã¬Â â Ã¬Å¾Â¥Ã«Â¹â Ã¬Â ÂÃªÂ²â¬ Ã¬Â²Â´ÃªÂ³â Ã«Â°Â ÃªÂ²Â°Ã­â¢Â¨ Ã«Â³Â´ÃªÂ³Â  Ã¬Â ËÃ¬Â°Â¨ ÃªÂ°â¢Ã­â¢â ÃªÂ¶ÅÃªÂ³Â "],
-   laws:["Ã­â¢Â´Ã¬âÂ¬Ã¬â¢ËÃ¬Â âÃ«Â²â¢ Ã¬Â Å41Ã¬Â¡Â°","Ã¬ÆÂÃ«Â²â¢ Ã¬Â Å797Ã¬Â¡Â°","COLREGS Rule 19"],
-   related:[{flag:"Ã°Å¸â¡Â°Ã°Å¸â¡Â·",text:"Ã«Åâ¬Ã«Â²â¢Ã¬âºÂ 2017da216741 Ã¢â¬â Ã«Â ËÃ¬ÂÂ´Ã«Ââ Ã«Â¶ËÃ¬âÂ¬Ã¬Å¡Â© ÃªÂ³Â¼Ã¬â¹Â¤"},{flag:"Ã°Å¸â¡Â¬Ã°Å¸â¡Â§",text:"[2021] EWHC 1001 Ã¢â¬â Navigation Equipment Failure"},{flag:"Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬",text:"[2020] SGCA 19 Ã¢â¬â Radar Watch Keeping"}],
-   original:`Ã£â¬ÂÃ«Åâ¬Ã«Â²â¢Ã¬âºÂ 2025. 8. 22. Ã¬âÂ ÃªÂ³Â  2025Ã«â¹Â¤19872 Ã­ÅÂÃªÂ²Â°Ã£â¬â
+  {id:5, caseNum:"ëŒ€ë²•ì› 2025ë‹¤19472", type:"ì„ ë°•ì¶©ëŒ", country:"í•œêµ­", flag:"ðŸ‡°ðŸ‡·", court:"ëŒ€ë²•ì›", date:"2025.08.22", conf:0.92,
+   title:"ë ˆì´ë” ë¯¸ìž‘ë™ ì„ ë°•ì˜ ì¶©ëŒ ì‚¬ê³ ì™€ ë¶ˆê°€í•­ë ¥ í•­ë³€ ë²”ìœ„",
+   summary:"ë ˆì´ë” ê³ ìž¥ì„ ì¸ì§€í•˜ê³ ë„ í•­í•´ë¥¼ ê³„ì†í•˜ë‹¤ ì¶©ëŒì‚¬ê³ ê°€ ë°œìƒí•œ ê²½ìš° ë¶ˆê°€í•­ë ¥ ë˜ëŠ” ì„ ì£¼ ë¬´í•œì±…ìž„ ê°ê²½ ì£¼ìž¥ í—ˆìš© ì—¬ë¶€",
+   facts:"í”¼ê³  ì„ ë°•ì€ ë ˆì´ë” ê³ ìž¥ ìƒíƒœì—ì„œ í•­í•´ë¥¼ ê³„ì†í•˜ë˜ ì¤‘ ì›ê³  ì„ ë°•ê³¼ ì¶©ëŒí•˜ì˜€ë‹¤. í”¼ê³ ëŠ” ì¶©ëŒ ë‹¹ì‹œ ì§™ì€ ì•ˆê°œë¡œ ì¸í•œ ë¶ˆê°€í•­ë ¥ì„ ì£¼ìž¥í•˜ì˜€ìœ¼ë‚˜, ì›ê³ ëŠ” ë ˆì´ë” ê³ ìž¥ ìƒíƒœì—ì„œì˜ í•­í•´ ê°•í–‰ ìžì²´ê°€ ê³¼ì‹¤ì´ë¼ê³  ì£¼ìž¥í•˜ì˜€ë‹¤.",
+   issues:["ë ˆì´ë” ê³ ìž¥ ì¸ì§€ í›„ í•­í•´ ê°•í–‰ì´ ë¶ˆê°€í•­ë ¥ í•­ë³€ì„ ë°°ì œí•˜ëŠ”ì§€","í•­í•´ ê³„ì† ì—¬ë¶€ ê²°ì •ì— ëŒ€í•œ ì„ ìž¥ì˜ ìž¬ëŸ‰ê³¼ ì£¼ì˜ì˜ë¬´ ë²”ìœ„","ì•ˆê°œ ì¤‘ ì¶©ëŒê³¼ í•­ë²• ìœ„ë°˜ì˜ ì¸ê³¼ê´€ê³„"],
+   holding:"ëŒ€ë²•ì›ì€ ë ˆì´ë” ê³ ìž¥ì„ ì¸ì§€í•œ ìƒíƒœì—ì„œ í•­í•´ë¥¼ ê°•í–‰í•œ ê²ƒì€ ê·¸ ìžì²´ë¡œ ì£¼ì˜ì˜ë¬´ ìœ„ë°˜ì´ë©°, ì´í›„ ì§™ì€ ì•ˆê°œ ë“± ì•…ì²œí›„ê°€ ë°œìƒí•˜ë”ë¼ë„ ë¶ˆê°€í•­ë ¥ í•­ë³€ì´ í—ˆìš©ë˜ì§€ ì•ŠëŠ”ë‹¤ê³  íŒì‹œí•˜ì˜€ë‹¤. í”¼ê³ ì˜ ê³¼ì‹¤ ë¹„ìœ¨ì„ 80%ë¡œ ì¸ì •í•˜ì˜€ë‹¤.",
+   implications:["ì„ ìž¥/ì„ ë°•ê´€ë¦¬ì‚¬: í•­í•´ ì•ˆì „ìž¥ë¹„ ê²°í•¨ ë°œê²¬ ì‹œ ì¶œí•­ ë˜ëŠ” ê¸°í•­ ê²°ì • ë¬¸ì„œí™” ì˜ë¬´ ê°•í™”","P&I í´ëŸ½: ë³´í—˜ ì²˜ë¦¬ ì‹œ ê²°í•¨ ì¸ì§€ ì‹œì  í™•ì¸ì„ ìœ„í•œ í•­í•´ì¼ì§€ ë¶„ì„ í•„ìˆ˜","ì„ ì‚¬: ìš´í•­ ì „ ìž¥ë¹„ ì ê²€ ì²´ê³„ ë° ê²°í•¨ ë³´ê³  ì ˆì°¨ ê°•í™” ê¶Œê³ "],
+   laws:["í•´ì‚¬ì•ˆì „ë²• ì œ41ì¡°","ìƒë²• ì œ797ì¡°","COLREGS Rule 19"],
+   related:[{flag:"ðŸ‡°ðŸ‡·",text:"ëŒ€ë²•ì› 2017da216741 â€” ë ˆì´ë” ë¶ˆì‚¬ìš© ê³¼ì‹¤"},{flag:"ðŸ‡¬ðŸ‡§",text:"[2021] EWHC 1001 â€” Navigation Equipment Failure"},{flag:"ðŸ‡¸ðŸ‡¬",text:"[2020] SGCA 19 â€” Radar Watch Keeping"}],
+   original:`ã€ëŒ€ë²•ì› 2025. 8. 22. ì„ ê³  2025ë‹¤19872 íŒê²°ã€‘
 
-Ã£â¬ÂÃ­ÅÂÃ¬â¹ÅÃ¬âÂ¬Ã­â¢Â­Ã£â¬â
-Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥Ã¬Ââ Ã¬ÂÂ¸Ã¬Â§â¬Ã­â¢Å Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅ Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ ÃªÂ°â¢Ã­ââ°Ã­â¢ËÃ«â¹Â¤ Ã¬Â¶Â©Ã«ÂÅÃ¬âÂ¬ÃªÂ³Â ÃªÂ°â¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢Å ÃªÂ²Â½Ã¬Å¡Â°, Ã¬Â¶Â©Ã«ÂÅ Ã«â¹Â¹Ã¬â¹ÅÃ¬ÂË Ã¬Â§â¢Ã¬Ââ¬ Ã¬â¢ËÃªÂ°ÅÃ«Â¥Â¼ Ã¬ÂÂ´Ã¬ÅÂ Ã«Â¡Å Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥Ã¬Ââ Ã¬Â£Â¼Ã¬Å¾Â¥Ã­â¢Â  Ã¬ËË Ã¬Å¾ËÃ«Å âÃ¬Â§â¬ Ã¬âÂ¬Ã«Â¶â¬ (Ã¬â ÅÃªÂ·Â¹)
+ã€íŒì‹œì‚¬í•­ã€‘
+ë ˆì´ë” ê³ ìž¥ì„ ì¸ì§€í•œ ìƒíƒœì—ì„œ í•­í•´ë¥¼ ê°•í–‰í•˜ë‹¤ ì¶©ëŒì‚¬ê³ ê°€ ë°œìƒí•œ ê²½ìš°, ì¶©ëŒ ë‹¹ì‹œì˜ ì§™ì€ ì•ˆê°œë¥¼ ì´ìœ ë¡œ ë¶ˆê°€í•­ë ¥ì„ ì£¼ìž¥í•  ìˆ˜ ìžˆëŠ”ì§€ ì—¬ë¶€ (ì†Œê·¹)
 
-Ã£â¬ÂÃ­ÅÂÃªÂ²Â°Ã¬Å¡âÃ¬Â§â¬Ã£â¬â
-Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã¬â¢ËÃ¬Â â Ã­â¢Â­Ã­â¢Â´Ã¬âÂ Ã­â¢âÃ¬ËËÃ¬Â ÂÃ¬ÂÂ¸ Ã¬Å¾Â¥Ã«Â¹âÃ¬ÂÂ¸ Ã«Â ËÃ¬ÂÂ´Ã«ÂâÃ¬ÂË ÃªÂ³Â Ã¬Å¾Â¥Ã¬Ââ Ã¬ÂÂ¸Ã¬Â§â¬Ã­â¢Å Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅ Ã¬ÂÂ´Ã«Â¥Â¼ Ã¬ËËÃ«Â¦Â¬Ã­â¢ËÃªÂ±Â°Ã«âË Ã¬Å¡Â´Ã­â¢Â­Ã¬Ââ Ã¬Â¤âÃ«â¹Â¨Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃªÂ³Â  Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ ÃªÂ°â¢Ã­ââ°Ã­â¢Å Ã­ââ°Ã¬Åâ Ã¬Å¾ÂÃ¬Â²Â´ÃªÂ°â¬ Ã¬âÂ Ã¬Å¾Â¥Ã¬ÂË Ã¬Â£Â¼Ã¬ÂËÃ¬ÂËÃ«Â¬Â´Ã«Â¥Â¼ Ã¬ÅâÃ«Â°ËÃ­â¢Å ÃªÂ²ÆÃ¬ÂÂ´ÃªÂ³Â , Ã¬ÂÂ´Ã«Å¸Â¬Ã­â¢Å Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅ Ã¬Â§â¢Ã¬Ââ¬ Ã¬â¢ËÃªÂ°Å Ã«âÂ± Ã¬â¢â¦Ã¬Â²ÅÃ­âºâÃªÂ°â¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢ËÃ¬âÂ¬ Ã¬Â¶Â©Ã«ÂÅÃ¬âÂ¬ÃªÂ³Â ÃªÂ°â¬ Ã«Â°ÅÃ¬ÆÂÃ­â¢ËÃ¬Ëâ¬Ã«ÂâÃ«ÂÂ¼Ã«Ââ, ÃªÂ·Â¸ Ã¬â¢â¦Ã¬Â²ÅÃ­âºâÃ«Å â Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ¬âÂÃ¬âÅÃ¬ÂË Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ°Ã¬ÂÂ´Ã«ÂÂ¼Ã«Å â ÃªÂ³Â¼Ã¬â¹Â¤Ã­ââ°Ã¬ÅâÃ«Â¡Å Ã¬ÂÂ¸Ã­â¢ËÃ¬âÂ¬ Ã¬â¢Â¼ÃªÂ¸Â°Ã«ÂÅ Ã¬ÅâÃ­âËÃ¬ÂÂ´ Ã­ËâÃ¬â¹Â¤Ã­â¢âÃ«ÂÅ ÃªÂ²ÆÃ¬âÂ Ã«Â¶ËÃªÂ³Â¼Ã­â¢ËÃ¬âÂ¬ Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ÅÃ«â¹Â¤.
+ã€íŒê²°ìš”ì§€ã€‘
+ì„ ë°•ì˜ ì•ˆì „ í•­í•´ì— í•„ìˆ˜ì ì¸ ìž¥ë¹„ì¸ ë ˆì´ë”ì˜ ê³ ìž¥ì„ ì¸ì§€í•œ ìƒíƒœì—ì„œ ì´ë¥¼ ìˆ˜ë¦¬í•˜ê±°ë‚˜ ìš´í•­ì„ ì¤‘ë‹¨í•˜ì§€ ì•„ë‹ˆí•˜ê³  í•­í•´ë¥¼ ê°•í–‰í•œ í–‰ìœ„ ìžì²´ê°€ ì„ ìž¥ì˜ ì£¼ì˜ì˜ë¬´ë¥¼ ìœ„ë°˜í•œ ê²ƒì´ê³ , ì´ëŸ¬í•œ ìƒíƒœì—ì„œ ì§™ì€ ì•ˆê°œ ë“± ì•…ì²œí›„ê°€ ë°œìƒí•˜ì—¬ ì¶©ëŒì‚¬ê³ ê°€ ë°œìƒí•˜ì˜€ë”ë¼ë„, ê·¸ ì•…ì²œí›„ëŠ” ë ˆì´ë” ê³ ìž¥ ìƒíƒœì—ì„œì˜ í•­í•´ ê°•í–‰ì´ë¼ëŠ” ê³¼ì‹¤í–‰ìœ„ë¡œ ì¸í•˜ì—¬ ì•¼ê¸°ëœ ìœ„í—˜ì´ í˜„ì‹¤í™”ëœ ê²ƒì— ë¶ˆê³¼í•˜ì—¬ ë¶ˆê°€í•­ë ¥ì— í•´ë‹¹í•˜ì§€ ì•„ë‹ˆí•œë‹¤.
 
-Ã£â¬ÂÃ¬Â£Â¼Ã«Â¬Â¸Ã£â¬â
-Ã¬ÆÂÃªÂ³Â Ã«Â¥Â¼ ÃªÂ¸Â°ÃªÂ°ÂÃ­â¢ÅÃ«â¹Â¤. Ã¬ÆÂÃªÂ³Â Ã«Â¹âÃ¬Å¡Â©Ã¬Ââ¬ Ã­âÂ¼ÃªÂ³Â ÃªÂ°â¬ Ã«Â¶â¬Ã«â¹Â´Ã­â¢ÅÃ«â¹Â¤.
+ã€ì£¼ë¬¸ã€‘
+ìƒê³ ë¥¼ ê¸°ê°í•œë‹¤. ìƒê³ ë¹„ìš©ì€ í”¼ê³ ê°€ ë¶€ë‹´í•œë‹¤.
 
-Ã£â¬ÂÃ¬ÂÂ´Ã¬ÅÂ Ã£â¬â
-1. Ã¬âºÂÃ¬â¹Â¬Ã¬ÂË Ã­ÅÂÃ«â¹Â¨
-Ã¬âºÂÃ¬â¹Â¬Ã¬Ââ¬ Ã­âÂ¼ÃªÂ³Â ÃªÂ°â¬ Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥Ã¬Ââ Ã¬ÂÂ¸Ã¬Â§â¬Ã­â¢Å Ã¬â¹ÅÃ¬Â ÂÃ«Â¶â¬Ã­âÂ° Ã¬ÂÂ´Ã«Â¯Â¸ Ã¬Â£Â¼Ã¬ÂËÃ¬ÂËÃ«Â¬Â´ Ã¬ÅâÃ«Â°Ë Ã¬ÆÂÃ­ÆÅÃ¬âÂ Ã¬Å¾ËÃ¬âËÃ¬ÅÂ¼Ã«Â©Â°, ÃªÂ·Â¸ Ã¬ÂÂ´Ã­âºâÃ¬âÂ Ã«Â°ÅÃ¬ÆÂÃ­â¢Å Ã¬â¢ËÃªÂ°ÅÃ«Å â Ã¬ËËÃªÂ²Â¬ ÃªÂ°â¬Ã«Å Â¥Ã­â¢Å Ã¬ÅâÃ­âËÃ¬ÂË Ã­ËâÃ¬â¹Â¤Ã­â¢âÃ«Â¡ÅÃ¬âÅ Ã«Â¶ËÃªÂ°â¬Ã­â¢Â­Ã«Â Â¥Ã¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ËÃ¬Â§â¬ Ã¬â¢Å Ã«Å âÃ«â¹Â¤ÃªÂ³Â  Ã­ÅÂÃ«â¹Â¨Ã­â¢ËÃ¬Ëâ¬Ã«â¹Â¤.
+ã€ì´ìœ ã€‘
+1. ì›ì‹¬ì˜ íŒë‹¨
+ì›ì‹¬ì€ í”¼ê³ ê°€ ë ˆì´ë” ê³ ìž¥ì„ ì¸ì§€í•œ ì‹œì ë¶€í„° ì´ë¯¸ ì£¼ì˜ì˜ë¬´ ìœ„ë°˜ ìƒíƒœì— ìžˆì—ˆìœ¼ë©°, ê·¸ ì´í›„ì— ë°œìƒí•œ ì•ˆê°œëŠ” ì˜ˆê²¬ ê°€ëŠ¥í•œ ìœ„í—˜ì˜ í˜„ì‹¤í™”ë¡œì„œ ë¶ˆê°€í•­ë ¥ì— í•´ë‹¹í•˜ì§€ ì•ŠëŠ”ë‹¤ê³  íŒë‹¨í•˜ì˜€ë‹¤.
 
-2. Ã¬ÂÂ´ Ã«Â²â¢Ã¬âºÂÃ¬ÂË Ã­ÅÂÃ«â¹Â¨
-Ã­â¢Â´Ã¬âÂ¬Ã¬â¢ËÃ¬Â âÃ«Â²â¢ Ã¬Â Å41Ã¬Â¡Â°Ã«Å â Ã¬âÂ Ã«Â°â¢Ã¬ÂË Ã¬â¢ËÃ¬Â â Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ Ã¬ÅâÃ­â¢Å Ã¬Å¾Â¥Ã«Â¹â Ã¬ÅÂ Ã¬Â§â¬ Ã¬ÂËÃ«Â¬Â´Ã«Â¥Â¼ ÃªÂ·ÅÃ¬Â â¢Ã­â¢ËÃªÂ³Â  Ã¬Å¾ËÃ«â¹Â¤. Ã«Â ËÃ¬ÂÂ´Ã«ÂâÃ«Å â Ã­Å Â¹Ã­Å¾Ë Ã¬Â ÅÃ­â¢ÅÃ«ÂÅ Ã¬â¹ÅÃªÂ³â Ã¬ÆÂÃ­â¢Â©Ã¬âÂÃ¬âÅÃ¬ÂË Ã¬Â¶Â©Ã«ÂÅ Ã«Â°Â©Ã¬Â§â¬Ã«Â¥Â¼ Ã¬ÅâÃ­â¢Å Ã­â¢ÂµÃ¬â¹Â¬ Ã¬Å¾Â¥Ã«Â¹âÃ«Â¡ÅÃ¬âÅ, Ã¬ÂÂ´Ã«Â¥Â¼ Ã¬Å¾âÃ«Ââ¢Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃªÂ±Â°Ã«âË ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅÃ«Â¡Å Ã­â¢Â­Ã­â¢Â´Ã«Â¥Â¼ Ã¬Â§â¬Ã¬â ÂÃ­â¢ËÃ«Å â ÃªÂ²ÆÃ¬Ââ¬ ÃªÂ·Â¸ Ã¬Å¾ÂÃ¬Â²Â´Ã«Â¡Å COLREGS Rule 19Ã¬ÂË Ã¬ÅâÃ«Â°ËÃ¬âÂ Ã­â¢Â´Ã«â¹Â¹Ã­â¢ÅÃ«â¹Â¤. Ã«âÂ°Ã«ÂÂ¼Ã¬âÅ Ã¬âºÂÃ¬â¹Â¬ Ã­ÅÂÃªÂ²Â°Ã¬Ââ¬ Ã¬Â â¢Ã«â¹Â¹Ã­â¢ËÃ«â¹Â¤.`,
+2. ì´ ë²•ì›ì˜ íŒë‹¨
+í•´ì‚¬ì•ˆì „ë²• ì œ41ì¡°ëŠ” ì„ ë°•ì˜ ì•ˆì „ í•­í•´ë¥¼ ìœ„í•œ ìž¥ë¹„ ìœ ì§€ ì˜ë¬´ë¥¼ ê·œì •í•˜ê³  ìžˆë‹¤. ë ˆì´ë”ëŠ” íŠ¹ížˆ ì œí•œëœ ì‹œê³„ ìƒí™©ì—ì„œì˜ ì¶©ëŒ ë°©ì§€ë¥¼ ìœ„í•œ í•µì‹¬ ìž¥ë¹„ë¡œì„œ, ì´ë¥¼ ìž‘ë™í•˜ì§€ ì•„ë‹ˆí•˜ê±°ë‚˜ ê³ ìž¥ ìƒíƒœë¡œ í•­í•´ë¥¼ ì§€ì†í•˜ëŠ” ê²ƒì€ ê·¸ ìžì²´ë¡œ COLREGS Rule 19ì˜ ìœ„ë°˜ì— í•´ë‹¹í•œë‹¤. ë”°ë¼ì„œ ì›ì‹¬ íŒê²°ì€ ì •ë‹¹í•˜ë‹¤.`,
    provisions:[
-     {law:"Ã­â¢Â´Ã¬âÂ¬Ã¬â¢ËÃ¬Â âÃ«Â²â¢",article:"Ã¬Â Å41Ã¬Â¡Â°",title:"Ã¬âÂ Ã«Â°â¢ Ã­â¢Â­Ã«Â²â¢",text:"Ã¬âÂ Ã«Â°â¢Ã¬Ââ¬ Ã«â¹Â¤Ã«Â¥Â¸ Ã¬âÂ Ã«Â°â¢ÃªÂ³Â¼ Ã¬Â¶Â©Ã«ÂÅÃ¬Ââ Ã­âÂ¼Ã­â¢ËÃªÂ¸Â° Ã¬ÅâÃ­â¢ËÃ¬âÂ¬ Ã¬ÂÂ´ Ã«Â²â¢Ã¬âÂÃ¬âÅ Ã¬Â â¢Ã­â¢ËÃ«Å â Ã­â¢Â­Ã«Â²â¢Ã¬Ââ Ã¬Â§â¬Ã¬Â¼ÅÃ¬â¢Â¼ Ã­â¢ËÃ«Â©Â°, Ã­â¢Â­Ã«Â²â¢Ã¬Ââ Ã¬Â§â¬Ã­âÂ¤Ã«Å â ÃªÂ²Â½Ã¬Å¡Â°Ã¬âÂÃ«Ââ ÃªÂ·Â¸ Ã¬ÆÂÃ­â¢Â©Ã¬âÂ Ã«Â§Å¾Ã«Å â Ã¬Â ÂÃ¬Â ËÃ­â¢Å Ã¬Â¡Â°Ã¬âÂ Ã¬Ââ Ã­â¢ËÃ¬âÂ¬Ã¬â¢Â¼ Ã­â¢ÅÃ«â¹Â¤. Ã¬âÂ Ã«Â°â¢Ã¬Ââ¬ Ã¬â¹ÅÃªÂ³â(Ã¨Â¦âÃ§â¢Å)ÃªÂ°â¬ Ã¬Â ÅÃ­â¢ÅÃ«ÂÅ Ã¬ËËÃ¬âÂ­Ã¬âÂÃ¬âÅ Ã­â¢Â­Ã­â¢Â´Ã­â¢Â  Ã«â¢ÅÃ¬âÂÃ«Å â Ã¬â¢ËÃ¬Â âÃ­â¢Å Ã¬â ÂÃ«Â Â¥Ã¬ÅÂ¼Ã«Â¡Å Ã­â¢Â­Ã­â¢Â´Ã­â¢ËÃ¬âÂ¬Ã¬â¢Â¼ Ã­â¢ÅÃ«â¹Â¤.",relevance:"Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÆÂÃ­ÆÅ Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ°Ã¬ÂÂ´ Ã¬ÂÂ´ Ã¬Â¡Â°Ã­â¢Â­ Ã¬ÅâÃ«Â°ËÃ¬Å¾âÃ¬Ââ Ã­â¢â¢Ã¬ÂÂ¸Ã­â¢Å Ã­ÅÂÃªÂ²Â°Ã¬ÂË ÃªÂ·Â¼ÃªÂ±Â°"},
-     {law:"COLREGS",article:"Rule 19",title:"Conduct of vessels in restricted visibility",text:"This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility. Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre. Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.",relevance:"Ã¬Â ÅÃ­â¢ÅÃ«ÂÅ Ã¬â¹ÅÃªÂ³âÃ¬âÂÃ¬âÅÃ¬ÂË Ã­â¢Â­Ã«Â²â¢ Ã¬ÂËÃ«Â¬Â´ Ã¢â¬â Ã«Â ËÃ¬ÂÂ´Ã«Ââ Ã¬ââ Ã¬ÂÂ´ Ã¬â¢ËÃªÂ°Å Ã¬â Â Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ°Ã¬ÂË Ã¬ÅâÃ«Â²â¢Ã¬âÂ± ÃªÂ·Â¼ÃªÂ±Â°"},
-     {law:"Ã¬ÆÂÃ«Â²â¢",article:"Ã¬Â Å797Ã¬Â¡Â°",title:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË Ã¬Â±â¦Ã¬Å¾âÃ¬Â ÅÃ­â¢Å",text:"Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬Ââ¬ Ã¬Å¾ÂÃªÂ¸Â° Ã«ËÂÃ«Å â Ã¬âÂ¬Ã¬Å¡Â©Ã¬ÂÂ¸Ã¬ÂÂ´ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬âÂ ÃªÂ´â¬Ã­â¢Å Ã¬Â£Â¼Ã¬ÂËÃ«Â¥Â¼ Ã­â¢Â´Ã­ÆÅÃ­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ¬Ëâ¬Ã¬ÂÅÃ¬Ââ Ã¬Â¦ÂÃ«Âªâ¦Ã­â¢ËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ËÃ«Â©Â´ Ã¬Å¡Â´Ã¬â Â¡Ã«Â¬Â¼Ã¬ÂË Ã«Â©Â¸Ã¬â¹Â¤, Ã­âºÂ¼Ã¬â Â Ã«ËÂÃ«Å â Ã¬âÂ°Ã¬Â°Â©Ã¬ÅÂ¼Ã«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã¬â ÂÃ­â¢Â´Ã«Â¥Â¼ Ã«Â°Â°Ã¬ÆÂÃ­â¢Â  Ã¬Â±â¦Ã¬Å¾âÃ¬ÂÂ´ Ã¬Å¾ËÃ«â¹Â¤. Ã¬Â±â¦Ã¬Å¾âÃ¬Â ÅÃ­â¢ÅÃ¬Ââ¬ Ã¬Å¡Â´Ã¬â Â¡Ã¬ÂÂ¸Ã¬ÂË ÃªÂ³Â Ã¬ÂË Ã«ËÂÃ«Å â Ã¬â ÂÃ­â¢Â´ Ã«Â°ÅÃ¬ÆÂÃ¬ÂË Ã¬âÂ¼Ã«Â Â¤ÃªÂ°â¬ Ã¬Å¾ËÃ¬ÂÅÃ¬Ââ Ã¬ÂÂ¸Ã¬â¹ÂÃ­â¢ËÃ«Â©Â´Ã¬âÅ Ã­â¢Å Ã«Â¬Â´Ã«ÂªÂ¨Ã­â¢Å Ã­ââ°Ã¬ÅâÃ«Â¡Å Ã¬ÂÂ¸Ã­â¢Å Ã¬â ÂÃ­â¢Â´Ã¬âÂÃ«Å â Ã¬Â ÂÃ¬Å¡Â©Ã«ÂËÃ¬Â§â¬ Ã¬â¢âÃ«â¹ËÃ­â¢ÅÃ«â¹Â¤.",relevance:"Ã«Â ËÃ¬ÂÂ´Ã«Ââ ÃªÂ³Â Ã¬Å¾Â¥ Ã¬ÂÂ¸Ã¬Â§â¬ Ã­âºâ Ã­â¢Â­Ã­â¢Â´ ÃªÂ°â¢Ã­ââ°Ã¬Ââ¬ 'Ã¬â ÂÃ­â¢Â´ Ã«Â°ÅÃ¬ÆÂ Ã¬âÂ¼Ã«Â Â¤Ã«Â¥Â¼ Ã¬ÂÂ¸Ã¬â¹ÂÃ­â¢Å Ã«Â¬Â´Ã«ÂªÂ¨Ã­â¢Å Ã­ââ°Ã¬Åâ'Ã«Â¡ÅÃ¬âÅ Ã¬Â±â¦Ã¬Å¾âÃ¬Â ÅÃ­â¢Å Ã«Â¶ËÃªÂ°â¬"}
+     {law:"í•´ì‚¬ì•ˆì „ë²•",article:"ì œ41ì¡°",title:"ì„ ë°• í•­ë²•",text:"ì„ ë°•ì€ ë‹¤ë¥¸ ì„ ë°•ê³¼ ì¶©ëŒì„ í”¼í•˜ê¸° ìœ„í•˜ì—¬ ì´ ë²•ì—ì„œ ì •í•˜ëŠ” í•­ë²•ì„ ì§€ì¼œì•¼ í•˜ë©°, í•­ë²•ì„ ì§€í‚¤ëŠ” ê²½ìš°ì—ë„ ê·¸ ìƒí™©ì— ë§žëŠ” ì ì ˆí•œ ì¡°ì„ ì„ í•˜ì—¬ì•¼ í•œë‹¤. ì„ ë°•ì€ ì‹œê³„(è¦–ç•Œ)ê°€ ì œí•œëœ ìˆ˜ì—­ì—ì„œ í•­í•´í•  ë•Œì—ëŠ” ì•ˆì „í•œ ì†ë ¥ìœ¼ë¡œ í•­í•´í•˜ì—¬ì•¼ í•œë‹¤.",relevance:"ë ˆì´ë” ê³ ìž¥ ìƒíƒœ í•­í•´ ê°•í–‰ì´ ì´ ì¡°í•­ ìœ„ë°˜ìž„ì„ í™•ì¸í•œ íŒê²°ì˜ ê·¼ê±°"},
+     {law:"COLREGS",article:"Rule 19",title:"Conduct of vessels in restricted visibility",text:"This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility. Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre. Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.",relevance:"ì œí•œëœ ì‹œê³„ì—ì„œì˜ í•­ë²• ì˜ë¬´ â€” ë ˆì´ë” ì—†ì´ ì•ˆê°œ ì† í•­í•´ ê°•í–‰ì˜ ìœ„ë²•ì„± ê·¼ê±°"},
+     {law:"ìƒë²•",article:"ì œ797ì¡°",title:"ìš´ì†¡ì¸ì˜ ì±…ìž„ì œí•œ",text:"ìš´ì†¡ì¸ì€ ìžê¸° ë˜ëŠ” ì‚¬ìš©ì¸ì´ ìš´ì†¡ë¬¼ì— ê´€í•œ ì£¼ì˜ë¥¼ í•´íƒœí•˜ì§€ ì•„ë‹ˆí•˜ì˜€ìŒì„ ì¦ëª…í•˜ì§€ ì•„ë‹ˆí•˜ë©´ ìš´ì†¡ë¬¼ì˜ ë©¸ì‹¤, í›¼ì† ë˜ëŠ” ì—°ì°©ìœ¼ë¡œ ì¸í•œ ì†í•´ë¥¼ ë°°ìƒí•  ì±…ìž„ì´ ìžˆë‹¤. ì±…ìž„ì œí•œì€ ìš´ì†¡ì¸ì˜ ê³ ì˜ ë˜ëŠ” ì†í•´ ë°œìƒì˜ ì—¼ë ¤ê°€ ìžˆìŒì„ ì¸ì‹í•˜ë©´ì„œ í•œ ë¬´ëª¨í•œ í–‰ìœ„ë¡œ ì¸í•œ ì†í•´ì—ëŠ” ì ìš©ë˜ì§€ ì•„ë‹ˆí•œë‹¤.",relevance:"ë ˆì´ë” ê³ ìž¥ ì¸ì§€ í›„ í•­í•´ ê°•í–‰ì€ 'ì†í•´ ë°œìƒ ì—¼ë ¤ë¥¼ ì¸ì‹í•œ ë¬´ëª¨í•œ í–‰ìœ„'ë¡œì„œ ì±…ìž„ì œí•œ ë¶ˆê°€"}
    ]},
 ];
 
@@ -661,7 +661,7 @@ let currentView = 'dashboard';
 let prevView = 'dashboard';
 let bookmarks = new Set();
 
-// Ã¢â¢ÂÃ¢â¢Â NAVIGATION Ã¢â¢ÂÃ¢â¢Â
+// â•â• NAVIGATION â•â•
 function nav(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('v-' + view).classList.add('active');
@@ -681,14 +681,14 @@ function goBack() {
   nav(prevView === 'detail' ? 'search' : prevView);
 }
 
-// Ã¢â¢ÂÃ¢â¢Â FILTER TAGS Ã¢â¢ÂÃ¢â¢Â
+// â•â• FILTER TAGS â•â•
 function toggleFilter(el) {
   el.closest('.sb-filter-section').querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
   el.classList.add('on');
   if (currentView === 'search') renderSearch();
 }
 
-// Ã¢â¢ÂÃ¢â¢Â SEARCH Ã¢â¢ÂÃ¢â¢Â
+// â•â• SEARCH â•â•
 let currentSearchQuery = '';
 
 function doSearch() {
@@ -704,22 +704,22 @@ function filterAndSearch(type) {
 
 function renderSearch() {
   const q = currentSearchQuery.toLowerCase();
-  const country = document.getElementById('f-country')?.value || 'Ã¬Â âÃ¬Â²Â´';
-  const type = document.getElementById('f-type')?.value || 'Ã¬Â âÃ¬Â²Â´';
+  const country = document.getElementById('f-country')?.value || 'ì „ì²´';
+  const type = document.getElementById('f-type')?.value || 'ì „ì²´';
 
   let results = CASES.filter(c => {
     const matchQ = !q || c.caseNum.toLowerCase().includes(q) || c.title.toLowerCase().includes(q) || c.summary.toLowerCase().includes(q) || c.type.includes(q) || c.country.includes(q);
-    const matchC = country === 'Ã¬Â âÃ¬Â²Â´' || c.country === country.replace(/Ã°Å¸â¡Â°Ã°Å¸â¡Â·|Ã°Å¸â¡Â¬Ã°Å¸â¡Â§|Ã°Å¸â¡Â¸Ã°Å¸â¡Â¬|Ã°Å¸â¡Â­Ã°Å¸â¡Â°|Ã°Å¸â¡ÂºÃ°Å¸â¡Â¸|\s/g, '');
-    const matchT = type === 'Ã¬Â âÃ¬Â²Â´' || c.type === type;
+    const matchC = country === 'ì „ì²´' || c.country === country.replace(/ðŸ‡°ðŸ‡·|ðŸ‡¬ðŸ‡§|ðŸ‡¸ðŸ‡¬|ðŸ‡­ðŸ‡°|ðŸ‡ºðŸ‡¸|\s/g, '');
+    const matchT = type === 'ì „ì²´' || c.type === type;
     return matchQ && matchC && matchT;
   });
 
   const countEl = document.getElementById('resultCount');
-  countEl.innerHTML = q ? `<strong>"${q}"</strong> ÃªÂ²â¬Ã¬Æâ° ÃªÂ²Â°ÃªÂ³Â¼ Ã¢â¬â <strong>${results.length}Ã«qÂ´</strong>` : `<strong>${results.length}Ã«qÂ´</strong> Ã­âÅÃ¬â¹Å Ã¬Â¤â`;
+  countEl.innerHTML = q ? `<strong>"${q}"</strong> ê²€ìƒ‰ ê²°ê³¼ â€” <strong>${results.length}ëq´</strong>` : `<strong>${results.length}ëq´</strong> í‘œì‹œ ì¤‘`;
 
   const container = document.getElementById('searchResults');
   if (!results.length) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">Ã°Å¸âÂ</div><p>ÃªÂ²â¬Ã¬Æâ° ÃªÂ²Â°ÃªÂ³Â¼ÃªÂ°â¬ Ã¬ââ Ã¬Å ÂµÃ«â¹ËÃ«â¹Â¤</p></div>`;
+    container.innerHTML = `<div class="empty"><div class="empty-icon">ðŸ”</div><p>ê²€ìƒ‰ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤</p></div>`;
     return;
   }
   container.innerHTML = results.map(c => `
@@ -731,24 +731,24 @@ function renderSearch() {
       <div class="case-card-meta">
         <span class="flag">${c.flag}</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span>
-        <span style="font-size:12px;color:var(--gray)">ÃÂ·</span>
+        <span style="font-size:12px;color:var(--gray)">Â·</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif;margin-left:4px">${c.caseNum}</span>
       </div>
       <div class="case-card-summary">${c.summary}</div>
       <div class="case-card-footer">
-        <div class="case-meta-item">Ã°Å¸ââ¹ ${c.laws[0]}</div>
+        <div class="case-meta-item">ðŸ“‹ ${c.laws[0]}</div>
         <div class="conf-bar">
-          <div class="conf-label">Ã¬â¹Â Ã«Â¢Â°Ã«Ââ</div>
+          <div class="conf-label">ì‹ ë¢°ë„</div>
           <div class="conf-track"><div class="conf-fill" style="width:${c.conf*100}%"></div></div>
           <div class="conf-label" style="color:var(--navy);font-weight:600">${(c.conf*100).toFixed(0)}%</div>
         </div>
-        <span style="font-size:12px;color:var(--gray);margin-left:8px;cursor:pointer" onclick="event.stopPropagation();toggleBookmark(${c.id},this)">${bookmarks.has(c.id)?'Ã°Å¸ââ':'Ã°Å¸ââ'}</span>
+        <span style="font-size:12px;color:var(--gray);margin-left:8px;cursor:pointer" onclick="event.stopPropagation();toggleBookmark(${c.id},this)">${bookmarks.has(c.id)?'ðŸ”–':'ðŸ”–'}</span>
       </div>
     </div>`).join('');
 }
 
-// Ã¢â¢ÂÃ¢â¢Â DETAIL Ã¢â¢ÂÃ¢â¢Â
+// â•â• DETAIL â•â•
 function openDetail(id) {
   const c = CASES[id];
   prevView = currentView;
@@ -758,7 +758,7 @@ function openDetail(id) {
         <span class="flag" style="font-size:18px">${c.flag}</span>
         <span class="badge ${typeBadge(c.type)}">${c.type}</span>
         <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span>
-        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">ÃÂ·</span>
+        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">Â·</span>
         <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span>
       </div>
       <div class="detail-title">${c.title}</div>
@@ -767,9 +767,9 @@ function openDetail(id) {
     <div class="detail-body">
       <div class="detail-left">
         <div class="detail-tabs">
-          <button class="detail-tab active" onclick="switchTab(this,'tab-original')">Ã°Å¸ââ Ã¬âºÂÃ«Â¬Â¸</button>
-          <button class="detail-tab" onclick="switchTab(this,'tab-analysis')">Ã°Å¸Â¤â AI Ã«Â¶âÃ¬âÂ</button>
-          <button class="detail-tab" onclick="switchTab(this,'tab-provisions')">Ã¢Å¡âÃ¯Â¸Â ÃªÂ´â¬Ã«Â Â¨Ã¬Â¡Â°Ã«Â¬Â¸</button>
+          <button class="detail-tab active" onclick="switchTab(this,'tab-original')">ðŸ“„ ì›ë¬¸</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-analysis')">ðŸ¤– AI ë¶„ì„</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-provisions')">âš–ï¸ ê´€ë ¨ì¡°ë¬¸</button>
         </div>
         <div class="tab-pane active" id="tab-original">
           <div class="original-wrap">
@@ -777,28 +777,28 @@ function openDetail(id) {
               <span class="original-stamp">ORIGINAL</span>
               <div>
                 <div style="font-size:14px;font-weight:700;color:var(--navy)">${c.caseNum}</div>
-                <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} ÃÂ· ${c.date}</div>
+                <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} Â· ${c.date}</div>
               </div>
             </div>
-            <div class="original-body">${(c.original||'Ã¬âºÂÃ«Â¬Â¸ Ã¬Â¤â¬Ã«Â¹â Ã¬Â¤âÃ¬Å¾â¦Ã«â¹ËÃ«â¹Â¤.').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+            <div class="original-body">${(c.original||'ì›ë¬¸ ì¤€ë¹„ ì¤‘ìž…ë‹ˆë‹¤.').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
           </div>
         </div>
         <div class="tab-pane" id="tab-analysis">
           <div class="analysis-card">
             <div class="analysis-section">
-              <div class="analysis-section-title">Ã¢Å¡â Ã¬âÂ¬Ã¬â¹Â¤ÃªÂ´â¬ÃªÂ³â</div>
+              <div class="analysis-section-title">âš– ì‚¬ì‹¤ê´€ê³„</div>
               <div class="analysis-text">${c.facts}</div>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">Ã¢Ââ Ã¬Â£Â¼Ã¬Å¡â Ã¬Å¸ÂÃ¬Â Â</div>
+              <div class="analysis-section-title">â“ ì£¼ìš” ìŸì </div>
               <ul class="analysis-list">${c.issues.map(i=>`<li>${i}</li>`).join('')}</ul>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">Ã°Å¸Ââº Ã«Â²â¢Ã¬âºÂ Ã­ÅÂÃ«â¹Â¨</div>
+              <div class="analysis-section-title">ðŸ› ë²•ì› íŒë‹¨</div>
               <div class="analysis-text">${c.holding}</div>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">Ã°Å¸âÂ¡ Ã¬â¹Â¤Ã«Â¬Â´ Ã¬â¹ÅÃ¬âÂ¬Ã¬Â Â</div>
+              <div class="analysis-section-title">ðŸ’¡ ì‹¤ë¬´ ì‹œì‚¬ì </div>
               <div style="display:flex;flex-direction:column;gap:8px">
                 ${c.implications.map(i=>`<div class="implication-item">${i}</div>`).join('')}
               </div>
@@ -815,38 +815,38 @@ function openDetail(id) {
                 </div>
               </div>
               <div class="provision-body">
-                <div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">Ã¬Â¡Â°Ã«Â¬Â¸ Ã«âÂ´Ã¬Å¡Â©</div>
+                <div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">ì¡°ë¬¸ ë‚´ìš©</div>
                 <div style="line-height:1.9;color:var(--dark)">${p.text}</div>
-                <div class="provision-relevance">Ã°Å¸ââ Ã­ÅÂÃªÂ²Â°ÃªÂ³Â¼Ã¬ÂË ÃªÂ´â¬Ã«Â Â¨Ã¬âÂ±: ${p.relevance}</div>
+                <div class="provision-relevance">ðŸ”— íŒê²°ê³¼ì˜ ê´€ë ¨ì„±: ${p.relevance}</div>
               </div>
             </div>`).join('')}
-          ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">Ã°Å¸ââ¹</div><p>ÃªÂ´â¬Ã«Â Â¨Ã¬Â¡Â°Ã«Â¬Â¸ Ã¬Â¤â¬Ã«Â¹â Ã¬Â¤âÃ¬Å¾â¦Ã«â¹ËÃ«â¹Â¤</p></div>':''}
+          ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">ðŸ“‹</div><p>ê´€ë ¨ì¡°ë¬¸ ì¤€ë¹„ ì¤‘ìž…ë‹ˆë‹¤</p></div>':''}
         </div>
       </div>
       <div class="detail-right">
         <div class="info-card">
-          <h4>Ã­ÅÂÃ«Â¡â¬ Ã¬Â â¢Ã«Â³Â´</h4>
-          <div class="info-row"><span class="info-key">Ã¬âÂ¬ÃªÂ±Â´Ã«Â²ËÃ­ËÂ¸</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.caseNum}</span></div>
-          <div class="info-row"><span class="info-key">ÃªÂµÂ­ÃªÂ°â¬</span><span class="info-val">${c.flag} ${c.country}</span></div>
-          <div class="info-row"><span class="info-key">Ã«Â²â¢Ã¬âºÂ</span><span class="info-val">${c.court}</span></div>
-          <div class="info-row"><span class="info-key">Ã¬âÂ ÃªÂ³Â Ã¬ÂÂ¼</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
-          <div class="info-row"><span class="info-key">Ã¬âÂ¬ÃªÂ±Â´Ã¬ÅÂ Ã­Ëâ¢</span><span class="info-val">${c.type}</span></div>
-          <div class="info-row"><span class="info-key">AI Ã¬â¹Â Ã«Â¢Â°Ã«Ââ</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
-          <div class="info-row"><span class="info-key">ÃªÂ´â¬Ã«Â Â¨ Ã«Â²â¢Ã¬Â¡Â°Ã«Â¬Â¸</span><span class="info-val">${c.laws.join('<br>')}</span></div>
+          <h4>íŒë¡€ ì •ë³´</h4>
+          <div class="info-row"><span class="info-key">ì‚¬ê±´ë²ˆí˜¸</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.caseNum}</span></div>
+          <div class="info-row"><span class="info-key">êµ­ê°€</span><span class="info-val">${c.flag} ${c.country}</span></div>
+          <div class="info-row"><span class="info-key">ë²•ì›</span><span class="info-val">${c.court}</span></div>
+          <div class="info-row"><span class="info-key">ì„ ê³ ì¼</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
+          <div class="info-row"><span class="info-key">ì‚¬ê±´ìœ í˜•</span><span class="info-val">${c.type}</span></div>
+          <div class="info-row"><span class="info-key">AI ì‹ ë¢°ë„</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
+          <div class="info-row"><span class="info-key">ê´€ë ¨ ë²•ì¡°ë¬¸</span><span class="info-val">${c.laws.join('<br>')}</span></div>
         </div>
         <div class="info-card">
-          <h4>Ã¬ÅÂ Ã¬âÂ¬ Ã­ÅÂÃ«Â¡â¬</h4>
+          <h4>ìœ ì‚¬ íŒë¡€</h4>
           ${c.related.map(r=>`
-            <div class="related-item" onclick="showToast('ÃªÂ´â¬Ã«Â Â¨ Ã­ÅÂÃ«Â¡â¬ Ã¬Â¤â¬Ã«Â¹â Ã¬Â¤âÃ¬Å¾â¦Ã«â¹ËÃ«â¹Â¤')">
+            <div class="related-item" onclick="showToast('ê´€ë ¨ íŒë¡€ ì¤€ë¹„ ì¤‘ìž…ë‹ˆë‹¤')">
               <div class="related-flag">${r.flag}</div>
               <div class="related-text">${r.text}</div>
             </div>`).join('')}
         </div>
         <div class="info-card" style="background:var(--navy);border-color:var(--navy)">
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;font-family:'Inter',sans-serif;letter-spacing:1px">QUICK ACTIONS</div>
-          <button onclick="showToast('PDFÃ«Â¡Å Ã¬Â â¬Ã¬Å¾Â¥Ã«ÂËÃ¬âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Ã°Å¸ââ PDFÃ«Â¡Å Ã¬Â â¬Ã¬Å¾Â¥</button>
-          <button onclick="toggleBookmark(${c.id},this);this.textContent=bookmarks.has(${c.id})?'Ã°Å¸ââ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬ Ã¬Â â¬Ã¬Å¾Â¥Ã«ÂÂ¨':'Ã°Å¸ââ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬ Ã¬Â¶âÃªÂ°â¬'" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Ã°Å¸ââ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬ Ã¬Â¶âÃªÂ°â¬</button>
-          <button onclick="showToast('ÃªÂ³ÂµÃ¬ÅÂ  Ã«Â§ÂÃ­ÂÂ¬ÃªÂ°â¬ Ã«Â³ÂµÃ¬âÂ¬Ã«ÂËÃ¬âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Ã°Å¸ââ Ã«Â§ÂÃ­ÂÂ¬ ÃªÂ³ÂµÃ¬ÅÂ </button>
+          <button onclick="showToast('PDFë¡œ ì €ìž¥ë˜ì—ˆìŠµë‹ˆë‹¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ðŸ“„ PDFë¡œ ì €ìž¥</button>
+          <button onclick="toggleBookmark(${c.id},this);this.textContent=bookmarks.has(${c.id})?'ðŸ”– ë¶ë§ˆí¬ ì €ìž¥ë¨':'ðŸ”– ë¶ë§ˆí¬ ì¶”ê°€'" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ðŸ”– ë¶ë§ˆí¬ ì¶”ê°€</button>
+          <button onclick="showToast('ê³µìœ  ë§í¬ê°€ ë³µì‚¬ë˜ì—ˆìŠµë‹ˆë‹¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ðŸ”— ë§í¬ ê³µìœ </button>
         </div>
       </div>
     </div>`;
@@ -862,7 +862,7 @@ function switchTab(btn, tabId) {
   document.getElementById(tabId).classList.add('active');
 }
 
-// Ã¢â¢ÂÃ¢â¢Â DASHBOARD TABLE Ã¢â¢ÂÃ¢â¢Â
+// â•â• DASHBOARD TABLE â•â•
 function renderDash() {
   const tbody = document.getElementById('dashTable');
   tbody.innerHTML = CASES.slice(0,5).map(c => `
@@ -871,44 +871,44 @@ function renderDash() {
       <td><span class="badge ${typeBadge(c.type)}">${c.type}</span></td>
       <td><span class="flag">${c.flag}</span> <span style="font-size:12px;color:var(--gray)">${c.court}</span></td>
       <td style="font-family:'Inter',sans-serif;font-size:12px;color:var(--gray)">${c.date}</td>
-      <td><span class="ai-done">Ã«Â¶âÃ¬âÂ Ã¬â¢âÃ«Â£Å</span></td>
+      <td><span class="ai-done">ë¶„ì„ ì™„ë£Œ</span></td>
     </tr>`).join('');
 }
 
-// Ã¢â¢ÂÃ¢â¢Â TREND CHART Ã¢â¢ÂÃ¢â¢Â
+// â•â• TREND CHART â•â•
 function renderChart() {
   const data = [
-    {label:'Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å',val:68,color:'#2E75B6'},
-    {label:'Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË',val:54,color:'#059669'},
-    {label:'Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´',val:47,color:'#D97706'},
-    {label:'Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ',val:32,color:'#DC2626'},
-    {label:'Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½',val:21,color:'#7C3AED'},
-    {label:'Ã­â¢Â´Ã«âÅÃªÂµÂ¬Ã¬Â¡Â°',val:12,color:'#0891B2'},
+    {label:'ì„ í•˜ì¦ê¶Œ',val:68,color:'#2E75B6'},
+    {label:'í•´ìƒë³´í—˜',val:54,color:'#059669'},
+    {label:'í™”ë¬¼ì†í•´',val:47,color:'#D97706'},
+    {label:'ì„ ë°•ì¶©ëŒ',val:32,color:'#DC2626'},
+    {label:'ìš©ì„ ê³„ì•½',val:21,color:'#7C3AED'},
+    {label:'í•´ë‚œêµ¬ì¡°',val:12,color:'#0891B2'},
   ];
   const max = Math.max(...data.map(d=>d.val));
   document.getElementById('barChart').innerHTML = data.map(d=>`
     <div class="bar-col">
       <div class="bar-val">${d.val}</div>
-      <div class="bar" style="height:${(d.val/max)*130}px;background:${d.color}" title="${d.label}: ${d.val}ÃªÂ±Â´"></div>
+      <div class="bar" style="height:${(d.val/max)*130}px;background:${d.color}" title="${d.label}: ${d.val}ê±´"></div>
       <div class="bar-label">${d.label}</div>
     </div>`).join('');
 }
 
-// Ã¢â¢ÂÃ¢â¢Â BOOKMARKS Ã¢â¢ÂÃ¢â¢Â
+// â•â• BOOKMARKS â•â•
 function toggleBookmark(id, el) {
   if (bookmarks.has(id)) {
     bookmarks.delete(id);
-    showToast('Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬ÃªÂ°â¬ Ã­â¢Â´Ã¬Â ÅÃ«ÂËÃ¬âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤');
+    showToast('ë¶ë§ˆí¬ê°€ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤');
   } else {
     bookmarks.add(id);
-    showToast('Ã°Å¸ââ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬Ã¬âÂ Ã¬Â¶âÃªÂ°â¬Ã«ÂËÃ¬âËÃ¬Å ÂµÃ«â¹ËÃ«â¹Â¤');
+    showToast('ðŸ”– ë¶ë§ˆí¬ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤');
   }
 }
 
 function renderBookmarks() {
   const container = document.getElementById('bookmarkResults');
   if (bookmarks.size === 0) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">Ã°Å¸ââ</div><p>Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬Ã­â¢Å Ã­ÅÂÃ«Â¡â¬ÃªÂ°â¬ Ã¬ââ Ã¬Å ÂµÃ«â¹ËÃ«â¹Â¤<br>Ã­ÅÂÃ«Â¡â¬ Ã¬ÆÂÃ¬âÂ¸ Ã­Å½ËÃ¬ÂÂ´Ã¬Â§â¬Ã¬âÂÃ¬âÅ Ã«Â¶ÂÃ«Â§ËÃ­ÂÂ¬Ã«Â¥Â¼ Ã¬Â¶âÃªÂ°â¬Ã­â¢Â´Ã«Â³Â´Ã¬âÂ¸Ã¬Å¡â</p></div>`;
+    container.innerHTML = `<div class="empty"><div class="empty-icon">ðŸ”–</div><p>ë¶ë§ˆí¬í•œ íŒë¡€ê°€ ì—†ìŠµë‹ˆë‹¤<br>íŒë¡€ ìƒì„¸ íŽ˜ì´ì§€ì—ì„œ ë¶ë§ˆí¬ë¥¼ ì¶”ê°€í•´ë³´ì„¸ìš”</p></div>`;
     return;
   }
   container.innerHTML = [...bookmarks].map(id => {
@@ -920,16 +920,16 @@ function renderBookmarks() {
       </div>
       <div class="case-card-meta">
         <span class="flag">${c.flag}</span>
-        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} ÃÂ· ${c.date}</span>
+        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} Â· ${c.date}</span>
       </div>
       <div class="case-card-summary">${c.summary}</div>
     </div>`;
   }).join('');
 }
 
-// Ã¢â¢ÂÃ¢â¢Â HELPERS Ã¢â¢ÂÃ¢â¢Â
+// â•â• HELPERS â•â•
 function typeBadge(t) {
-  return {Ã¬âÂ Ã­â¢ËÃ¬Â¦ÂÃªÂ¶Å:'badge-blue',Ã­â¢Â´Ã¬ÆÂÃ«Â³Â´Ã­âË:'badge-green',Ã­â¢âÃ«Â¬Â¼Ã¬â ÂÃ­â¢Â´:'badge-yellow',Ã¬âÂ Ã«Â°â¢Ã¬Â¶Â©Ã«ÂÅ:'badge-red',Ã¬Å¡Â©Ã¬âÂ ÃªÂ³âÃ¬â¢Â½:'badge-purple',Ã­â¢Â´Ã«âÅÃªÂµÂ¬Ã¬Â¡Â°:'badge-blue'}[t] || 'badge-blue';
+  return {ì„ í•˜ì¦ê¶Œ:'badge-blue',í•´ìƒë³´í—˜:'badge-green',í™”ë¬¼ì†í•´:'badge-yellow',ì„ ë°•ì¶©ëŒ:'badge-red',ìš©ì„ ê³„ì•½:'badge-purple',í•´ë‚œêµ¬ì¡°:'badge-blue'}[t] || 'badge-blue';
 }
 
 function showToast(msg) {
@@ -939,7 +939,7 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// Ã¢â¢ÂÃ¢â¢Â INIT Ã¢â¢ÂÃ¢â¢Â
+// â•â• INIT â•â•
 renderDash();
 renderSearch();
 </script>
@@ -962,38 +962,38 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// FirestoreÃ¬âÂÃ¬âÅ Ã­ÅÂÃ«Â¡â¬ Ã«Â¡ÅÃ«âÅ
+// Firestoreì—ì„œ íŒë¡€ ë¡œë“œ
 async function loadCasesFromFirestore() {
   try {
     const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(100));
     const snapshot = await getDocs(q);
-    if (snapshot.empty) return; // Ã«ÂÂ°Ã¬ÂÂ´Ã­âÂ° Ã¬ââ Ã¬ÅÂ¼Ã«Â©Â´ Ã«ÂÂ°Ã«ÂªÂ¨ Ã«ÂÂ°Ã¬ÂÂ´Ã­âÂ° Ã¬ÅÂ Ã¬Â§â¬
+    if (snapshot.empty) return; // ë°ì´í„° ì—†ìœ¼ë©´ ë°ëª¨ ë°ì´í„° ìœ ì§€
     const firestoreCases = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    // Ã¬Â âÃ¬âÂ­ CASES Ã«Â°Â°Ã¬âÂ´ ÃªÂµÂÃ¬Â²Â´ Ã­âºâ Ã¬Å¾Â¬Ã«Â ÅÃ«Ââ
+    // ì „ì—­ CASES ë°°ì—´ êµì²´ í›„ ìž¬ë Œë”
     window._firestoreCases = firestoreCases;
     CASES.length = 0;
     firestoreCases.forEach((c, i) => { if (c.id === undefined) c.id = i; CASES.push(c); });
-    console.log(`FirestoreÃ¬âÂÃ¬âÅ Ã­ÅÂÃ«Â¡â¬ ${firestoreCases.length}Ã«qÂ´ Ã«Â¡ÅÃ«âÅÃ«ÂÂ¨`);
+    console.log(`Firestoreì—ì„œ íŒë¡€ ${firestoreCases.length}ëq´ ë¡œë“œë¨`);
   } catch(e) {
-    console.warn("Firestore Ã«Â¡ÅÃ«âÅ Ã¬â¹Â¤Ã­ÅÂ¨, Ã«ÂÂ°Ã«ÂªÂ¨ Ã«ÂÂ°Ã¬ÂÂ´Ã­âÂ° Ã¬âÂ¬Ã¬Å¡Â©:", e.message);
+    console.warn("Firestore ë¡œë“œ ì‹¤íŒ¨, ë°ëª¨ ë°ì´í„° ì‚¬ìš©:", e.message);
   }
 }
 
-// FirestoreÃ¬âÂ Ã­ÅÂÃ«Â¡â¬ Ã¬Â â¬Ã¬Å¾Â¥ (ÃªÂ´â¬Ã«Â¦Â¬Ã¬Å¾ÂÃ¬Å¡Â©)
+// Firestoreì— íŒë¡€ ì €ìž¥ (ê´€ë¦¬ìžìš©)
 window.saveCase = async function(caseData) {
   try {
     const docRef = await addDoc(collection(db, "cases"), {
       ...caseData,
       createdAt: new Date().toISOString()
     });
-    console.log("Ã­ÅÂÃ«Â¡â¬ Ã¬Â â¬Ã¬Å¾Â¥ Ã¬â¢âÃ«Â£Å:", docRef.id);
+    console.log("íŒë¡€ ì €ìž¥ ì™„ë£Œ:", docRef.id);
     return docRef.id;
   } catch(e) {
-    console.error("Ã­ÅÂÃ«Â¡â¬ Ã¬Â â¬Ã¬Å¾Â¥ Ã¬â¹Â¤Ã­ÅÂ¨:", e);
+    console.error("íŒë¡€ ì €ìž¥ ì‹¤íŒ¨:", e);
   }
 };
 
-// Firestore Ã¬ÂÂ¸Ã¬Å Â¤Ã­âÂ´Ã¬Å Â¤ Ã¬Â âÃ¬âÂ­ Ã«â¦Â¸Ã¬Â¶Å (ÃªÂ°ÅÃ«Â°Å/ÃªÂ´â¬Ã«Â¦Â¬Ã¬Å¡Â©)
+// Firestore ì¸ìŠ¤í„´ìŠ¤ ì „ì—­ ë…¸ì¶œ (ê°œë°œ/ê´€ë¦¬ìš©)
 window._db = db;
 window._collection = collection;
 window._addDoc = addDoc;
