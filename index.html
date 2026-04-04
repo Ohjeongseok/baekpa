@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>백파(Baekpa) — 해상 전문 법률 정보 플랫폼</title>
+<title>ë°±í(Baekpa) â í´ì ì ë¬¸ ë²ë¥  ì ë³´ íë«í¼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,7 +14,7 @@
 }
 body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);display:flex;height:100vh;overflow:hidden}
 
-/* ── SIDEBAR ── */
+/* ââ SIDEBAR ââ */
 .sidebar{width:var(--sidebar);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;height:100vh;overflow-y:auto}
 .sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.1)}
 .sb-logo-main{display:flex;align-items:center;gap:10px}
@@ -37,7 +37,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .user-name{font-size:13px;color:rgba(255,255,255,0.8);font-weight:500}
 .user-email{font-size:11px;color:rgba(255,255,255,0.35)}
 
-/* ── MAIN ── */
+/* ââ MAIN ââ */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;gap:16px;flex-shrink:0}
 .search-wrap{flex:1;max-width:560px;position:relative}
@@ -53,13 +53,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .notif{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;background:#fff;position:relative}
 .notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:#EF4444;border-radius:50%;border:1.5px solid #fff}
 
-/* ── CONTENT AREA ── */
+/* ââ CONTENT AREA ââ */
 .content{flex:1;overflow-y:auto;padding:28px}
 
-/* ── VIEWS (show/hide) ── */
+/* ââ VIEWS (show/hide) ââ */
 .view{display:none}.view.active{display:block}
 
-/* ── DASHBOARD ── */
+/* ââ DASHBOARD ââ */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:box-shadow 0.2s}
 .stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
@@ -72,7 +72,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F8FAFC;color:var(--dark);
 .view-all{font-size:13px;color:var(--blue);cursor:pointer;font-weight:500;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
 .view-all:hover{text-decoration:underline}
 
-/* ── TABLE ── */
+/* ââ TABLE ââ */
 .table-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 table{width:100%;border-collapse:collapse}
 th{background:var(--lgray);padding:11px 16px;font-size:11px;font-weight:600;color:var(--gray);text-align:left;letter-spacing:0.5px;text-transform:uppercase;font-family:'Inter',sans-serif{border-bottom:1px solid var(--border)}
@@ -87,9 +87,9 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .badge-purple{background:#F5F3FF;color:#6D28D9}
 .flag{font-size:15px}
 .ai-done{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#059669;font-weight:600;font-family:'Inter',sans-serif}
-.ai-done::before{content:'✓';font-weight:800}
+.ai-done::before{content:'â';font-weight:800}
 
-/* ── TREND CARDS ── */
+/* ââ TREND CARDS ââ */
 .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
 .trend-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.2s;cursor:pointer}
 .trend-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(46,117,182,0.1)}
@@ -100,7 +100,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .trend-bar{height:4px;background:var(--lgray);border-radius:2px;margin-top:12px;overflow:hidden}
 .trend-bar-fill{height:100%;background:var(--blue);border-radius:2px;transition:width 0.8s}
 
-/* ── SEARCH VIEW ── */
+/* ââ SEARCH VIEW ââ */
 .search-filters{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .filter-select{padding:8px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);outline:none;cursor:pointer;background:#fff;transition:border-color 0.2s}
 .filter-select:focus{border-color:var(--blue)}
@@ -121,7 +121,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .conf-track{width:60px;height:4px;background:var(--lgray);border-radius:2px;overflow:hidden}
 .conf-fill{height:100%;background:#10B981;border-radius:2px}
 
-/* ── DETAIL VIEW ── */
+/* ââ DETAIL VIEW ââ */
 .detail-back{display:flex;align-items:center;gap:8px;color:var(--blue);cursor:pointer;font-size:14px;font-weight:500;margin-bottom:20px;background:none;border:none;font-family:'Noto Sans KR',sans-serif;padding:0}
 .detail-back:hover{color:var(--navy)}
 .detail-header{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:20px}
@@ -137,7 +137,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .analysis-text{font-size:14px;color:var(--dark);line-height:1.8}
 .analysis-list{list-style:none;display:flex;flex-direction:column;gap:8px}
 .analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:20px;position:relative}
-.analysis-list li::before{content:'•';position:absolute;left:0;color:var(--blue);font-weight:700}
+.analysis-list li::before{content:'â¢';position:absolute;left:0;color:var(--blue);font-weight:700}
 .implication-item{background:#F0F7FF;border-left:3px solid var(--blue);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13px;color:var(--dark);line-height:1.7}
 .info-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}
 .info-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
@@ -150,7 +150,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .related-flag{font-size:14px;flex-shrink:0;margin-top:1px}
 .related-text{font-size:12px;color:var(--navy);line-height:1.5;font-weight:500}
 
-/* ── TREND REPORT VIEW ── */
+/* ââ TREND REPORT VIEW ââ */
 .report-header{background:var(--navy);border-radius:16px;padding:32px;margin-bottom:24px;color:#fff}
 .report-header h2{font-size:22px;font-weight:700;margin-bottom:6px}
 .report-header p{font-size:14px;color:rgba(255,255,255,0.6)}
@@ -170,14 +170,14 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .highlight-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.4}
 .highlight-body{font-size:13px;color:var(--gray);line-height:1.7}
 
-/* ── DETAIL TABS ── */
+/* ââ DETAIL TABS ââ */
 .detail-tabs{display:flex;gap:4px;margin-bottom:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:6px}
 .detail-tab{flex:1;padding:9px;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--gray);background:none;transition:all 0.15s}
 .detail-tab.active{background:var(--navy);color:#fff}
 .detail-tab:hover:not(.active){background:var(--lgray);color:var(--navy)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 
-/* ── ORIGINAL TEXT ── */
+/* ââ ORIGINAL TEXT ââ */
 .original-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px}
 .original-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .original-stamp{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;font-family:'Inter',sans-serif;letter-spacing:1px}
@@ -185,7 +185,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .original-body .ruling{font-weight:700;color:var(--navy)}
 .original-section-title{font-size:13px;font-weight:700;color:var(--navy);margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--lb)}
 
-/* ── PROVISIONS ── */
+/* ââ PROVISIONS ââ */
 .provision-item{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
 .provision-header{padding:14px 18px;background:var(--lgray);display:flex;align-items:center;gap:10px;cursor:pointer}
 .provision-law{font-size:11px;font-weight:700;color:var(--blue);font-family:'Inter',sans-serif;letter-spacing:0.5px}
@@ -193,19 +193,19 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .provision-body{padding:16px 18px;font-size:13px;color:var(--dark);line-height:1.9;border-top:1px solid var(--border)}
 .provision-relevance{margin-top:12px;padding:10px 14px;background:#F0F7FF;border-radius:8px;font-size:12px;color:var(--blue);font-weight:600;border-left:3px solid var(--blue)}
 
-/* ── EMPTY / LOADING ── */
+/* ââ EMPTY / LOADING ââ */
 .empty{text-align:center;padding:60px;color:var(--gray)}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty p{font-size:14px}
 
-/* ── TOAST ── */
+/* ââ TOAST ââ */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px)}
 .toast.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ══ SIDEBAR ══ -->
+<!-- ââ SIDEBAR ââ -->
 <aside class="sidebar">
   <div class="sb-logo">
     <div class="sb-logo-main">
@@ -216,218 +216,218 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         </svg>
       </div>
       <div>
-        <div class="sb-name">백파</div>
+        <div class="sb-name">ë°±í</div>
         <div class="sb-en">BAEKPA</div>
       </div>
     </div>
   </div>
 
-  <div class="sb-section">메뉴</div>
-  <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">📊</span>대시보드</div>
-  <div class="sb-item" onclick="nav('search')"><span class="icon">🔍</span>판례 검색<span class="sb-badge">12,847</span></div>
-  <div class="sb-item" onclick="nav('trend')"><span class="icon">📈</span>트렌드 리포트</div>
-  <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">🔖</span>북마크</div>
+  <div class="sb-section">ë©ë´</div>
+  <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">ð</span>ëìë³´ë</div>
+  <div class="sb-item" onclick="nav('search')"><span class="icon">ð</span>íë¡ ê²ì<span class="sb-badge">12,847</span></div>
+  <div class="sb-item" onclick="nav('trend')"><span class="icon">ð</span>í¸ë ë ë¦¬í¬í¸</div>
+  <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">ð</span>ë¶ë§í¬</div>
 
-  <div class="sb-section">사건 유형</div>
+  <div class="sb-section">ì¬ê±´ ì í</div>
   <div class="sb-filter-section">
     <div style="display:flex;flex-wrap:wrap">
-      <div class="sf-tag on" onclick="toggleFilter(this)">전체</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">선하증권</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">해상보험</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">선박충돌</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">화물손해</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">용선계약</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">해난구조</div>
+      <div class="sf-tag on" onclick="toggleFilter(this)">ì ì²´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ì íì¦ê¶</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">í´ìë³´í</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ì ë°ì¶©ë</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">íë¬¼ìí´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ì©ì ê³ì½</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">í´ëêµ¬ì¡°</div>
     </div>
   </div>
 
-  <div class="sb-section">국가</div>
+  <div class="sb-section">êµ­ê°</div>
   <div class="sb-filter-section">
     <div style="display:flex;flex-wrap:wrap">
-      <div class="sf-tag on" onclick="toggleFilter(this)">🌐 전체</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇰🇷 한국</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇬🇧 영국</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇸🇬 싱가포르</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇭🇰 홍콩</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇺🇸 미국</div>
+      <div class="sf-tag on" onclick="toggleFilter(this)">ð ì ì²´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ð°ð· íêµ­</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ð¬ð§ ìêµ­</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ð¸ð¬ ì±ê°í¬ë¥´</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ð­ð° íì½©</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">ðºð¸ ë¯¸êµ­</div>
     </div>
   </div>
 
   <div class="sb-bottom">
     <div class="user-row">
-      <div class="user-avatar">오</div>
+      <div class="user-avatar">ì¤</div>
       <div>
-        <div class="user-name">오정석</div>
+        <div class="user-name">ì¤ì ì</div>
         <div class="user-email">ojs8851@gmail.com</div>
       </div>
     </div>
   </div>
 </aside>
 
-<!-- ══ MAIN ══ -->
+<!-- ââ MAIN ââ -->
 <div class="main">
   <!-- TOPBAR -->
   <div class="topbar">
     <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input id="mainSearch" type="text" placeholder="판례 키워드, 사건번호, 법률 쟁점 검색..." onkeydown="if(event.key==='Enter')doSearch()">
+      <span class="search-icon">ð</span>
+      <input id="mainSearch" type="text" placeholder="íë¡ í¤ìë, ì¬ê±´ë²í¸, ë²ë¥  ìì  ê²ì..." onkeydown="if(event.key==='Enter')doSearch()">
     </div>
     <div class="tb-right">
-      <div class="notif" title="알림"><span>🔔</span><div class="notif-dot"></div></div>
-      <button class="tb-btn tb-btn-outline" onclick="nav('search')">고급 검색</button>
-      <button class="tb-btn tb-btn-primary" onclick="showToast('✅ 새 판례 알림이 설정되었습니다')">알림 설정</button>
+      <div class="notif" title="ìë¦¼"><span>ð</span><div class="notif-dot"></div></div>
+      <button class="tb-btn tb-btn-outline" onclick="nav('search')">ê³ ê¸ ê²ì</button>
+      <button class="tb-btn tb-btn-primary" onclick="showToast('â ì íë¡ ìë¦¼ì´ ì¤ì ëììµëë¤')">ìë¦¼ ì¤ì </button>
     </div>
   </div>
 
   <!-- CONTENT -->
   <div class="content">
 
-    <!-- ─── DASHBOARD ─── -->
+    <!-- âââ DASHBOARD âââ -->
     <div class="view active" id="v-dashboard">
       <div style="margin-bottom:24px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">대시보드</h2>
-        <p style="font-size:13px;color:var(--gray);margin-top:4px">2026년 3월 26일 기준</p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">ëìë³´ë</h2>
+        <p style="font-size:13px;color:var(--gray);margin-top:4px">2026ë 3ì 26ì¼ ê¸°ì¤</p>
       </div>
 
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-label">총 판례 수</div>
+          <div class="stat-label">ì´ íë¡ ì</div>
           <div class="stat-val">12,847</div>
-          <div class="stat-sub">▲ 234건 이번달 신규</div>
+          <div class="stat-sub">â² 234ê±´ ì´ë²ë¬ ì ê·</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">AI 분석 완료</div>
+          <div class="stat-label">AI ë¶ì ìë£</div>
           <div class="stat-val">98.2<span style="font-size:18px">%</span></div>
-          <div class="stat-sub">12,615건 분석 완료</div>
+          <div class="stat-sub">12,615ê±´ ë¶ì ìë£</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">이번주 신규</div>
+          <div class="stat-label">ì´ë²ì£¼ ì ê·</div>
           <div class="stat-val">47</div>
-          <div class="stat-sub">▲ 지난주 대비 +12%</div>
+          <div class="stat-sub">â² ì§ëì£¼ ëë¹ +12%</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">내 북마크</div>
+          <div class="stat-label">ë´ ë¶ë§í¬</div>
           <div class="stat-val">23</div>
-          <div class="stat-sub">최근 3건 업데이트</div>
+          <div class="stat-sub">ìµê·¼ 3ê±´ ìë°ì´í¸</div>
         </div>
       </div>
 
-      <!-- 분쟁 유형별 현황 -->
+      <!-- ë¶ì ì íë³ íí© -->
       <div class="trend-grid">
-        <div class="trend-card" onclick="filterAndSearch('선하증권')">
+        <div class="trend-card" onclick="filterAndSearch('ì íì¦ê¶')">
           <div class="trend-num">01</div>
-          <div class="trend-type"><span class="badge badge-blue">선하증권</span></div>
-          <div><span class="trend-count">3,241</span><span class="trend-change">▲ 8%</span></div>
+          <div class="trend-type"><span class="badge badge-blue">ì íì¦ê¶</span></div>
+          <div><span class="trend-count">3,241</span><span class="trend-change">â² 8%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:75%"></div></div>
         </div>
-        <div class="trend-card" onclick="filterAndSearch('해상보험')">
+        <div class="trend-card" onclick="filterAndSearch('í´ìë³´í')">
           <div class="trend-num">02</div>
-          <div class="trend-type"><span class="badge badge-green">해상보험</span></div>
-          <div><span class="trend-count">2,887</span><span class="trend-change">▲ 5%</span></div>
+          <div class="trend-type"><span class="badge badge-green">í´ìë³´í</span></div>
+          <div><span class="trend-count">2,887</span><span class="trend-change">â² 5%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:66%;background:#059669"></div></div>
         </div>
-        <div class="trend-card" onclick="filterAndSearch('화물손해')">
+        <div class="trend-card" onclick="filterAndSearch('íë¬¼ìí´')">
           <div class="trend-num">03</div>
-          <div class="trend-type"><span class="badge badge-yellow">화물손해</span></div>
-          <div><span class="trend-count">2,103</span><span class="trend-change">▲ 3%</span></div>
+          <div class="trend-type"><span class="badge badge-yellow">íë¬¼ìí´</span></div>
+          <div><span class="trend-count">2,103</span><span class="trend-change">â² 3%</span></div>
           <div class="trend-bar"><div class="trend-bar-fill" style="width:48%;background:#D97706"></div></div>
         </div>
       </div>
 
-      <!-- 최신 판례 -->
+      <!-- ìµì  íë¡ -->
       <div class="section-head">
-        <h3>최신 등록 판례</h3>
-        <button class="view-all" onclick="nav('search')">전체 보기 →</button>
+        <h3>ìµì  ë±ë¡ íë¡</h3>
+        <button class="view-all" onclick="nav('search')">ì ì²´ ë³´ê¸° â</button>
       </div>
       <div class="table-wrap">
         <table>
           <thead><tr>
-            <th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th>
+            <th>ì¬ê±´ë²í¸</th><th>ì¬ê±´ì í</th><th>êµ­ê°/ë²ì</th><th>ì ê³ ì¼</th><th>AI ë¶ì</th>
           </tr></thead>
           <tbody id="dashTable"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- ─── SEARCH ─── -->
+    <!-- âââ SEARCH âââ -->
     <div class="view" id="v-search">
       <div style="margin-bottom:20px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">판례 검색</h2>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">íë¡ ê²ì</h2>
       </div>
       <div class="search-filters">
-        <span class="filter-label">국가</span>
+        <span class="filter-label">êµ­ê°</span>
         <select class="filter-select" id="f-country" onchange="renderSearch()">
-          <option>전체</option><option>🇰🇷 한국</option><option>🇬🇧 영국</option>
-          <option>🇸🇬 싱가포르</option><option>🇭🇰 홍콩</option><option>🇺🇸 미국</option>
+          <option>ì ì²´</option><option>ð°ð· íêµ­</option><option>ð¬ð§ ìêµ­</option>
+          <option>ð¸ð¬ ì±ê°í¬ë¥´</option><option>ð­ð° íì½©</option><option>ðºð¸ ë¯¸êµ­</option>
         </select>
-        <span class="filter-label">사건유형</span>
+        <span class="filter-label">ì¬ê±´ì í</span>
         <select class="filter-select" id="f-type" onchange="renderSearch()">
-          <option>전체</option><option>선하증권</option><option>해상보험</option>
-          <option>선박충돌</option><option>화물손해</option><option>용선계약</option>
-          <option>해난구조</option>
+          <option>ì ì²´</option><option>ì íì¦ê¶</option><option>í´ìë³´í</option>
+          <option>ì ë°ì¶©ë</option><option>íë¬¼ìí´</option><option>ì©ì ê³ì½</option>
+          <option>í´ëêµ¬ì¡°</option>
         </select>
-        <span class="filter-label">기간</span>
+        <span class="filter-label">ê¸°ê°</span>
         <select class="filter-select" id="f-year" onchange="renderSearch()">
-          <option>전체</option><option>2024~2025</option><option>2022~2023</option><option>~2021</option>
+          <option>ì ì²´</option><option>2024~2025</option><option>2022~2023</option><option>~2021</option>
         </select>
-        <span class="filter-label">정렬</span>
+        <span class="filter-label">ì ë ¬</span>
         <select class="filter-select" id="f-sort" onchange="renderSearch()">
-          <option>최신순</option><option>신뢰도순</option><option>관련도순</option>
+          <option>ìµì ì</option><option>ì ë¢°ëì</option><option>ê´ë ¨ëì</option>
         </select>
       </div>
       <div class="result-count" id="resultCount"></div>
       <div id="searchResults"></div>
     </div>
 
-    <!-- ─── DETAIL ─── -->
+    <!-- âââ DETAIL âââ -->
     <div class="view" id="v-detail">
-      <button class="detail-back" onclick="goBack()">← 목록으로</button>
+      <button class="detail-back" onclick="goBack()">â ëª©ë¡ì¼ë¡</button>
       <div id="detailContent"></div>
     </div>
 
-    <!-- ─── TREND ─── -->
+    <!-- âââ TREND âââ -->
     <div class="view" id="v-trend">
       <div class="report-header">
         <p style="font-size:11px;letter-spacing:2px;opacity:.5;font-family:'Inter',sans-serif;margin-bottom:8px">MONTHLY REPORT</p>
-        <h2>2026년 3월 해상 판례 트렌드 리포트</h2>
-        <p>이달 수집 판례 234건 분석 | 발행일: 2026.03.26</p>
+        <h2>2026ë 3ì í´ì íë¡ í¸ë ë ë¦¬í¬í¸</h2>
+        <p>ì´ë¬ ìì§ íë¡ 234ê±´ ë¶ì | ë°íì¼: 2026.03.26</p>
       </div>
       <div class="chart-wrap">
-        <div class="chart-title">사건 유형별 판례 수 (2026년 3월)</div>
+        <div class="chart-title">ì¬ê±´ ì íë³ íë¡ ì (2026ë 3ì)</div>
         <div class="bar-chart" id="barChart"></div>
       </div>
       <div class="section-head">
-        <h3>이달의 주목 판례 3선</h3>
+        <h3>ì´ë¬ì ì£¼ëª© íë¡ 3ì </h3>
       </div>
       <div class="report-highlight">
         <div class="highlight-item" onclick="openDetail(0)">
           <div class="highlight-num">1</div>
           <div>
-            <div class="highlight-title">대법원 2025다31205 — 해상보험 고지의무 위반 면책 범위 재정립</div>
-            <div class="highlight-body">피보험자의 고지의무 위반이 보험사고와 인과관계가 없는 경우에도 보험자가 면책될 수 있는지에 대해 대법원이 기존 판례를 변경, 인과관계 필요성을 명시하였습니다. 국내 해상보험 실무에 즉각적 영향이 예상됩니다.</div>
+            <div class="highlight-title">ëë²ì 2025ë¤31205 â í´ìë³´í ê³ ì§ìë¬´ ìë° ë©´ì± ë²ì ì¬ì ë¦½</div>
+            <div class="highlight-body">í¼ë³´íìì ê³ ì§ìë¬´ ìë°ì´ ë³´íì¬ê³ ì ì¸ê³¼ê´ê³ê° ìë ê²½ì°ìë ë³´íìê° ë©´ì±ë  ì ìëì§ì ëí´ ëë²ìì´ ê¸°ì¡´ íë¡ë¥¼ ë³ê²½, ì¸ê³¼ê´ê³ íìì±ì ëªìíììµëë¤. êµ­ë´ í´ìë³´í ì¤ë¬´ì ì¦ê°ì  ìí¥ì´ ììë©ëë¤.</div>
           </div>
         </div>
         <div class="highlight-item" onclick="openDetail(1)">
           <div class="highlight-num">2</div>
           <div>
-            <div class="highlight-title">[2025] EWHC 441 — 선하증권 전자화와 권리 이전 유효성</div>
-            <div class="highlight-body">영국 High Court가 전자 선하증권(e-B/L)의 배서에 의한 권리 이전의 법적 유효성을 최초로 인정한 판결로, 국제 전자무역 서류 실무에 중대한 영향을 미칠 것으로 예상됩니다.</div>
+            <div class="highlight-title">[2025] EWHC 441 â ì íì¦ê¶ ì ìíì ê¶ë¦¬ ì´ì  ì í¨ì±</div>
+            <div class="highlight-body">ìêµ­ High Courtê° ì ì ì íì¦ê¶(e-B/L)ì ë°°ìì ìí ê¶ë¦¬ ì´ì ì ë²ì  ì í¨ì±ì ìµì´ë¡ ì¸ì í íê²°ë¡, êµ­ì  ì ìë¬´ì­ ìë¥ ì¤ë¬´ì ì¤ëí ìí¥ì ë¯¸ì¹  ê²ì¼ë¡ ììë©ëë¤.</div>
           </div>
         </div>
         <div class="highlight-item" onclick="openDetail(2)">
           <div class="highlight-num">3</div>
           <div>
-            <div class="highlight-title">[2025] SGCA 12 — 용선계약 해제 시 손해배상 범위</div>
-            <div class="highlight-body">싱가포르 Court of Appeal이 정기용선계약 조기해제 시 잔존 용선기간 전체에 대한 일실이익 배상을 인정하여, 아시아 해운 분쟁의 새로운 기준을 제시했습니다.</div>
+            <div class="highlight-title">[2025] SGCA 12 â ì©ì ê³ì½ í´ì  ì ìí´ë°°ì ë²ì</div>
+            <div class="highlight-body">ì±ê°í¬ë¥´ Court of Appealì´ ì ê¸°ì©ì ê³ì½ ì¡°ê¸°í´ì  ì ìì¡´ ì©ì ê¸°ê° ì ì²´ì ëí ì¼ì¤ì´ìµ ë°°ìì ì¸ì íì¬, ììì í´ì´ ë¶ìì ìë¡ì´ ê¸°ì¤ì ì ìíìµëë¤.</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ─── BOOKMARKS ─── -->
+    <!-- âââ BOOKMARKS âââ -->
     <div class="view" id="v-bookmarks">
       <div style="margin-bottom:20px">
-        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">북마크</h2>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">ë¶ë§í¬</h2>
       </div>
       <div id="bookmarkResults"></div>
     </div>
@@ -438,52 +438,52 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 <div class="toast" id="toast"></div>
 
 <script>
-// ══ DATA ══
+// ââ DATA ââ
 const CASES = [
-  {id:0, caseNum:"대법원 2025다31205", type:"해상보험", country:"한국", flag:"🇰🇷", court:"대법원", date:"2025.12.18", conf:0.94,
-   title:"해상보험 고지의무 위반 시 보험자 면책과 인과관계 요부",
-   summary:"피보험자의 고지의무 위반이 보험사고 발생과 인과관계가 없는 경우 보험자의 면책 주장이 허용되는지 여부에 관한 대법원 전원합의체 판결",
-   facts:"원고(화주)는 피고(해상보험사)와 적하보험계약을 체결하면서 화물의 포장 상태에 관한 중요사항을 고지하지 않았다. 항해 중 선박이 기상 악화로 화물의 일부가 손상되었으나, 손상 원인은 포장 불량과 무관한 파도 충격이었다. 보험사는 고지의무 위반을 이유로 보험금 지급을 거절하였고, 이에 화주가 보험금 지급 청구 소송을 제기하였다.",
-   issues:["해상보험에서 고지의무 위반 시 보험자 면책의 요건으로 인과관계가 필요한지 여부","상법 제651조의 해석과 영미법계 해상보험 법리의 수용 범위","고지의무 위반의 중요성 판단 기준"],
-   holding:"대법원 전원합의체는 피보험자의 고지의무 위반과 보험사고 발생 사이에 인과관계가 인정되지 않는 경우에는 보험자가 고지의무 위반을 이유로 계약을 해지하거나 보험금 지급을 거절할 수 없다고 판시하여 기존 판례를 변경하였다. 이는 보험계약자 보호와 신의성실의 원칙에 부합하는 해석이라고 설명하였다.",
-   implications:["해상보험사: 고지의무 위반 면책 주장 시 반드시 인과관계 입증 필요 — 기존 면책 거절 관행 전면 재검토 요망","화주·선사: 경미한 고지 누락이 있더라도 사고 원인과 무관하면 보험금 청구 가능 — 클레임 전략 재수립","보험 계약서: 고지의무 조항을 인과관계 요건 명시 방향으로 수정 필요"],
-   laws:["상법 제651조","상법 제652조","상법 제663조"],
-   related:[{flag:"🇰🇷",text:"대법원 2018다271919 — 고지의무 위반 판단기준"},{flag:"🇬🇧",text:"[2022] UKSC 11 — Marine Insurance Act 1906"},{flag:"🇸🇬",text:"[2021] SGCA 44 — Good Faith in Insurance"}],
-   original:`【대법원 2025. 12. 18. 선고 2025다31205 전원합의체 판결】
+  {id:0, caseNum:"ëë²ì 2025ë¤31205", type:"í´ìë³´í", country:"íêµ­", flag:"ð°ð·", court:"ëë²ì", date:"2025.12.18", conf:0.94,
+   title:"í´ìë³´í ê³ ì§ìë¬´ ìë° ì ë³´íì ë©´ì±ê³¼ ì¸ê³¼ê´ê³ ìë¶",
+   summary:"í¼ë³´íìì ê³ ì§ìë¬´ ìë°ì´ ë³´íì¬ê³  ë°ìê³¼ ì¸ê³¼ê´ê³ê° ìë ê²½ì° ë³´íìì ë©´ì± ì£¼ì¥ì´ íì©ëëì§ ì¬ë¶ì ê´í ëë²ì ì ìí©ìì²´ íê²°",
+   facts:"ìê³ (íì£¼)ë í¼ê³ (í´ìë³´íì¬)ì ì íë³´íê³ì½ì ì²´ê²°íë©´ì íë¬¼ì í¬ì¥ ìíì ê´í ì¤ìì¬í­ì ê³ ì§íì§ ììë¤. í­í´ ì¤ ì ë°ì´ ê¸°ì ìíë¡ íë¬¼ì ì¼ë¶ê° ììëìì¼ë, ìì ìì¸ì í¬ì¥ ë¶ëê³¼ ë¬´ê´í íë ì¶©ê²©ì´ìë¤. ë³´íì¬ë ê³ ì§ìë¬´ ìë°ì ì´ì ë¡ ë³´íê¸ ì§ê¸ì ê±°ì íìê³ , ì´ì íì£¼ê° ë³´íê¸ ì§ê¸ ì²­êµ¬ ìì¡ì ì ê¸°íìë¤.",
+   issues:["í´ìë³´íìì ê³ ì§ìë¬´ ìë° ì ë³´íì ë©´ì±ì ìê±´ì¼ë¡ ì¸ê³¼ê´ê³ê° íìíì§ ì¬ë¶","ìë² ì 651ì¡°ì í´ìê³¼ ìë¯¸ë²ê³ í´ìë³´í ë²ë¦¬ì ìì© ë²ì","ê³ ì§ìë¬´ ìë°ì ì¤ìì± íë¨ ê¸°ì¤"],
+   holding:"ëë²ì ì ìí©ìì²´ë í¼ë³´íìì ê³ ì§ìë¬´ ìë°ê³¼ ë³´íì¬ê³  ë°ì ì¬ì´ì ì¸ê³¼ê´ê³ê° ì¸ì ëì§ ìë ê²½ì°ìë ë³´íìê° ê³ ì§ìë¬´ ìë°ì ì´ì ë¡ ê³ì½ì í´ì§íê±°ë ë³´íê¸ ì§ê¸ì ê±°ì í  ì ìë¤ê³  íìíì¬ ê¸°ì¡´ íë¡ë¥¼ ë³ê²½íìë¤. ì´ë ë³´íê³ì½ì ë³´í¸ì ì ìì±ì¤ì ìì¹ì ë¶í©íë í´ìì´ë¼ê³  ì¤ëªíìë¤.",
+   implications:["í´ìë³´íì¬: ê³ ì§ìë¬´ ìë° ë©´ì± ì£¼ì¥ ì ë°ëì ì¸ê³¼ê´ê³ ìì¦ íì â ê¸°ì¡´ ë©´ì± ê±°ì  ê´í ì ë©´ ì¬ê²í  ìë§","íì£¼Â·ì ì¬: ê²½ë¯¸í ê³ ì§ ëë½ì´ ìëë¼ë ì¬ê³  ìì¸ê³¼ ë¬´ê´íë©´ ë³´íê¸ ì²­êµ¬ ê°ë¥ â í´ë ì ì ëµ ì¬ìë¦½","ë³´í ê³ì½ì: ê³ ì§ìë¬´ ì¡°í­ì ì¸ê³¼ê´ê³ ìê±´ ëªì ë°©í¥ì¼ë¡ ìì  íì"],
+   laws:["ìë² ì 651ì¡°","ìë² ì 652ì¡°","ìë² ì 663ì¡°"],
+   related:[{flag:"ð°ð·",text:"ëë²ì 2018ë¤271919 â ê³ ì§ìë¬´ ìë° íë¨ê¸°ì¤"},{flag:"ð¬ð§",text:"[2022] UKSC 11 â Marine Insurance Act 1906"},{flag:"ð¸ð¬",text:"[2021] SGCA 44 â Good Faith in Insurance"}],
+   original:`ãëë²ì 2025. 12. 18. ì ê³  2025ë¤31205 ì ìí©ìì²´ íê²°ã
 
-【판시사항】
-해상보험계약에서 피보험자가 고지의무를 위반한 경우, 그 위반사항과 보험사고 발생 사이에 인과관계가 없을 때 보험자가 계약을 해지하고 보험금 지급을 거절할 수 있는지 여부 (소극)
+ãíìì¬í­ã
+í´ìë³´íê³ì½ìì í¼ë³´íìê° ê³ ì§ìë¬´ë¥¼ ìë°í ê²½ì°, ê·¸ ìë°ì¬í­ê³¼ ë³´íì¬ê³  ë°ì ì¬ì´ì ì¸ê³¼ê´ê³ê° ìì ë ë³´íìê° ê³ì½ì í´ì§íê³  ë³´íê¸ ì§ê¸ì ê±°ì í  ì ìëì§ ì¬ë¶ (ìê·¹)
 
-【판결요지】
-[다수의견] 상법 제651조는 보험계약자 또는 피보험자가 고의 또는 중대한 과실로 중요한 사항을 고지하지 아니하거나 부실의 고지를 한 경우 보험자가 계약을 해지할 수 있다고 규정하고 있다. 그러나 고지의무 위반과 보험사고 발생 사이에 인과관계가 인정되지 아니하는 경우, 즉 설령 피보험자가 그 사항을 정확히 고지하였다 하더라도 보험사고가 동일하게 발생하였을 것이 명백한 경우에는, 보험자가 고지의무 위반을 이유로 계약을 해지하거나 보험금 지급을 거절하는 것은 신의성실의 원칙에 반하고 보험계약자 보호의 목적에도 부합하지 아니한다.
+ãíê²°ìì§ã
+[ë¤ììê²¬] ìë² ì 651ì¡°ë ë³´íê³ì½ì ëë í¼ë³´íìê° ê³ ì ëë ì¤ëí ê³¼ì¤ë¡ ì¤ìí ì¬í­ì ê³ ì§íì§ ìëíê±°ë ë¶ì¤ì ê³ ì§ë¥¼ í ê²½ì° ë³´íìê° ê³ì½ì í´ì§í  ì ìë¤ê³  ê·ì íê³  ìë¤. ê·¸ë¬ë ê³ ì§ìë¬´ ìë°ê³¼ ë³´íì¬ê³  ë°ì ì¬ì´ì ì¸ê³¼ê´ê³ê° ì¸ì ëì§ ìëíë ê²½ì°, ì¦ ì¤ë ¹ í¼ë³´íìê° ê·¸ ì¬í­ì ì íí ê³ ì§íìë¤ íëë¼ë ë³´íì¬ê³ ê° ëì¼íê² ë°ìíìì ê²ì´ ëªë°±í ê²½ì°ìë, ë³´íìê° ê³ ì§ìë¬´ ìë°ì ì´ì ë¡ ê³ì½ì í´ì§íê±°ë ë³´íê¸ ì§ê¸ì ê±°ì íë ê²ì ì ìì±ì¤ì ìì¹ì ë°íê³  ë³´íê³ì½ì ë³´í¸ì ëª©ì ìë ë¶í©íì§ ìëíë¤.
 
-【주문】
-원심판결을 파기하고, 사건을 부산고등법원에 환송한다.
+ãì£¼ë¬¸ã
+ìì¬íê²°ì íê¸°íê³ , ì¬ê±´ì ë¶ì°ê³ ë±ë²ìì íì¡íë¤.
 
-【이유】
-1. 사안의 개요
-원고는 피고와 이 사건 적하보험계약을 체결하면서 화물의 포장 상태에 관한 중요 사항을 고지하지 아니하였다. 그런데 이 사건 손해는 항해 중 예상치 못한 파도 충격에 의하여 발생한 것으로서, 포장 상태의 불량과는 직접적인 인과관계가 없음이 인정된다.
+ãì´ì ã
+1. ì¬ìì ê°ì
+ìê³ ë í¼ê³ ì ì´ ì¬ê±´ ì íë³´íê³ì½ì ì²´ê²°íë©´ì íë¬¼ì í¬ì¥ ìíì ê´í ì¤ì ì¬í­ì ê³ ì§íì§ ìëíìë¤. ê·¸ë°ë° ì´ ì¬ê±´ ìí´ë í­í´ ì¤ ììì¹ ëª»í íë ì¶©ê²©ì ìíì¬ ë°ìí ê²ì¼ë¡ì, í¬ì¥ ìíì ë¶ëê³¼ë ì§ì ì ì¸ ì¸ê³¼ê´ê³ê° ììì´ ì¸ì ëë¤.
 
-2. 판단
-가. 관련 법리
-상법 제651조에서 규정하는 고지의무는 보험자가 위험을 정확히 평가하여 계약 체결 여부 및 보험료를 결정할 수 있도록 하기 위한 것이다.
-나. 이 사건에의 적용
-이 사건 고지의무 위반(포장 상태 미고지)이 이 사건 보험사고(파도 충격에 의한 화물 손상)의 발생에 아무런 영향을 미치지 아니하였음이 명백하다. 따라서 피고가 이를 이유로 보험금 지급을 거절한 것은 허용되지 아니한다.`,
+2. íë¨
+ê°. ê´ë ¨ ë²ë¦¬
+ìë² ì 651ì¡°ìì ê·ì íë ê³ ì§ìë¬´ë ë³´íìê° ìíì ì íí íê°íì¬ ê³ì½ ì²´ê²° ì¬ë¶ ë° ë³´íë£ë¥¼ ê²°ì í  ì ìëë¡ íê¸° ìí ê²ì´ë¤.
+ë. ì´ ì¬ê±´ìì ì ì©
+ì´ ì¬ê±´ ê³ ì§ìë¬´ ìë°(í¬ì¥ ìí ë¯¸ê³ ì§)ì´ ì´ ì¬ê±´ ë³´íì¬ê³ (íë ì¶©ê²©ì ìí íë¬¼ ìì)ì ë°ìì ìë¬´ë° ìí¥ì ë¯¸ì¹ì§ ìëíììì´ ëªë°±íë¤. ë°ë¼ì í¼ê³ ê° ì´ë¥¼ ì´ì ë¡ ë³´íê¸ ì§ê¸ì ê±°ì í ê²ì íì©ëì§ ìëíë¤.`,
    provisions:[
-     {law:"상법",article:"제651조",title:"고지의무 위반으로 인한 계약해지",text:"보험계약 당시에 보험계약자 또는 피보험자가 고의 또는 중대한 과실로 인하여 중요한 사항을 고지하지 아니하거나 부실의 고지를 한 때에는 보험자는 그 사실을 안 날로부터 1월내에, 계약을 체결한 날로부터 3년내에 한하여 계약을 해지할 수 있다. 그러나 보험자가 계약 당시에 그 사실을 알았거나 중대한 과실로 인하여 알지 못한 때에는 그러하지 아니하다.",relevance:"이 판결에서 고지의무 위반 해지권의 인과관계 요건을 신설하는 법리 해석의 근거 조문"},
-     {law:"상법",article:"제652조",title:"위험변경증가의 통지와 계약해지",text:"보험기간 중에 보험계약자 또는 피보험자가 사고발생의 위험이 현저하게 변경 또는 증가된 사실을 안 때에는 지체없이 보험자에게 통지하여야 한다. 이를 해태한 때에는 보험자는 그 사실을 안 날로부터 1월내에 한하여 계약을 해지할 수 있다.",relevance:"고지의무와 통지의무의 체계적 해석을 위해 참조"},
-     {law:"상법",article:"제663조",title:"보험계약자 등의 불이익변경금지",text:"이 편의 규정은 당사자 간의 특약으로 보험계약자 또는 피보험자나 보험수익자의 불이익으로 변경하지 못한다. 그러나 재보험 및 해상보험 기타 이와 유사한 보험의 경우에는 그러하지 아니하다.",relevance:"해상보험에서 상법 규정의 임의 변경 허용 범위 판단 기준"}
+     {law:"ìë²",article:"ì 651ì¡°",title:"ê³ ì§ìë¬´ ìë°ì¼ë¡ ì¸í ê³ì½í´ì§",text:"ë³´íê³ì½ ë¹ìì ë³´íê³ì½ì ëë í¼ë³´íìê° ê³ ì ëë ì¤ëí ê³¼ì¤ë¡ ì¸íì¬ ì¤ìí ì¬í­ì ê³ ì§íì§ ìëíê±°ë ë¶ì¤ì ê³ ì§ë¥¼ í ëìë ë³´íìë ê·¸ ì¬ì¤ì ì ë ë¡ë¶í° 1ìë´ì, ê³ì½ì ì²´ê²°í ë ë¡ë¶í° 3ëë´ì ííì¬ ê³ì½ì í´ì§í  ì ìë¤. ê·¸ë¬ë ë³´íìê° ê³ì½ ë¹ìì ê·¸ ì¬ì¤ì ììê±°ë ì¤ëí ê³¼ì¤ë¡ ì¸íì¬ ìì§ ëª»í ëìë ê·¸ë¬íì§ ìëíë¤.",relevance:"ì´ íê²°ìì ê³ ì§ìë¬´ ìë° í´ì§ê¶ì ì¸ê³¼ê´ê³ ìê±´ì ì ì¤íë ë²ë¦¬ í´ìì ê·¼ê±° ì¡°ë¬¸"},
+     {law:"ìë²",article:"ì 652ì¡°",title:"ìíë³ê²½ì¦ê°ì íµì§ì ê³ì½í´ì§",text:"ë³´íê¸°ê° ì¤ì ë³´íê³ì½ì ëë í¼ë³´íìê° ì¬ê³ ë°ìì ìíì´ íì íê² ë³ê²½ ëë ì¦ê°ë ì¬ì¤ì ì ëìë ì§ì²´ìì´ ë³´íììê² íµì§íì¬ì¼ íë¤. ì´ë¥¼ í´íí ëìë ë³´íìë ê·¸ ì¬ì¤ì ì ë ë¡ë¶í° 1ìë´ì ííì¬ ê³ì½ì í´ì§í  ì ìë¤.",relevance:"ê³ ì§ìë¬´ì íµì§ìë¬´ì ì²´ê³ì  í´ìì ìí´ ì°¸ì¡°"},
+     {law:"ìë²",article:"ì 663ì¡°",title:"ë³´íê³ì½ì ë±ì ë¶ì´ìµë³ê²½ê¸ì§",text:"ì´ í¸ì ê·ì ì ë¹ì¬ì ê°ì í¹ì½ì¼ë¡ ë³´íê³ì½ì ëë í¼ë³´íìë ë³´íììµìì ë¶ì´ìµì¼ë¡ ë³ê²½íì§ ëª»íë¤. ê·¸ë¬ë ì¬ë³´í ë° í´ìë³´í ê¸°í ì´ì ì ì¬í ë³´íì ê²½ì°ìë ê·¸ë¬íì§ ìëíë¤.",relevance:"í´ìë³´íìì ìë² ê·ì ì ìì ë³ê²½ íì© ë²ì íë¨ ê¸°ì¤"}
    ]},
 
-  {id:1, caseNum:"[2025] EWHC 441 (Comm)", type:"선하증권", country:"영국", flag:"🇬🇧", court:"High Court (Comm)", date:"2025.11.03", conf:0.91,
-   title:"전자 선하증권(e-B/L) 배서에 의한 권리 이전의 법적 유효성",
-   summary:"전자 선하증권 플랫폼을 통한 배서가 영국 법상 유효한 권리 이전을 구성하는지 여부에 관한 영국 최초의 직접 판결",
-   facts:"원고는 전자 선하증권 플랫폼 BOLERO를 통해 배서된 e-B/L을 취득하여 화물에 대한 권리를 주장하였다. 피고 운송인은 e-B/L의 배서가 영국 Bills of Lading Act 1855 및 Carriage of Goods by Sea Act 1992의 요건을 충족하지 못하여 유효한 권리 이전이 발생하지 않았다고 항변하였다.",
-   issues:["전자 선하증권의 배서가 COGSA 1992상 유효한 권리 이전을 구성하는지","e-B/L 플랫폼의 기술적 메커니즘이 법적 요건을 충족하는지","전자상거래 환경에서 전통적 선하증권 법리의 적용 가능성"],
-   holding:"High Court는 BOLERO 플랫폼의 전자 배서 시스템이 기능적으로 종이 선하증권의 배서와 동등한 법적 효과를 갖는다고 판시하였다. 전자 기록의 이전이 COGSA 1992 제2조의 요건을 충족하며, 원고는 유효하게 화물에 대한 권리를 취득하였음을 인정하였다.",
-   implications:["포워더·선사: e-B/L 플랫폼 사용 시 권리 이전 유효성 확인 절차 수립 권고","국내 해운사: 영국법 준거 계약에서 e-B/L 채택 시 이 판결 기준 적용 검토","무역금융: e-B/L 담보로 한 신용장 거래의 법적 안정성 향상 기대"],
+  {id:1, caseNum:"[2025] EWHC 441 (Comm)", type:"ì íì¦ê¶", country:"ìêµ­", flag:"ð¬ð§", court:"High Court (Comm)", date:"2025.11.03", conf:0.91,
+   title:"ì ì ì íì¦ê¶(e-B/L) ë°°ìì ìí ê¶ë¦¬ ì´ì ì ë²ì  ì í¨ì±",
+   summary:"ì ì ì íì¦ê¶ íë«í¼ì íµí ë°°ìê° ìêµ­ ë²ì ì í¨í ê¶ë¦¬ ì´ì ì êµ¬ì±íëì§ ì¬ë¶ì ê´í ìêµ­ ìµì´ì ì§ì  íê²°",
+   facts:"ìê³ ë ì ì ì íì¦ê¶ íë«í¼ BOLEROë¥¼ íµí´ ë°°ìë e-B/Lì ì·¨ëíì¬ íë¬¼ì ëí ê¶ë¦¬ë¥¼ ì£¼ì¥íìë¤. í¼ê³  ì´ì¡ì¸ì e-B/Lì ë°°ìê° ìêµ­ Bills of Lading Act 1855 ë° Carriage of Goods by Sea Act 1992ì ìê±´ì ì¶©ì¡±íì§ ëª»íì¬ ì í¨í ê¶ë¦¬ ì´ì ì´ ë°ìíì§ ììë¤ê³  í­ë³íìë¤.",
+   issues:["ì ì ì íì¦ê¶ì ë°°ìê° COGSA 1992ì ì í¨í ê¶ë¦¬ ì´ì ì êµ¬ì±íëì§","e-B/L íë«í¼ì ê¸°ì ì  ë©ì»¤ëì¦ì´ ë²ì  ìê±´ì ì¶©ì¡±íëì§","ì ììê±°ë íê²½ìì ì íµì  ì íì¦ê¶ ë²ë¦¬ì ì ì© ê°ë¥ì±"],
+   holding:"High Courtë BOLERO íë«í¼ì ì ì ë°°ì ìì¤íì´ ê¸°ë¥ì ì¼ë¡ ì¢ì´ ì íì¦ê¶ì ë°°ìì ëë±í ë²ì  í¨ê³¼ë¥¼ ê°ëë¤ê³  íìíìë¤. ì ì ê¸°ë¡ì ì´ì ì´ COGSA 1992 ì 2ì¡°ì ìê±´ì ì¶©ì¡±íë©°, ìê³ ë ì í¨íê² íë¬¼ì ëí ê¶ë¦¬ë¥¼ ì·¨ëíììì ì¸ì íìë¤.",
+   implications:["í¬ìëÂ·ì ì¬: e-B/L íë«í¼ ì¬ì© ì ê¶ë¦¬ ì´ì  ì í¨ì± íì¸ ì ì°¨ ìë¦½ ê¶ê³ ","êµ­ë´ í´ì´ì¬: ìêµ­ë² ì¤ê±° ê³ì½ìì e-B/L ì±í ì ì´ íê²° ê¸°ì¤ ì ì© ê²í ","ë¬´ì­ê¸ìµ: e-B/L ë´ë³´ë¡ í ì ì©ì¥ ê±°ëì ë²ì  ìì ì± í¥ì ê¸°ë"],
    laws:["COGSA 1992 s.2","Bills of Lading Act 1855","Electronic Communications Act 2000"],
-   related:[{flag:"🇬🇧",text:"[2023] EWHC 1208 — Electronic Trade Documents Act"},{flag:"🇸🇬",text:"[2022] SGCA 31 — e-B/L Singapore"},{flag:"🇰🇷",text:"대법원 2019다281299 — 선하증권 배서 효력"}],
+   related:[{flag:"ð¬ð§",text:"[2023] EWHC 1208 â Electronic Trade Documents Act"},{flag:"ð¸ð¬",text:"[2022] SGCA 31 â e-B/L Singapore"},{flag:"ð°ð·",text:"ëë²ì 2019ë¤281299 â ì íì¦ê¶ ë°°ì í¨ë ¥"}],
    original:`[2025] EWHC 441 (Comm)
 
 IN THE HIGH COURT OF JUSTICE
@@ -507,20 +507,20 @@ The Claimant acquired rights to the cargo through a series of electronic endorse
 
 ORDER: Judgment for the Claimant. Costs to be assessed if not agreed.`,
    provisions:[
-     {law:"COGSA 1992",article:"s.2(1)",title:"Rights under shipping documents",text:"Subject to the following provisions of this section, a person who has become— (a) the holder of a bill of lading; (b) the person to whom delivery of the goods to which a sea waybill relates is to be made; or (c) the person to whom delivery of the goods to which a ship's delivery order relates is to be made, shall (by virtue of becoming the holder of the bill or, as the case may be, the person to whom delivery is to be made) have transferred to and vested in him all rights of suit under the contract of carriage as if he had been an original party to that contract.",relevance:"본 판결의 핵심 — 전자 선하증권 배서가 이 조항상 'holder'가 되는지 여부"},
-     {law:"COGSA 1992",article:"s.5(2)",title:"Meaning of 'bill of lading'",text:"References in this Act to a bill of lading do not include references to a document which is incapable of transfer either by endorsement or, as a bearer bill, by delivery without endorsement; and references to the holder of a bill of lading shall be construed in accordance with subsection (3) below.",relevance:"전자 배서가 이 정의를 충족하는지 해석의 근거"},
-     {law:"Electronic Trade Documents Act 2023",article:"s.3",title:"Electronic trade documents",text:"An electronic trade document has the same effect as the equivalent paper trade document. A person may possess an electronic trade document. A transfer of an electronic trade document has the same effect as a transfer of the equivalent paper trade document.",relevance:"2023년 입법 — 본 판결 이후 전자 무역서류의 법적 지위를 명확히 한 조문"}
+     {law:"COGSA 1992",article:"s.2(1)",title:"Rights under shipping documents",text:"Subject to the following provisions of this section, a person who has becomeâ (a) the holder of a bill of lading; (b) the person to whom delivery of the goods to which a sea waybill relates is to be made; or (c) the person to whom delivery of the goods to which a ship's delivery order relates is to be made, shall (by virtue of becoming the holder of the bill or, as the case may be, the person to whom delivery is to be made) have transferred to and vested in him all rights of suit under the contract of carriage as if he had been an original party to that contract.",relevance:"ë³¸ íê²°ì íµì¬ â ì ì ì íì¦ê¶ ë°°ìê° ì´ ì¡°í­ì 'holder'ê° ëëì§ ì¬ë¶"},
+     {law:"COGSA 1992",article:"s.5(2)",title:"Meaning of 'bill of lading'",text:"References in this Act to a bill of lading do not include references to a document which is incapable of transfer either by endorsement or, as a bearer bill, by delivery without endorsement; and references to the holder of a bill of lading shall be construed in accordance with subsection (3) below.",relevance:"ì ì ë°°ìê° ì´ ì ìë¥¼ ì¶©ì¡±íëì§ í´ìì ê·¼ê±°"},
+     {law:"Electronic Trade Documents Act 2023",article:"s.3",title:"Electronic trade documents",text:"An electronic trade document has the same effect as the equivalent paper trade document. A person may possess an electronic trade document. A transfer of an electronic trade document has the same effect as a transfer of the equivalent paper trade document.",relevance:"2023ë ìë² â ë³¸ íê²° ì´í ì ì ë¬´ì­ìë¥ì ë²ì  ì§ìë¥¼ ëªíí í ì¡°ë¬¸"}
    ]},
 
-  {id:2, caseNum:"[2025] SGCA 12", type:"용선계약", country:"싱가포르", flag:"🇸🇬", court:"Court of Appeal", date:"2025.10.15", conf:0.89,
-   title:"정기용선계약 조기해제 시 잔존 기간 일실이익 손해배상 범위",
-   summary:"용선자가 정기용선계약을 조기 해제한 경우 선주의 손해배상 범위가 잔존 용선기간 전체에 걸친 일실이익을 포함하는지에 관한 싱가포르 항소법원 판결",
-   facts:"원고(선주)는 피고(용선자)와 2년의 정기용선계약을 체결하였으나, 피고는 계약 개시 6개월 후 시황 악화를 이유로 계약 이행을 거절하였다. 원고는 대체 용선을 찾지 못한 채 잔존 18개월의 용선료 상당 손해배상을 청구하였다.",
-   issues:["용선자의 계약 해제 시 선주가 청구할 수 있는 손해배상의 범위","대체 용선 탐색 의무와 손해 경감 의무의 범위","해운 시황 변동을 이유로 한 계약 해제의 허용 여부"],
-   holding:"싱가포르 항소법원은 용선자의 조기해제가 채무불이행에 해당하며, 선주는 잔존 용선기간 전체에 대한 일실이익을 청구할 수 있다고 판시하였다. 다만 선주는 합리적인 범위에서 대체 용선 탐색 노력을 다했음을 입증해야 한다고 부가 조건을 설정하였다.",
-   implications:["선주: 용선계약 해제 시 대체 용선 탐색 노력 기록 보존 필수 — 손해경감 의무 입증 자료로 활용","용선자: 계약 해제 결정 전 법률 검토 필수 — 잔존 기간 전체에 대한 손해배상 리스크 인식","국내 해운사: 싱가포르법 준거 용선계약 시 이 판결 기준 반영한 계약 조항 설계 필요"],
-   laws:["Singapore Contracts (Rights of Third Parties) Act","Common Law — Damages for Breach","Hadley v Baxendale principle"],
-   related:[{flag:"🇸🇬",text:"[2023] SGCA 41 — Charter Party Damages"},{flag:"🇬🇧",text:"[2021] EWCA Civ 811 — Time Charter Repudiation"},{flag:"🇰🇷",text:"대법원 2017다258109 — 용선료 청구"}],
+  {id:2, caseNum:"[2025] SGCA 12", type:"ì©ì ê³ì½", country:"ì±ê°í¬ë¥´", flag:"ð¸ð¬", court:"Court of Appeal", date:"2025.10.15", conf:0.89,
+   title:"ì ê¸°ì©ì ê³ì½ ì¡°ê¸°í´ì  ì ìì¡´ ê¸°ê° ì¼ì¤ì´ìµ ìí´ë°°ì ë²ì",
+   summary:"ì©ì ìê° ì ê¸°ì©ì ê³ì½ì ì¡°ê¸° í´ì í ê²½ì° ì ì£¼ì ìí´ë°°ì ë²ìê° ìì¡´ ì©ì ê¸°ê° ì ì²´ì ê±¸ì¹ ì¼ì¤ì´ìµì í¬í¨íëì§ì ê´í ì±ê°í¬ë¥´ í­ìë²ì íê²°",
+   facts:"ìê³ (ì ì£¼)ë í¼ê³ (ì©ì ì)ì 2ëì ì ê¸°ì©ì ê³ì½ì ì²´ê²°íìì¼ë, í¼ê³ ë ê³ì½ ê°ì 6ê°ì í ìí© ìíë¥¼ ì´ì ë¡ ê³ì½ ì´íì ê±°ì íìë¤. ìê³ ë ëì²´ ì©ì ì ì°¾ì§ ëª»í ì± ìì¡´ 18ê°ìì ì©ì ë£ ìë¹ ìí´ë°°ìì ì²­êµ¬íìë¤.",
+   issues:["ì©ì ìì ê³ì½ í´ì  ì ì ì£¼ê° ì²­êµ¬í  ì ìë ìí´ë°°ìì ë²ì","ëì²´ ì©ì  íì ìë¬´ì ìí´ ê²½ê° ìë¬´ì ë²ì","í´ì´ ìí© ë³ëì ì´ì ë¡ í ê³ì½ í´ì ì íì© ì¬ë¶"],
+   holding:"ì±ê°í¬ë¥´ í­ìë²ìì ì©ì ìì ì¡°ê¸°í´ì ê° ì±ë¬´ë¶ì´íì í´ë¹íë©°, ì ì£¼ë ìì¡´ ì©ì ê¸°ê° ì ì²´ì ëí ì¼ì¤ì´ìµì ì²­êµ¬í  ì ìë¤ê³  íìíìë¤. ë¤ë§ ì ì£¼ë í©ë¦¬ì ì¸ ë²ììì ëì²´ ì©ì  íì ë¸ë ¥ì ë¤íìì ìì¦í´ì¼ íë¤ê³  ë¶ê° ì¡°ê±´ì ì¤ì íìë¤.",
+   implications:["ì ì£¼: ì©ì ê³ì½ í´ì  ì ëì²´ ì©ì  íì ë¸ë ¥ ê¸°ë¡ ë³´ì¡´ íì â ìí´ê²½ê° ìë¬´ ìì¦ ìë£ë¡ íì©","ì©ì ì: ê³ì½ í´ì  ê²°ì  ì  ë²ë¥  ê²í  íì â ìì¡´ ê¸°ê° ì ì²´ì ëí ìí´ë°°ì ë¦¬ì¤í¬ ì¸ì","êµ­ë´ í´ì´ì¬: ì±ê°í¬ë¥´ë² ì¤ê±° ì©ì ê³ì½ ì ì´ íê²° ê¸°ì¤ ë°ìí ê³ì½ ì¡°í­ ì¤ê³ íì"],
+   laws:["Singapore Contracts (Rights of Third Parties) Act","Common Law â Damages for Breach","Hadley v Baxendale principle"],
+   related:[{flag:"ð¸ð¬",text:"[2023] SGCA 41 â Charter Party Damages"},{flag:"ð¬ð§",text:"[2021] EWCA Civ 811 â Time Charter Repudiation"},{flag:"ð°ð·",text:"ëë²ì 2017ë¤258109 â ì©ì ë£ ì²­êµ¬"}],
    original:`[2025] SGCA 12
 
 COURT OF APPEAL OF THE REPUBLIC OF SINGAPORE
@@ -543,58 +543,58 @@ DECISION
 
 ORDERS: Appeal allowed. Damages assessed at USD 4.2 million representing 18 months' net charter hire.`,
    provisions:[
-     {law:"Singapore Common Law",article:"Hadley v Baxendale (1854)",title:"Remoteness of damage",text:"Where two parties have made a contract which one of them has broken, the damages which the other party ought to receive in respect of such breach of contract should be such as may fairly and reasonably be considered either arising naturally, i.e., according to the usual course of things, from such breach of contract itself, or such as may reasonably be supposed to have been in the contemplation of both parties, at the time they made the contract, as the probable result of the breach of it.",relevance:"용선계약 조기해제 손해배상 범위 산정의 기본 원칙"},
-     {law:"Singapore Common Law",article:"British Westinghouse principle",title:"Duty to mitigate",text:"The plaintiff is under a duty to take all reasonable steps to mitigate the loss consequent on the breach, and cannot recover damages for any such loss as results from his neglect to take such steps.",relevance:"선주의 대체 용선 탐색 의무 — 손해경감 노력 입증 요건"},
-     {law:"Singapore Law",article:"BIMCO NYPE 2015",title:"Time Charter Party — Off-hire and Termination",text:"In the event of loss of time due to deficiency of men including strike of Officers and/or crew, or deficiency and/or default and/or strike of Officers, Crew or Pilots, or breakdown of machinery or damage to hull or other accident, either hindering or preventing the working of the vessel and continuing for more than 24 consecutive hours, payment of hire shall cease until she is again in efficient state.",relevance:"용선계약 해제 조건 및 손해 산정의 기준이 되는 표준 약관 조항"}
+     {law:"Singapore Common Law",article:"Hadley v Baxendale (1854)",title:"Remoteness of damage",text:"Where two parties have made a contract which one of them has broken, the damages which the other party ought to receive in respect of such breach of contract should be such as may fairly and reasonably be considered either arising naturally, i.e., according to the usual course of things, from such breach of contract itself, or such as may reasonably be supposed to have been in the contemplation of both parties, at the time they made the contract, as the probable result of the breach of it.",relevance:"ì©ì ê³ì½ ì¡°ê¸°í´ì  ìí´ë°°ì ë²ì ì°ì ì ê¸°ë³¸ ìì¹"},
+     {law:"Singapore Common Law",article:"British Westinghouse principle",title:"Duty to mitigate",text:"The plaintiff is under a duty to take all reasonable steps to mitigate the loss consequent on the breach, and cannot recover damages for any such loss as results from his neglect to take such steps.",relevance:"ì ì£¼ì ëì²´ ì©ì  íì ìë¬´ â ìí´ê²½ê° ë¸ë ¥ ìì¦ ìê±´"},
+     {law:"Singapore Law",article:"BIMCO NYPE 2015",title:"Time Charter Party â Off-hire and Termination",text:"In the event of loss of time due to deficiency of men including strike of Officers and/or crew, or deficiency and/or default and/or strike of Officers, Crew or Pilots, or breakdown of machinery or damage to hull or other accident, either hindering or preventing the working of the vessel and continuing for more than 24 consecutive hours, payment of hire shall cease until she is again in efficient state.",relevance:"ì©ì ê³ì½ í´ì  ì¡°ê±´ ë° ìí´ ì°ì ì ê¸°ì¤ì´ ëë íì¤ ì½ê´ ì¡°í­"}
    ]},
 
-  {id:3, caseNum:"부산지법 2025가합10234", type:"화물손해", country:"한국", flag:"🇰🇷", court:"부산지방법원", date:"2025.09.30", conf:0.87,
-   title:"냉동 컨테이너 온도 이탈로 인한 화물 손상 운송인 책임 범위",
-   summary:"냉동 컨테이너 운송 중 전원 공급 중단으로 인한 온도 이탈로 화물이 손상된 경우 운송인의 면책 주장 가능 여부",
-   facts:"원고(화주)는 피고(운송인)와 냉동 수산물 운송계약을 체결하였다. 운송 중 선박 전기 시스템 고장으로 냉동 컨테이너 온도가 설정치를 초과하여 화물 전량이 폐기 처분되었다. 피고는 선박 기관 고장이 항해상의 과실에 해당하여 상법상 면책된다고 주장하였다.",
-   issues:["냉동 화물 온도 관리 실패가 항해상의 과실인지 상업상의 과실인지 구별 기준","상법 제796조 면책사유의 해석과 냉동 운송 특수성","화물 전손 시 손해액 산정 기준"],
-   holding:"법원은 냉동 컨테이너의 전원 공급 유지는 운송인의 상업상 의무에 해당하며, 이를 게을리한 것은 항해상의 과실이 아닌 상업상의 과실로서 면책 사유에 해당하지 않는다고 판시하였다. 운송인에게 화물 평가액 전액 배상을 명하였다.",
-   implications:["냉동 운송 화주: 온도 이탈 사고 시 항해상 과실 면책 주장에 적극 반박 가능","운송인: 냉동 컨테이너 전원 관리 이중화 등 기술적 안전장치 강화 필요","해상보험사: 냉동 화물 적하보험 약관상 면책 조항 재검토 권고"],
-   laws:["상법 제796조","상법 제794조","헤이그-비스비 규칙 Art.IV"],
-   related:[{flag:"🇰🇷",text:"대법원 2019다200450 — 냉동화물 운송책임"},{flag:"🇬🇧",text:"[2020] EWHC 1234 — Reefer Container"},{flag:"🇸🇬",text:"[2022] SGCA 28 — Temperature Excursion"}],
-   original:`【부산지방법원 2025. 9. 30. 선고 2025가합10234 판결】
+  {id:3, caseNum:"ë¶ì°ì§ë² 2025ê°í©10234", type:"íë¬¼ìí´", country:"íêµ­", flag:"ð°ð·", court:"ë¶ì°ì§ë°©ë²ì", date:"2025.09.30", conf:0.87,
+   title:"ëë ì»¨íì´ë ì¨ë ì´íë¡ ì¸í íë¬¼ ìì ì´ì¡ì¸ ì±ì ë²ì",
+   summary:"ëë ì»¨íì´ë ì´ì¡ ì¤ ì ì ê³µê¸ ì¤ë¨ì¼ë¡ ì¸í ì¨ë ì´íë¡ íë¬¼ì´ ììë ê²½ì° ì´ì¡ì¸ì ë©´ì± ì£¼ì¥ ê°ë¥ ì¬ë¶",
+   facts:"ìê³ (íì£¼)ë í¼ê³ (ì´ì¡ì¸)ì ëë ìì°ë¬¼ ì´ì¡ê³ì½ì ì²´ê²°íìë¤. ì´ì¡ ì¤ ì ë° ì ê¸° ìì¤í ê³ ì¥ì¼ë¡ ëë ì»¨íì´ë ì¨ëê° ì¤ì ì¹ë¥¼ ì´ê³¼íì¬ íë¬¼ ì ëì´ íê¸° ì²ë¶ëìë¤. í¼ê³ ë ì ë° ê¸°ê´ ê³ ì¥ì´ í­í´ìì ê³¼ì¤ì í´ë¹íì¬ ìë²ì ë©´ì±ëë¤ê³  ì£¼ì¥íìë¤.",
+   issues:["ëë íë¬¼ ì¨ë ê´ë¦¬ ì¤í¨ê° í­í´ìì ê³¼ì¤ì¸ì§ ìììì ê³¼ì¤ì¸ì§ êµ¬ë³ ê¸°ì¤","ìë² ì 796ì¡° ë©´ì±ì¬ì ì í´ìê³¼ ëë ì´ì¡ í¹ìì±","íë¬¼ ì ì ì ìí´ì¡ ì°ì  ê¸°ì¤"],
+   holding:"ë²ìì ëë ì»¨íì´ëì ì ì ê³µê¸ ì ì§ë ì´ì¡ì¸ì ììì ìë¬´ì í´ë¹íë©°, ì´ë¥¼ ê²ìë¦¬í ê²ì í­í´ìì ê³¼ì¤ì´ ìë ìììì ê³¼ì¤ë¡ì ë©´ì± ì¬ì ì í´ë¹íì§ ìëë¤ê³  íìíìë¤. ì´ì¡ì¸ìê² íë¬¼ íê°ì¡ ì ì¡ ë°°ìì ëªíìë¤.",
+   implications:["ëë ì´ì¡ íì£¼: ì¨ë ì´í ì¬ê³  ì í­í´ì ê³¼ì¤ ë©´ì± ì£¼ì¥ì ì ê·¹ ë°ë° ê°ë¥","ì´ì¡ì¸: ëë ì»¨íì´ë ì ì ê´ë¦¬ ì´ì¤í ë± ê¸°ì ì  ìì ì¥ì¹ ê°í íì","í´ìë³´íì¬: ëë íë¬¼ ì íë³´í ì½ê´ì ë©´ì± ì¡°í­ ì¬ê²í  ê¶ê³ "],
+   laws:["ìë² ì 796ì¡°","ìë² ì 794ì¡°","í¤ì´ê·¸-ë¹ì¤ë¹ ê·ì¹ Art.IV"],
+   related:[{flag:"ð°ð·",text:"ëë²ì 2019ë¤200450 â ëëíë¬¼ ì´ì¡ì±ì"},{flag:"ð¬ð§",text:"[2020] EWHC 1234 â Reefer Container"},{flag:"ð¸ð¬",text:"[2022] SGCA 28 â Temperature Excursion"}],
+   original:`ãë¶ì°ì§ë°©ë²ì 2025. 9. 30. ì ê³  2025ê°í©10234 íê²°ã
 
-【사건】 손해배상(기)
+ãì¬ê±´ã ìí´ë°°ì(ê¸°)
 
-【원고】 ○○수산물 주식회사 (소송대리인 법무법인 해양)
+ãìê³ ã ââìì°ë¬¼ ì£¼ìíì¬ (ìì¡ëë¦¬ì¸ ë²ë¬´ë²ì¸ í´ì)
 
-【피고】 △△해운 주식회사 (소송대리인 법무법인 부산항)
+ãí¼ê³ ã â³â³í´ì´ ì£¼ìíì¬ (ìì¡ëë¦¬ì¸ ë²ë¬´ë²ì¸ ë¶ì°í­)
 
-【주문】
-1. 피고는 원고에게 금 385,000,000원 및 이에 대하여 2025. 6. 15.부터 이 판결 선고일까지는 연 5%, 그 다음날부터 다 갚는 날까지는 연 12%의 각 비율에 의한 금원을 지급하라.
-2. 소송비용은 피고가 부담한다.
-3. 제1항은 가집행할 수 있다.
+ãì£¼ë¬¸ã
+1. í¼ê³ ë ìê³ ìê² ê¸ 385,000,000ì ë° ì´ì ëíì¬ 2025. 6. 15.ë¶í° ì´ íê²° ì ê³ ì¼ê¹ì§ë ì° 5%, ê·¸ ë¤ìë ë¶í° ë¤ ê°ë ë ê¹ì§ë ì° 12%ì ê° ë¹ì¨ì ìí ê¸ìì ì§ê¸íë¼.
+2. ìì¡ë¹ì©ì í¼ê³ ê° ë¶ë´íë¤.
+3. ì 1í­ì ê°ì§íí  ì ìë¤.
 
-【이유】
-1. 기초사실
-가. 운송계약 체결
-원고는 2025. 5. 10. 피고와 사이에 냉동 명태 20톤(이하 '이 사건 화물')을 부산항에서 블라디보스토크항까지 운송하는 계약을 체결하였다.
+ãì´ì ã
+1. ê¸°ì´ì¬ì¤
+ê°. ì´ì¡ê³ì½ ì²´ê²°
+ìê³ ë 2025. 5. 10. í¼ê³ ì ì¬ì´ì ëë ëªí 20í¤(ì´í 'ì´ ì¬ê±´ íë¬¼')ì ë¶ì°í­ìì ë¸ë¼ëë³´ì¤í í¬í­ê¹ì§ ì´ì¡íë ê³ì½ì ì²´ê²°íìë¤.
 
-나. 사고 발생
-2025. 6. 10. 피고 선박의 전기 시스템 고장으로 인하여 이 사건 화물이 적입된 냉동 컨테이너의 전원 공급이 약 18시간 동안 중단되었고, 이로 인하여 컨테이너 내부 온도가 영상 8도까지 상승하여 이 사건 화물 전량이 변질되었다.
+ë. ì¬ê³  ë°ì
+2025. 6. 10. í¼ê³  ì ë°ì ì ê¸° ìì¤í ê³ ì¥ì¼ë¡ ì¸íì¬ ì´ ì¬ê±´ íë¬¼ì´ ì ìë ëë ì»¨íì´ëì ì ì ê³µê¸ì´ ì½ 18ìê° ëì ì¤ë¨ëìê³ , ì´ë¡ ì¸íì¬ ì»¨íì´ë ë´ë¶ ì¨ëê° ìì 8ëê¹ì§ ìì¹íì¬ ì´ ì¬ê±´ íë¬¼ ì ëì´ ë³ì§ëìë¤.
 
-2. 피고의 항변에 대한 판단
-피고는 이 사건 전기 시스템 고장이 상법 제796조 제1호의 '항해에 관한 선장·해원의 과실'에 해당하여 면책된다고 주장한다. 그러나 냉동 컨테이너의 전원을 지속적으로 공급·유지하는 것은 화물의 안전한 보관과 직결되는 상업상의 의무에 해당하고, 이를 이행하지 아니한 것은 항해상의 과실이 아닌 상업상의 과실로서 면책 사유에 해당하지 아니한다.`,
+2. í¼ê³ ì í­ë³ì ëí íë¨
+í¼ê³ ë ì´ ì¬ê±´ ì ê¸° ìì¤í ê³ ì¥ì´ ìë² ì 796ì¡° ì 1í¸ì 'í­í´ì ê´í ì ì¥Â·í´ìì ê³¼ì¤'ì í´ë¹íì¬ ë©´ì±ëë¤ê³  ì£¼ì¥íë¤. ê·¸ë¬ë ëë ì»¨íì´ëì ì ìì ì§ìì ì¼ë¡ ê³µê¸Â·ì ì§íë ê²ì íë¬¼ì ìì í ë³´ê´ê³¼ ì§ê²°ëë ìììì ìë¬´ì í´ë¹íê³ , ì´ë¥¼ ì´ííì§ ìëí ê²ì í­í´ìì ê³¼ì¤ì´ ìë ìììì ê³¼ì¤ë¡ì ë©´ì± ì¬ì ì í´ë¹íì§ ìëíë¤.`,
    provisions:[
-     {law:"상법",article:"제796조",title:"운송인의 면책사유",text:"운송인은 자기 또는 사용인이 운송물의 수령, 선적, 적부, 운송, 보관, 양륙과 인도에 관하여 주의를 해태하지 아니하였음을 증명하지 아니하면 운송물의 멸실, 훼손 또는 연착으로 인한 손해를 배상할 책임이 있다. 다만, 다음 각 호의 어느 하나에 해당하는 경우에는 그러하지 아니하다. 1. 항해에 관한 선장·해원·도선사 기타의 사용인의 행위, 해태 또는 과실",relevance:"항해상 과실 vs 상업상 과실 구분 — 이 판결의 핵심 쟁점"},
-     {law:"상법",article:"제794조",title:"운송인의 의무",text:"운송인은 자기 또는 사용인이 발항 당시 다음 각 호의 사항에 관하여 주의를 해태하지 아니하였음을 증명하지 아니하면 그로 인하여 생긴 손해를 배상할 책임이 있다. 1. 선박을 감항능력 있는 상태에 둘 것 2. 선원의 승선, 선박의장과 필요품의 보급 3. 선창, 냉장실 그 밖에 운송물을 적재하는 선박의 부분을 운송물의 수령, 운송과 보존에 적합한 상태에 둘 것",relevance:"냉동 설비 유지는 제3호의 의무에 해당 — 상업상 의무임을 뒷받침"},
-     {law:"헤이그-비스비 규칙",article:"Art. IV Rule 2(a)",title:"항해과실 면책",text:"Neither the carrier nor the ship shall be responsible for loss or damage arising or resulting from: (a) Act, neglect, or default of the master, mariner, pilot, or the servants of the carrier in the navigation or in the management of the ship.",relevance:"국제 기준상 항해(navigation) vs 선박관리(management of the ship) 과실 구분 기준"}
+     {law:"ìë²",article:"ì 796ì¡°",title:"ì´ì¡ì¸ì ë©´ì±ì¬ì ",text:"ì´ì¡ì¸ì ìê¸° ëë ì¬ì©ì¸ì´ ì´ì¡ë¬¼ì ìë ¹, ì ì , ì ë¶, ì´ì¡, ë³´ê´, ìë¥ê³¼ ì¸ëì ê´íì¬ ì£¼ìë¥¼ í´ííì§ ìëíììì ì¦ëªíì§ ìëíë©´ ì´ì¡ë¬¼ì ë©¸ì¤, í¼ì ëë ì°ì°©ì¼ë¡ ì¸í ìí´ë¥¼ ë°°ìí  ì±ìì´ ìë¤. ë¤ë§, ë¤ì ê° í¸ì ì´ë íëì í´ë¹íë ê²½ì°ìë ê·¸ë¬íì§ ìëíë¤. 1. í­í´ì ê´í ì ì¥Â·í´ìÂ·ëì ì¬ ê¸°íì ì¬ì©ì¸ì íì, í´í ëë ê³¼ì¤",relevance:"í­í´ì ê³¼ì¤ vs ììì ê³¼ì¤ êµ¬ë¶ â ì´ íê²°ì íµì¬ ìì "},
+     {law:"ìë²",article:"ì 794ì¡°",title:"ì´ì¡ì¸ì ìë¬´",text:"ì´ì¡ì¸ì ìê¸° ëë ì¬ì©ì¸ì´ ë°í­ ë¹ì ë¤ì ê° í¸ì ì¬í­ì ê´íì¬ ì£¼ìë¥¼ í´ííì§ ìëíììì ì¦ëªíì§ ìëíë©´ ê·¸ë¡ ì¸íì¬ ìê¸´ ìí´ë¥¼ ë°°ìí  ì±ìì´ ìë¤. 1. ì ë°ì ê°í­ë¥ë ¥ ìë ìíì ë ê² 2. ì ìì ì¹ì , ì ë°ìì¥ê³¼ íìíì ë³´ê¸ 3. ì ì°½, ëì¥ì¤ ê·¸ ë°ì ì´ì¡ë¬¼ì ì ì¬íë ì ë°ì ë¶ë¶ì ì´ì¡ë¬¼ì ìë ¹, ì´ì¡ê³¼ ë³´ì¡´ì ì í©í ìíì ë ê²",relevance:"ëë ì¤ë¹ ì ì§ë ì 3í¸ì ìë¬´ì í´ë¹ â ììì ìë¬´ìì ë·ë°ì¹¨"},
+     {law:"í¤ì´ê·¸-ë¹ì¤ë¹ ê·ì¹",article:"Art. IV Rule 2(a)",title:"í­í´ê³¼ì¤ ë©´ì±",text:"Neither the carrier nor the ship shall be responsible for loss or damage arising or resulting from: (a) Act, neglect, or default of the master, mariner, pilot, or the servants of the carrier in the navigation or in the management of the ship.",relevance:"êµ­ì  ê¸°ì¤ì í­í´(navigation) vs ì ë°ê´ë¦¬(management of the ship) ê³¼ì¤ êµ¬ë¶ ê¸°ì¤"}
    ]},
 
-  {id:4, caseNum:"[2025] HKCFI 2156", type:"선박충돌", country:"홍콩", flag:"🇭🇰", court:"CFI Admiralty", date:"2025.09.18", conf:0.88,
-   title:"야간 항행 중 충돌사고의 과실 비율과 선박 가압류 요건",
-   summary:"홍콩 항구 내 야간 항행 중 충돌사고 발생 시 양 선박의 과실 비율 산정 및 선박 가압류 절차에 관한 판결",
-   facts:"원고 소유 컨테이너선과 피고 소유 벌크선이 홍콩 빅토리아 항만 내에서 야간 항행 중 충돌하였다. 원고는 피고 선박의 적절한 망루 유지 의무 위반을 주장하였고, 피고는 원고 선박의 과속을 반소 청구하였다. 원고는 임시 선박 가압류를 신청하였다.",
-   issues:["항만 내 야간 항행 시 망루 유지 의무의 기준","충돌 사고에서 양 선박의 과실 비율 산정","선박 가압류 요건 충족 여부 판단"],
-   holding:"법원은 양 선박 모두 과실이 있다고 인정하면서, 피고 선박의 망루 소홀에 60%, 원고 선박의 과속에 40%의 과실을 배분하였다. 선박 가압류 신청과 관련하여 원고의 청구가 prima facie 인정되므로 가압류를 허가하되 적정 담보 제공을 조건으로 하였다.",
-   implications:["선박 운항: 항만 내 야간 항행 시 명확한 망루 당직 기록 유지 필수","선주/P&I 클럽: 충돌 사고 시 즉각적인 증거 보전과 법률 조언 필요","해상보험사: 충돌 손해 처리 시 과실 비율 산정에 이 판결 기준 활용"],
+  {id:4, caseNum:"[2025] HKCFI 2156", type:"ì ë°ì¶©ë", country:"íì½©", flag:"ð­ð°", court:"CFI Admiralty", date:"2025.09.18", conf:0.88,
+   title:"ì¼ê° í­í ì¤ ì¶©ëì¬ê³ ì ê³¼ì¤ ë¹ì¨ê³¼ ì ë° ê°ìë¥ ìê±´",
+   summary:"íì½© í­êµ¬ ë´ ì¼ê° í­í ì¤ ì¶©ëì¬ê³  ë°ì ì ì ì ë°ì ê³¼ì¤ ë¹ì¨ ì°ì  ë° ì ë° ê°ìë¥ ì ì°¨ì ê´í íê²°",
+   facts:"ìê³  ìì  ì»¨íì´ëì ê³¼ í¼ê³  ìì  ë²í¬ì ì´ íì½© ë¹í ë¦¬ì í­ë§ ë´ìì ì¼ê° í­í ì¤ ì¶©ëíìë¤. ìê³ ë í¼ê³  ì ë°ì ì ì í ë§ë£¨ ì ì§ ìë¬´ ìë°ì ì£¼ì¥íìê³ , í¼ê³ ë ìê³  ì ë°ì ê³¼ìì ë°ì ì²­êµ¬íìë¤. ìê³ ë ìì ì ë° ê°ìë¥ë¥¼ ì ì²­íìë¤.",
+   issues:["í­ë§ ë´ ì¼ê° í­í ì ë§ë£¨ ì ì§ ìë¬´ì ê¸°ì¤","ì¶©ë ì¬ê³ ìì ì ì ë°ì ê³¼ì¤ ë¹ì¨ ì°ì ","ì ë° ê°ìë¥ ìê±´ ì¶©ì¡± ì¬ë¶ íë¨"],
+   holding:"ë²ìì ì ì ë° ëª¨ë ê³¼ì¤ì´ ìë¤ê³  ì¸ì íë©´ì, í¼ê³  ì ë°ì ë§ë£¨ ìíì 60%, ìê³  ì ë°ì ê³¼ìì 40%ì ê³¼ì¤ì ë°°ë¶íìë¤. ì ë° ê°ìë¥ ì ì²­ê³¼ ê´ë ¨íì¬ ìê³ ì ì²­êµ¬ê° prima facie ì¸ì ëë¯ë¡ ê°ìë¥ë¥¼ íê°íë ì ì  ë´ë³´ ì ê³µì ì¡°ê±´ì¼ë¡ íìë¤.",
+   implications:["ì ë° ì´í­: í­ë§ ë´ ì¼ê° í­í ì ëªíí ë§ë£¨ ë¹ì§ ê¸°ë¡ ì ì§ íì","ì ì£¼/P&I í´ë½: ì¶©ë ì¬ê³  ì ì¦ê°ì ì¸ ì¦ê±° ë³´ì ê³¼ ë²ë¥  ì¡°ì¸ íì","í´ìë³´íì¬: ì¶©ë ìí´ ì²ë¦¬ ì ê³¼ì¤ ë¹ì¨ ì°ì ì ì´ íê²° ê¸°ì¤ íì©"],
    laws:["Collision Regulations (COLREGS)","Admiralty Jurisdiction Regulation Ordinance (Hong Kong)","International Regulations for Preventing Collisions at Sea 1972"],
-   related:[{flag:"🇭🇰",text:"[2023] HKCFI 1892 — Collision in HK Waters"},{flag:"🇬🇧",text:"[2022] EWHC 588 — Night Navigation Duty"},{flag:"🇰🇷",text:"대법원 2020다215678 — 선박충돌 과실비율"}],
+   related:[{flag:"ð­ð°",text:"[2023] HKCFI 1892 â Collision in HK Waters"},{flag:"ð¬ð§",text:"[2022] EWHC 588 â Night Navigation Duty"},{flag:"ð°ð·",text:"ëë²ì 2020ë¤215678 â ì ë°ì¶©ë ê³¼ì¤ë¹ì¨"}],
    original:`[2025] HKCFI 2156
 
 IN THE HIGH COURT OF THE HONG KONG SPECIAL ADMINISTRATIVE REGION
@@ -615,45 +615,45 @@ FINDINGS OF FACT
 
 APPORTIONMENT OF LIABILITY
 5. Applying the principles in The Miraflores and The Abadesa [1967] 1 AC 826, I apportion liability as follows:
-   - Defendant (MV PACIFIC WIND): 60% — failure to maintain proper lookout
-   - Plaintiff (MV SEOUL STAR): 40% — excessive speed in harbour
+   - Defendant (MV PACIFIC WIND): 60% â failure to maintain proper lookout
+   - Plaintiff (MV SEOUL STAR): 40% â excessive speed in harbour
 6. The Plaintiff's application for arrest of MV PACIFIC WIND is granted, subject to the provision of security in the sum of USD 2.5 million.`,
    provisions:[
-     {law:"COLREGS",article:"Rule 5",title:"Look-out",text:"Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision.",relevance:"피고 선박의 망루 소홀 — 60% 과실 귀속의 근거"},
-     {law:"COLREGS",article:"Rule 6",title:"Safe speed",text:"Every vessel shall at all times proceed at a safe speed so that she can take proper and effective action to avoid collision and be stopped within a distance appropriate to the prevailing circumstances and conditions. In determining a safe speed the following factors shall be among those taken into account: (a) By all vessels: (i) the state of visibility; (ii) the traffic density including concentrations of fishing vessels or any other vessels; (iii) the manoeuvrability of the vessel.",relevance:"원고 선박의 항만 내 과속 — 40% 과실 귀속의 근거"},
-     {law:"AJRO (Hong Kong)",article:"s.12A",title:"Arrest of ship",text:"The Court has jurisdiction to hear and determine any claim arising in connection with a ship if, at the time when the action is brought, the ship is in Hong Kong or the defendant submits to the jurisdiction of the Court. A warrant of arrest may be issued where the plaintiff establishes a good arguable case.",relevance:"선박 가압류 허가 요건 — prima facie 청구 인정 기준"}
+     {law:"COLREGS",article:"Rule 5",title:"Look-out",text:"Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision.",relevance:"í¼ê³  ì ë°ì ë§ë£¨ ìí â 60% ê³¼ì¤ ê·ìì ê·¼ê±°"},
+     {law:"COLREGS",article:"Rule 6",title:"Safe speed",text:"Every vessel shall at all times proceed at a safe speed so that she can take proper and effective action to avoid collision and be stopped within a distance appropriate to the prevailing circumstances and conditions. In determining a safe speed the following factors shall be among those taken into account: (a) By all vessels: (i) the state of visibility; (ii) the traffic density including concentrations of fishing vessels or any other vessels; (iii) the manoeuvrability of the vessel.",relevance:"ìê³  ì ë°ì í­ë§ ë´ ê³¼ì â 40% ê³¼ì¤ ê·ìì ê·¼ê±°"},
+     {law:"AJRO (Hong Kong)",article:"s.12A",title:"Arrest of ship",text:"The Court has jurisdiction to hear and determine any claim arising in connection with a ship if, at the time when the action is brought, the ship is in Hong Kong or the defendant submits to the jurisdiction of the Court. A warrant of arrest may be issued where the plaintiff establishes a good arguable case.",relevance:"ì ë° ê°ìë¥ íê° ìê±´ â prima facie ì²­êµ¬ ì¸ì  ê¸°ì¤"}
    ]},
 
-  {id:5, caseNum:"대법원 2025다19472", type:"선박충돌", country:"한국", flag:"🇰🇷", court:"대법원", date:"2025.08.22", conf:0.92,
-   title:"레이더 미작동 선박의 충돌 사고와 불가항력 항변 범위",
-   summary:"레이더 고장을 인지하고도 항해를 계속하다 충돌사고가 발생한 경우 불가항력 또는 선주 무한책임 감경 주장 허용 여부",
-   facts:"피고 선박은 레이더 고장 상태에서 항해를 계속하던 중 원고 선박과 충돌하였다. 피고는 충돌 당시 짙은 안개로 인한 불가항력을 주장하였으나, 원고는 레이더 고장 상태에서의 항해 강행 자체가 과실이라고 주장하였다.",
-   issues:["레이더 고장 인지 후 항해 강행이 불가항력 항변을 배제하는지","항해 계속 여부 결정에 대한 선장의 재량과 주의의무 범위","안개 중 충돌과 항법 위반의 인과관계"],
-   holding:"대법원은 레이더 고장을 인지한 상태에서 항해를 강행한 것은 그 자체로 주의의무 위반이며, 이후 짙은 안개 등 악천후가 발생하더라도 불가항력 항변이 허용되지 않는다고 판시하였다. 피고의 과실 비율을 80%로 인정하였다.",
-   implications:["선장/선박관리사: 항해 안전장비 결함 발견 시 출항 또는 기항 결정 문서화 의무 강화","P&I 클럽: 보험 처리 시 결함 인지 시점 확인을 위한 항해일지 분석 필수","선사: 운항 전 장비 점검 체계 및 결함 보고 절차 강화 권고"],
-   laws:["해사안전법 제41조","상법 제797조","COLREGS Rule 19"],
-   related:[{flag:"🇰🇷",text:"대법원 2017da216741 — 레이더 불사용 과실"},{flag:"🇬🇧",text:"[2021] EWHC 1001 — Navigation Equipment Failure"},{flag:"🇸🇬",text:"[2020] SGCA 19 — Radar Watch Keeping"}],
-   original:`【대법원 2025. 8. 22. 선고 2025다19872 판결】
+  {id:5, caseNum:"ëë²ì 2025ë¤19472", type:"ì ë°ì¶©ë", country:"íêµ­", flag:"ð°ð·", court:"ëë²ì", date:"2025.08.22", conf:0.92,
+   title:"ë ì´ë ë¯¸ìë ì ë°ì ì¶©ë ì¬ê³ ì ë¶ê°í­ë ¥ í­ë³ ë²ì",
+   summary:"ë ì´ë ê³ ì¥ì ì¸ì§íê³ ë í­í´ë¥¼ ê³ìíë¤ ì¶©ëì¬ê³ ê° ë°ìí ê²½ì° ë¶ê°í­ë ¥ ëë ì ì£¼ ë¬´íì±ì ê°ê²½ ì£¼ì¥ íì© ì¬ë¶",
+   facts:"í¼ê³  ì ë°ì ë ì´ë ê³ ì¥ ìíìì í­í´ë¥¼ ê³ìíë ì¤ ìê³  ì ë°ê³¼ ì¶©ëíìë¤. í¼ê³ ë ì¶©ë ë¹ì ì§ì ìê°ë¡ ì¸í ë¶ê°í­ë ¥ì ì£¼ì¥íìì¼ë, ìê³ ë ë ì´ë ê³ ì¥ ìíììì í­í´ ê°í ìì²´ê° ê³¼ì¤ì´ë¼ê³  ì£¼ì¥íìë¤.",
+   issues:["ë ì´ë ê³ ì¥ ì¸ì§ í í­í´ ê°íì´ ë¶ê°í­ë ¥ í­ë³ì ë°°ì íëì§","í­í´ ê³ì ì¬ë¶ ê²°ì ì ëí ì ì¥ì ì¬ëê³¼ ì£¼ììë¬´ ë²ì","ìê° ì¤ ì¶©ëê³¼ í­ë² ìë°ì ì¸ê³¼ê´ê³"],
+   holding:"ëë²ìì ë ì´ë ê³ ì¥ì ì¸ì§í ìíìì í­í´ë¥¼ ê°íí ê²ì ê·¸ ìì²´ë¡ ì£¼ììë¬´ ìë°ì´ë©°, ì´í ì§ì ìê° ë± ìì²íê° ë°ìíëë¼ë ë¶ê°í­ë ¥ í­ë³ì´ íì©ëì§ ìëë¤ê³  íìíìë¤. í¼ê³ ì ê³¼ì¤ ë¹ì¨ì 80%ë¡ ì¸ì íìë¤.",
+   implications:["ì ì¥/ì ë°ê´ë¦¬ì¬: í­í´ ìì ì¥ë¹ ê²°í¨ ë°ê²¬ ì ì¶í­ ëë ê¸°í­ ê²°ì  ë¬¸ìí ìë¬´ ê°í","P&I í´ë½: ë³´í ì²ë¦¬ ì ê²°í¨ ì¸ì§ ìì  íì¸ì ìí í­í´ì¼ì§ ë¶ì íì","ì ì¬: ì´í­ ì  ì¥ë¹ ì ê² ì²´ê³ ë° ê²°í¨ ë³´ê³  ì ì°¨ ê°í ê¶ê³ "],
+   laws:["í´ì¬ìì ë² ì 41ì¡°","ìë² ì 797ì¡°","COLREGS Rule 19"],
+   related:[{flag:"ð°ð·",text:"ëë²ì 2017da216741 â ë ì´ë ë¶ì¬ì© ê³¼ì¤"},{flag:"ð¬ð§",text:"[2021] EWHC 1001 â Navigation Equipment Failure"},{flag:"ð¸ð¬",text:"[2020] SGCA 19 â Radar Watch Keeping"}],
+   original:`ãëë²ì 2025. 8. 22. ì ê³  2025ë¤19872 íê²°ã
 
-【판시사항】
-레이더 고장을 인지한 상태에서 항해를 강행하다 충돌사고가 발생한 경우, 충돌 당시의 짙은 안개를 이유로 불가항력을 주장할 수 있는지 여부 (소극)
+ãíìì¬í­ã
+ë ì´ë ê³ ì¥ì ì¸ì§í ìíìì í­í´ë¥¼ ê°ííë¤ ì¶©ëì¬ê³ ê° ë°ìí ê²½ì°, ì¶©ë ë¹ìì ì§ì ìê°ë¥¼ ì´ì ë¡ ë¶ê°í­ë ¥ì ì£¼ì¥í  ì ìëì§ ì¬ë¶ (ìê·¹)
 
-【판결요지】
-선박의 안전 항해에 필수적인 장비인 레이더의 고장을 인지한 상태에서 이를 수리하거나 운항을 중단하지 아니하고 항해를 강행한 행위 자체가 선장의 주의의무를 위반한 것이고, 이러한 상태에서 짙은 안개 등 악천후가 발생하여 충돌사고가 발생하였더라도, 그 악천후는 레이더 고장 상태에서의 항해 강행이라는 과실행위로 인하여 야기된 위험이 현실화된 것에 불과하여 불가항력에 해당하지 아니한다.
+ãíê²°ìì§ã
+ì ë°ì ìì  í­í´ì íìì ì¸ ì¥ë¹ì¸ ë ì´ëì ê³ ì¥ì ì¸ì§í ìíìì ì´ë¥¼ ìë¦¬íê±°ë ì´í­ì ì¤ë¨íì§ ìëíê³  í­í´ë¥¼ ê°íí íì ìì²´ê° ì ì¥ì ì£¼ììë¬´ë¥¼ ìë°í ê²ì´ê³ , ì´ë¬í ìíìì ì§ì ìê° ë± ìì²íê° ë°ìíì¬ ì¶©ëì¬ê³ ê° ë°ìíìëë¼ë, ê·¸ ìì²íë ë ì´ë ê³ ì¥ ìíììì í­í´ ê°íì´ë¼ë ê³¼ì¤íìë¡ ì¸íì¬ ì¼ê¸°ë ìíì´ íì¤íë ê²ì ë¶ê³¼íì¬ ë¶ê°í­ë ¥ì í´ë¹íì§ ìëíë¤.
 
-【주문】
-상고를 기각한다. 상고비용은 피고가 부담한다.
+ãì£¼ë¬¸ã
+ìê³ ë¥¼ ê¸°ê°íë¤. ìê³ ë¹ì©ì í¼ê³ ê° ë¶ë´íë¤.
 
-【이유】
-1. 원심의 판단
-원심은 피고가 레이더 고장을 인지한 시점부터 이미 주의의무 위반 상태에 있었으며, 그 이후에 발생한 안개는 예견 가능한 위험의 현실화로서 불가항력에 해당하지 않는다고 판단하였다.
+ãì´ì ã
+1. ìì¬ì íë¨
+ìì¬ì í¼ê³ ê° ë ì´ë ê³ ì¥ì ì¸ì§í ìì ë¶í° ì´ë¯¸ ì£¼ììë¬´ ìë° ìíì ììì¼ë©°, ê·¸ ì´íì ë°ìí ìê°ë ìê²¬ ê°ë¥í ìíì íì¤íë¡ì ë¶ê°í­ë ¥ì í´ë¹íì§ ìëë¤ê³  íë¨íìë¤.
 
-2. 이 법원의 판단
-해사안전법 제41조는 선박의 안전 항해를 위한 장비 유지 의무를 규정하고 있다. 레이더는 특히 제한된 시계 상황에서의 충돌 방지를 위한 핵심 장비로서, 이를 작동하지 아니하거나 고장 상태로 항해를 지속하는 것은 그 자체로 COLREGS Rule 19의 위반에 해당한다. 따라서 원심 판결은 정당하다.`,
+2. ì´ ë²ìì íë¨
+í´ì¬ìì ë² ì 41ì¡°ë ì ë°ì ìì  í­í´ë¥¼ ìí ì¥ë¹ ì ì§ ìë¬´ë¥¼ ê·ì íê³  ìë¤. ë ì´ëë í¹í ì íë ìê³ ìí©ììì ì¶©ë ë°©ì§ë¥¼ ìí íµì¬ ì¥ë¹ë¡ì, ì´ë¥¼ ìëíì§ ìëíê±°ë ê³ ì¥ ìíë¡ í­í´ë¥¼ ì§ìíë ê²ì ê·¸ ìì²´ë¡ COLREGS Rule 19ì ìë°ì í´ë¹íë¤. ë°ë¼ì ìì¬ íê²°ì ì ë¹íë¤.`,
    provisions:[
-     {law:"해사안전법",article:"제41조",title:"선박 항법",text:"선박은 다른 선박과 충돌을 피하기 위하여 이 법에서 정하는 항법을 지켜야 하며, 항법을 지키는 경우에도 그 상황에 맞는 적절한 조선을 하여야 한다. 선박은 시계(視界)가 제한된 수역에서 항해할 때에는 안전한 속력으로 항해하여야 한다.",relevance:"레이더 고장 상태 항해 강행이 이 조항 위반임을 확인한 판결의 근거"},
-     {law:"COLREGS",article:"Rule 19",title:"Conduct of vessels in restricted visibility",text:"This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility. Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre. Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.",relevance:"제한된 시계에서의 항법 의무 — 레이더 없이 안개 속 항해 강행의 위법성 근거"},
-     {law:"상법",article:"제797조",title:"운송인의 책임제한",text:"운송인은 자기 또는 사용인이 운송물에 관한 주의를 해태하지 아니하였음을 증명하지 아니하면 운송물의 멸실, 훼손 또는 연착으로 인한 손해를 배상할 책임이 있다. 책임제한은 운송인의 고의 또는 손해 발생의 염려가 있음을 인식하면서 한 무모한 행위로 인한 손해에는 적용되지 아니한다.",relevance:"레이더 고장 인지 후 항해 강행은 '손해 발생 염려를 인식한 무모한 행위'로서 책임제한 불가"}
+     {law:"í´ì¬ìì ë²",article:"ì 41ì¡°",title:"ì ë° í­ë²",text:"ì ë°ì ë¤ë¥¸ ì ë°ê³¼ ì¶©ëì í¼íê¸° ìíì¬ ì´ ë²ìì ì íë í­ë²ì ì§ì¼ì¼ íë©°, í­ë²ì ì§í¤ë ê²½ì°ìë ê·¸ ìí©ì ë§ë ì ì í ì¡°ì ì íì¬ì¼ íë¤. ì ë°ì ìê³(è¦ç)ê° ì íë ìì­ìì í­í´í  ëìë ìì í ìë ¥ì¼ë¡ í­í´íì¬ì¼ íë¤.",relevance:"ë ì´ë ê³ ì¥ ìí í­í´ ê°íì´ ì´ ì¡°í­ ìë°ìì íì¸í íê²°ì ê·¼ê±°"},
+     {law:"COLREGS",article:"Rule 19",title:"Conduct of vessels in restricted visibility",text:"This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility. Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre. Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.",relevance:"ì íë ìê³ììì í­ë² ìë¬´ â ë ì´ë ìì´ ìê° ì í­í´ ê°íì ìë²ì± ê·¼ê±°"},
+     {law:"ìë²",article:"ì 797ì¡°",title:"ì´ì¡ì¸ì ì±ìì í",text:"ì´ì¡ì¸ì ìê¸° ëë ì¬ì©ì¸ì´ ì´ì¡ë¬¼ì ê´í ì£¼ìë¥¼ í´ííì§ ìëíììì ì¦ëªíì§ ìëíë©´ ì´ì¡ë¬¼ì ë©¸ì¤, í¼ì ëë ì°ì°©ì¼ë¡ ì¸í ìí´ë¥¼ ë°°ìí  ì±ìì´ ìë¤. ì±ìì íì ì´ì¡ì¸ì ê³ ì ëë ìí´ ë°ìì ì¼ë ¤ê° ììì ì¸ìíë©´ì í ë¬´ëª¨í íìë¡ ì¸í ìí´ìë ì ì©ëì§ ìëíë¤.",relevance:"ë ì´ë ê³ ì¥ ì¸ì§ í í­í´ ê°íì 'ìí´ ë°ì ì¼ë ¤ë¥¼ ì¸ìí ë¬´ëª¨í íì'ë¡ì ì±ìì í ë¶ê°"}
    ]},
 ];
 
@@ -661,7 +661,7 @@ let currentView = 'dashboard';
 let prevView = 'dashboard';
 let bookmarks = new Set();
 
-// ══ NAVIGATION ══
+// ââ NAVIGATION ââ
 function nav(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('v-' + view).classList.add('active');
@@ -681,14 +681,14 @@ function goBack() {
   nav(prevView === 'detail' ? 'search' : prevView);
 }
 
-// ══ FILTER TAGS ══
+// ââ FILTER TAGS ââ
 function toggleFilter(el) {
   el.closest('.sb-filter-section').querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
   el.classList.add('on');
   if (currentView === 'search') renderSearch();
 }
 
-// ══ SEARCH ══
+// ââ SEARCH ââ
 let currentSearchQuery = '';
 
 function doSearch() {
@@ -704,22 +704,22 @@ function filterAndSearch(type) {
 
 function renderSearch() {
   const q = currentSearchQuery.toLowerCase();
-  const country = document.getElementById('f-country')?.value || '전체';
-  const type = document.getElementById('f-type')?.value || '전체';
+  const country = document.getElementById('f-country')?.value || 'ì ì²´';
+  const type = document.getElementById('f-type')?.value || 'ì ì²´';
 
   let results = CASES.filter(c => {
     const matchQ = !q || c.caseNum.toLowerCase().includes(q) || c.title.toLowerCase().includes(q) || c.summary.toLowerCase().includes(q) || c.type.includes(q) || c.country.includes(q);
-    const matchC = country === '전체' || c.country === country.replace(/🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g, '');
-    const matchT = type === '전체' || c.type === type;
+    const matchC = country === 'ì ì²´' || c.country === country.replace(/ð°ð·|ð¬ð§|ð¸ð¬|ð­ð°|ðºð¸|\s/g, '');
+    const matchT = type === 'ì ì²´' || c.type === type;
     return matchQ && matchC && matchT;
   });
 
   const countEl = document.getElementById('resultCount');
-  countEl.innerHTML = q ? `<strong>"${q}"</strong> 검색 결과 — <strong>${results.length}건</strong>` : `<strong>${results.length}건</strong> 표시 중`;
+  countEl.innerHTML = q ? `<strong>"${q}"</strong> ê²ì ê²°ê³¼ â <strong>${results.length}ê±´</strong>` : `<strong>${results.length}ê±´</strong> íì ì¤`;
 
   const container = document.getElementById('searchResults');
   if (!results.length) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>검색 결과가 없습니다</p></div>`;
+    container.innerHTML = `<div class="empty"><div class="empty-icon">ð</div><p>ê²ì ê²°ê³¼ê° ììµëë¤</p></div>`;
     return;
   }
   container.innerHTML = results.map(c => `
@@ -731,24 +731,24 @@ function renderSearch() {
       <div class="case-card-meta">
         <span class="flag">${c.flag}</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span>
-        <span style="font-size:12px;color:var(--gray)">·</span>
+        <span style="font-size:12px;color:var(--gray)">Â·</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span>
         <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif;margin-left:4px">${c.caseNum}</span>
       </div>
       <div class="case-card-summary">${c.summary}</div>
       <div class="case-card-footer">
-        <div class="case-meta-item">📋 ${c.laws[0]}</div>
+        <div class="case-meta-item">ð ${c.laws[0]}</div>
         <div class="conf-bar">
-          <div class="conf-label">신뢰도</div>
+          <div class="conf-label">ì ë¢°ë</div>
           <div class="conf-track"><div class="conf-fill" style="width:${c.conf*100}%"></div></div>
           <div class="conf-label" style="color:var(--navy);font-weight:600">${(c.conf*100).toFixed(0)}%</div>
         </div>
-        <span style="font-size:12px;color:var(--gray);margin-left:8px;cursor:pointer" onclick="event.stopPropagation();toggleBookmark(${c.id},this)">${bookmarks.has(c.id)?'🔖':'🔖'}</span>
+        <span style="font-size:12px;color:var(--gray);margin-left:8px;cursor:pointer" onclick="event.stopPropagation();toggleBookmark(${c.id},this)">${bookmarks.has(c.id)?'ð':'ð'}</span>
       </div>
     </div>`).join('');
 }
 
-// ══ DETAIL ══
+// ââ DETAIL ââ
 function openDetail(id) {
   const c = CASES[id];
   prevView = currentView;
@@ -758,7 +758,7 @@ function openDetail(id) {
         <span class="flag" style="font-size:18px">${c.flag}</span>
         <span class="badge ${typeBadge(c.type)}">${c.type}</span>
         <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span>
-        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">·</span:
+        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">Â·</span:
         <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span>
       </div>
       <div class="detail-title">${c.title}</div>
@@ -767,9 +767,9 @@ function openDetail(id) {
     <div class="detail-body">
       <div class="detail-left">
         <div class="detail-tabs">
-          <button class="detail-tab active" onclick="switchTab(this,'tab-original')">📄 원문</button>
-          <button class="detail-tab" onclick="switchTab(this,'tab-analysis')">🤖 AI 분석</button>
-          <button class="detail-tab" onclick="switchTab(this,'tab-provisions')">⚖️ 관련조문</button>
+          <button class="detail-tab active" onclick="switchTab(this,'tab-original')">ð ìë¬¸</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-analysis')">ð¤ AI ë¶ì</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-provisions')">âï¸ ê´ë ¨ì¡°ë¬¸</button>
         </div>
         <div class="tab-pane active" id="tab-original">
           <div class="original-wrap">
@@ -777,28 +777,28 @@ function openDetail(id) {
               <span class="original-stamp">ORIGINAL</span>
               <div>
                 <div style="font-size:14px;font-weight:700;color:var(--navy)">${c.caseNum}</div>
-                <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} · ${c.date}</div>
+                <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} Â· ${c.date}</div>
               </div>
             </div>
-            <div class="original-body">${(c.original||'원문 준비 중입니다.').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+            <div class="original-body">${(c.original||'ìë¬¸ ì¤ë¹ ì¤ìëë¤.').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
           </div>
         </div>
         <div class="tab-pane" id="tab-analysis">
           <div class="analysis-card">
             <div class="analysis-section">
-              <div class="analysis-section-title">⚖ 사실관계</div>
+              <div class="analysis-section-title">â ì¬ì¤ê´ê³</div>
               <div class="analysis-text">${c.facts}</div>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">❓ 주요 쟁점</div>
+              <div class="analysis-section-title">â ì£¼ì ìì </div>
               <ul class="analysis-list">${c.issues.map(i=>`<li>${i}</li>`).join('')}</ul>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">🏛 법원 판단</div>
+              <div class="analysis-section-title">ð ë²ì íë¨</div>
               <div class="analysis-text">${c.holding}</div>
             </div>
             <div class="analysis-section">
-              <div class="analysis-section-title">💡 실무 시사점</div>
+              <div class="analysis-section-title">ð¡ ì¤ë¬´ ìì¬ì </div>
               <div style="display:flex;flex-direction:column;gap:8px">
                 ${c.implications.map(i=>`<div class="implication-item">${i}</div>`).join('')}
               </div>
@@ -815,38 +815,38 @@ function openDetail(id) {
                 </div>
               </div>
               <div class="provision-body">
-                <div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">조문 내용</div>
+                <div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">ì¡°ë¬¸ ë´ì©</div>
                 <div style="line-height:1.9;color:var(--dark)">${p.text}</div>
-                <div class="provision-relevance">🔗 판결과의 관련성: ${p.relevance}</div>
+                <div class="provision-relevance">ð íê²°ê³¼ì ê´ë ¨ì±: ${p.relevance}</div>
               </div>
             </div>`).join('')}
-          ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">📋</div><p>관련조문 준비 중입니다</p></div>':''}
+          ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">ð</div><p>ê´ë ¨ì¡°ë¬¸ ì¤ë¹ ì¤ìëë¤</p></div>':''}
         </div>
       </div>
       <div class="detail-right">
         <div class="info-card">
-          <h4>판례 정보</h4>
-          <div class="info-row"><span class="info-key">사건번호</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.caseNum}</span></div>
-          <div class="info-row"><span class="info-key">국가</span><span class="info-val">${c.flag} ${c.country}</span></div>
-          <div class="info-row"><span class="info-key">법원</span><span class="info-val">${c.court}</span></div>
-          <div class="info-row"><span class="info-key">선고일</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
-          <div class="info-row"><span class="info-key">사건유형</span><span class="info-val">${c.type}</span></div>
-          <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
-          <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws.join('<br>')}</span></div>
+          <h4>íë¡ ì ë³´</h4>
+          <div class="info-row"><span class="info-key">ì¬ê±´ë²í¸</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.caseNum}</span></div>
+          <div class="info-row"><span class="info-key">êµ­ê°</span><span class="info-val">${c.flag} ${c.country}</span></div>
+          <div class="info-row"><span class="info-key">ë²ì</span><span class="info-val">${c.court}</span></div>
+          <div class="info-row"><span class="info-key">ì ê³ ì¼</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
+          <div class="info-row"><span class="info-key">ì¬ê±´ì í</span><span class="info-val">${c.type}</span></div>
+          <div class="info-row"><span class="info-key">AI ì ë¢°ë</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
+          <div class="info-row"><span class="info-key">ê´ë ¨ ë²ì¡°ë¬¸</span><span class="info-val">${c.laws.join('<br>')}</span></div>
         </div>
         <div class="info-card">
-          <h4>유사 판례</h4>
+          <h4>ì ì¬ íë¡</h4>
           ${c.related.map(r=>`
-            <div class="related-item" onclick="showToast('관련 판례 준비 중입니다')">
+            <div class="related-item" onclick="showToast('ê´ë ¨ íë¡ ì¤ë¹ ì¤ìëë¤')">
               <div class="related-flag">${r.flag}</div>
               <div class="related-text">${r.text}</div>
             </div>`).join('')}
         </div>
         <div class="info-card" style="background:var(--navy);border-color:var(--navy)">
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;font-family:'Inter',sans-serif;letter-spacing:1px">QUICK ACTIONS</div>
-          <button onclick="showToast('PDF로 저장되었습니다')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">📄 PDF로 저장</button>
-          <button onclick="toggleBookmark(${c.id},this);this.textContent=bookmarks.has(${c.id})?'🔖 북마크 저장됨':'🔖 북마크 추가'" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🔖 북마크 추가</button>
-          <button onclick="showToast('공유 링크가 복사되었습니다')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">🔗 링크 공유</button>
+          <button onclick="showToast('PDFë¡ ì ì¥ëììµëë¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ð PDFë¡ ì ì¥</button>
+          <button onclick="toggleBookmark(${c.id},this);this.textContent=bookmarks.has(${c.id})?'ð ë¶ë§í¬ ì ì¥ë¨':'ð ë¶ë§í¬ ì¶ê°'" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ð ë¶ë§í¬ ì¶ê°</button>
+          <button onclick="showToast('ê³µì  ë§í¬ê° ë³µì¬ëììµëë¤')" style="width:100%;padding:10px;background:rgba(255,255,255,0.1);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:500;transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">ð ë§í¬ ê³µì </button>
         </div>
       </div>
     </div>`;
@@ -857,12 +857,12 @@ function openDetail(id) {
 function switchTab(btn, tabId) {
   const left = btn.closest('.detail-left');
   left.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
-  left.querySelectorAll('.tab-pane').forEach(0 => p.classList.remove('active'));
+  left.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(tabId).classList.add('active');
 }
 
-// ══ DASHBOARD TABLE ══
+// ââ DASHBOARD TABLE ââ
 function renderDash() {
   const tbody = document.getElementById('dashTable');
   tbody.innerHTML = CASES.slice(0,5).map(c => `
@@ -870,45 +870,45 @@ function renderDash() {
       <td style="font-family:'Inter',sans-serif;font-weight:500">${c.caseNum}</td>
       <td><span class="badge ${typeBadge(c.type)}">${c.type}</span></td>
       <td><span class="flag">${c.flag}</span> <span style="font-size:12px;color:var(--gray)">${c.court}</span></td>
-  2   <td style="font-family:'Inter',sans-serif;font-size:12px;color:var(--gray)">${c.date}</td>
-      <td><span class="ai-done">분석 완료</span></td>
+      <td style="font-family:'Inter',sans-serif;font-size:12px;color:var(--gray)">${c.date}</td>
+      <td><span class="ai-done">ë¶ì ìë£</span></td>
     </tr>`).join('');
 }
 
-// ══ TREND CHART ══
+// ââ TREND CHART ââ
 function renderChart() {
   const data = [
-    {label:'선하증권',val:68,color:'#2E75B6'},
-    {label:'해상보험',val:54,color:'#059669'},
-    {label:'화물손해',val:47,color:'#D97706'},
-    {label:'선박충돌',val:32,color:'#DC2626'},
-    {label:'용선계약',val:21,color:'#7C3AED'},
-    {label:'해난구조',val:12,color:'#0891B2'},
+    {label:'ì íì¦ê¶',val:68,color:'#2E75B6'},
+    {label:'í´ìë³´í',val:54,color:'#059669'},
+    {label:'íë¬¼ìí´',val:47,color:'#D97706'},
+    {label:'ì ë°ì¶©ë',val:32,color:'#DC2626'},
+    {label:'ì©ì ê³ì½',val:21,color:'#7C3AED'},
+    {label:'í´ëêµ¬ì¡°',val:12,color:'#0891B2'},
   ];
   const max = Math.max(...data.map(d=>d.val));
   document.getElementById('barChart').innerHTML = data.map(d=>`
     <div class="bar-col">
       <div class="bar-val">${d.val}</div>
-      <div class="bar" style="height:${(d.val/max)*130}px;background:${d.color}" title="${d.label}: ${d.val}건"></div>
+      <div class="bar" style="height:${(d.val/max)*130}px;background:${d.color}" title="${d.label}: ${d.val}ê±´"></div>
       <div class="bar-label">${d.label}</div>
     </div>`).join('');
 }
 
-// ══ BOOKMARKS ══
+// ââ BOOKMARKS ââ
 function toggleBookmark(id, el) {
   if (bookmarks.has(id)) {
     bookmarks.delete(id);
-    showToast('북마크가 해제되었습니다');
+    showToast('ë¶ë§í¬ê° í´ì ëììµëë¤');
   } else {
     bookmarks.add(id);
-    showToast('🔖 북마크에 추가되었습니다');
+    showToast('ð ë¶ë§í¬ì ì¶ê°ëììµëë¤');
   }
 }
 
 function renderBookmarks() {
   const container = document.getElementById('bookmarkResults');
   if (bookmarks.size === 0) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">🔖</div><p>북마크한 판례가 없습니다<br>판례 상세 페이지에서 북마크를 추가해보세요</p></div>`;
+    container.innerHTML = `<div class="empty"><div class="empty-icon">ð</div><p>ë¶ë§í¬í íë¡ê° ììµëë¤<br>íë¡ ìì¸ íì´ì§ìì ë¶ë§í¬ë¥¼ ì¶ê°í´ë³´ì¸ì</p></div>`;
     return;
   }
   container.innerHTML = [...bookmarks].map(id => {
@@ -920,16 +920,16 @@ function renderBookmarks() {
       </div>
       <div class="case-card-meta">
         <span class="flag">${c.flag}</span>
-        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} · ${c.date}</span>
+        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} Â· ${c.date}</span>
       </div>
       <div class="case-card-summary">${c.summary}</div>
     </div>`;
   }).join('');
 }
 
-// ══ HELPERS ══
+// ââ HELPERS ââ
 function typeBadge(t) {
-  return {선하증권:'badge-blue',해상보험:'badge-green',화물손해:'badge-yellow',선박충돌:'badge-red',용선계약:'badge-purple',해난구조:'badge-blue'}[t] || 'badge-blue';
+  return {ì íì¦ê¶:'badge-blue',í´ìë³´í:'badge-green',íë¬¼ìí´:'badge-yellow',ì ë°ì¶©ë:'badge-red',ì©ì ê³ì½:'badge-purple',í´ëêµ¬ì¡°:'badge-blue'}[t] || 'badge-blue';
 }
 
 function showToast(msg) {
@@ -939,7 +939,7 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ══ INIT ══
+// ââ INIT ââ
 renderDash();
 renderSearch();
 </script>
@@ -962,38 +962,38 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Firestore에서 판례 로드
+// Firestoreìì íë¡ ë¡ë
 async function loadCasesFromFirestore() {
   try {
     const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(100));
     const snapshot = await getDocs(q);
-    if (snapshot.empty) return; // 데이터 없으면 데모 데이터 유지
+    if (snapshot.empty) return; // ë°ì´í° ìì¼ë©´ ë°ëª¨ ë°ì´í° ì ì§
     const firestoreCases = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    // 전역 CASES 배열 교체 후 재렌더
+    // ì ì­ CASES ë°°ì´ êµì²´ í ì¬ë ë
     window._firestoreCases = firestoreCases;
     CASES.length = 0;
     firestoreCases.forEach((c, i) => { if (c.id === undefined) c.id = i; CASES.push(c); });
-    console.log(`Firestore에서 판례 ${firestoreCases.length}건 로드됨`);
+    console.log(`Firestoreìì íë¡ ${firestoreCases.length}ê±´ ë¡ëë¨`);
   } catch(e) {
-    console.warn("Firestore 로드 실패, 데모 데이터 사용:", e.message);
+    console.warn("Firestore ë¡ë ì¤í¨, ë°ëª¨ ë°ì´í° ì¬ì©:", e.message);
   }
 }
 
-// Firestore에 판례 저장 (관리자용)
+// Firestoreì íë¡ ì ì¥ (ê´ë¦¬ìì©)
 window.saveCase = async function(caseData) {
   try {
     const docRef = await addDoc(collection(db, "cases"), {
       ...caseData,
       createdAt: new Date().toISOString()
     });
-    console.log("판례 저장 완료:", docRef.id);
+    console.log("íë¡ ì ì¥ ìë£:", docRef.id);
     return docRef.id;
   } catch(e) {
-    console.error("판례 저장 실패:", e);
+    console.error("íë¡ ì ì¥ ì¤í¨:", e);
   }
 };
 
-// Firestore 인스턴스 전역 노출 (개발/관리용)
+// Firestore ì¸ì¤í´ì¤ ì ì­ ë¸ì¶ (ê°ë°/ê´ë¦¬ì©)
 window._db = db;
 window._collection = collection;
 window._addDoc = addDoc;
