@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -382,21 +382,21 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         <h3>이달의 주목 판례 3선</h3>
       </div>
       <div class="report-highlight">
-        <div class="highlight-item" onclick="openDetail(0)">
+        <div class="highlight-item" onclick="openDetail(CASES[0]?.id ?? 0)">
           <div class="highlight-num">1</div>
           <div>
             <div class="highlight-title">대법원 2025다31205 — 해상보험 고지의무 위반 면책 범위 재정립</div>
             <div class="highlight-body">피보험자의 고지의무 위반이 보험사고와 인과관계가 없는 경우에도 보험자가 면책될 수 있는지에 대해 대법원이 기존 판례를 변경, 인과관계 필요성을 명시하였습니다. 국내 해상보험 실무에 즉각적 영향이 예상됩니다.</div>
           </div>
         </div>
-        <div class="highlight-item" onclick="openDetail(1)">
+        <div class="highlight-item" onclick="openDetail(CASES[1]?.id ?? 1)">
           <div class="highlight-num">2</div>
           <div>
             <div class="highlight-title">[2025] EWHC 441 — 선하증권 전자화와 권리 이전 유효성</div>
             <div class="highlight-body">영국 High Court가 전자 선하증권(e-B/L)의 배서에 의한 권리 이전의 법적 유효성을 최초로 인정한 판결로, 국제 전자무역 서류 실무에 중대한 영향을 미칠 것으로 예상됩니다.</div>
           </div>
         </div>
-        <div class="highlight-item" onclick="openDetail(2)">
+        <div class="highlight-item" onclick="openDetail(CASES[2]?.id ?? 2)">
           <div class="highlight-num">3</div>
           <div>
             <div class="highlight-title">[2025] SGCA 12 — 용선계약 해제 시 손해배상 범위</div>
@@ -637,6 +637,473 @@ APPORTIONMENT OF LIABILITY
      {law:"COLREGS",article:"Rule 19",title:"Conduct of vessels in restricted visibility",text:"This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility. Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre. Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.",relevance:"제한된 시계에서의 항법 의무 — 레이더 없이 안개 속 항해 강행의 위법성 근거"},
      {law:"상법",article:"제797조",title:"운송인의 책임제한",text:"운송인은 자기 또는 사용인이 운송물에 관한 주의를 해태하지 아니하였음을 증명하지 아니하면 운송물의 멸실, 훼손 또는 연착으로 인한 손해를 배상할 책임이 있다. 책임제한은 운송인의 고의 또는 손해 발생의 염려가 있음을 인식하면서 한 무모한 행위로 인한 손해에는 적용되지 아니한다.",relevance:"레이더 고장 인지 후 항해 강행은 '손해 발생 염려를 인식한 무모한 행위'로서 책임제한 불가"}
    ]}
+,
+  {id:1000,caseNum:"대법원 2024다249729",type:"용선계약",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.04.25",conf:0.93,title:"영국법 준거 정기용선계약 조기해지 위약벌 조항 법적 성질",summary:"영국법 준거 정기용선계약에서 Cavendish Square 기준으로 위약벌 판단. 국내 민법 제398조 감액 권한 배제.",tags:["위약벌","정기용선","영국법","준거법"]},
+  {id:1001,caseNum:"[2025] EWHC 721 (Admlty)",type:"선박충돌",country:"영국",flag:"🇬🇧",court:"High Court (Admlty)",date:"2025.03.15",conf:0.9,title:"X-Press Mahanada v Burgan: 좁은 수로 충돌 과실 비율 65:35",summary:"방글라데시 좁은 수로 컨테이너선-탱커 충돌. X-Press 65%, Burgan 35% 과실.",tags:["선박충돌","COLREGS","좁은수로","과실비율"]},
+  {id:1002,caseNum:"[2025] EWHC 376 (Admlty)",type:"해난구조",country:"영국",flag:"🇬🇧",court:"High Court (Admlty)",date:"2025.02.10",conf:0.91,title:"Smit Salvage v Atlantic Pioneer: LOF 2020 구조보수 USD 420만",summary:"북대서양 기관 고장 선박 구조. 구조재산 USD 9,100만 기준 구조보수 USD 420만 인정.",tags:["해난구조","LOF","구조보수","살베이지"]},
+  {id:1003,caseNum:"인천지법 2024가합7891",type:"화물손해",country:"한국",flag:"🇰🇷",court:"인천지방법원",date:"2024.11.20",conf:0.87,title:"반도체 장비 컨테이너 충격 손상 운송인 4억 2,300만원 배상",summary:"컨테이너 고박 불량 및 하역 충격으로 반도체 장비 손상. 운송인 배상액 4억 2,300만원.",tags:["화물손해","컨테이너","고박","운송인책임"]},
+  {id:1004,caseNum:"[2024] HKCFI 3052",type:"용선계약",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2024.11.28",conf:0.89,title:"Pacific Bulkers v Sino Grain: WIBON 조항과 체선료 USD 154만",summary:"WIBON 조항 — 항구 도착 시점 체선료 기산. 항구 혼잡은 불가항력 아님. USD 154만 인정.",tags:["체선료","WIBON","용선계약","GENCON"]},
+  {id:1005,caseNum:"[2024] SGCA 50",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2024.11.12",conf:0.91,title:"Interocean v Bulk Trade: 선저 오손 off-hire 해당 USD 43만 공제",summary:"선저 오손 속력 저하가 off-hire 사유. 용선자의 24일 용선료 공제 USD 43만 허용.",tags:["용선계약","off-hire","선저오손","속력보증"]},
+  {id:1006,caseNum:"[2024] SGHC 282",type:"선하증권",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2024.10.25",conf:0.88,title:"선하증권 준거법 조항과 싱가포르 소송금지명령 요건",summary:"영국 재판지 합의에도 싱가포르 법원의 소송금지명령 발령 요건 설시.",tags:["선하증권","준거법","소송금지명령","재판관할"]},
+  {id:1007,caseNum:"대법원 2024다243550",type:"해상보험",country:"한국",flag:"🇰🇷",court:"대법원",date:"2024.10.17",conf:0.92,title:"선박 전손 보험금 수령 후 수리비 청구 보험자 대위 범위",summary:"전손 보험금 수령 후 제3자 수리비 청구권의 보험자 대위 범위. 선박가액 초과분 피보험자 귀속.",tags:["해상보험","전손","보험자대위","수리비"]},
+  {id:1008,caseNum:"[2024] EWHC 3305 (Comm)",type:"선하증권",country:"영국",flag:"🇬🇧",court:"High Court (Comm)",date:"2024.10.08",conf:0.9,title:"선하증권 위조 발행으로 인한 화물 미인도 손해 USD 420만",summary:"선하증권 위조 발행으로 화물 미인도. 선사의 불법행위 및 계약책임 병렬 적용.",tags:["선하증권","위조","기망","화물미인도"]},
+  {id:1009,caseNum:"서울중앙지법 2024가합23456",type:"화물손해",country:"한국",flag:"🇰🇷",court:"서울중앙지방법원",date:"2024.09.26",conf:0.86,title:"전자 부품 해상운송 중 수분 손상 3억 1,500만원 배상",summary:"전자 부품 컨테이너 수분 침투 손해. 운송인 방수 포장 검사의무 위반.",tags:["화물손해","수분손상","컨테이너","운송인책임"]},
+  {id:1010,caseNum:"부산지법 2024가합15678",type:"선박충돌",country:"한국",flag:"🇰🇷",court:"부산지방법원",date:"2024.09.12",conf:0.87,title:"컨테이너선-어선 야간 충돌 컨테이너선 70% 과실",summary:"야간 항행 중 컨테이너선-어선 충돌. 어선 침몰 손해 배상.",tags:["선박충돌","야간항해","어선","과실비율"]},
+  {id:1011,caseNum:"[2024] HKCFI 2089",type:"선하증권",country:"홍콩",flag:"🇭🇰",court:"CFI",date:"2024.08.30",conf:0.88,title:"지시식 선하증권 연속 배서 흠결과 화물 인도 의무",summary:"지시식 선하증권 연속 배서 흠결 시 운송인의 화물 인도 의무 범위.",tags:["선하증권","배서","화물인도","선의취득"]},
+  {id:1012,caseNum:"[2024] SGCA 32",type:"해상보험",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2024.08.15",conf:0.91,title:"ICC(A) 조건 적하보험 포장 불량 특별면책 적용",summary:"ICC(A) 포괄담보 조건에서 포장 불량으로 인한 손해의 특별면책 적용.",tags:["해상보험","ICC","적하보험","면책조항"]},
+  {id:1013,caseNum:"[2024] SGHC 165",type:"화물손해",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2024.07.22",conf:0.87,title:"냉장 팜유 온도 일탈 손해 운송인화주 50:50 과실 분담",summary:"냉장 팜유 온도 일탈로 품질 저하. 운송인 냉장 시스템 유지의무 위반과 화주 적재 지시 과실.",tags:["화물손해","냉장화물","온도이탈","과실분담"]},
+  {id:1014,caseNum:"FM Insurance v MSC Mediterranean (SDNY 2024)",type:"해상보험",country:"미국",flag:"🇺🇸",court:"S.D.N.Y.",date:"2024.07.10",conf:0.86,title:"COGSA 패키지 제한 컨테이너 내 팔레트 단위 판단",summary:"COGSA $500/package 한도. 컨테이너 내 팔레트가 별도 '패키지'인지 여부.",tags:["해상보험","COGSA","패키지제한","책임한도"]},
+  {id:1015,caseNum:"[2024] HKCFI 892",type:"해난구조",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2024.06.28",conf:0.89,title:"홍콩 좌초 선박 SCOPIC 특별보수 USD 180만 인정",summary:"홍콩 해역 좌초 선박 구조. 연료 유출 위험 방지 조치에 따른 특별보수(SCOPIC) USD 180만 인정.",tags:["해난구조","SCOPIC","환경오염","특별보수"]},
+  {id:1016,caseNum:"[2024] HKCFI 1234",type:"용선계약",country:"홍콩",flag:"🇭🇰",court:"CFI",date:"2024.06.15",conf:0.88,title:"항해용선 선적항 준비통지(NOR) 요건과 체선료 기산",summary:"준비통지(NOR) 발행 유효성 — 실제 선적 준비 완료 시점 기준.",tags:["용선계약","NOR","체선료","선적준비"]},
+  {id:1017,caseNum:"HK-2024-010",type:"선박충돌",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2024.06.05",conf:0.87,title:"홍콩항 예선 지원 중 충돌 선사와 예선업자 책임 분담",summary:"예선 작업 중 접안 선박 충돌. 선사와 예선업자 과실 비율 분담.",tags:["선박충돌","예선","접안","책임제한"]},
+  {id:1018,caseNum:"대법원 2023다198721",type:"선하증권",country:"한국",flag:"🇰🇷",court:"대법원",date:"2024.03.28",conf:0.92,title:"전자 선하증권 플랫폼 배서 양도의 법적 효력",summary:"전자 선하증권 플랫폼을 통한 배서 양도의 상법상 권리 이전 요건 충족 여부.",tags:["선하증권","전자선하증권","e-BL","권리이전"]},
+  {id:1019,caseNum:"US-2024-010",type:"화물손해",country:"미국",flag:"🇺🇸",court:"E.D.N.Y.",date:"2024.05.20",conf:0.86,title:"수에즈 운하 인근 좌초 컨테이너 전손 COGSA 및 공동해손",summary:"좌초로 인한 컨테이너 화물 손해. COGSA 적용 범위 및 공동해손 분담액 산정.",tags:["화물손해","공동해손","COGSA","좌초"]},
+  {id:1020,caseNum:"[2024] SGHC 74",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2024.04.02",conf:0.89,title:"벙커 미지급 채권과 용선료 채권 간의 상계 허용 여부",summary:"선박 연료유(벙커) 미지급 채권과 용선료 채권 간의 상계 허용.",tags:["용선계약","벙커","연료유","상계"]},
+  {id:1021,caseNum:"[2024] HKCFI 1456",type:"선하증권",country:"홍콩",flag:"🇭🇰",court:"CFI",date:"2024.03.20",conf:0.88,title:"선하증권 부지약관(Unknown Clause)과 화물 수량 책임",summary:"'Said to contain' 부지약관 기재 선하증권에서 운송인의 화물 수량 책임 범위.",tags:["선하증권","부지약관","운송인책임","화물수량"]},
+  {id:1022,caseNum:"[2024] EWHC 362 (Admlty)",type:"선박충돌",country:"영국",flag:"🇬🇧",court:"High Court (Admlty)",date:"2024.03.05",conf:0.9,title:"영국 해협 교차 항법 충돌 COLREGS Rule 17 우선권 선박 감속",summary:"영국 해협 교차 항법 충돌. 우선권 선박의 적절한 감속 의무 여부.",tags:["선박충돌","COLREGS","우선권","Rule 17"]},
+  {id:1023,caseNum:"Great Lakes Insurance v Raiders Retreat (2024)",type:"해상보험",country:"미국",flag:"🇺🇸",court:"3rd Cir.",date:"2024.02.28",conf:0.87,title:"요트 좌초 전손 보험금 항해 과실 면책 적용 여부",summary:"요트 보험 전손 청구에서 선주 항해 과실의 면책 사유 해당 여부.",tags:["해상보험","전손","요트","항해과실"]},
+  {id:1024,caseNum:"대법원 2023다272883",type:"용선계약",country:"한국",flag:"🇰🇷",court:"대법원",date:"2024.01.25",conf:0.92,title:"항해용선 계약 해제 후 체선료 청구권 소급효와 독립성",summary:"운송인 계약 해제 이후에도 체선료 청구 가능 여부. 소급효와 체선료 독립성.",tags:["용선계약","체선료","계약해제","소급효"]},
+  {id:1025,caseNum:"In re M/Y Amadea (SDNY 2024)",type:"선박가압류",country:"미국",flag:"🇺🇸",court:"S.D.N.Y.",date:"2024.01.12",conf:0.85,title:"러시아 제재 대상 요트 가압류와 해사 관할권",summary:"제재 대상 선박 가압류. 연방 법원의 해사 관할권과 제재법령 상충 처리.",tags:["선박가압류","제재","해사관할권","요트"]},
+  {id:1026,caseNum:"[2024] SGHC 15",type:"화물손해",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2024.01.08",conf:0.88,title:"컨테이너 화물 인도 지연 시장 손실 예견 가능한 손해",summary:"화물 인도 지연으로 인한 시장 가격 하락분 손해배상. 예견 가능한 손해 범위.",tags:["화물손해","인도지연","시장손실","예견가능성"]},
+  {id:1027,caseNum:"대법원 2023다201234",type:"해상보험",country:"한국",flag:"🇰🇷",court:"대법원",date:"2023.11.30",conf:0.91,title:"선박 보험가액 과소 신고와 비례보상 원칙",summary:"선박 보험가액 허위 신고 시 비례보상 원칙 적용 여부.",tags:["해상보험","보험가액","비례보상","과소신고"]},
+  {id:1028,caseNum:"[2024] UKSC 2",type:"선하증권",country:"영국",flag:"🇬🇧",court:"UK Supreme Court",date:"2024.01.31",conf:0.94,title:"복합운송 선하증권 히말라야 조항의 도로 운송 구간 적용",summary:"복합운송 선하증권의 히말라야 조항이 도로 운송 구간 도로 운송인에게 적용되는지 여부.",tags:["선하증권","복합운송","히말라야조항","도로운송"]},
+  {id:1029,caseNum:"Earnest v Palfinger Marine (5th Cir. 2024)",type:"해난구조",country:"미국",flag:"🇺🇸",court:"5th Cir.",date:"2024.02.14",conf:0.86,title:"구명정 전복 사고 제조사 설계 결함 제조물 책임",summary:"구명정 전복 인명 피해. 제조사 설계 결함 제조물 책임과 선주 유지보수 과실.",tags:["해난구조","제조물책임","구명정","인명피해"]},
+  {id:1030,caseNum:"[2023] SGHCR 21",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"High Court (Registrar)",date:"2023.12.15",conf:0.87,title:"정기용선 종료 후 지연 반선 시장 용선료 초과분 손해",summary:"정기용선 종료 후 지연 반선. 시장 용선료 초과분 손해 및 가격 상승기 산정.",tags:["용선계약","반선","초과사용","손해배상"]},
+  {id:1031,caseNum:"[2023] SGHC 353",type:"화물손해",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2023.12.08",conf:0.88,title:"오염 곡물 적재 운송인 검수 의무 불이행",summary:"곡물 적재 시 오염 여부 검수 소홀. 운송인 화물 적합성 확인 의무 위반.",tags:["화물손해","곡물","오염","검수의무"]},
+  {id:1032,caseNum:"부산지법 2023가합12345",type:"해상보험",country:"한국",flag:"🇰🇷",court:"부산지방법원",date:"2023.11.22",conf:0.86,title:"선박 주기관 폭발 보험금 고의적 손해 면책 여부",summary:"선박 주기관 폭발로 인한 보험금 청구. 선주 고의 또는 중과실 면책 여부.",tags:["해상보험","주기관","폭발","고의면책"]},
+  {id:1033,caseNum:"[2023] SGHC 339",type:"선박충돌",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2023.11.15",conf:0.89,title:"싱가포르 해협 TSS 항행 위반 충돌 과실 비율",summary:"싱가포르 해협 TSS 위반 충돌. 부당 횡단 선박과 TSS 내 항행 선박 과실 비율.",tags:["선박충돌","TSS","싱가포르해협","항법위반"]},
+  {id:1034,caseNum:"[2023] HKCA 1534",type:"선하증권",country:"홍콩",flag:"🇭🇰",court:"Court of Appeal",date:"2023.10.28",conf:0.9,title:"클린 선하증권과 실제 화물 상태 불일치 운송인 책임",summary:"클린 선하증권 발행 후 화물 외관 손상 판명. 증거력과 반증 허용 범위.",tags:["선하증권","클린","외관상태","증거력"]},
+  {id:1035,caseNum:"US-2023-007",type:"해난구조",country:"미국",flag:"🇺🇸",court:"S.D. Fla.",date:"2023.10.15",conf:0.85,title:"멕시코만 무계약 구조 자발적 구조 보수 청구",summary:"계약 없이 수행된 긴급 구조. 자발적 구조 보수 청구 요건 및 산정 기준.",tags:["해난구조","무계약구조","자발적구조","구조보수"]},
+  {id:1036,caseNum:"[2023] EWCA Civ 1007",type:"해상보험",country:"영국",flag:"🇬🇧",court:"Court of Appeal",date:"2023.10.02",conf:0.91,title:"해상 적하보험 부실 고지와 보험자 소급 해지",summary:"해상보험 부실 고지. 보험자 소급 해지와 기지급 보험금 반환 청구 허용.",tags:["해상보험","부실고지","소급해지","Insurance Act 2015"]},
+  {id:1037,caseNum:"[2023] SGCA 26",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2023.09.20",conf:0.91,title:"항해용선 전재 금지 조항과 화주 전재 지시 효력",summary:"항해용선계약 전재 금지 조항에도 화주 지시에 따른 전재 여부. 운송인 면책 인정.",tags:["용선계약","전재","화주지시","면책"]},
+  {id:1038,caseNum:"[2023] HKCFA 20",type:"선박충돌",country:"홍콩",flag:"🇭🇰",court:"Court of Final Appeal",date:"2023.09.08",conf:0.93,title:"선주책임제한기금 분배 인명 피해와 재산 피해 우선 순위",summary:"선주책임제한기금 분배에서 인명 피해 청구권과 재산 피해 청구권의 우선 순위.",tags:["선박충돌","책임제한","기금분배","인명피해"]},
+  {id:1039,caseNum:"HK-2023-008",type:"화물손해",country:"홍콩",flag:"🇭🇰",court:"CFI",date:"2023.08.25",conf:0.87,title:"컨테이너 스터핑 불량으로 인한 수출 전자제품 습기 손상",summary:"수출 컨테이너 내부 습기로 인한 전자제품 손상. 스터핑 불량과 해수 유입 원인 규명.",tags:["화물손해","습기손상","스터핑","컨테이너"]},
+  {id:1040,caseNum:"US-2023-008",type:"선하증권",country:"미국",flag:"🇺🇸",court:"2nd Cir.",date:"2023.08.10",conf:0.87,title:"포럼 선택 조항과 미국 법원 관할 포기 효력",summary:"선하증권 포럼 선택 조항의 강행 적용. 미국 COGSA와 사적 자치 균형.",tags:["선하증권","포럼선택","관할합의","COGSA"]},
+  {id:1041,caseNum:"CMA CGM v Mediterranean Shipping (2nd Cir. 2023)",type:"선하증권",country:"미국",flag:"🇺🇸",court:"2nd Cir.",date:"2023.07.28",conf:0.89,title:"VSA 슬롯 교환 협정 하청 운송인의 선하증권 책임 귀속",summary:"슬롯 교환 협정에서 실제 운송 선사와 선하증권 발행 선사의 책임 귀속.",tags:["선하증권","슬롯협정","하청운송","VSA"]},
+  {id:1042,caseNum:"대법원 2022다215678",type:"선하증권",country:"한국",flag:"🇰🇷",court:"대법원",date:"2023.06.15",conf:0.92,title:"무사고 선하증권 발행과 부실 표시 책임 보증장 제공 화주 면책",summary:"화물 외관 이상에도 클린 선하증권 발행. 수하인에 대한 불법행위 책임.",tags:["선하증권","클린","부실표시","보증장"]},
+  {id:1043,caseNum:"Pacific Bulk Carriers v Cosco (2023)",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2023.06.02",conf:0.88,title:"시황 불황기 일방적 용선료 인하 요구 경제적 강박",summary:"시황 하락기 일방적 용선료 인하 요구. 경제적 강박에 의한 계약 변경 효력.",tags:["용선계약","용선료","경제적강박","계약변경"]},
+  {id:1044,caseNum:"[2023] SGCA 41 (II)",type:"해상보험",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2023.05.22",conf:0.91,title:"해적 행위로 인한 선박 포획과 전쟁보험 담보 여부",summary:"말라카 해협 해적 포획 사건. 전쟁보험 해적 담보 조항 해석.",tags:["해상보험","해적","전쟁보험","포획"]},
+  {id:1045,caseNum:"[2023] HKCA 987",type:"용선계약",country:"홍콩",flag:"🇭🇰",court:"Court of Appeal",date:"2023.05.10",conf:0.9,title:"정기용선 선박 인수 시 벙커 잔량 측정 분쟁",summary:"선박 인수 시 벙커 잔량 측정 방법. 실측과 추정량 차이 분쟁.",tags:["용선계약","벙커잔량","선박인수","수량측정"]},
+  {id:1046,caseNum:"Maersk v Hapag-Lloyd (D. Del. 2023)",type:"선하증권",country:"미국",flag:"🇺🇸",court:"D. Del.",date:"2023.04.18",conf:0.86,title:"운임 체납에 대한 선사의 화물 유치권 행사 요건",summary:"운임 미납 화주에 대한 선사의 화물 유치권 행사. Maritime Lien 요건.",tags:["선하증권","운임","유치권","Maritime Lien"]},
+  {id:1047,caseNum:"대법원 2022다198356",type:"화물손해",country:"한국",flag:"🇰🇷",court:"대법원",date:"2023.03.30",conf:0.91,title:"복합운송 일괄운임 계약 손해 발생 구간 특정 불가 책임 귀속",summary:"복합운송 일괄운임 계약에서 운송 구간별 손해 발생 특정 불가 시 책임 귀속.",tags:["화물손해","복합운송","일괄운임","책임귀속"]},
+  {id:1048,caseNum:"[2022] SGHC 248",type:"선박충돌",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2022.11.10",conf:0.89,title:"싱가포르항 접안 중 터그 지원 과실 부두 충돌",summary:"접안 지원 터그의 조종 실수로 인한 선박 부두 충돌. 과실 분담.",tags:["선박충돌","터그","접안","과실분담"]},
+  {id:1049,caseNum:"[2022] EWCA Civ 1613",type:"용선계약",country:"영국",flag:"🇬🇧",court:"Court of Appeal",date:"2022.10.20",conf:0.91,title:"코로나19 항구 봉쇄와 불가항력 조항 체선료 면책",summary:"코로나19 항구 봉쇄로 인한 항만 지연. 불가항력 조항 해석과 체선료 면책.",tags:["용선계약","불가항력","코로나19","체선료"]},
+  {id:1050,caseNum:"[2022] SGHC 295",type:"해상보험",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2022.12.08",conf:0.88,title:"P&I 클럽 Pay to be paid 조항과 선주 사전 변제 요건",summary:"P&I 클럽 Pay to be paid 조항과 선주의 제3자 배상 청구 절차.",tags:["해상보험","P&I클럽","Pay to be paid","선주책임"]},
+  {id:1051,caseNum:"Hapag-Lloyd v Toyota Motor (N.D. Cal. 2022)",type:"화물손해",country:"미국",flag:"🇺🇸",court:"N.D. Cal.",date:"2022.09.15",conf:0.87,title:"RORO 선 화재 자동차 전손 COGSA 책임 한도와 화재 면책",summary:"자동차 운반선 화재로 인한 전손. COGSA 책임 한도와 화재 면책 조항 충돌.",tags:["화물손해","화재","자동차운반","COGSA"]},
+  {id:1052,caseNum:"대법원 2021다289476",type:"선박충돌",country:"한국",flag:"🇰🇷",court:"대법원",date:"2022.08.25",conf:0.92,title:"선박 충돌 공동불법행위 피해자의 연대 청구 선택권",summary:"두 선박 공동과실 충돌에서 피해자의 연대 청구 선택권. 공동불법행위 비례 과실.",tags:["선박충돌","공동불법행위","연대책임","과실비율"]},
+  {id:1053,caseNum:"[2021] UKSC 48",type:"해난구조",country:"영국",flag:"🇬🇧",court:"UK Supreme Court",date:"2021.10.27",conf:0.94,title:"SCOPIC 구조 보수 P&I 보험자 직접 청구 허용 여부",summary:"SCOPIC 특별보상에서 구조자의 P&I 보험자 직접 청구 허용 여부. 영국 대법원.",tags:["해난구조","SCOPIC","P&I보험","직접청구"]},
+  {id:1054,caseNum:"[2021] SGCA 87",type:"선하증권",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2021.09.15",conf:0.9,title:"전자 화물 인도 시스템(EDRS)과 선하증권 원본 불요",summary:"전자 화물 인도 시스템 사용 시 선하증권 원본 없는 화물 인도의 유효성.",tags:["선하증권","전자인도","EDRS","원본불요"]},
+  {id:1055,caseNum:"Trafigura v Vitol (LMAA 2022)",type:"용선계약",country:"영국",flag:"🇬🇧",court:"LMAA 중재",date:"2022.07.30",conf:0.88,title:"탱커 용선 종료 후 잔유 세정 비용 부담 주체",summary:"탱커 용선 종료 후 화물창 잔유 세정 비용 부담. 약관 해석 및 관행.",tags:["용선계약","탱커","잔유","세정비용"]},
+  {id:1056,caseNum:"대법원 2020다215678",type:"해상보험",country:"한국",flag:"🇰🇷",court:"대법원",date:"2021.05.27",conf:0.91,title:"기관실 해수 침수 사고 단독해손과 공동해손 선언 요건",summary:"기관실 해수 침수 선박 손해의 단독해손 처리. 공동해손 선언 요건 미충족.",tags:["해상보험","단독해손","공동해손","기관실침수"]},
+  {id:1057,caseNum:"[2020] SGHC 245",type:"화물손해",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2020.11.12",conf:0.88,title:"수분율 초과 광석 적재 선장의 적재 거절권",summary:"수분율 초과 광석 적재 요구. 선장의 안전 우려에 의한 거절권.",tags:["화물손해","수분율","선장권한","적재거절"]},
+  {id:1058,caseNum:"[2020] UKSC 38",type:"선하증권",country:"영국",flag:"🇬🇧",court:"UK Supreme Court",date:"2020.10.14",conf:0.94,title:"Volcafe v CSAV: 화물 손상 증명 책임 분배 항해 과실 면책",summary:"선하증권 운송인이 항해 과실 면책 주장 시 증명 책임의 소재.",tags:["선하증권","증명책임","항해과실","헤이그비스비"]},
+  {id:1059,caseNum:"HK-2024-009",type:"선박충돌",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2024.05.18",conf:0.87,title:"홍콩 빅토리아 하버 야간 항해등 미비 충돌",summary:"야간 항행 중 항해등 미비 충돌. 홍콩 해상안전규정 위반.",tags:["선박충돌","항해등","야간항행","홍콩해협"]},
+  {id:1060,caseNum:"대법원 2025다12001",type:"해난구조",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.11.20",conf:0.91,title:"한국 영해 내 외국 선박 구조와 구조보수 준거법",summary:"한국 영해 내 외국 국적 선박 구조. 구조보수 청구의 준거법과 국제사법 처리.",tags:["해난구조","준거법","국제사법","구조보수"],original:`【대법원 2025. 11. 20. 선고 2025다12001 판결】
+
+【판시사항】
+한국 영해 내에서 발생한 외국 국적 선박에 대한 구조 작업에서 구조보수 청구권의 준거법 결정 기준
+
+【판결요지】
+해난 구조 보수 청구의 준거법은 국제사법 제60조에 따라 구조 행위가 이루어진 곳의 법(구조지법)이 원칙이나, 구조선과 피구조선이 동일한 기국 소속인 경우에는 그 기국법을 적용한다. 본 사건에서 구조선(한국 국적)과 피구조선(파나마 국적)이 상이한 기국 소속이므로 구조지인 한국법을 준거법으로 한다.
+
+【주문】
+원심 판결 일부 파기. 사건을 부산고등법원에 환송한다.
+
+【이유】
+1. 기초 사실
+원고(한국 국적 구조 전문선)는 2025. 3. 15. 울산 앞바다에서 기관 고장으로 표류 중인 파나마 국적 컨테이너선을 발견하고 구조 작업을 수행하였다.
+
+2. 쟁점
+가. 준거법 결정: 국제사법 제60조에 따라 구조지인 한국법 적용.
+나. 구조보수 산정: 상법 제882조에 따라 구조된 재산의 가액, 구조의 위험 정도 등 종합 고려.
+
+3. 결론
+원심의 준거법 결정에 오류가 있어 파기 환송.`,provisions:[{"law":"국제사법","article":"제60조","title":"해난구조의 준거법","text":"해난구조는 구조 행위가 행하여진 곳의 법에 의한다. 다만, 구조선과 피구조선이 동일한 국가의 선적을 가진 경우에는 그 국가의 법에 의한다.","relevance":"준거법 결정 기준"},{"law":"상법","article":"제882조","title":"구조보수","text":"해난구조자는 구조에 성공한 경우 보수를 청구할 수 있다.","relevance":"구조보수 청구 근거"},{"law":"상법","article":"제883조","title":"구조보수 결정 기준","text":"구조보수는 구조된 재산의 가액, 구조의 위험 정도, 구조자의 노력과 성공 정도 등을 고려하여 결정한다.","relevance":"구조보수 산정 기준"}]},
+  {id:1061,caseNum:"[2025] SGHC 198",type:"용선계약",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2025.10.05",conf:0.89,title:"LNG 운반선 재액화 시스템 고장 off-hire 해당 여부",summary:"LNG 운반선 재액화 시스템(Reliquefaction Plant) 고장으로 인한 운항 제한. 정기용선 off-hire 조항 해당성.",tags:["용선계약","off-hire","LNG","재액화시스템"],original:`[2025] SGHC 198
+
+SINGAPORE HIGH COURT
+
+Global LNG Carriers Ltd v Pacific Energy Shipping Pte Ltd
+
+JUSTICE LEE SEIU KIN:
+
+FACTS
+1. MV Arctic Destiny was on time charter for LNG transportation service.
+2. On 12 March 2025, the vessel's reliquefaction plant failed, preventing cargo temperature maintenance from Qatar to Japan.
+3. The Charterer deducted hire for 18 days while the plant was inoperative.
+
+HELD
+4. The reliquefaction plant is an integral part of an LNG carrier's cargo-handling system. Its failure constitutes a defect preventing the 'full working of the vessel' under the off-hire clause.
+5. For specialist vessels like LNG carriers, cargo handling equipment is essential to the vessel's contractual purpose.
+6. The Charterer is entitled to deduct 18 days hire at USD 95,000/day = USD 1,710,000.
+
+ORDER: Judgment for the Charterer. Hire deduction of USD 1,710,000 upheld.`,provisions:[{"law":"BIMCO Gasvoy 2005","article":"Clause 15","title":"Off-hire provisions for gas carriers","text":"In the event of loss of time due to breakdown of or damage to hull, machinery or equipment (including cargo equipment), payment of hire shall cease.","relevance":"LNG 재액화 시스템이 화물장비에 포함되어 off-hire 사유 해당"},{"law":"NYPE 1993","article":"Clause 17","title":"Off-hire","text":"In the event of loss of time from breakdown of, or damages to hull, machinery or equipment, or by any other cause preventing the full working of the Vessel, the payment of hire shall cease.","relevance":"off-hire 표준 약관 해석 기준"},{"law":"Singapore Common Law","article":"Off-hire causation","title":"물리적 방해 기준","text":"The off-hire clause applies when there is a physical prevention of the vessel being used for the purposes for which it was chartered.","relevance":"LNG 재액화 시스템 고장의 off-hire 해당성"}]},
+  {id:1062,caseNum:"[2025] EWHC 892 (Comm)",type:"화물손해",country:"영국",flag:"🇬🇧",court:"High Court (Comm)",date:"2025.08.18",conf:0.9,title:"해운사 랜섬웨어 공격으로 인한 화물 인도 불능 손해 EUR 380만",summary:"해운사 IT 시스템 랜섬웨어 공격으로 화물 인도 불능. 사이버 공격의 불가항력 해당 여부.",tags:["화물손해","사이버공격","랜섬웨어","불가항력"],original:`[2025] EWHC 892 (Comm)
+
+IN THE HIGH COURT OF JUSTICE
+COMMERCIAL COURT
+
+Akzo Nobel Chemicals Ltd v Nexus Lines SA
+
+MR JUSTICE FOXTON:
+
+FACTS
+1. In January 2025, Nexus Lines suffered a ransomware attack disabling its cargo release system.
+2. 847 containers of chemical cargo were held for 23 days while systems were restored.
+3. Akzo Nobel claims EUR 4.2 million for plant downtime and emergency sourcing costs.
+
+HELD
+4. A carrier's obligation to deliver cargo is strict. Cyber attack does not constitute force majeure unless the carrier proves it took all reasonable cybersecurity measures.
+5. Nexus Lines failed to apply critical security patches for over 18 months. This is a failure of reasonable cybersecurity precautions.
+6. Damages: EUR 3.8 million (storage EUR 240,000; emergency procurement EUR 3.56 million).
+
+ORDER: Judgment for Claimant. Damages EUR 3.8 million plus interest.`,provisions:[{"law":"Hague-Visby Rules","article":"Article III Rule 2","title":"Proper care of cargo","text":"The carrier shall properly and carefully load, handle, stow, carry, keep, care for, and discharge the goods carried.","relevance":"운송인의 화물 보관 의무 — 인도 불능 책임 근거"},{"law":"English Law","article":"Force Majeure","title":"사이버 공격의 불가항력 해당 여부","text":"For force majeure, an event must be unforeseeable and unavoidable with reasonable care. A cyber attack may qualify only if adequate precautions were taken.","relevance":"상당한 주의 기준 — 보안 패치 미적용"},{"law":"UK NCSC Guidance","article":"Active Cyber Defence","title":"최소 사이버보안 기준","text":"Critical infrastructure operators must maintain patched and updated cybersecurity systems.","relevance":"해운사 사이버보안 의무 기준"}]},
+  {id:1063,caseNum:"서울고법 2024나35678",type:"해상보험",country:"한국",flag:"🇰🇷",court:"서울고등법원",date:"2025.07.10",conf:0.88,title:"해상 적하보험 공동해손 분담금 보험자 지급 의무 1억 8,700만원",summary:"공동해손 선언 후 화주의 공동해손 분담금에 대한 적하보험자 지급 의무 및 범위.",tags:["해상보험","공동해손","적하보험","분담금"],original:`【서울고등법원 2025. 7. 10. 선고 2024나35678 판결】
+
+【사건】 보험금청구
+【원고, 항소인】 甲 전자 주식회사
+【피고, 피항소인】 乙 해상보험 주식회사
+
+【주문】
+원심 판결 취소. 피고는 원고에게 금 187,000,000원을 지급하라.
+
+【청구원인】
+원고는 ICC(A) 조건 적하보험에 가입. 기관 고장으로 공동해손 선언, 화물 가액에 비례한 공동해손 분담금을 부담하고 보험금을 청구하였다.
+
+【판단】
+1. ICC(A) 조건은 화물의 물리적 손상뿐 아니라 공동해손 분담금도 담보한다 (ICC Clause 2).
+2. 요크-앤트워프 규칙(YAR 2016)에 따라 산정된 분담금은 적정하다.
+3. 보험 가입 금액 범위 내에서 공동해손 분담금 전액 지급 의무 있음.
+
+【결론】 항소 인용. 피고 보험금 1억 8,700만원 지급.`,provisions:[{"law":"요크-앤트워프 규칙(YAR 2016)","article":"Rule A","title":"공동해손의 성립","text":"There is a general average act when any extraordinary sacrifice or expenditure is intentionally and reasonably made for the common safety for the purpose of preserving from peril the property involved in a common maritime adventure.","relevance":"공동해손 성립 요건"},{"law":"ICC Cargo Clauses","article":"Clause 2","title":"General Average","text":"This insurance covers general average and salvage charges adjusted or determined according to the contract of affreightment and/or the governing law and practice.","relevance":"ICC(A) 조건에서 공동해손 분담금 담보"},{"law":"상법","article":"제865조","title":"공동해손","text":"공동해손이란 선박과 적하의 공동위험을 면하기 위하여 선장이 고의로 또한 합리적으로 선박 또는 적하에 가한 손해 및 지출한 비용이다.","relevance":"공동해손의 정의"}]},
+  {id:1064,caseNum:"[2025] HKCFI 3456",type:"용선계약",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2025.09.22",conf:0.88,title:"항해용선 WIBON/WIPON 조항 해석 태풍 기간 체선료 기산 제외",summary:"태풍으로 입항 불가 시 체선료 기산 여부. WIBON, WIPON 조항과 날씨 작업일 조항 상호 적용.",tags:["용선계약","WIBON","WIPON","체선료"],original:`[2025] HKCFI 3456
+
+IN THE COURT OF FIRST INSTANCE OF THE HIGH COURT
+ADMIRALTY ACTION IN REM
+
+Atlantic Harvest SA v Grain Harbor Ltd
+
+THE HONOURABLE MR JUSTICE PETER CHEUNG:
+
+FACTS
+1. MV Golden Harvest arrived at Tianjin Port customary anchorage on 8 August 2025 and tendered NOR.
+2. Due to Typhoon Khanun, port operations were suspended from 8-11 August 2025.
+3. The charterparty contained WIBON, WIPON, and weather working days provisions.
+
+HELD
+4. The WIPON clause provides laytime commences once the vessel is in the port area. The customary anchorage is within the port area.
+5. However, the weather working days clause excludes time when weather prevents cargo operations. A typhoon suspension falls within this exclusion.
+6. The typhoon period (3 days) does not count against laytime.
+
+ORDER: Judgment for Charterer. No demurrage for typhoon period.`,provisions:[{"law":"GENCON 1994","article":"Clause 6","title":"Laytime calculation","text":"Laytime shall not count during any delay due to weather or other causes beyond the Charterer's reasonable control, if expressly provided.","relevance":"체선료 기산 기준 및 날씨 예외"},{"law":"WIPON clause","article":"Standard","title":"Whether In Port Or Not","text":"Time shall count once the vessel has arrived at the customary anchorage, whether or not the vessel has entered the port proper.","relevance":"항구 도착 기준 — 관습적 닻자리 포함"},{"law":"Voyage Charterparty","article":"Weather Working Days","title":"날씨 작업일 조항","text":"Time during which weather conditions prevent or delay cargo operations shall not count as laytime.","relevance":"태풍 기간 체선료 기산 제외"}]},
+  {id:1065,caseNum:"대법원 2024다68421",type:"선하증권",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.05.29",conf:0.92,title:"스위치 선하증권(Switch B/L) 발행 시 원본 미회수로 인한 이중 인도 손해",summary:"스위치 선하증권 발행 시 원본 선하증권 미회수로 이중 청구 발생. 선사의 주의의무 위반.",tags:["선하증권","Switch BL","원본회수","이중인도"],original:`【대법원 2025. 5. 29. 선고 2024다68421 판결】
+
+【판시사항】
+스위치 선하증권(Switch Bill of Lading) 발행 시 원본 선하증권 미회수로 인한 화물 이중 인도 사고에서 선사의 주의의무 내용과 범위
+
+【판결요지】
+스위치 선하증권 발행 시 선사는 원본 선하증권 전통(Full set)을 회수한 후에만 스위치 선하증권을 발행할 주의의무가 있다. 원본 선하증권을 회수하지 아니하고 스위치 선하증권을 발행한 경우, 선사는 이중 인도 손해에 대하여 배상 책임을 진다.
+
+【주문】
+상고를 기각한다.
+
+【이유】
+1. 피고 선사는 원고에게 선하증권(원본 3통)을 발행하였다.
+2. 스위치 선하증권 발행 시 원본 3통 중 1통만 회수.
+3. 원본 선하증권을 보유한 제3자가 화물을 인도받아 이중 인도 사고 발생.
+
+【판단】
+스위치 선하증권 발행 시 원본 전통 미회수는 선사의 주의의무 위반이다.
+
+【결론】 원심 판결 확정.`,provisions:[{"law":"상법","article":"제820조","title":"선하증권의 발행","text":"운송인은 송하인의 청구에 의하여 운송물을 수령한 후 지체없이 선하증권을 발행하여야 한다.","relevance":"선하증권 발행 의무"},{"law":"상법","article":"제861조","title":"선하증권의 효력","text":"선하증권은 유가증권으로서 그 소지인이 운송물에 대한 권리를 표창한다.","relevance":"이중유통 위험의 근거"},{"law":"민법","article":"제750조","title":"불법행위","text":"고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있다.","relevance":"원본 미회수 주의의무 위반에 의한 불법행위 책임"}]},
+  {id:1066,caseNum:"[2025] SGCA 44",type:"해상보험",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2025.09.08",conf:0.91,title:"후티 반군 선박 나포와 전쟁위험 보험 담보 USD 470만 인정",summary:"예멘 후티 반군의 홍해 선박 나포 사건. 전쟁위험 해상보험 담보 여부.",tags:["해상보험","해적","전쟁보험","홍해"],original:`[2025] SGCA 44
+
+COURT OF APPEAL OF THE REPUBLIC OF SINGAPORE
+
+Mediterranean Carriers Inc v International War Risk Underwriters
+
+SUNDARESH MENON CJ, JUDITH PRAKASH JCA, STEVEN CHONG JCA:
+
+FACTS
+1. MV Mediterranean Star was seized by Houthi forces on 22 February 2025 in the Red Sea.
+2. The vessel was held for 47 days before release following diplomatic negotiations.
+3. The insurer denied the claim, arguing the seizure was piracy not an act of war.
+
+HELD
+4. A 'capture' under a war risk policy includes the taking of a vessel by a de facto authority exercising governmental or quasi-governmental power.
+5. Houthi forces exercise de facto control over parts of Yemen. Their seizure constitutes 'capture' within the policy.
+6. The piracy exclusion argument is rejected — the act had a clear political/military purpose.
+
+ORDER: Appeal allowed. Insurer liable for USD 4.7 million.`,provisions:[{"law":"Institute War and Strikes Clauses (Hulls) 1983","article":"Clause 1.1","title":"War Risks coverage","text":"This insurance covers loss or damage caused by capture, seizure, arrest, restraint or detainment, and the consequences thereof.","relevance":"전쟁위험 담보 — 나포·억류 포함"},{"law":"Marine Insurance Act 1906","article":"s.57","title":"Total loss by capture","text":"Where the subject-matter insured is captured, the insurer is liable as if it were a total loss, unless the vessel is recovered within a reasonable time.","relevance":"나포 시 전손 처리 기준"},{"law":"Singapore Law","article":"Capture definition","title":"나포의 법적 정의","text":"Capture requires the taking of the vessel with hostile intent by a party exercising some form of authority, whether governmental or quasi-governmental.","relevance":"후티 반군 나포 행위의 전쟁위험 담보 해당성"}]},
+  {id:1067,caseNum:"부산지법 2024가합89012",type:"화물손해",country:"한국",flag:"🇰🇷",court:"부산지방법원",date:"2025.06.18",conf:0.87,title:"TML 초과 철광석 유동화(liquefaction)로 인한 선박 손상 21억 배상",summary:"수분율 기준(TML) 초과 철광석 적재 후 항해 중 화물 유동화. 선박 손상 및 선원 부상.",tags:["화물손해","유동화","TML","철광석"],original:`【부산지방법원 2025. 6. 18. 선고 2024가합89012 판결】
+
+【사건】 손해배상(기)
+【원고】 甲 해운 주식회사
+【피고】 乙 광물 주식회사
+
+【주문】
+피고는 원고에게 금 2,140,000,000원을 지급하라.
+
+【청구원인】
+원고는 피고의 철광석을 중국 닝보에서 포항으로 운송하였다. 피고는 수분율 검사 결과를 조작하여 TML을 초과한 화물을 인도하였고, 항해 중 화물 유동화로 선박이 기울어 기관실에 침수 피해가 발생하였다.
+
+【판단】
+1. 감정 결과, 피고의 수분율 검사서는 허위로 실제 수분율은 TML 기준을 7.3% 초과하였다.
+2. 수분율 초과 화물의 유동화가 선박 손상의 직접 원인임이 인정된다.
+3. 피고의 수분율 허위 고지는 불법행위를 구성한다.
+
+【결론】 청구 인용. 배상액 21억 4,000만원.`,provisions:[{"law":"IMSBC Code","article":"Section 7","title":"화물 정보 제공 의무","text":"The shipper shall provide the master with appropriate information on the cargo including the TML and moisture content.","relevance":"화주의 TML 정보 제공 의무"},{"law":"SOLAS","article":"Chapter VI, Rule 2","title":"화물 정보","text":"The shipper shall ensure cargo information is provided prior to loading. For materials that may liquefy, the shipper shall provide TML and moisture content test results.","relevance":"IMO 규정상 화물 정보 제공 의무"},{"law":"민법","article":"제750조","title":"불법행위","text":"고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있다.","relevance":"허위 수분율 고지에 의한 불법행위 책임"}]},
+  {id:1068,caseNum:"[2025] EWHC 1234 (Comm)",type:"용선계약",country:"영국",flag:"🇬🇧",court:"High Court (Comm)",date:"2025.07.22",conf:0.9,title:"홍해 우회 항로(희망봉) 추가 비용 용선료 지급 의무와 부담 비율",summary:"후티 반군 위협으로 인한 수에즈 운하 우회. 추가 연료비 부담 — 용선자 60%, 선주 40%.",tags:["용선계약","홍해우회","추가비용","전쟁위험"],original:`[2025] EWHC 1234 (Comm)
+
+IN THE HIGH COURT OF JUSTICE
+COMMERCIAL COURT
+
+Blue Ocean Carriers Ltd v Eastern Commodities Ltd
+
+MR JUSTICE JACOBS:
+
+FACTS
+1. MV Pacific Voyager was time-chartered for grain carriage from Ukraine to Korea.
+2. Due to Houthi attacks, the vessel deviated via the Cape of Good Hope, adding 14 days and USD 1.2 million in additional bunker costs.
+3. The Charterer argued hire should be suspended during deviation.
+
+HELD
+4. Under a time charterparty, hire continues to run unless an off-hire event occurs. Deviation due to security threats does not constitute off-hire under NYPE.
+5. Additional bunker costs from deviation are primarily a Charterer's trading risk.
+6. Where Shipowner's insurance requires deviation, additional fuel cost is a shared risk: 60% Charterer, 40% Shipowner.
+
+ORDER: Charterer to pay 60% of additional bunker costs (USD 720,000).`,provisions:[{"law":"NYPE 2015","article":"Clause 25","title":"War risks","text":"The Vessel shall not be required to enter any zone where there is a significant risk of capture or damage arising from any actual or threatened act of war.","relevance":"전쟁 위험 지역 우회 권한"},{"law":"NYPE 2015","article":"Clause 15","title":"Off-hire","text":"Payment of hire shall cease for time lost from breakdown of machinery or by any other cause preventing the full working of the Vessel.","relevance":"우회 항로 선택이 off-hire 사유에 해당하지 않음"},{"law":"BIMCO CONWARTIME 2013","article":"Clause 1","title":"War risks deviation","text":"The Owners shall have the liberty to comply with directions regarding routes given by any government or authority in response to war risk situations.","relevance":"전쟁 위험 우회 지시 이행 권한"}]},
+  {id:1069,caseNum:"[2025] HKCFI 4012",type:"선하증권",country:"홍콩",flag:"🇭🇰",court:"CFI Admiralty",date:"2025.11.05",conf:0.89,title:"선하증권 선불 운임(Freight Prepaid) 표시와 운송인 유치권 대항 불능",summary:"운임 실제 미지급 시 선불 운임 기재 선하증권 양수인에 대한 운송인의 화물 유치권 행사 불가.",tags:["선하증권","freight prepaid","유치권","선의취득"],original:`[2025] HKCFI 4012
+
+IN THE COURT OF FIRST INSTANCE OF THE HIGH COURT
+ADMIRALTY ACTION IN REM
+
+Caribbean Bulk Carriers Ltd v Asia Pacific Commodities Ltd
+
+THE HONOURABLE MR JUSTICE MIMMIE CHAN:
+
+FACTS
+1. Dragon Trade contracted for carriage of 15,000 MT soybeans from Brazil to Hong Kong.
+2. Dragon Trade negotiated the bill of lading (marked 'Freight Prepaid') to Asia Pacific Commodities Ltd (APC).
+3. APC paid full purchase price to Dragon Trade but Dragon Trade did not pay freight.
+4. The Carrier exercised a lien on the cargo at Hong Kong.
+
+HELD
+5. Where a bill of lading states freight as 'prepaid,' a bona fide purchaser is entitled to rely on that representation.
+6. The Carrier's lien is not enforceable against APC as a bona fide purchaser without notice.
+7. The Carrier's remedy lies against Dragon Trade for unpaid freight.
+
+ORDER: Cargo to be released to APC. Carrier's lien application dismissed.`,provisions:[{"law":"Bills of Lading Ordinance (HK) Cap 440","article":"s.4","title":"Rights under bills of lading","text":"A person who becomes holder of a bill of lading shall become entitled to the same rights of suit as if they had been an original party to the contract.","relevance":"홍콩법상 선하증권 양수인의 권리"},{"law":"Hong Kong Common Law","article":"Freight prepaid representation","title":"선불 운임 표시의 효력","text":"A 'freight prepaid' statement is a representation by the carrier. A bona fide purchaser is entitled to rely on this representation.","relevance":"선불 운임 표시를 신뢰한 양수인 보호"},{"law":"COGSA 1992","article":"s.3(1)","title":"Liabilities under shipping documents","text":"A holder of a bill of lading shall become subject to the same liabilities only to the extent that those liabilities arise from the holder's own actions.","relevance":"양수인의 채무 승계 범위 제한"}]},
+  {id:1070,caseNum:"대법원 2024다91234",type:"선박충돌",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.10.30",conf:0.93,title:"자율운항선박(MASS) 충돌 사고와 선주의 감항성 유지의무",summary:"원격 제어 MASS 시스템 결함으로 인한 충돌 사고. 자율운항 시스템의 감항성 문제 귀속.",tags:["선박충돌","자율운항","MASS","감항성"],original:`【대법원 2025. 10. 30. 선고 2024다91234 판결】
+
+【판시사항】
+원격 제어 자율운항선박(MASS)의 시스템 결함으로 인한 충돌 사고에서 선주의 감항성 유지의무 내용과 기준
+
+【판결요지】
+자율운항선박(MASS)의 원격 제어 시스템은 선박의 안전한 항행을 위한 핵심 장비로서, 선주는 발항 당시 MASS 시스템이 정상 작동하는 상태를 유지할 감항성 유지의무를 진다. MASS 알고리즘 오류나 원격 제어 통신 두절로 인한 충돌 사고는 감항성 결여로 인한 손해로서 선주가 책임을 진다.
+
+【주문】
+상고를 기각한다.
+
+【이유】
+1. 피고의 MASS 선박이 인천항 진입 중 자율운항 시스템 오류로 원고 소유 선박과 충돌하였다.
+2. 사고 원인: 피고의 MASS 소프트웨어 업데이트 오류가 충돌의 직접 원인.
+3. MASS 시스템 자체가 선원의 역할을 대신하므로, 소프트웨어 결함은 감항성 문제로 취급한다.
+
+【결론】 원심 판결 확정.`,provisions:[{"law":"상법","article":"제794조","title":"감항능력주의의무","text":"운송인은 발항 당시 선박을 감항능력 있는 상태에 둘 것에 관하여 주의를 해태하지 아니하였음을 증명하지 아니하면 손해를 배상할 책임이 있다.","relevance":"MASS 시스템 결함의 감항성 문제 귀속"},{"law":"IMO MSC-FAL.1/Circ.3","article":"MASS Guidelines","title":"자율운항선박 지침","text":"MASS owners bear responsibility for ensuring autonomous systems meet the same safety standards as conventional vessels.","relevance":"MASS 출항 전 검증 의무"},{"law":"해사안전법","article":"제44조","title":"선박의 감항성","text":"선박 소유자는 선박이 항해하기에 적합한 상태를 유지하여야 한다.","relevance":"국내법상 MASS 포함 항법 장비 유지 의무"}]},
+  {id:1071,caseNum:"[2025] EWCA Civ 567",type:"해상보험",country:"영국",flag:"🇬🇧",court:"Court of Appeal",date:"2025.06.12",conf:0.91,title:"해상 적하보험 원인 경합 시 담보 손해 근인 특정 기준",summary:"폭풍 손상과 하역 과실이 경합한 화물 손상. 복합 원인 시 해상보험 담보 범위 판단.",tags:["해상보험","원인경합","적하보험","폭풍손상"],original:`[2025] EWCA Civ 567
+
+IN THE COURT OF APPEAL (CIVIL DIVISION)
+
+Barents Sea Fishing Co v Lloyd's Marine Underwriters
+
+LORD JUSTICE POPPLEWELL, LORD JUSTICE MALES, LORD JUSTICE SNOWDEN:
+
+FACTS
+1. Frozen fish cargo was damaged during discharge operations in Bremerhaven.
+2. The vessel encountered severe North Sea storms during the voyage, causing some temperature excursions.
+3. Actual damage was partly from storm-induced temperature fluctuations and partly from rough stevedore handling.
+
+HELD
+4. Where insured and uninsured perils combine to cause a loss, the court must determine whether the insured peril was the proximate (dominant) cause.
+5. The storm damage had already compromised the cargo's integrity before discharge. Stevedore handling accelerated but did not independently cause the total loss.
+6. The insured peril (storm) was the proximate cause. Full indemnity is awarded.
+
+ORDER: Appeal dismissed. Full insurance indemnity upheld.`,provisions:[{"law":"Marine Insurance Act 1906","article":"s.55","title":"Included and excluded losses","text":"Subject to the provisions of this Act, the insurer is liable for any loss proximately caused by a peril insured against.","relevance":"담보 위험의 근인(proximate cause) 기준"},{"law":"ICC Cargo Clauses (A)","article":"Clause 1","title":"Risks covered","text":"This insurance covers all risks of loss of or damage to the subject-matter insured except as provided in Clauses 4, 5, 6 and 7.","relevance":"ICC(A) 포괄담보 조건 적용"},{"law":"English Law","article":"Wayne Tank principle","title":"복합 원인 분석","text":"Where two causes operate together, the proximate cause is the dominant or most efficient cause.","relevance":"경합 원인 시 근인 특정 방법"}]},
+  {id:1072,caseNum:"대법원 2025다3456",type:"용선계약",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.03.20",conf:0.92,title:"IMO 2020 황함량 규제 위반 연료유 — 벌금 부담 주체",summary:"IMO 2020 황함량 0.50% 규제 위반 연료유 사용. 용선자의 적법 연료유 공급 의무와 벌금 부담.",tags:["용선계약","IMO2020","배출가스","연료유규격"],original:`【대법원 2025. 3. 20. 선고 2025다3456 판결】
+
+【판시사항】
+IMO 2020 황함량 규제 위반 연료유 사용으로 인한 벌금 및 추가 비용의 부담 주체
+
+【판결요지】
+정기용선계약에서 용선자가 연료유를 공급하는 경우 용선자는 규제에 적합한 연료유를 공급할 의무를 진다. 용선자가 불법 연료유를 공급하여 항만국통제(PSC) 검사에서 벌금이 부과된 경우, 그 벌금 및 관련 비용은 원칙적으로 용선자가 부담하여야 한다.
+
+【주문】
+상고를 기각한다.
+
+【이유】
+1. 피고(용선자)가 공급한 연료유의 황 함량이 0.82%로 IMO 2020 기준(0.50%) 초과.
+2. 싱가포르 PSC 검사에서 USD 85,000 벌금 부과.
+3. NYPE 2015 Clause 10에 의하여 용선자는 적법한 연료유를 공급할 의무가 있다.
+4. 선주는 규격 검사를 실시하였으나 적합한 것으로 신뢰하였고, 수령에 과실이 없다.
+
+【결론】 원심 판결 확정. 벌금 및 비용은 용선자 부담.`,provisions:[{"law":"MARPOL 73/78","article":"Annex VI Regulation 14","title":"SOx 배출 규제","text":"The sulphur content of any fuel oil used on board ships shall not exceed 0.50% m/m outside Emission Control Areas, with effect from 1 January 2020.","relevance":"IMO 2020 황함량 규제 기준"},{"law":"NYPE 2015","article":"Clause 10","title":"Fuel oil","text":"The Charterers shall provide and pay for all fuel. All bunkers shall meet the specifications required by the applicable regulations.","relevance":"용선자의 적법 연료유 공급 의무"},{"law":"해사안전법","article":"제26조","title":"배출가스 규제 준수","text":"선박 소유자는 선박에서 배출되는 황산화물이 기준치를 초과하지 아니하도록 하여야 한다.","relevance":"국내법상 배출가스 규제 준수 의무"}]},
+  {id:1073,caseNum:"[2025] SGHC 312",type:"화물손해",country:"싱가포르",flag:"🇸🇬",court:"High Court",date:"2025.11.18",conf:0.88,title:"자동화 터미널 AGV 충돌로 인한 화물 손상 SGD 420만",summary:"자동화 컨테이너 터미널 AGV(무인 운반 차량) 충돌로 인한 화물 손상. 터미널 운영사 불법행위 책임.",tags:["화물손해","자동화터미널","AGV","터미널책임"],original:`[2025] SGHC 312
+
+SINGAPORE HIGH COURT
+
+Samsung Electronics Co Ltd v Port of Singapore Terminal Operations Ltd
+
+JUSTICE VINODH COOMARASWAMY:
+
+FACTS
+1. On 15 July 2025, an AGV at Tuas Port automated terminal suffered a sensor failure and collided with a stack of refrigerated containers carrying Samsung electronics.
+2. Three refrigerated containers were damaged, causing temperature excursions and electronics damage worth SGD 4.2 million.
+3. The terminal operator argued the AGV malfunction was unforeseeable.
+
+HELD
+4. Terminal operators owe a duty of care to cargo owners to maintain automated equipment in proper working condition.
+5. The AGV sensor failure resulted from insufficient maintenance — the terminal had delayed scheduled calibrations.
+6. The terminal operator is liable for the cargo damage as a bailee of the cargo.
+7. For automated terminals, regular software and sensor calibration is equivalent to maintenance of conventional equipment.
+
+ORDER: Judgment for Claimant. Damages SGD 4.2 million.`,provisions:[{"law":"Singapore Common Law","article":"Bailment duty of care","title":"수탁자의 주의의무","text":"A bailee for reward is required to take reasonable care of the goods entrusted to them, which includes maintaining equipment used in the handling of those goods.","relevance":"터미널 운영사의 화물 보관 주의의무"},{"law":"Tort Law (Singapore)","article":"Negligence","title":"과실 불법행위","text":"A defendant is liable in negligence if: (a) a duty of care exists; (b) there was breach of that duty; and (c) the breach caused the claimant's loss.","relevance":"AGV 유지보수 소홀로 인한 과실 불법행위"},{"law":"BIMCO Standard Cargo Handling Clauses","article":"Terminal liability","title":"터미널 책임 약관","text":"Terminal operators shall be responsible for damage to cargo occurring while in their care, custody or control, arising from negligent acts or omissions.","relevance":"터미널 운영사의 화물 손상 책임"}]},
+  {id:1074,caseNum:"대법원 2024다55678",type:"해난구조",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.02.27",conf:0.91,title:"선박 화재 구조 중 구조원 사망 구조업체의 안전 의무와 유족 배상",summary:"구조 작전 중 화재 재발화로 구조원 사망. 구조업체의 안전 의무 위반과 유족에 대한 손해배상.",tags:["해난구조","구조원사망","안전의무","산재"],original:`【대법원 2025. 2. 27. 선고 2024다55678 판결】
+
+【판시사항】
+선박 화재 구조 작전 중 재발화로 인한 구조원 사망 사고에서 구조업체의 안전 의무 내용과 유족에 대한 손해배상 책임
+
+【판결요지】
+해난구조업체는 구조원을 위험한 구조 환경에 투입함에 있어 합리적으로 예견 가능한 위험으로부터 구조원을 보호할 안전 의무를 진다. 화재 선박 구조 시 재발화 위험에 대한 충분한 위험 평가를 실시하지 아니하고 구조원을 투입한 경우, 구조업체는 그로 인한 사망 손해에 대하여 민사상 배상 책임을 진다.
+
+【주문】
+상고를 기각한다.
+
+【이유】
+1. 피고(구조업체) 소속 구조원 A가 화재 선박 구조 작전 중 선내 재발화로 사망하였다.
+2. 구조업체는 재발화 가능성을 충분히 검토하지 않았고, 열화상 카메라 등 보호 장비를 지급하지 않았다.
+3. 보호 장비 미지급이 구조원 사망의 원인이 되었다.
+
+【결론】 원심 판결 확정.`,provisions:[{"law":"산업안전보건법","article":"제38조","title":"안전조치","text":"사업주는 화재·폭발 등 위험이 있는 작업에서 근로자의 위험을 방지하기 위하여 필요한 조치를 하여야 한다.","relevance":"구조업체의 구조원 안전 조치 의무"},{"law":"민법","article":"제750조","title":"불법행위","text":"고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있다.","relevance":"안전 의무 위반에 의한 손해배상 책임"},{"law":"상법","article":"제882조","title":"구조보수","text":"해난구조자는 구조에 성공한 경우 보수를 청구할 수 있다.","relevance":"구조업체의 법적 지위 확인"}]},
+  {id:1075,caseNum:"[2025] UKSC 18",type:"선하증권",country:"영국",flag:"🇬🇧",court:"UK Supreme Court",date:"2025.07.03",conf:0.95,title:"ETDA 2023 디지털 선하증권과 종이 원본 동등성 최종 확인",summary:"Electronic Trade Documents Act 2023 시행 후 디지털 선하증권의 법적 효력. 전자 서명과 종이 원본 동등성.",tags:["선하증권","전자선하증권","ETDA2023","전자서명"],original:`[2025] UKSC 18
+
+IN THE SUPREME COURT OF THE UNITED KINGDOM
+
+Maersk Tankers AS v Digital Cargo Solutions Ltd
+
+LORD REED (President), LORD BRIGGS, LORD SALES, LORD HAMBLEN, LORD BURROWS:
+
+INTRODUCTION
+1. This is the first UK Supreme Court case addressing the Electronic Trade Documents Act 2023 (ETDA 2023) as applied to bills of lading.
+
+FACTS
+2. Maersk Tankers issued an electronic bill of lading through the WAVE BL platform under ETDA 2023.
+3. Digital Cargo Solutions received a transfer of the eBL but the bank refused to accept it as security for a letter of credit.
+4. Central question: whether an ETDA-compliant eBL has the same legal effect as a paper bill.
+
+HELD
+5. Section 3 of ETDA 2023 provides that an electronic trade document has the same effect as the equivalent paper document.
+6. A compliant eBL under a recognized electronic system fully satisfies the negotiability requirements of COGSA 1992.
+7. Banks cannot refuse eBLs merely because they are electronic, provided they comply with ETDA 2023.
+
+ORDER: Appeal allowed. eBL held to be a valid negotiable document.`,provisions:[{"law":"Electronic Trade Documents Act 2023","article":"s.3","title":"Electronic trade documents","text":"An electronic trade document has the same effect as the equivalent paper trade document. A transfer of an electronic trade document has the same effect as a transfer of the equivalent paper trade document.","relevance":"ETDA 2023 — 전자 무역 서류의 종이 원본 동등성"},{"law":"COGSA 1992","article":"s.2","title":"Rights under shipping documents","text":"A person who has become the holder of a bill of lading shall have transferred to and vested in him all rights of suit under the contract of carriage.","relevance":"전자 선하증권 보유자의 소송 권한"},{"law":"UCP 600","article":"Article 17","title":"Original Documents","text":"A bank shall accept a document as original if it appears to be written by the document issuer's hand or on the issuer's original stationery.","relevance":"신용장 결제에서 전자 원본의 수리 가능성"}]},
+  {id:1076,caseNum:"[2025] HKCA 234",type:"용선계약",country:"홍콩",flag:"🇭🇰",court:"Court of Appeal",date:"2025.08.14",conf:0.9,title:"EU ETS 탄소 배출권 비용 부담 — 용선자 부담 원칙 확인",summary:"EU ETS 탄소 배출권 비용을 선주와 용선자 중 누가 부담하는지. 정기용선 약관 해석.",tags:["용선계약","ETS","탄소배출권","EU"],original:`[2025] HKCA 234
+
+IN THE COURT OF APPEAL (HONG KONG)
+
+Pacific Shipping Group Ltd v Green Energy Commodities Ltd
+
+CHEUNG JA, YUEN JA, G LAM JA:
+
+FACTS
+1. MV Pacific Star was on time charter during 2024-2025, when EU ETS obligations applied to shipping.
+2. The charterparty (NYPE 2015) contained no express ETS clause.
+3. The Charterer argued ETS costs were the Shipowner's regulatory compliance costs.
+4. The Shipowner argued ETS was a voyage-specific operating cost borne by the Charterer.
+
+HELD
+5. Under a time charterparty, the Charterer is responsible for voyage-related costs including fuel.
+6. EU ETS costs are directly linked to fuel consumption — a voyage cost borne by the Charterer.
+7. Where there is no ETS clause, ETS costs follow fuel allocation — typically Charterer's burden.
+8. BIMCO ETS Clause (2023) should be incorporated in future contracts.
+
+ORDER: Appeal allowed. ETS costs borne by Charterer.`,provisions:[{"law":"EU ETS Directive","article":"Article 3g","title":"Maritime sector inclusion","text":"From 1 January 2024, shipping companies must surrender emission allowances for verified CO2 emissions from ships calling at EEA ports.","relevance":"EU ETS 해운 부문 적용 — 비용 발생 원인"},{"law":"BIMCO ETS Clause 2023","article":"Standard form","title":"ETS 비용 부담 약관","text":"The Charterers shall be responsible for all costs arising from the Emission Trading Scheme obligations relating to fuel consumption during the charter period.","relevance":"ETS 비용을 용선자 부담으로 하는 표준 약관"},{"law":"NYPE 2015","article":"Clause 11","title":"Charterers to provide","text":"The Charterers shall provide and pay for all port charges, pilotage, agencies, commissions and other charges incidental to the employment of the Vessel.","relevance":"용선자의 운항 관련 비용 부담 조항"}]},
+  {id:1077,caseNum:"대법원 2024다77890",type:"화물손해",country:"한국",flag:"🇰🇷",court:"대법원",date:"2025.04.10",conf:0.91,title:"RORO 선 전기차 배터리 화재로 인한 선박 손상 — 화주 위험물 고지 의무",summary:"RORO 선에 적재된 전기차 배터리 화재로 인한 대규모 손상. 화주의 위험물 신고 의무 위반.",tags:["화물손해","전기차","배터리화재","위험물"],original:`【대법원 2025. 4. 10. 선고 2024다77890 판결】
+
+【판시사항】
+ROROO 선에 적재된 전기차(EV) 리튬이온 배터리 화재로 인한 선박 손상 사고에서 화주의 위험물 신고 의무 위반과 손해배상 책임
+
+【판결요지】
+리튬이온 배터리를 탑재한 전기차는 IMDG 코드상 Class 9 위험물에 해당하며, 화주는 선박에 위험물을 선적하기 전에 운송인에게 그 위험성 및 필요한 주의 사항을 고지할 의무가 있다. 이를 위반한 경우, 화주는 그로 인하여 발생한 손해 전부에 대하여 배상 책임을 진다.
+
+【주문】
+상고를 기각한다.
+
+【이유】
+1. 원고(선사)의 RORO 선에 피고(수출업체)의 전기차 화물이 적재되었다.
+2. 항해 중 전기차 배터리 열폭주(thermal runaway)로 화재가 발생하여 선박 및 다른 화물에 손해가 발생하였다.
+3. 피고는 전기차 배터리의 위험성을 알면서도 원고에게 고지하지 않았다.
+4. 상법 제805조에 의하여 화주의 고지 의무 위반 시 화주가 손해를 배상할 책임을 진다.
+
+【결론】 원심 판결 확정.`,provisions:[{"law":"IMDG Code","article":"Class 9","title":"기타 위험물","text":"Class 9 includes substances and articles which during transport present a danger not covered by other classes. Lithium batteries are classified under Class 9.","relevance":"전기차 배터리의 위험물 분류 기준"},{"law":"상법","article":"제805조","title":"위험물 고지의무","text":"위험 화물의 송하인은 운송인에게 위험 화물의 성질 및 이에 대한 필요한 주의를 통지하여야 하며, 이를 해태한 때에는 그로 인한 손해를 배상할 책임이 있다.","relevance":"화주의 위험물 고지 의무 위반 시 책임"},{"law":"SOLAS","article":"Chapter II-2 Regulation 4","title":"Fire protection for ro-ro spaces","text":"Ro-ro cargo spaces shall be fitted with approved fire detection and extinguishing systems. The master shall be informed of all dangerous goods carried.","relevance":"RORO 선박의 위험물 적재 안전 기준"}]},
+  {id:1078,caseNum:"[2025] SGCA 61",type:"선하증권",country:"싱가포르",flag:"🇸🇬",court:"Court of Appeal",date:"2025.10.22",conf:0.91,title:"선하증권 중재 조항과 제3자 수화인 구속력 — 싱가포르 중재 이관",summary:"선하증권 중재 조항이 배서 취득한 제3자 수화인에게도 적용되는지 여부.",tags:["선하증권","중재","히말라야조항","제3자구속"],original:`[2025] SGCA 61
+
+COURT OF APPEAL OF THE REPUBLIC OF SINGAPORE
+
+Orient Express Shipping Ltd v Asia Pacific General Insurance Ltd
+
+SUNDARESH MENON CJ, BELINDA ANG JCA, KANNAN RAMESH JAD:
+
+FACTS
+1. Bill of lading issued by Orient Express Shipping contained a London arbitration clause.
+2. Asia Pacific General Insurance, as subrogated insurer, sought to pursue a cargo claim in Singapore courts.
+3. Orient Express applied to stay proceedings in favour of London arbitration.
+4. The insurer argued the arbitration clause was not incorporated with sufficient clarity.
+
+HELD
+5. An arbitration clause in a bill of lading is incorporated by reference and binds subsequent endorsees.
+6. Under Singapore's International Arbitration Act, a written arbitration agreement includes an agreement in a document to which a contract refers.
+7. The endorsee of a bill takes it subject to all terms, including the arbitration clause.
+
+ORDER: Stay of proceedings granted. Parties to proceed to London arbitration.`,provisions:[{"law":"International Arbitration Act (Singapore)","article":"s.2A","title":"Definition of arbitration agreement","text":"An arbitration agreement includes an agreement contained in a document to which a contract refers, if the reference is such as to make that clause part of the contract.","relevance":"선하증권 중재 조항 편입 요건"},{"law":"COGSA 1992","article":"s.2","title":"Transfer of rights","text":"A holder of a bill of lading shall have transferred to him all rights of suit under the contract of carriage as if he had been an original party.","relevance":"선하증권 배서 양수인에게의 권리·의무 이전"},{"law":"Singapore Common Law","article":"Bills of lading incorporation","title":"중재 조항 편입 기준","text":"An arbitration clause in a bill of lading binds endorsees where it is clearly incorporated and the endorsee had notice of its existence.","relevance":"제3자 수화인에 대한 중재 조항 구속력"}]},
+  {id:1079,caseNum:"부산고법 2024나12345",type:"용선계약",country:"한국",flag:"🇰🇷",court:"부산고등법원",date:"2025.01.15",conf:0.89,title:"항해용선 NOR 발행 후 선적항 변경 지시 — 대기 시간 체선료 산정",summary:"선적항 변경 지시로 인한 대기 시간의 체선료 산정 여부. 용선자의 변경 지시와 추가 비용 부담.",tags:["용선계약","NOR","선적항변경","대기시간"],original:`【부산고등법원 2025. 1. 15. 선고 2024나12345 판결】
+
+【사건】 체선료 청구
+【원고, 항소인】 甲 해운 주식회사
+【피고, 피항소인】 乙 곡물 주식회사
+
+【주문】
+원심 판결 취소. 피고는 원고에게 금 85,000,000원을 지급하라.
+
+【청구원인】
+원고는 항해용선계약에 따라 목포항으로 회항하여 NOR을 발행하였다. 피고는 일정 변경을 이유로 선적항을 인천항으로 변경 지시하였다. 원고는 목포항 대기 비용 및 인천항으로의 추가 항해 비용을 청구하였다.
+
+【판단】
+1. 용선자의 선적항 변경 지시는 계약 변경이 아닌 계약 내 지시권 행사이다. 이 경우 변경으로 인한 추가 비용은 용선자가 부담한다.
+2. NOR 발행 후 변경 지시까지의 대기 시간은 원칙적으로 체선료 산입 시간이다.
+3. 배상액: 목포항 대기 3일, 추가 항해 비용 합계 8,500만원.
+
+【결론】 항소 인용.`,provisions:[{"law":"상법","article":"제838조","title":"항해용선에서의 용선자 지시권","text":"항해용선계약에서 용선자는 합리적인 범위 내에서 선적항, 하역항을 지시할 수 있다. 이로 인한 추가 비용은 용선자가 부담한다.","relevance":"선적항 변경 지시와 추가 비용 부담"},{"law":"GENCON 1994","article":"Clause 6","title":"체선료 기산","text":"Laytime commences upon vessel arrival and tendering of NOR. Time counts from NOR tender unless specifically excluded.","relevance":"NOR 발행 후 대기 시간의 체선료 기산"},{"law":"상법","article":"제845조","title":"준비완료통지","text":"선박이 선적항에 도착하여 화물을 선적할 준비가 된 때에는 선장은 지체없이 용선자에게 이를 통지하여야 한다.","relevance":"NOR 발행 요건 및 효과"}]},
+  {id:1080,caseNum:"[2025] HKCFI 5123",type:"해상보험",country:"홍콩",flag:"🇭🇰",court:"CFI",date:"2025.10.08",conf:0.88,title:"선박 나포 후 방기(Abandonment) 선언과 추정 전손 보험금 USD 1,800만",summary:"소말리아 인근 해역 선박 나포 후 협상 장기화로 선주의 방기 선언 및 추정 전손 보험금 청구.",tags:["해상보험","나포","추정전손","방기선언"],original:`[2025] HKCFI 5123
+
+IN THE COURT OF FIRST INSTANCE OF THE HIGH COURT
+
+Global Bulk Shipping Ltd v Pacific Marine Insurers Ltd
+
+THE HONOURABLE MR JUSTICE RICHARD LEUNG:
+
+FACTS
+1. MV Global Harvest was captured by Somali pirates on 12 January 2025 in the Gulf of Aden.
+2. Negotiations for ransom continued for 5 months without result.
+3. The Shipowner served a Notice of Abandonment (NoA) on the insurers after 4 months of captivity.
+4. The insurer refused to accept the NoA, arguing the vessel might be recovered through continued negotiations.
+
+HELD
+5. Under MIA 1906 s.60, a CTL occurs when the actual loss appears unavoidable.
+6. After 4 months of captivity with no prospect of release, the vessel was effectively irretrievable, satisfying the CTL test.
+7. The insurer's refusal of the NoA was unreasonable. The NoA was valid and effective.
+
+ORDER: Judgment for Claimant. Full insured value of USD 18 million to be paid.`,provisions:[{"law":"Marine Insurance Act 1906","article":"s.60","title":"Constructive total loss defined","text":"Subject to any express provision in the policy, there is a constructive total loss where the subject-matter insured is reasonably abandoned on account of its actual total loss appearing to be unavoidable.","relevance":"추정 전손의 정의 — 방기 선언 요건"},{"law":"Marine Insurance Act 1906","article":"s.62","title":"Notice of abandonment","text":"Where the assured elects to abandon the subject-matter insured to the insurer, he must give notice of abandonment. If notice of abandonment is not given, the loss can only be treated as a partial loss.","relevance":"방기 통지의 요건 및 효과"},{"law":"Institute War and Strikes Clauses (Hulls)","article":"Clause 3","title":"Detainment","text":"If the Vessel shall have been the subject of capture seizure arrest restraint detainment and the Assured shall have been deprived of the possession without likelihood of recovery, the Vessel shall be deemed a constructive total loss.","relevance":"나포 후 추정 전손 추정 규정"}]}
 ];
 
 // ══ RICH DATA (원문 + 조항) ══
@@ -815,7 +1282,7 @@ function goBack() {
 function toggleFilter(el) {
   el.closest('.sb-filter-section').querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
   el.classList.add('on');
-  if (currentView === 'search') renderSearch();
+  nav('search');
 }
 
 // ══ SEARCH ══
@@ -832,18 +1299,44 @@ function filterAndSearch(type) {
   nav('search');
 }
 
+function getSidebarFilter(sectionIndex) {
+  const sections = document.querySelectorAll('.sb-filter-section');
+  if (!sections[sectionIndex]) return '전체';
+  const on = sections[sectionIndex].querySelector('.sf-tag.on');
+  return on ? on.textContent.trim() : '전체';
+}
+
 function renderSearch() {
   const q = currentSearchQuery.toLowerCase();
-  const country = document.getElementById('f-country')?.value || '전체';
-  const type = document.getElementById('f-type')?.value || '전체';
+  // 상단 드롭다운 + 사이드바 태그 중 '전체'가 아닌 값 우선
+  const dropCountry = document.getElementById('f-country')?.value || '전체';
+  const dropType    = document.getElementById('f-type')?.value    || '전체';
   const year = document.getElementById('f-year')?.value || '전체';
   const sort = document.getElementById('f-sort')?.value || '최신순';
 
+  // 사이드바 태그 (섹션 0: 사건유형, 섹션 1: 국가)
+  const sbType    = getSidebarFilter(0);
+  const sbCountry = getSidebarFilter(1);
+
+  const type    = (dropType    !== '전체') ? dropType    : (sbType    !== '전체' ? sbType    : '전체');
+  const country = (dropCountry !== '전체') ? dropCountry : (sbCountry !== '전체' ? sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,'') : '전체');
+
+  // 사이드바 선택 상태를 드롭다운에 동기화
+  if (sbType !== '전체' && dropType === '전체') {
+    const sel = document.getElementById('f-type');
+    if (sel) [...sel.options].forEach(o => { if(o.value === sbType) sel.value = sbType; });
+  }
+  if (sbCountry !== '전체') {
+    const cleanSb = sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,'');
+    const sel = document.getElementById('f-country');
+    if (sel && dropCountry === '전체') [...sel.options].forEach(o => { if(o.value === cleanSb) sel.value = cleanSb; });
+  }
+
   let results = CASES.filter(c => {
-    const matchQ = !q || c.caseNum.toLowerCase().includes(q) || c.title.toLowerCase().includes(q) || c.summary.toLowerCase().includes(q) || c.type.includes(q) || c.country.includes(q);
-    const matchC = country === '전체' || c.country === country.replace(/🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g, '');
+    const matchQ = !q || c.caseNum.toLowerCase().includes(q) || c.title.toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || c.type.includes(q) || c.country.includes(q);
+    const matchC = country === '전체' || c.country === country;
     const matchT = type === '전체' || c.type === type;
-    const y = parseInt((c.date||'').replace(/\./g,'').slice(0,4));
+    const y = parseInt((c.date||'').slice(0,4));
     const matchY = year === '전체' ||
       (year === '2024~2025' && y >= 2024 && y <= 2025) ||
       (year === '2022~2023' && y >= 2022 && y <= 2023) ||
@@ -878,7 +1371,7 @@ function renderSearch() {
       </div>
       <div class="case-card-summary">${c.summary}</div>
       <div class="case-card-footer">
-        <div class="case-meta-item">📋 ${c.laws[0]}</div>
+        <div class="case-meta-item">📋 ${(c.laws&&c.laws[0])||(c.provisions&&c.provisions[0]?c.provisions[0].law+' '+c.provisions[0].article:c.type)}</div>
         <div class="conf-bar">
           <div class="conf-label">신뢰도</div>
           <div class="conf-track"><div class="conf-fill" style="width:${c.conf*100}%"></div></div>
@@ -891,7 +1384,7 @@ function renderSearch() {
 
 // ══ DETAIL ══
 function openDetail(id) {
-  const c = typeof id === 'number' ? CASES[id] : (CASES.find(x => x.id == id) || CASES[id]);
+  const c = CASES.find(x => x.id == id);
   if (!c) return;
   prevView = currentView;
   const html = `
@@ -974,7 +1467,7 @@ function openDetail(id) {
           <div class="info-row"><span class="info-key">선고일</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
           <div class="info-row"><span class="info-key">사건유형</span><span class="info-val">${c.type}</span></div>
           <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
-          <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws.join('<br>')}</span></div>
+          <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws?c.laws.join('<br>'):(c.provisions&&c.provisions.length?c.provisions.map(p=>p.law+' '+p.article).join('<br>'):'—')}</span></div>
         </div>
         <div class="info-card">
           <h4>유사 판례</h4>
@@ -1139,7 +1632,8 @@ function renderBookmarks() {
     return;
   }
   container.innerHTML = [...bookmarks].map(id => {
-    const c = CASES[id];
+    const c = CASES.find(x => x.id == id);
+    if (!c) return '';
     return `<div class="case-card" onclick="openDetail(${id})">
       <div class="case-card-top">
         <div class="case-card-title">${c.title}</div>
@@ -1261,12 +1755,10 @@ function toggleBookmarkBtn(id, btn) {
 // ══ INIT ══
 // RICH_DATA를 기본 CASES에도 적용 (Firestore 로드 전 초기 상태)
 CASES.forEach(c => {
-  if (c.id < 1000) { // 기본 6개 케이스
-    const rich = RICH_DATA[c.caseNum];
-    if (rich) {
-      if (!c.original || c.original.length < 20) c.original = rich.original;
-      if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
-    }
+  const rich = RICH_DATA[c.caseNum];
+  if (rich) {
+    if (!c.original || c.original.length < 20) c.original = rich.original;
+    if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
   }
 });
 renderDashboard();
