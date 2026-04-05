@@ -225,7 +225,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 
   <div class="sb-section">메뉴</div>
   <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">📊</span>대시보드</div>
-  <div class="sb-item" onclick="nav('search')"><span class="icon">🔍</span>판례 검색<span class="sb-badge">12,847</span></div>
+  <div class="sb-item" onclick="nav('search')"><span class="icon">🔍</span>판례 검색<span class="sb-badge" id="sb-total-badge">—</span></div>
   <div class="sb-item" onclick="nav('trend')"><span class="icon">📈</span>트렌드 리포트</div>
   <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">🔖</span>북마크</div>
 
@@ -287,53 +287,34 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
     <div class="view active" id="v-dashboard">
       <div style="margin-bottom:24px">
         <h2 style="font-size:20px;font-weight:700;color:var(--navy)">대시보드</h2>
-        <p style="font-size:13px;color:var(--gray);margin-top:4px">2026년 3월 26일 기준</p>
+        <p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:4px"></p>
       </div>
 
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-label">총 판례 수</div>
-          <div class="stat-val">12,847</div>
-          <div class="stat-sub">▲ 234건 이번달 신규</div>
+          <div class="stat-val" id="stat-total">—</div>
+          <div class="stat-sub" id="stat-total-sub"></div>
         </div>
         <div class="stat-card">
           <div class="stat-label">AI 분석 완료</div>
-          <div class="stat-val">98.2<span style="font-size:18px">%</span></div>
-          <div class="stat-sub">12,615건 분석 완료</div>
+          <div class="stat-val" id="stat-ai-rate">—</div>
+          <div class="stat-sub" id="stat-ai-sub"></div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">이번주 신규</div>
-          <div class="stat-val">47</div>
-          <div class="stat-sub">▲ 지난주 대비 +12%</div>
+          <div class="stat-label">최근 1개월 신규</div>
+          <div class="stat-val" id="stat-month">—</div>
+          <div class="stat-sub" id="stat-month-sub"></div>
         </div>
         <div class="stat-card">
           <div class="stat-label">내 북마크</div>
-          <div class="stat-val">23</div>
-          <div class="stat-sub">최근 3건 업데이트</div>
+          <div class="stat-val" id="stat-bm">—</div>
+          <div class="stat-sub" id="stat-bm-sub"></div>
         </div>
       </div>
 
       <!-- 분쟁 유형별 현황 -->
-      <div class="trend-grid">
-        <div class="trend-card" onclick="filterAndSearch('선하증권')">
-          <div class="trend-num">01</div>
-          <div class="trend-type"><span class="badge badge-blue">선하증권</span></div>
-          <div><span class="trend-count">3,241</span><span class="trend-change">▲ 8%</span></div>
-          <div class="trend-bar"><div class="trend-bar-fill" style="width:75%"></div></div>
-        </div>
-        <div class="trend-card" onclick="filterAndSearch('해상보험')">
-          <div class="trend-num">02</div>
-          <div class="trend-type"><span class="badge badge-green">해상보험</span></div>
-          <div><span class="trend-count">2,887</span><span class="trend-change">▲ 5%</span></div>
-          <div class="trend-bar"><div class="trend-bar-fill" style="width:66%;background:#059669"></div></div>
-        </div>
-        <div class="trend-card" onclick="filterAndSearch('화물손해')">
-          <div class="trend-num">03</div>
-          <div class="trend-type"><span class="badge badge-yellow">화물손해</span></div>
-          <div><span class="trend-count">2,103</span><span class="trend-change">▲ 3%</span></div>
-          <div class="trend-bar"><div class="trend-bar-fill" style="width:48%;background:#D97706"></div></div>
-        </div>
-      </div>
+      <div class="trend-grid" id="trend-grid"></div>
 
       <!-- 최신 판례 -->
       <div class="section-head">
@@ -672,6 +653,7 @@ function nav(view) {
   if (map[view] !== undefined) items[map[view]].classList.add('active');
   prevView = currentView;
   currentView = view;
+  if (view === 'dashboard') renderDashboard();
   if (view === 'search') renderSearch();
   if (view === 'bookmarks') renderBookmarks();
   if (view === 'trend') renderChart();
@@ -876,8 +858,9 @@ function switchTab(btn, tabId) {
 }
 
 // ══ DASHBOARD TABLE ══
-function renderDash() {
+function renderDashTable() {
   const tbody = document.getElementById('dashTable');
+  if (!tbody) return;
   tbody.innerHTML = CASES.slice(0,5).map(c => `
     <tr onclick="openDetail(${c.id})">
       <td style="font-family:'Inter',sans-serif;font-weight:500">${c.caseNum}</td>
@@ -887,18 +870,94 @@ function renderDash() {
       <td><span class="ai-done">분석 완료</span></td>
     </tr>`).join('');
 }
+// 구버전 호환
+function renderDash() { renderDashTable(); }
+
+// ══ DASHBOARD (실제 데이터 기반) ══
+function renderDashboard() {
+  const total = CASES.length;
+  const now = new Date();
+
+  // 날짜 표시
+  const dateStr = now.getFullYear() + '년 ' + (now.getMonth()+1) + '월 ' + now.getDate() + '일 기준';
+  document.getElementById('dash-date').textContent = dateStr;
+
+  // 총 판례 수
+  document.getElementById('stat-total').textContent = total.toLocaleString();
+
+  // 최근 1개월 신규
+  const oneMonthAgo = new Date(now); oneMonthAgo.setMonth(now.getMonth()-1);
+  const recentCases = CASES.filter(c => {
+    if (!c.date) return false;
+    const parts = c.date.split('.');
+    if (parts.length < 2) return false;
+    const d = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]||1));
+    return d >= oneMonthAgo;
+  });
+  document.getElementById('stat-month').textContent = recentCases.length;
+  if (recentCases.length > 0) {
+    document.getElementById('stat-month-sub').textContent = '최근 30일 내 등록';
+    document.getElementById('stat-month-sub').style.color = '#10B981';
+  } else {
+    document.getElementById('stat-month-sub').textContent = '최근 30일 신규 없음';
+    document.getElementById('stat-month-sub').style.color = 'var(--gray)';
+  }
+
+  // 가장 최근 판례 날짜
+  const latestDate = CASES.map(c => c.date || '').filter(Boolean).sort().reverse()[0] || '';
+  document.getElementById('stat-total-sub').textContent = latestDate ? '최근 판례: ' + latestDate : '';
+
+  // AI 분석 완료
+  const analyzed = CASES.filter(c => c.conf > 0).length;
+  const analyzeRate = total > 0 ? Math.round(analyzed / total * 100) : 0;
+  document.getElementById('stat-ai-rate').innerHTML = analyzeRate + '<span style="font-size:18px">%</span>';
+  document.getElementById('stat-ai-sub').textContent = analyzed + '건 분석 완료';
+
+  // 내 북마크
+  const bmCount = bookmarks.size;
+  document.getElementById('stat-bm').textContent = bmCount.toLocaleString();
+  document.getElementById('stat-bm-sub').textContent = bmCount > 0 ? bmCount + '건 저장됨' : '북마크 없음';
+
+  // 사이드바 배지 (총 판례 수)
+  const badge = document.getElementById('sb-total-badge');
+  if (badge) badge.textContent = total.toLocaleString();
+
+  // 유형별 현황 카드 (실제 데이터)
+  const TYPE_COLORS = {선하증권:'#2E75B6', 해상보험:'#059669', 화물손해:'#D97706', 선박충돌:'#DC2626', 용선계약:'#7C3AED', 해난구조:'#0891B2'};
+  const TYPE_BADGE  = {선하증권:'badge-blue', 해상보험:'badge-green', 화물손해:'badge-yellow', 선박충돌:'badge-red', 용선계약:'badge-purple', 해난구조:'badge-blue'};
+  const typeCounts = {};
+  CASES.forEach(c => { typeCounts[c.type] = (typeCounts[c.type] || 0) + 1; });
+  const sortedTypes = Object.entries(typeCounts).sort((a,b) => b[1]-a[1]);
+  const maxCount = sortedTypes.length > 0 ? sortedTypes[0][1] : 1;
+
+  const trendGrid = document.getElementById('trend-grid');
+  if (trendGrid) {
+    trendGrid.innerHTML = sortedTypes.slice(0,3).map(([type, count], i) => {
+      const pct = Math.round(count / maxCount * 100);
+      const color = TYPE_COLORS[type] || '#2E75B6';
+      const badgeClass = TYPE_BADGE[type] || 'badge-blue';
+      return `<div class="trend-card" onclick="filterAndSearch('${type}')">
+        <div class="trend-num">0${i+1}</div>
+        <div class="trend-type"><span class="badge ${badgeClass}">${type}</span></div>
+        <div><span class="trend-count">${count}</span><span class="trend-change" style="color:var(--gray);font-size:12px"> 건</span></div>
+        <div class="trend-bar"><div class="trend-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      </div>`;
+    }).join('');
+  }
+
+  // 대시보드 최신 판례 테이블
+  renderDashTable();
+}
 
 // ══ TREND CHART ══
 function renderChart() {
-  const data = [
-    {label:'선하증권',val:68,color:'#2E75B6'},
-    {label:'해상보험',val:54,color:'#059669'},
-    {label:'화물손해',val:47,color:'#D97706'},
-    {label:'선박충돌',val:32,color:'#DC2626'},
-    {label:'용선계약',val:21,color:'#7C3AED'},
-    {label:'해난구조',val:12,color:'#0891B2'},
-  ];
-  const max = Math.max(...data.map(d=>d.val));
+  const TYPE_COLORS = {선하증권:'#2E75B6', 해상보험:'#059669', 화물손해:'#D97706', 선박충돌:'#DC2626', 용선계약:'#7C3AED', 해난구조:'#0891B2'};
+  const typeCounts = {};
+  CASES.forEach(c => { typeCounts[c.type] = (typeCounts[c.type] || 0) + 1; });
+  const data = Object.entries(typeCounts)
+    .sort((a,b) => b[1]-a[1])
+    .map(([label, val]) => ({label, val, color: TYPE_COLORS[label] || '#6B7280'}));
+  const max = Math.max(...data.map(d=>d.val), 1);
   document.getElementById('barChart').innerHTML = data.map(d=>`
     <div class="bar-col">
       <div class="bar-val">${d.val}</div>
@@ -918,6 +977,12 @@ function toggleBookmark(id) {
   }
   if (currentView === 'search') renderSearch();
   else if (currentView === 'bookmarks') renderBookmarks();
+  else if (currentView === 'dashboard') renderDashboard();
+  // 어느 화면이든 대시보드 북마크 카운트 갱신
+  const bmEl = document.getElementById('stat-bm');
+  const bmSubEl = document.getElementById('stat-bm-sub');
+  if (bmEl) bmEl.textContent = bookmarks.size;
+  if (bmSubEl) bmSubEl.textContent = bookmarks.size > 0 ? bookmarks.size + '건 저장됨' : '북마크 없음';
 }
 
 function renderBookmarks() {
@@ -1047,7 +1112,7 @@ function toggleBookmarkBtn(id, btn) {
 }
 
 // ══ INIT ══
-renderDash();
+renderDashboard();
 renderSearch();
 </script>
 
@@ -1085,7 +1150,7 @@ async function loadCasesFromFirestore() {
     firestoreCases.forEach(c => CASES.push(c));
     console.log(`Firestore에서 판례 ${firestoreCases.length}건 로드됨`);
     // UI 갱신
-    renderDash();
+    renderDashboard();
     renderSearch();
   } catch(e) {
     console.warn("Firestore 로드 실패, 데모 데이터 사용:", e.message);
