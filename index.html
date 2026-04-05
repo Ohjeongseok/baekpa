@@ -202,14 +202,137 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px)}
 .toast.show{opacity:1;transform:translateY(0)}
+
+/* ══ MOBILE RESPONSIVE ══ */
+
+/* 모바일 사이드바 오버레이 */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199}
+.sidebar-overlay.show{display:block}
+
+/* 모바일 햄버거 버튼 */
+.mob-menu{display:none;width:36px;height:36px;border:none;background:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;border-radius:8px;flex-shrink:0}
+.mob-menu span{display:block;width:20px;height:2px;background:var(--navy);border-radius:2px}
+
+/* 모바일 하단 탭바 */
+.mob-tabbar{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:#fff;border-top:1px solid var(--border);z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.mob-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:var(--gray);font-size:10px;font-weight:500;border:none;background:none;font-family:'Noto Sans KR',sans-serif;transition:color 0.15s;padding:6px 0}
+.mob-tab.active{color:var(--navy)}
+.mob-tab-icon{font-size:20px;line-height:1}
+.mob-tab-badge{position:relative}
+.mob-tab-badge::after{content:attr(data-count);position:absolute;top:-4px;right:-10px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:100px;font-family:'Inter',sans-serif;min-width:14px;text-align:center}
+
+/* 태블릿 */
+@media (max-width:1024px){
+  :root{--sidebar:200px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .trend-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-body{grid-template-columns:1fr 280px}
+}
+
+/* 모바일 */
+@media (max-width:768px){
+  body{overflow:auto}
+
+  /* 사이드바 — 숨겼다가 열기 */
+  .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh}
+  .sidebar.open{left:0}
+
+  /* 메인 영역 풀폭 */
+  .main{width:100%}
+
+  /* 상단바 */
+  .topbar{padding:0 16px;gap:10px}
+  .mob-menu{display:flex}
+  .search-wrap{max-width:none;flex:1}
+  .search-wrap input{font-size:14px;padding:9px 14px 9px 38px}
+  .tb-btn{display:none}
+  .notif{width:34px;height:34px}
+
+  /* 콘텐츠 여백 */
+  .content{padding:16px 14px 76px}
+
+  /* 대시보드 */
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
+  .stat-card{padding:16px 16px}
+  .stat-val{font-size:22px}
+  .trend-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .table-wrap{overflow-x:auto}
+  table{min-width:520px}
+
+  /* 판례 카드 */
+  .case-card{padding:16px}
+  .case-card-title{font-size:14px}
+  .case-card-footer{flex-wrap:wrap;gap:8px}
+  .conf-bar{margin-left:0}
+
+  /* 검색 필터 */
+  .search-filters{padding:14px 16px;gap:8px}
+  .filter-select{font-size:12px;padding:6px 10px}
+
+  /* 상세 페이지 */
+  .detail-header{padding:18px 16px}
+  .detail-title{font-size:17px}
+  .detail-body{grid-template-columns:1fr;gap:14px}
+  .detail-right{order:2}
+  .detail-left{order:1}
+  .original-wrap{padding:16px}
+  .original-body{font-size:13px;line-height:1.9}
+
+  /* 분석 카드 */
+  .analysis-card{padding:16px}
+  .analysis-text{font-size:13px}
+  .analysis-list li{font-size:13px}
+
+  /* 정보 카드 */
+  .info-card{padding:16px}
+
+  /* 트렌드 리포트 */
+  .trend-grid{grid-template-columns:1fr}
+  .report-header{padding:20px 18px}
+  .report-header h2{font-size:18px}
+  .bar-chart{height:120px}
+
+  /* 하단 탭바 표시 */
+  .mob-tabbar{display:flex}
+
+  /* 토스트 */
+  .toast{bottom:72px;right:16px;left:16px;right:16px;text-align:center}
+}
+
+@media (max-width:400px){
+  .stats-row{grid-template-columns:1fr}
+  .trend-grid{grid-template-columns:1fr}
+  .detail-tabs{gap:2px}
+  .detail-tab{font-size:12px;padding:8px 4px}
+}
 </style>
 </head>
 <body>
 
+<!-- ══ 사이드바 오버레이 (모바일) ══ -->
+<div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- ══ 모바일 하단 탭바 ══ -->
+<nav class="mob-tabbar" id="mobTabbar">
+  <button class="mob-tab active" onclick="mobNav('dashboard')">
+    <span class="mob-tab-icon">🏠</span>대시보드
+  </button>
+  <button class="mob-tab" onclick="mobNav('search')">
+    <span class="mob-tab-icon mob-tab-badge" data-count="176">🔍</span>판례 검색
+  </button>
+  <button class="mob-tab" onclick="mobNav('trend')">
+    <span class="mob-tab-icon">📊</span>트렌드
+  </button>
+  <button class="mob-tab" onclick="mobNav('bookmarks')">
+    <span class="mob-tab-icon">🔖</span>북마크
+  </button>
+</nav>
+
 <!-- ══ SIDEBAR ══ -->
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <div class="sb-logo">
-    <div class="sb-logo-main">
+    <div class="sb-logo-main" style="justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
       <div class="sb-icon">
         <svg viewBox="0 0 36 36" width="22" fill="none">
           <path d="M4 18 C9 11,15 11,20 16 C25 21,31 20,32 15" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
@@ -220,6 +343,8 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         <div class="sb-name">백파</div>
         <div class="sb-en">BAEKPA</div>
       </div>
+      </div>
+      <button onclick="closeSidebar()" style="display:none;background:none;border:none;color:rgba(255,255,255,0.6);font-size:22px;cursor:pointer;line-height:1;padding:4px" id="sb-close">✕</button>
     </div>
   </div>
 
@@ -269,6 +394,9 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 <div class="main">
   <!-- TOPBAR -->
   <div class="topbar">
+    <button class="mob-menu" onclick="openSidebar()" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
       <input id="mainSearch" type="text" placeholder="판례 키워드, 사건번호, 법률 쟁점 검색..." onkeydown="if(event.key==='Enter')doSearch()">
@@ -1230,10 +1358,45 @@ function nav(view) {
   if (view === 'bookmarks') renderBookmarks();
   if (view === 'trend') renderChart();
   document.querySelector('.content').scrollTop = 0;
+  // 모바일 하단 탭바 활성화 동기화
+  updateMobTabbar(view);
+  // 모바일에서 사이드바 열린 경우 닫기
+  closeSidebar();
 }
 
 function goBack() {
   nav(prevView === 'detail' ? 'search' : prevView);
+}
+
+// ══ 모바일 내비게이션 ══
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.querySelector('.sidebar-overlay').classList.add('show');
+  const closeBtn = document.getElementById('sb-close');
+  if (closeBtn) closeBtn.style.display = 'block';
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.sidebar-overlay').classList.remove('show');
+  const closeBtn = document.getElementById('sb-close');
+  if (closeBtn) closeBtn.style.display = 'none';
+}
+
+function mobNav(view) {
+  nav(view);
+}
+
+function updateMobTabbar(view) {
+  const tabMap = {dashboard:0, search:1, trend:2, bookmarks:3};
+  const tabs = document.querySelectorAll('.mob-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (tabMap[view] !== undefined && tabs[tabMap[view]]) {
+    tabs[tabMap[view]].classList.add('active');
+  }
+  // 판례 검색 탭 뱃지 업데이트
+  const badge = document.querySelector('#mobTabbar .mob-tab:nth-child(2) .mob-tab-badge');
+  if (badge) badge.setAttribute('data-count', CASES ? new Set(CASES.map(c=>c.id)).size : '');
 }
 
 // ══ FILTER TAGS ══
@@ -1726,6 +1889,32 @@ CASES.forEach(c => {
 });
 renderDashboard();
 renderSearch();
+
+// ══ 모바일 초기화 ══
+// 화면 크기별 사이드바 표시 여부
+function initMobile() {
+  const isMobile = window.innerWidth <= 768;
+  // 모바일에서 sb-close 버튼 노출
+  const closeBtn = document.getElementById('sb-close');
+  if (closeBtn) closeBtn.style.display = isMobile ? 'none' : 'none'; // 기본 숨김
+  updateMobTabbar(currentView);
+}
+initMobile();
+window.addEventListener('resize', initMobile);
+
+// 모바일에서 검색창 포커스 시 키보드 위로 스크롤 방지
+document.getElementById('mainSearch').addEventListener('focus', () => {
+  setTimeout(() => {
+    if (window.innerWidth <= 768) {
+      document.querySelector('.content').scrollTop = 0;
+    }
+  }, 300);
+});
+
+// 안드로이드 뒤로가기 지원
+window.addEventListener('popstate', () => {
+  if (currentView === 'detail') goBack();
+});
 </script>
 
 <!-- Firebase SDK -->
