@@ -1422,20 +1422,20 @@ function openDetail(id) {
           <div class="analysis-card">
             <div class="analysis-section">
               <div class="analysis-section-title">⚖ 사실관계</div>
-              <div class="analysis-text">${c.facts}</div>
+              <div class="analysis-text">${c.facts||c.summary||''}</div>
             </div>
             <div class="analysis-section">
               <div class="analysis-section-title">❓ 주요 쟁점</div>
-              <ul class="analysis-list">${c.issues.map(i=>`<li>${i}</li>`).join('')}</ul>
+              <ul class="analysis-list">${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul>
             </div>
             <div class="analysis-section">
               <div class="analysis-section-title">🏛 법원 판단</div>
-              <div class="analysis-text">${c.holding}</div>
+              <div class="analysis-text">${c.holding||c.summary||''}</div>
             </div>
             <div class="analysis-section">
               <div class="analysis-section-title">💡 실무 시사점</div>
               <div style="display:flex;flex-direction:column;gap:8px">
-                ${c.implications.map(i=>`<div class="implication-item">${i}</div>`).join('')}
+                ${(c.implications||[]).map(i=>`<div class="implication-item">${i}</div>`).join('')||`<div class="implication-item">${c.summary||''}</div>`}
               </div>
             </div>
           </div>
@@ -1471,11 +1471,11 @@ function openDetail(id) {
         </div>
         <div class="info-card">
           <h4>유사 판례</h4>
-          ${c.related.map(r=>`
+          ${(c.related||[]).map(r=>`
             <div class="related-item" onclick="openRelated('${r.text.replace(/'/g,"\\'")}')">
               <div class="related-flag">${r.flag}</div>
               <div class="related-text">${r.text}</div>
-            </div>`).join('')}
+            </div>`).join('')||'<div style="font-size:13px;color:rgba(255,255,255,0.4);padding:8px 0">유사 판례 데이터 없음</div>'}
         </div>
         <div class="info-card" style="background:var(--navy);border-color:var(--navy)">
           <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;font-family:'Noto Sans KR',sans-serif;letter-spacing:1px">빠른 실행</div>
@@ -1687,13 +1687,13 @@ function printCase(id) {
   <h1>${c.title}</h1>
   <div class="meta">${c.flag} ${c.country} | ${c.court} | ${c.date} | ${c.caseNum}</div>
   <div class="section-title">사실관계</div>
-  <p style="font-size:14px">${c.facts}</p>
+  <p style="font-size:14px">${c.facts||c.summary||''}</p>
   <div class="section-title">주요 쟁점</div>
-  <ul>${c.issues.map(i=>`<li>${i}</li>`).join('')}</ul>
+  <ul>${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul>
   <div class="section-title">법원 판단</div>
-  <p style="font-size:14px">${c.holding}</p>
+  <p style="font-size:14px">${c.holding||c.summary||''}</p>
   <div class="section-title">실무 시사점</div>
-  ${c.implications.map(i=>`<div class="implication">${i}</div>`).join('')}
+  ${(c.implications||[]).map(i=>`<div class="implication">${i}</div>`).join('')||`<div class="implication">${c.summary||''}</div>`}
   <div class="section-title">판결 원문</div>
   <pre class="body-text">${(c.original||'').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
   <script>window.onload=function(){window.print();}<\/script>
