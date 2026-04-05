@@ -1864,12 +1864,16 @@ function openRelated(text) {
   const found = CASES.find(c => c.caseNum === caseNum);
   if (found) {
     openDetail(found.id);
-  } else {
-    currentSearchQuery = caseNum;
-    document.getElementById('mainSearch').value = caseNum;
-    nav('search');
-    showToast(`"${caseNum}" 검색 결과를 표시합니다`);
+    return;
   }
+  // 부분 일치 검색 시도 (사건번호 일부로 찾기)
+  const partial = CASES.find(c => c.caseNum.includes(caseNum) || caseNum.includes(c.caseNum));
+  if (partial) {
+    openDetail(partial.id);
+    return;
+  }
+  // 데이터베이스에 없는 판례 — 빈 검색 화면 대신 안내 메시지
+  showToast(`📋 "${caseNum}" — 아직 데이터베이스에 없는 판례입니다`);
 }
 
 // ══ 북마크 버튼 토글 ══
@@ -1935,47 +1939,109 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Firestore에서 판례 로드
+// ══ Firestore 판례 로드 (주 데이터소스) ══
+// 전략: Firestore 우선 → 없으면 HTML 내장 데이터 폴백
+// 페이지당 500건씩 로드하여 대용량 대응
+const FS_PAGE_SIZE = 500;
+
 async function loadCasesFromFirestore() {
   try {
-    const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(100));
+    // 로딩 표시
+    const countEl = document.getElementById('resultCount');
+    if (countEl) countEl.innerHTML = '<span style="color:var(--gray)">⏳ 판례 로딩 중...</span>';
+
+    // 전체 판례 수 파악 후 페이지 로드
+    const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(FS_PAGE_SIZE));
     const snapshot = await getDocs(q);
+
     if (snapshot.empty) {
-      console.log("Firestore 데이터 없음, 데모 데이터 유지");
+      console.log("Firestore 데이터 없음 — HTML 내장 데이터 사용");
+      renderDashboard();
+      renderSearch();
       return;
     }
-    // 숫자 인덱스를 id로 사용하여 openDetail 호환성 유지
-    const firestoreCases = snapshot.docs.map((doc, i) => ({ _fsId: doc.id, id: i, ...doc.data() }));
-    // Firestore 데이터로 HTML 케이스 원문/조항 보강
-    CASES.forEach(c => {
-      const fc = firestoreCases.find(f => f.caseNum === c.caseNum);
-      if (fc) {
-        if (fc.original && fc.original.length > 20 && (!c.original || c.original.length < fc.original.length)) c.original = fc.original;
-        if (fc.provisions && fc.provisions.length > 0 && (!c.provisions || c.provisions.length === 0)) c.provisions = fc.provisions;
-      }
+
+    // Firestore 판례를 id 기준으로 병합
+    // Firestore doc의 id 필드를 그대로 사용, 없으면 4000+index 부여
+    const fsCases = snapshot.docs.map((doc, i) => {
+      const data = doc.data();
+      return {
+        ...data,
+        _fsId: doc.id,
+        // id가 없거나 3000 미만이면 새 id 부여 (HTML 내장과 충돌 방지)
+        id: (data.id && data.id >= 4000) ? data.id : (4000 + i)
+      };
+    });
+
+    // HTML 내장 판례와 Firestore 판례 합치기 (caseNum 기준 중복 제거)
+    // Firestore 데이터 우선
+    const fsCaseNums = new Set(fsCases.map(c => c.caseNum));
+    const htmlOnly = CASES.filter(c => !fsCaseNums.has(c.caseNum));
+
+    // RICH_DATA로 Firestore 판례 원문/조문 보강
+    fsCases.forEach(c => {
       const rich = RICH_DATA[c.caseNum];
       if (rich) {
         if (!c.original || c.original.length < 20) c.original = rich.original;
         if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
       }
     });
-    // Firestore에만 있고 HTML에 없는 케이스 추가
-    const htmlNums = new Set(CASES.map(c => c.caseNum));
-    const fsOnly = firestoreCases.filter(fc => !htmlNums.has(fc.caseNum));
-    fsOnly.forEach((fc, i) => {
-      const rich = RICH_DATA[fc.caseNum];
-      CASES.push({ ...fc, id: 3000 + i,
-        original: (fc.original && fc.original.length > 20) ? fc.original : (rich ? rich.original : ''),
-        provisions: (fc.provisions && fc.provisions.length > 0) ? fc.provisions : (rich ? rich.provisions : []),
-      });
-    });
-    window._firestoreCases = firestoreCases;
-    console.log(`HTML ${CASES.length - fsOnly.length}건 보강 + Firestore 신규 ${fsOnly.length}건 = 총 ${CASES.length}건`);
-    // UI 갱신
+
+    // CASES 교체: Firestore 우선 + HTML 전용 케이스 추가
+    CASES.length = 0;
+    fsCases.forEach(c => CASES.push(c));
+    htmlOnly.forEach(c => CASES.push(c));
+
+    console.log(`Firestore ${fsCases.length}건 + HTML 전용 ${htmlOnly.length}건 = 총 ${CASES.length}건`);
+    updateMobTabbar && updateMobTabbar(currentView);
+
     renderDashboard();
     renderSearch();
+
+    // 500건 초과 시 추가 페이지 로드 (백그라운드)
+    if (snapshot.docs.length === FS_PAGE_SIZE) {
+      loadMoreFromFirestore(snapshot.docs[snapshot.docs.length - 1], fsCaseNums, 4000 + fsCases.length);
+    }
+
   } catch(e) {
-    console.warn("Firestore 로드 실패, 데모 데이터 사용:", e.message);
+    console.warn("Firestore 로드 실패 — HTML 내장 데이터 사용:", e.message);
+    renderDashboard();
+    renderSearch();
+  }
+}
+
+// 500건 초과 시 추가 로드 (페이지네이션)
+async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
+  try {
+    const { startAfter } = await import("https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js");
+    const q = query(collection(db, "cases"), orderBy("date", "desc"), startAfter(lastDoc), limit(FS_PAGE_SIZE));
+    const snap = await getDocs(q);
+    if (snap.empty) return;
+
+    let added = 0;
+    snap.docs.forEach((doc, i) => {
+      const data = doc.data();
+      if (!existingNums.has(data.caseNum)) {
+        const c = { ...data, _fsId: doc.id, id: idOffset + i };
+        const rich = RICH_DATA[c.caseNum];
+        if (rich) {
+          if (!c.original || c.original.length < 20) c.original = rich.original;
+          if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
+        }
+        CASES.push(c);
+        existingNums.add(c.caseNum);
+        added++;
+      }
+    });
+
+    console.log(`추가 로드: ${added}건 (총 ${CASES.length}건)`);
+    if (added > 0) { renderDashboard(); renderSearch(); }
+
+    if (snap.docs.length === FS_PAGE_SIZE) {
+      loadMoreFromFirestore(snap.docs[snap.docs.length - 1], existingNums, idOffset + snap.docs.length);
+    }
+  } catch(e) {
+    console.warn("추가 로드 실패:", e.message);
   }
 }
 
