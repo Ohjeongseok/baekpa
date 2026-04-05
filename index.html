@@ -1240,6 +1240,11 @@ function goBack() {
 function toggleFilter(el) {
   el.closest('.sb-filter-section').querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
   el.classList.add('on');
+  // 해당 섹션의 드롭다운도 초기화 (드롭다운 값이 남아 사이드바 선택이 무시되는 문제 방지)
+  const sections = document.querySelectorAll('.sb-filter-section');
+  const idx = Array.from(sections).indexOf(el.closest('.sb-filter-section'));
+  if (idx === 0) { const s = document.getElementById('f-type'); if (s) s.value = '전체'; }
+  if (idx === 1) { const s = document.getElementById('f-country'); if (s) s.value = '전체'; }
   nav('search');
 }
 
