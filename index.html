@@ -309,10 +309,8 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 </head>
 <body>
 
-<!-- ══ 사이드바 오버레이 (모바일) ══ -->
 <div class="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<!-- ══ 모바일 하단 탭바 ══ -->
 <nav class="mob-tabbar" id="mobTabbar">
   <button class="mob-tab active" onclick="mobNav('dashboard')">
     <span class="mob-tab-icon">🏠</span>대시보드
@@ -328,7 +326,6 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
   </button>
 </nav>
 
-<!-- ══ SIDEBAR ══ -->
 <aside class="sidebar" id="sidebar">
   <div class="sb-logo">
     <div class="sb-logo-main" style="justify-content:space-between">
@@ -390,9 +387,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
   </div>
 </aside>
 
-<!-- ══ MAIN ══ -->
 <div class="main">
-  <!-- TOPBAR -->
   <div class="topbar">
     <button class="mob-menu" onclick="openSidebar()" aria-label="메뉴">
       <span></span><span></span><span></span>
@@ -408,10 +403,8 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="content">
 
-    <!-- ─── DASHBOARD ─── -->
     <div class="view active" id="v-dashboard">
       <div style="margin-bottom:24px">
         <h2 style="font-size:20px;font-weight:700;color:var(--navy)">대시보드</h2>
@@ -441,10 +434,8 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         </div>
       </div>
 
-      <!-- 분쟁 유형별 현황 -->
       <div class="trend-grid" id="trend-grid"></div>
 
-      <!-- 최신 판례 -->
       <div class="section-head">
         <h3>최신 등록 판례</h3>
         <button class="view-all" onclick="nav('search')">전체 보기 →</button>
@@ -459,7 +450,6 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
       </div>
     </div>
 
-    <!-- ─── SEARCH ─── -->
     <div class="view" id="v-search">
       <div style="margin-bottom:20px">
         <h2 style="font-size:20px;font-weight:700;color:var(--navy)">판례 검색</h2>
@@ -489,13 +479,11 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
       <div id="searchResults"></div>
     </div>
 
-    <!-- ─── DETAIL ─── -->
     <div class="view" id="v-detail">
       <button class="detail-back" onclick="goBack()">← 목록으로</button>
       <div id="detailContent"></div>
     </div>
 
-    <!-- ─── TREND ─── -->
     <div class="view" id="v-trend">
       <div class="report-header">
         <p style="font-size:11px;letter-spacing:2px;opacity:.5;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px">월간 리포트</p>
@@ -534,7 +522,6 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
       </div>
     </div>
 
-    <!-- ─── BOOKMARKS ─── -->
     <div class="view" id="v-bookmarks">
       <div style="margin-bottom:20px">
         <h2 style="font-size:20px;font-weight:700;color:var(--navy)">북마크</h2>
@@ -542,10 +529,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
       <div id="bookmarkResults"></div>
     </div>
 
-  </div><!-- /content -->
-</div><!-- /main -->
-
-<div class="toast" id="toast"></div>
+  </div></div><div class="toast" id="toast"></div>
 
 <script>
 // ══ DATA ══
@@ -736,7 +720,7 @@ const RICH_DATA = {
   ]
 },
   8: {
-  "original": "Meck Petroleum DMCC v Owner and/or Demise Charterer of the Vessel 'Victor 1' and Another\n[2024] SGHC 165\nSingapore High Court — 28 June 2024\nS Mohan J\n\nFACTS\nSavory Shipping Inc owned the vessel Victor 1. Ceto Shipping Corporation held a bareboat (demise) charter of the vessel. Victor 1 was arrested and judicially sold in separate admiralty proceedings, with the sale proceeds paid into court. Meck Petroleum DMCC commenced a new action in rem against the sale proceeds. Ceto filed a Notice of Intention to Contest as the 'owner and/or demise charterer' of the vessel. Savory applied to strike out Ceto's participation and Meck's claim.\n\nHELD (S Mohan J)\n(1) A judicial sale by an admiralty court extinguishes all liens, encumbrances and interests in the vessel — including a bareboat charterparty. The demise charter did not survive the judicial sale.\n(2) Ceto, having lost its demise charterer status upon the judicial sale, could not participate in the action against the sale proceeds as an owner or demise charterer.\n(3) Meck Petroleum's liability in personam was against Ceto (the demise charterer). Since the demise charter was extinguished, Meck could not bring an action in rem against the proceeds of the sale of the vessel.\n\nSource: [2024] SGHC 165 — elitigation.sg/gd/s/2024_SGHC_165",
+  "original": "Meck Petroleum DMCC v Owner and/or Demise Charterer of the Vessel 'Victor 1' and Another\n[2024] SGHC 165\nSingapore High Court — 28 June 2024\nS Mohan J\n\nFACTS\nSavory Shipping Inc owned the vessel Victor 1. Ceto Shipping Corporation held a bareboat (demise) charter of the vessel. Victor 1 was arrested and judicially sold in separate admiralty proceedings, with the sale proceeds paid into court. Meck Petroleum DMCC commenced a new action in rem against the sale proceeds. Ceto filed a Notice of Intention to Contest as the 'owner and/or demise charterer' of the vessel. Savory applied to strike out Ceto's participation and Meck's claim.\n\nHELD (S Mohan J)\n(1) A judicial sale by an admiralty court extinguishes all liens, encumbrances and interests in the vessel — including a bareboat charterparty. The demise charter did not survive the judicial sale.\n(2) Ceto, having lost its demise charterer status upon the judicial sale, could not participate in the action against the sale proceeds as an owner or demise charterer.\n(3) Meck Petroleum's liability in personam was against Ceto (the demise charterer). Since the demise charter was extinguished, Meck Petroleum could not bring an action in rem against the proceeds of the sale of the vessel.\n\nSource: [2024] SGHC 165 — elitigation.sg/gd/s/2024_SGHC_165",
   "provisions": [
     {
       "law": "Singapore High Court (Admiralty Jurisdiction) Act",
@@ -1536,7 +1520,7 @@ CASES.push({
   "title": "보세창고업자의 선하증권 상환 인도 의무 — 운송인 이행보조자 책임",
   "summary": "해상화물운송에서 선하증권이 발행된 경우, 화물을 보관하는 보세창고업자가 운송인의 이행보조자로서 부담하는 선하증권 상환 인도 의무의 내용과 범위, 및 화물인도지시서(D/O)의 적법성 확인 의무.",
   "facts": "수입화물이 운송인과 보세창고업자 간 임치계약에 따라 보세창고에 입고. 보세창고업자는 운송인의 이행보조자로서 화물을 보관. 선하증권 원본 제시 없이 화물인도지시서만으로 화물 반출이 이루어짐. 원고(선하증권 소지인)가 피고(보세창고업자)를 상대로 손해배상 청구.",
-  "holding": "[1] 해상화물운송에서 선하증권이 발행된 경우, 운송인의 이행보조자인 보세창고업자는 화물을 선하증권의 정당한 수령인에게 인도할 의무가 있다. [2] 보세창고업자는 화물인도지시서(D/O)가 적법하게 발행된 유효한 화물 인도 서류인지 확인할 주의의무를 부담한다. [3] 운송인과 보세창고업자 사이에 임치계약이 성립하고, 보세창고업자는 그 임치계약에 따라 운송인 또는 운송인이 지정하는 자에게 화물을 인도할 의무를 부담한다.",
+  "holding": "[1] 해상화물운송에서 선하증권이 발행된 경우, 운송인의 이행보조자인 보세창고업자는 화물을 선하증권의 정당한 수령인에게 인도할 의무가 있다. [2] 보세창고업자는 화물인도지시서(D/O)가 적법하게 발행된 유효한 화물 인도 서류인지 확인할 주의의무를 부담한다. [3] 운송인이 화물을 보세창고에 맡김으로써 운송인과 보세창고업자 사이에 임치계약이 성립하고, 보세창고업자는 그 임치계약에 따라 운송인 또는 운송인이 지정하는 자에게 화물을 인도할 의무를 부담한다.",
   "issues": [
     "보세창고업자의 선하증권 소지인에 대한 직접 의무 성립 여부",
     "D/O 적법성 확인 의무의 범위",
@@ -2149,7 +2133,7 @@ function toggleBookmarkBtn(id, btn) {
 // ══ INIT ══
 // RICH_DATA를 기본 CASES에도 적용 (Firestore 로드 전 초기 상태)
 CASES.forEach(c => {
-  const rich = RICH_DATA[c.caseNum];
+  const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
   if (rich) {
     if (!c.original || c.original.length < 20) c.original = rich.original;
     if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2185,7 +2169,6 @@ window.addEventListener('popstate', () => {
 });
 </script>
 
-<!-- Firebase SDK -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc, query, orderBy, limit, where } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
@@ -2244,7 +2227,7 @@ async function loadCasesFromFirestore() {
 
     // RICH_DATA로 Firestore 판례 원문/조문 보강
     fsCases.forEach(c => {
-      const rich = RICH_DATA[c.caseNum];
+      const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
       if (rich) {
         if (!c.original || c.original.length < 20) c.original = rich.original;
         if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2287,7 +2270,7 @@ async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
       const data = doc.data();
       if (!existingNums.has(data.caseNum)) {
         const c = { ...data, _fsId: doc.id, id: idOffset + i };
-        const rich = RICH_DATA[c.caseNum];
+        const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
         if (rich) {
           if (!c.original || c.original.length < 20) c.original = rich.original;
           if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
