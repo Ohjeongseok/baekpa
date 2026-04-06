@@ -124,8 +124,57 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .mob-tab.active{color:var(--navy)}
 
 @media (max-width:768px){
-  body{overflow:auto} .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh} .sidebar.open{left:0} .main{width:100%} .mob-menu{display:flex} .tb-btn{display:none} .content{padding:16px 14px 76px} .stats-row{grid-template-columns:repeat(2,1fr)} .mob-tabbar{display:flex}
+  body{overflow:auto} .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh} .sidebar.open{left:0} .main{width:100%} .mob-menu{display:flex} .tb-btn{display:none} .content{padding:16px 14px 76px} .stats-row{grid-template-columns:repeat(2,1fr)} .mob-tabbar{display:flex} .trend-grid{grid-template-columns:1fr}
 }
+
+/* ── 검색 필터 ── */
+.search-filters{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.filter-label{font-size:11px;font-weight:700;color:var(--gray);font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap}
+.filter-select{padding:7px 12px;border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);background:#fff;cursor:pointer;outline:none;transition:border-color 0.15s}
+.filter-select:focus{border-color:var(--navy)}
+.result-count{font-size:13px;color:var(--gray);margin-bottom:16px;font-weight:600}
+
+/* ── 검색결과 카드 ── */
+.result-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:10px;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.result-card:hover{border-color:var(--navy);box-shadow:0 4px 14px rgba(0,0,0,0.07);transform:translateX(2px)}
+.result-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:12px}
+.result-card-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
+.result-card-meta{font-size:12px;color:var(--gray);margin-bottom:10px}
+.result-card-summary{font-size:13px;color:var(--dark);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.result-card-footer{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.bm-btn{padding:4px 10px;border:1px solid var(--border);border-radius:3px;background:#fff;font-size:11px;color:var(--gray);cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;transition:all 0.15s}
+.bm-btn:hover{border-color:var(--navy);color:var(--navy)}
+.bm-btn.bookmarked{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── 상세 뷰 ── */
+.detail-back{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#fff;border:1px solid var(--border);border-radius:4px;font-size:13px;font-weight:700;color:var(--navy);cursor:pointer;margin-bottom:24px;transition:all 0.15s;font-family:'Noto Sans KR',sans-serif;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.detail-back:hover{background:var(--lgray)}
+.detail-header{margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--navy)}
+.detail-header h2{font-size:22px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px}
+.detail-header p{font-size:13px;color:var(--gray)}
+.detail-body{display:flex;flex-direction:column;gap:16px}
+.detail-left{flex:1}
+.detail-info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.detail-info-item{background:var(--lgray);border-radius:4px;padding:12px 16px}
+.detail-info-label{font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;font-family:'Inter',sans-serif}
+.detail-info-val{font-size:13px;font-weight:600;color:var(--navy)}
+
+/* ── 판례 트렌드 카드 ── */
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.trend-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px 24px;transition:all 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.trend-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.trend-card-title{font-size:11px;font-weight:700;color:var(--gray);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;font-family:'Inter',sans-serif}
+.trend-bar-wrap{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.trend-bar-label{font-size:12px;color:var(--dark);width:70px;flex-shrink:0;font-weight:600}
+.trend-bar-outer{flex:1;height:6px;background:var(--lgray);border-radius:3px;overflow:hidden}
+.trend-bar-inner{height:100%;border-radius:3px;transition:width 0.7s ease}
+.trend-bar-val{font-size:11px;font-weight:700;color:var(--gray);width:24px;text-align:right;flex-shrink:0}
+
+/* ── 기타 ── */
+.user-row{display:flex;align-items:center;gap:10px;justify-content:space-between;width:100%}
+.empty-state{text-align:center;padding:80px 20px;color:var(--gray)}
+.empty-state-icon{font-size:48px;margin-bottom:16px}
+.empty-state p{font-size:15px;font-weight:600;margin-top:8px}
 </style>
 </head>
 <body>
@@ -142,7 +191,14 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 <aside class="sidebar" id="sidebar">
   <div class="sb-logo">
     <div class="sb-logo-main">
-      <div class="sb-icon">🛳️</div>
+      <div class="sb-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17l1.5-5H19.5L21 17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M7 12V8h10v4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 8V5h4v3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 20c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div><div class="sb-name">백파</div><div class="sb-en">BAEKPA</div></div>
     </div>
   </div>
@@ -234,6 +290,9 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       </div>
       <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
       <div class="table-wrap"><table><thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead><tbody id="dashTable"></tbody></table></div>
+
+      <div class="section-head" style="margin-top:32px"><h3>판례 트렌드</h3><span style="font-size:12px;color:var(--gray);font-weight:600">유형별 분포 현황</span></div>
+      <div class="trend-grid" id="trendGrid"></div>
     </div>
 
     <div class="view" id="v-search">
@@ -257,6 +316,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
         <button class="expert-tab active" onclick="setExpertType('all', this)">전체보기</button>
         <button class="expert-tab" onclick="setExpertType('lawyer', this)">⚖️ 로펌</button>
         <button class="expert-tab" onclick="setExpertType('surveyor', this)">🔎 감정사</button>
+        <button class="expert-tab" onclick="setExpertType('agency', this)">🚢 선박 대리점</button>
       </div>
       <div class="expert-grid" id="expertGrid"></div>
     </div>
@@ -265,7 +325,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
     <div class="view" id="v-admin">
       <h2 style="margin-bottom:20px">데이터 통합 관리 <span style="font-size:12px;color:red;border:1px solid red;padding:2px 6px;border-radius:3px;">🔒 관리자</span></h2>
-      <select id="admin-upload-type" class="filter-select" style="margin-bottom:16px"><option value="case">📄 판례 데이터</option><option value="expert" selected>🤝 전문가 프로필</option></select>
+      <select id="admin-upload-type" class="filter-select" style="margin-bottom:16px"><option value="case">📄 판례 데이터</option><option value="expert" selected>🤝 전문가 프로필 (로펌 / 감정사 / 선박 대리점)</option></select>
       <textarea id="admin-json-input" style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:4px; font-family:monospace;"></textarea>
       <div id="admin-preview-area" style="display:none"><p style="font-size:12px;font-weight:700;color:var(--gray)">로고 미리보기:</p><div class="preview-box" id="imgPreview"></div></div>
       <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer;">🚀 업로드</button>
@@ -328,7 +388,9 @@ window.nav = function(view) {
     if (scrollContainer) scrollContainer.scrollTop = 0;
 
     if (view === 'dashboard') renderDashboard();
+    if (view === 'search') renderSearch();
     if (view === 'experts') applyExpertFilters();
+    if (view === 'bookmarks') renderBookmarks();
     closeSidebar();
 };
 
@@ -361,12 +423,13 @@ window.applyExpertFilters = function() {
     if (currentExpertType !== 'all') filtered = filtered.filter(e => e.type === currentExpertType);
     if (country !== '전체') filtered = filtered.filter(e => e.country === country);
 
+    const typeIcon = { lawyer: '⚖️', surveyor: '🔎', agency: '🚢' };
     grid.innerHTML = filtered.map(e => `
         <div class="expert-card">
-            <div class="expert-cover">${e.logoUrl ? `<img src="${e.logoUrl}" onerror="this.src='🏢'">` : '🏢'}</div>
+            <div class="expert-cover">${e.logoUrl ? `<img src="${e.logoUrl}" onerror="this.style.display='none'">` : `<span style="font-size:40px">${typeIcon[e.type]||'🏢'}</span>`}</div>
             <div class="expert-body">
                 <div class="expert-info">
-                    <span style="font-size:11px; color:var(--blue); font-weight:700; margin-bottom:6px; display:block;">🇰🇷 ${e.country || '한국'} · ${e.role || '전문가'}</span>
+                    <span style="font-size:11px; color:var(--blue); font-weight:700; margin-bottom:6px; display:block;">${e.country||'한국'} · ${e.role||'전문가'}</span>
                     <h4>${e.name}</h4>
                 </div>
                 <p class="expert-desc">${e.desc || ''}</p>
@@ -399,22 +462,51 @@ window.openExpertModal = (name) => {
 
 // --- [3] 판례 리포트 시스템 ---
 window.openDetail = (id) => {
-    const c = window.CASES.find(x => x.id == id);
+    const c = window.CASES.find(x => x.id == id || x.id === id);
     if (!c) return;
+
+    const lawsHtml = (c.laws||[]).length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">📋 관련 법령</h4><div style="display:flex;flex-wrap:wrap;gap:6px">${(c.laws||[]).map(l=>`<span class="badge" style="background:var(--lgray);color:var(--dark);border:1px solid var(--border);font-size:12px">${l}</span>`).join('')}</div></div>` : '';
+
+    const issuesHtml = (c.issues||[]).length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">⚖️ 주요 쟁점</h4><ul style="padding-left:20px;line-height:1.9">${(c.issues||[]).map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
+
+    const implHtml = (c.implications||[]).length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">💡 실무적 시사점</h4><ul style="padding-left:20px;line-height:1.9">${(c.implications||[]).map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
+
+    const relatedHtml = (c.related||[]).length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">🔗 관련 판례</h4><div style="display:flex;flex-direction:column;gap:6px">${(c.related||[]).map(r=>`<div style="padding:8px 12px;background:var(--lgray);border-radius:4px;font-size:12px">${r.flag||''} ${r.text||''}</div>`).join('')}</div></div>` : '';
+
+    const bm = window.bookmarks.has(String(c.id));
+
     document.getElementById('detailContent').innerHTML = `
         <div class="detail-header">
-            <h2 style="font-size:24px; color:var(--navy)">${c.title}</h2>
-            <p style="color:var(--gray); margin-top:8px">${c.caseNum} | ${c.court} | ${c.date}</p>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+                <h2>${c.title||c.caseNum}</h2>
+                <button class="bm-btn${bm?' bookmarked':''}" onclick="toggleBookmark('${c.id}',this)" style="flex-shrink:0;margin-top:4px">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+            </div>
+            <p>${c.caseNum} &nbsp;|&nbsp; ${c.flag||'🌐'} ${c.court||''} &nbsp;|&nbsp; ${c.date||''}</p>
+        </div>
+        <div class="detail-info-grid">
+            <div class="detail-info-item"><div class="detail-info-label">사건 유형</div><div class="detail-info-val"><span class="badge badge-blue">${c.type||'—'}</span></div></div>
+            <div class="detail-info-item"><div class="detail-info-label">국가</div><div class="detail-info-val">${c.flag||''} ${c.country||'—'}</div></div>
+            <div class="detail-info-item"><div class="detail-info-label">선고일</div><div class="detail-info-val">${c.date||'—'}</div></div>
+            <div class="detail-info-item"><div class="detail-info-label">신뢰도</div><div class="detail-info-val">${c.conf!=null?Math.round(c.conf*100)+'%':'—'}</div></div>
         </div>
         <div class="detail-tabs">
-            <button class="detail-tab active" onclick="switchTab(this,'tab-org')">문서 원문</button>
-            <button class="detail-tab" onclick="switchTab(this,'tab-ai')">AI 정밀 분석</button>
+            <button class="detail-tab active" onclick="switchTab(this,'tab-org')">📄 판결 원문</button>
+            <button class="detail-tab" onclick="switchTab(this,'tab-ai')">🤖 AI 분석</button>
         </div>
         <div class="detail-body">
             <div class="detail-left">
-                <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 데이터가 없습니다.'}</div>
-                <div id="tab-ai" class="tab-pane" style="background:#fff; padding:32px; border:1px solid var(--border); border-radius:4px;">
-                    <h4 style="color:var(--blue); margin-bottom:16px;">핵심 분석</h4><p style="line-height:1.8">${c.facts || c.summary}</p>
+                <div id="tab-org" class="tab-pane active original-wrap" style="white-space:pre-wrap;line-height:1.85;font-size:13.5px">${c.original||'<span style="color:var(--gray)">원문 데이터가 아직 등록되지 않았습니다.</span>'}</div>
+                <div id="tab-ai" class="tab-pane" style="background:#fff;padding:32px;border:1px solid var(--border);border-radius:4px">
+                    <h4 style="color:var(--navy);margin-bottom:12px;font-size:15px">사건 개요</h4>
+                    <p style="line-height:1.85;font-size:13px;margin-bottom:0">${c.facts||c.summary||''}</p>
+                    <hr style="margin:20px 0;border:none;border-top:1px solid var(--border)">
+                    <h4 style="color:var(--navy);margin-bottom:12px;font-size:15px">판결 요지</h4>
+                    <p style="line-height:1.85;font-size:13px">${c.holding||''}</p>
+                    ${issuesHtml}${lawsHtml}${implHtml}${relatedHtml}
                 </div>
             </div>
         </div>`;
@@ -429,27 +521,90 @@ window.switchTab = function(btn, tabId) {
     document.getElementById(tabId).classList.add('active');
 };
 
-// --- [4] 대시보드 및 데이터 렌더링 (사이드바 트렌드 로직 통합) ---
+// --- [4] 대시보드 및 데이터 렌더링 ---
 function renderDashboard() {
     const total = window.CASES.length;
-    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = total;
-    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = total;
-    if(document.getElementById('dash-date')) document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 현황";
-    
-    const tbody = document.getElementById('dashTable');
+    const $  = id => document.getElementById(id);
+
+    // 통계 카드
+    if($('stat-total'))    $('stat-total').innerText = total || '—';
+    if($('sb-total-badge')) $('sb-total-badge').innerText = total;
+    if($('dash-date'))     $('dash-date').innerText = new Date().toLocaleDateString('ko-KR', {year:'numeric',month:'long',day:'numeric'}) + ' 기준';
+
+    if(total) {
+        const aiDone = window.CASES.filter(c => c.original && c.original.length > 200).length;
+        if($('stat-ai-rate')) $('stat-ai-rate').innerText = Math.round(aiDone/total*100) + '%';
+        if($('stat-ai-sub'))  $('stat-ai-sub').innerText  = aiDone + '건 원문 보유';
+
+        const now = new Date();
+        const cutoff = new Date(now.getFullYear(), now.getMonth()-1, now.getDate());
+        const monthly = window.CASES.filter(c => {
+            const ts = c._addedAt || c.updatedAt;
+            if(!ts) return false;
+            const d = ts.seconds ? new Date(ts.seconds*1000) : new Date(ts);
+            return d > cutoff;
+        }).length;
+        if($('stat-month'))     $('stat-month').innerText     = monthly;
+        if($('stat-month-sub')) $('stat-month-sub').innerText = '신규 등록';
+    }
+    if($('stat-bm'))     $('stat-bm').innerText     = window.bookmarks.size;
+    if($('stat-bm-sub')) $('stat-bm-sub').innerText = '저장된 판례';
+
+    // 최신 판례 테이블
+    const tbody = $('dashTable');
     if(tbody) {
-        tbody.innerHTML = window.CASES.slice(0, 5).map(c => `
+        const sorted = [...window.CASES].sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+        tbody.innerHTML = sorted.slice(0,6).map(c => `
             <tr onclick="openDetail('${c.id}')">
                 <td><b>${c.caseNum}</b></td>
-                <td><span class="badge badge-blue">${c.type}</span></td>
-                <td>${c.flag || '🌐'} ${c.court}</td>
+                <td><span class="badge badge-blue">${c.type||'기타'}</span></td>
+                <td>${c.flag||'🌐'} ${c.court}</td>
                 <td>${c.date}</td>
-                <td><span style="color:var(--success); font-weight:700">분석완료</span></td>
-            </tr>`).join('');
+                <td><span style="color:#2F855A;font-weight:700">✓ 완료</span></td>
+            </tr>`).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--gray);padding:32px">등록된 판례가 없습니다</td></tr>';
     }
 
-    // 🚀 대시보드 렌더링 시 트렌드 함수 호출
+    // 트렌드 카드
+    renderTrendCards();
     updateSidebarTrends();
+}
+
+function renderTrendCards() {
+    const trendGrid = document.getElementById('trendGrid');
+    if(!trendGrid || !window.CASES.length) return;
+
+    const COLORS = ['#2B4C7E','#2F855A','#C53030','#D97706','#6B46C1','#0987A0','#744210'];
+
+    // 유형별
+    const typeMap = {}, countryMap = {}, courtMap = {};
+    window.CASES.forEach(c => {
+        typeMap[c.type||'기타']     = (typeMap[c.type||'기타']||0)+1;
+        const cn = c.country||'기타';
+        countryMap[cn] = (countryMap[cn]||0)+1;
+        const ct = c.court||'기타';
+        courtMap[ct]   = (courtMap[ct]||0)+1;
+    });
+
+    const sortDesc = obj => Object.entries(obj).sort((a,b)=>b[1]-a[1]);
+    const typeList    = sortDesc(typeMap).slice(0,4);
+    const countryList = sortDesc(countryMap).slice(0,4);
+    const courtList   = sortDesc(courtMap).slice(0,4);
+
+    const makeCard = (title, items) => {
+        const max = items[0]?.[1]||1;
+        const bars = items.map(([lbl,cnt],i) => `
+            <div class="trend-bar-wrap">
+                <span class="trend-bar-label">${lbl}</span>
+                <div class="trend-bar-outer"><div class="trend-bar-inner" style="width:${Math.round(cnt/max*100)}%;background:${COLORS[i%COLORS.length]}"></div></div>
+                <span class="trend-bar-val">${cnt}</span>
+            </div>`).join('');
+        return `<div class="trend-card"><div class="trend-card-title">${title}</div>${bars}</div>`;
+    };
+
+    trendGrid.innerHTML =
+        makeCard('사건 유형', typeList) +
+        makeCard('국가별 분포', countryList) +
+        makeCard('법원별 분포', courtList);
 }
 
 // 🚀 실시간 사이드바 트렌드 연동 함수
@@ -482,20 +637,24 @@ function updateSidebarTrends() {
 }
 
 // --- [5] Firebase 인증 및 관리자 기능 ---
+window.loginWithGoogle = () => signInWithPopup(auth, provider).catch(e => showToast('로그인 실패: ' + e.message));
+window.logoutFromGoogle = () => signOut(auth).catch(e => showToast('로그아웃 실패'));
+
 onAuthStateChanged(auth, (user) => {
     const authContainer = document.getElementById('auth-container');
     const adminMenu = document.getElementById('menu-admin');
-    if (user && ["ojs8851@gmail.com", "baekpa0814@gmail.com"].includes(user.email)) {
+    const ADMINS = ["ojs8851@gmail.com", "baekpa0814@gmail.com"];
+    if (user && ADMINS.includes(user.email)) {
         if(adminMenu) adminMenu.style.display = 'flex';
-        authContainer.innerHTML = `
-            <div style="display:flex; align-items:center; gap:10px; color:#fff; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px; width:100%;">
-                <img src="${user.photoURL}" style="width:30px; height:30px; border-radius:4px;">
-                <span style="font-size:12px; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${user.displayName}</span>
-                <button onclick="signOut(getAuth())" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer;">🚪</button>
+        if(authContainer) authContainer.innerHTML = `
+            <div style="display:flex;align-items:center;gap:10px;color:#fff;padding:10px;background:rgba(255,255,255,0.05);border-radius:4px;width:100%;">
+                <img src="${user.photoURL||''}" style="width:30px;height:30px;border-radius:4px;object-fit:cover;" onerror="this.style.display='none'">
+                <span style="font-size:12px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${user.displayName||user.email}</span>
+                <button onclick="window.logoutFromGoogle()" style="background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:15px;">🚪</button>
             </div>`;
     } else {
         if(adminMenu) adminMenu.style.display = 'none';
-        authContainer.innerHTML = `<button class="auth-btn" onclick="signInWithPopup(getAuth(), new GoogleAuthProvider())" style="width:100%">🔑 관리자 로그인</button>`;
+        if(authContainer) authContainer.innerHTML = `<button class="auth-btn" onclick="window.loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>`;
     }
 });
 
@@ -522,10 +681,126 @@ document.getElementById('admin-json-input')?.addEventListener('input', (e) => {
     } catch(err) {}
 });
 
-// --- [6] 실시간 동기화 ---
+// --- [6] 검색 & 필터 ---
+let activeFilter = '전체';
+
+window.toggleFilter = (el) => {
+    document.querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
+    el.classList.add('on');
+    activeFilter = el.innerText.trim();
+    if(currentView === 'search') renderSearch();
+};
+
+window.doSearch = () => {
+    nav('search');
+    setTimeout(renderSearch, 50);
+};
+
+function countryFlagToName(flag) {
+    if(flag.includes('🇰🇷')) return '한국';
+    if(flag.includes('🇬🇧')) return '영국';
+    if(flag.includes('🇸🇬')) return '싱가포르';
+    return '';
+}
+
+window.renderSearch = () => {
+    const q       = (document.getElementById('mainSearch')?.value||'').toLowerCase().trim();
+    const country = document.getElementById('f-country')?.value || '전체';
+    const sort    = document.getElementById('f-sort')?.value    || '최신순';
+
+    let filtered = window.CASES.filter(c => {
+        const matchQ = !q ||
+            (c.caseNum||'').toLowerCase().includes(q) ||
+            (c.title||'').toLowerCase().includes(q) ||
+            (c.summary||'').toLowerCase().includes(q) ||
+            (c.type||'').toLowerCase().includes(q);
+        const matchCountry = country === '전체' || countryFlagToName(c.flag||'') === country.replace(/[🇰🇷🇬🇧🇸🇬\s]/g,'').trim() || (c.country&&country.includes(c.country));
+        const matchType = activeFilter === '전체' || c.type === activeFilter;
+        return matchQ && matchCountry && matchType;
+    });
+
+    if(sort === '신뢰도순') filtered.sort((a,b) => (b.conf||0)-(a.conf||0));
+    else filtered.sort((a,b) => new Date(b.date||0)-new Date(a.date||0));
+
+    const rc = document.getElementById('resultCount');
+    if(rc) rc.innerText = `총 ${filtered.length}건 검색됨`;
+
+    const sr = document.getElementById('searchResults');
+    if(!sr) return;
+    if(!filtered.length) {
+        sr.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><p>검색 결과가 없습니다</p></div>`;
+        return;
+    }
+    sr.innerHTML = filtered.map(c => {
+        const bm = window.bookmarks.has(String(c.id));
+        return `<div class="result-card" onclick="openDetail('${c.id}')">
+            <div class="result-card-header">
+                <div class="result-card-title">${c.title||c.caseNum}</div>
+                <span class="badge badge-blue">${c.type||'기타'}</span>
+            </div>
+            <div class="result-card-meta">${c.flag||'🌐'} ${c.court||''} &nbsp;|&nbsp; ${c.date||''}</div>
+            <div class="result-card-summary">${c.summary||''}</div>
+            <div class="result-card-footer">
+                <span class="badge" style="background:var(--lgray);color:var(--gray);border:1px solid var(--border)">${c.caseNum}</span>
+                <button class="bm-btn${bm?' bookmarked':''}" onclick="event.stopPropagation();toggleBookmark('${c.id}',this)">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+            </div>
+        </div>`;
+    }).join('');
+};
+
+// --- [7] 북마크 ---
+window.toggleBookmark = (id, btn) => {
+    const sid = String(id);
+    if(window.bookmarks.has(sid)) {
+        window.bookmarks.delete(sid);
+        if(btn){btn.classList.remove('bookmarked');btn.innerText='🔖 북마크';}
+        showToast('북마크 해제됨');
+    } else {
+        window.bookmarks.add(sid);
+        if(btn){btn.classList.add('bookmarked');btn.innerText='🔖 저장됨';}
+        showToast('북마크에 추가됨');
+    }
+    const bm = document.getElementById('stat-bm');
+    if(bm) bm.innerText = window.bookmarks.size;
+    if(currentView === 'bookmarks') renderBookmarks();
+};
+
+window.renderBookmarks = () => {
+    const container = document.getElementById('bookmarkResults');
+    if(!container) return;
+    const bmCases = window.CASES.filter(c => window.bookmarks.has(String(c.id)));
+    if(!bmCases.length) {
+        container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔖</div><p>저장된 판례가 없습니다</p></div>`;
+        return;
+    }
+    container.innerHTML = bmCases.map(c => `
+        <div class="result-card" onclick="openDetail('${c.id}')">
+            <div class="result-card-header">
+                <div class="result-card-title">${c.title||c.caseNum}</div>
+                <span class="badge badge-blue">${c.type||'기타'}</span>
+            </div>
+            <div class="result-card-meta">${c.flag||'🌐'} ${c.court||''} &nbsp;|&nbsp; ${c.date||''}</div>
+            <div class="result-card-summary">${c.summary||''}</div>
+            <div class="result-card-footer">
+                <button class="bm-btn bookmarked" onclick="event.stopPropagation();toggleBookmark('${c.id}',this)">🔖 저장됨</button>
+            </div>
+        </div>`).join('');
+};
+
+// --- [8] 토스트 ---
+window.showToast = (msg) => {
+    const t = document.getElementById('toast');
+    if(!t) return;
+    t.innerText = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+};
+
+// --- [9] 실시간 동기화 ---
 onSnapshot(collection(db, "cases"), (snap) => {
     window.CASES = snap.docs.map(d => ({ ...d.data(), id: d.id }));
     renderDashboard();
+    if(currentView === 'search') renderSearch();
+    if(currentView === 'bookmarks') renderBookmarks();
 });
 
 onSnapshot(collection(db, "experts"), (snap) => {
