@@ -185,47 +185,61 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   </div>
 
   <div class="content" id="scroll-container">
-    <div class="view active" id="v-dashboard">
-      <div style="margin-bottom:28px"><h2>Overview</h2><p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p>
-</div>
-<div style="margin-bottom:28px">
-    <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:16px;">실시간 판례 트렌드</h3>
-    <div class="trend-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
-        <div class="stat-card" style="border-top: 3px solid var(--blue);">
-            <div style="font-size:11px; color:var(--gray); font-weight:600; margin-bottom:10px;">TOP TREND #01</div>
-            <div style="font-size:14px; font-weight:700; margin-bottom:8px;">🚢 선하증권 (B/L)</div>
-            <div style="font-size:24px; font-weight:700; color:var(--navy);">42<span style="font-size:13px; color:var(--gray); margin-left:4px;">건 분석 중</span></div>
-            <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:12px; overflow:hidden;">
-                <div style="width:75%; height:100%; background:var(--blue);"></div>
+ <div class="view active" id="v-dashboard">
+    <div style="margin-bottom:28px">
+        <h2>Overview</h2>
+        <p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p>
+    </div>
+
+    <div style="margin-bottom:32px">
+        <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:16px;">실시간 판례 트렌드</h3>
+        <div class="trend-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+            
+            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--blue); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #01</div>
+                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">🚢 선하증권 (B/L)</div>
+                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">42<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
+                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
+                    <div style="width:75%; height:100%; background:var(--blue);"></div>
+                </div>
             </div>
-        </div>
-        <div class="stat-card" style="border-top: 3px solid var(--success);">
-            <div style="font-size:11px; color:var(--gray); font-weight:600; margin-bottom:10px;">TOP TREND #02</div>
-            <div style="font-size:14px; font-weight:700; margin-bottom:8px;">🛡️ 해상보험 (Insurance)</div>
-            <div style="font-size:24px; font-weight:700; color:var(--navy);">28<span style="font-size:13px; color:var(--gray); margin-left:4px;">건 분석 중</span></div>
-            <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:12px; overflow:hidden;">
-                <div style="width:45%; height:100%; background:var(--success);"></div>
+
+            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--success); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #02</div>
+                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">🛡️ 해상보험 (Insurance)</div>
+                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">28<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
+                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
+                    <div style="width:45%; height:100%; background:var(--success);"></div>
+                </div>
             </div>
-        </div>
-        <div class="stat-card" style="border-top: 3px solid var(--danger);">
-            <div style="font-size:11px; color:var(--gray); font-weight:600; margin-bottom:10px;">TOP TREND #03</div>
-            <div style="font-size:14px; font-weight:700; margin-bottom:8px;">💥 선박충돌 (Collision)</div>
-            <div style="font-size:24px; font-weight:700; color:var(--navy);">15<span style="font-size:13px; color:var(--gray); margin-left:4px;">건 분석 중</span></div>
-            <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:12px; overflow:hidden;">
-                <div style="width:30%; height:100%; background:var(--danger);"></div>
+
+            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--danger); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #03</div>
+                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">💥 선박충돌 (Collision)</div>
+                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">15<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
+                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
+                    <div style="width:30%; height:100%; background:var(--danger);"></div>
+                </div>
             </div>
+
         </div>
     </div>
-</div>
-      <div class="stats-row">
+
+    <div class="stats-row">
         <div class="stat-card"><div class="stat-label">총 판례 수</div><div class="stat-val" id="stat-total">—</div><div class="stat-sub" id="stat-total-sub"></div></div>
         <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">—</div><div class="stat-sub" id="stat-ai-sub"></div></div>
         <div class="stat-card"><div class="stat-label">최근 1개월 신규</div><div class="stat-val" id="stat-month">—</div><div class="stat-sub" id="stat-month-sub"></div></div>
         <div class="stat-card"><div class="stat-label">내 북마크</div><div class="stat-val" id="stat-bm">—</div><div class="stat-sub" id="stat-bm-sub"></div></div>
-      </div>
-      <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
-      <div class="table-wrap"><table><thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead><tbody id="dashTable"></tbody></table></div>
     </div>
+
+    <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead>
+            <tbody id="dashTable"></tbody>
+        </table>
+    </div>
+</div>
 
     <div class="view" id="v-search">
       <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">판례 검색</h2></div>
