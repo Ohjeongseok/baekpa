@@ -350,6 +350,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
   <div class="sb-item" onclick="nav('search')"><span class="icon">🔍</span>판례 검색<span class="sb-badge" id="sb-total-badge">—</span></div>
   <div class="sb-item" onclick="nav('trend')"><span class="icon">📈</span>트렌드 리포트</div>
   <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">🔖</span>북마크</div>
+  <div class="sb-item" onclick="nav('admin')"><span class="icon">⚙️</span>업로드(관리자)</div>
 
   <div class="sb-section">사건 유형</div>
   <div class="sb-filter-section">
@@ -527,6 +528,21 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
         <h2 style="font-size:20px;font-weight:700;color:var(--navy)">북마크</h2>
       </div>
       <div id="bookmarkResults"></div>
+    </div>
+
+    <div class="view" id="v-admin">
+      <div style="margin-bottom:20px">
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">판례 직접 업로드 (JSON)</h2>
+        <p style="font-size:13px;color:var(--gray);margin-top:5px">클로드(Claude)나 AI가 생성해준 JSON 데이터를 아래에 붙여넣고 업로드하세요.</p>
+      </div>
+      
+      <textarea id="admin-json-input" placeholder="여기에 { 'caseNum': '...', 'title': '...' } 형태의 JSON 데이터를 붙여넣으세요..." 
+                style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:12px; font-family:monospace; font-size:13px; resize:vertical; margin-bottom:16px;"></textarea>
+      
+      <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:8px; font-weight:700; cursor:pointer; font-size:14px;">
+        🚀 Firebase에 업로드
+      </button>
+      <div id="upload-status" style="margin-top:12px; font-size:14px; font-weight:600;"></div>
     </div>
 
   </div></div><div class="toast" id="toast"></div>
@@ -1323,7 +1339,7 @@ CASES.push({
   "conf": 1.0,
   "title": "영국법 준거 용선계약 위약금 — 위약벌 해당 여부 및 민법 제398조 적용 불가",
   "summary": "이탈리아 선주와 국내 용선주 간 영국법 준거 용선계약에서 운임의 100%를 손해배상액으로 약정한 위약금 조항이 영국법상 강제 불가능한 '위약벌(penalty)'에 해당하는지, 우리 민법 제398조 제2항(과다 위약금 감액)을 적용해 감액해야 하는지 여부.",
-  "facts": "이탈리아 법인인 선주가 선박을 국내 용선주에게 22일 간 용선하고 용선료 약 USD 900만을 받기로 하는 용선계약 체결. 계약에 '용선자가 30일 이상 운임 지급을 지체하여 선주가 계약을 해제할 경우 용선자는 운임의 100%를 손해배상 예정액으로 지급한다'는 조항 포함. 준거법은 영국법. 용선주가 운임을 미지급하자 선주가 계약을 해제하고 위약금을 청구.",
+  "facts": "이탈리아 법인인 선주가 선박을 국내 용선주에게 22일 간 용선하고 용선료 약 USD 900만을 받기로 하는 용선계약 체결. 계약에 '용선자가 30일 이상 운임 지급을 지체하여 선주가 계약 해제할 경우 용선자는 운임의 100%를 손해배상 예정액으로 지급한다'는 조항 포함. 준거법은 영국법. 용선주가 운임을 미지급하자 선주가 계약을 해제하고 위약금을 청구.",
   "holding": "[1] 영국법상 위약금 약정이 손해배상액의 예정인지 위약벌인지는 계약 당시 약정된 위약금이 상대방의 계약상 의무 이행을 강제할 '정당한 이익'과 비례하는지에 따라 판단한다. 정당한 이익은 예상 최대 손해에 국한되지 않으며, 위반의 성격·손해 예측 가능성·계약 협상력 대등 여부 등을 종합 고려한다. [2] 민법 제398조 제2항의 '과다한 손해배상액의 예정' 감액 규정은 국제사법상 강행규정이 아니므로, 준거법이 영국법인 경우에는 적용되지 않는다. 영국법을 적용한 결과가 한국의 공서양속에 반하지도 않는다.",
   "issues": [
     "영국법상 위약벌(penalty) 해당 여부 판단 기준",
@@ -1596,9 +1612,14 @@ function nav(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('v-' + view).classList.add('active');
   document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-  const map = {dashboard:0, search:1, trend:2, bookmarks:3};
+  
+  // 관리자 탭 추가됨에 따라 인덱스 매핑 (dashboard:0, search:1, trend:2, bookmarks:3, admin:4)
+  const map = {dashboard:0, search:1, trend:2, bookmarks:3, admin:4};
   const items = document.querySelectorAll('.sb-item');
-  if (map[view] !== undefined) items[map[view]].classList.add('active');
+  if (map[view] !== undefined && items[map[view]]) {
+    items[map[view]].classList.add('active');
+  }
+  
   prevView = currentView;
   currentView = view;
   if (view === 'dashboard') renderDashboard();
@@ -1606,6 +1627,7 @@ function nav(view) {
   if (view === 'bookmarks') renderBookmarks();
   if (view === 'trend') renderChart();
   document.querySelector('.content').scrollTop = 0;
+  
   // 모바일 하단 탭바 활성화 동기화
   updateMobTabbar(view);
   // 모바일에서 사이드바 열린 경우 닫기
@@ -2130,10 +2152,45 @@ function toggleBookmarkBtn(id, btn) {
   if (btn) btn.textContent = bookmarks.has(id) ? '🔖 북마크 저장됨' : '🔖 북마크 추가';
 }
 
+// ══ 관리자 업로드 기능 ══
+async function uploadJsonToFirebase() {
+  const inputEl = document.getElementById('admin-json-input');
+  const statusEl = document.getElementById('upload-status');
+  
+  try {
+    const rawText = inputEl.value.trim();
+    if (!rawText) throw new Error("데이터를 입력해주세요.");
+    
+    // JSON 파싱 (eval 유사 함수 사용: 관리자 전용이므로 단순 객체화 처리)
+    const caseData = new Function("return " + rawText)(); 
+    
+    statusEl.style.color = "var(--blue)";
+    statusEl.textContent = "⏳ 업로드 중입니다...";
+
+    if(typeof window.saveCase !== 'function') {
+      throw new Error("Firebase 연결이 지연되고 있거나 설정되지 않았습니다.");
+    }
+
+    // 기존 Firebase 스크립트에서 정의된 saveCase 호출
+    const docId = await window.saveCase(caseData);
+    
+    if (docId) {
+      statusEl.style.color = "#10B981"; 
+      statusEl.textContent = "✅ 성공적으로 업로드 되었습니다! (새로고침을 하면 목록에 반영됩니다)";
+      inputEl.value = ""; // 입력창 비우기
+    } else {
+      throw new Error("업로드 응답을 받지 못했습니다.");
+    }
+  } catch(error) {
+    statusEl.style.color = "#EF4444"; 
+    statusEl.textContent = "❌ 오류 발생: 입력한 JSON 형식을 확인해주세요. (" + error.message + ")";
+  }
+}
+
 // ══ INIT ══
 // RICH_DATA를 기본 CASES에도 적용 (Firestore 로드 전 초기 상태)
 CASES.forEach(c => {
-  const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
+  const rich = RICH_DATA[c.id]; // ✅ c.id로 오류 수정 완료된 부분
   if (rich) {
     if (!c.original || c.original.length < 20) c.original = rich.original;
     if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2209,25 +2266,23 @@ async function loadCasesFromFirestore() {
     }
 
     // Firestore 판례를 id 기준으로 병합
-    // Firestore doc의 id 필드를 그대로 사용, 없으면 4000+index 부여
     const fsCases = snapshot.docs.map((doc, i) => {
       const data = doc.data();
       return {
         ...data,
         _fsId: doc.id,
-        // id가 없거나 3000 미만이면 새 id 부여 (HTML 내장과 충돌 방지)
+        // id가 없거나 4000 미만이면 새 id 부여 (HTML 내장과 충돌 방지)
         id: (data.id && data.id >= 4000) ? data.id : (4000 + i)
       };
     });
 
     // HTML 내장 판례와 Firestore 판례 합치기 (caseNum 기준 중복 제거)
-    // Firestore 데이터 우선
     const fsCaseNums = new Set(fsCases.map(c => c.caseNum));
     const htmlOnly = CASES.filter(c => !fsCaseNums.has(c.caseNum));
 
     // RICH_DATA로 Firestore 판례 원문/조문 보강
     fsCases.forEach(c => {
-      const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
+      const rich = RICH_DATA[c.id]; // ✅ c.id 오류 수정 완료된 부분
       if (rich) {
         if (!c.original || c.original.length < 20) c.original = rich.original;
         if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2270,7 +2325,7 @@ async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
       const data = doc.data();
       if (!existingNums.has(data.caseNum)) {
         const c = { ...data, _fsId: doc.id, id: idOffset + i };
-        const rich = RICH_DATA[c.id]; // ✅ 수정된 부분
+        const rich = RICH_DATA[c.id]; // ✅ c.id 오류 수정 완료된 부분
         if (rich) {
           if (!c.original || c.original.length < 20) c.original = rich.original;
           if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2291,7 +2346,7 @@ async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
   }
 }
 
-// Firestore에 판례 저장 (관리자용)
+// ══ Firestore에 판례 저장 (관리자용) ══
 window.saveCase = async function(caseData) {
   try {
     const docRef = await addDoc(collection(db, "cases"), {
@@ -2302,6 +2357,7 @@ window.saveCase = async function(caseData) {
     return docRef.id;
   } catch(e) {
     console.error("판례 저장 실패:", e);
+    return null;
   }
 };
 
