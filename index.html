@@ -92,13 +92,15 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .expert-info { margin-bottom:12px; }
 .expert-info h4 { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
 .expert-desc { font-size:13px; color:var(--dark); line-height:1.6; margin-bottom:18px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.expert-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.expert-tag { padding:4px 8px; background:var(--lgray); border:1px solid var(--border); color:var(--gray); font-size:11px; border-radius:3px; font-weight:600; }
 .expert-contact { width:100%; padding:12px; background:#fff; color:var(--navy); border:1px solid var(--navy); border-radius:4px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; text-align:center; }
 .expert-contact:hover { background:var(--navy); color:#fff; }
 
-/* ── [3] 상세 분석 탭 및 모달 스타일 ── */
 .detail-tabs{display:flex;gap:4px;margin-bottom:16px;background:none;border-bottom:1px solid var(--border);padding-bottom:0px}
 .detail-tab{padding:10px 16px;border:1px solid transparent;border-bottom:none;border-radius:4px 4px 0 0;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--gray);background:none;transition:all 0.15s;margin-bottom:-1px}
 .detail-tab.active{background:#fff;border-color:var(--border);color:var(--navy);border-bottom-color:#fff;}
+.detail-tab:hover:not(.active){color:var(--navy)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 .original-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;padding:32px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
@@ -146,7 +148,43 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   </div>
   <div class="sb-section">메뉴</div>
   <div class="sb-item active" onclick="nav('dashboard')">📊 대시보드</div>
+  
   <div class="sb-item" onclick="nav('search')">📄 판례 데이터<span class="sb-badge" id="sb-total-badge">—</span></div>
+  
+  <div id="sidebar-trend-area" style="margin: 4px 12px 16px 36px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); display: none;">
+      <div style="font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-bottom: 10px; font-weight: 700;">REAL-TIME TREND</div>
+      
+      <div style="margin-bottom: 10px;">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
+              <span>선하증권</span>
+              <span id="trend-count-bl" style="color: var(--blue); font-weight: 700;">0건</span>
+          </div>
+          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+              <div id="trend-bar-bl" style="width: 0%; height: 100%; background: var(--blue); transition: width 0.5s ease;"></div>
+          </div>
+      </div>
+
+      <div style="margin-bottom: 10px;">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
+              <span>해상보험</span>
+              <span id="trend-count-ins" style="color: #2F855A; font-weight: 700;">0건</span>
+          </div>
+          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+              <div id="trend-bar-ins" style="width: 0%; height: 100%; background: #2F855A; transition: width 0.5s ease;"></div>
+          </div>
+      </div>
+
+      <div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
+              <span>선박충돌</span>
+              <span id="trend-count-col" style="color: #C53030; font-weight: 700;">0건</span>
+          </div>
+          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+              <div id="trend-bar-col" style="width: 0%; height: 100%; background: #C53030; transition: width 0.5s ease;"></div>
+          </div>
+      </div>
+  </div>
+
   <div class="sb-item" onclick="nav('experts')">🤝 전문가 네트워크</div>
   <div class="sb-item" onclick="nav('bookmarks')">🔖 북마크 보관함</div>
   <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">⚙️ 시스템 관리</div>
@@ -185,61 +223,17 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   </div>
 
   <div class="content" id="scroll-container">
- <div class="view active" id="v-dashboard">
-    <div style="margin-bottom:28px">
-        <h2>Overview</h2>
-        <p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p>
-    </div>
-
-    <div style="margin-bottom:32px">
-        <h3 style="font-size:16px; font-weight:700; color:var(--navy); margin-bottom:16px;">실시간 판례 트렌드</h3>
-        <div class="trend-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
-            
-            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--blue); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
-                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #01</div>
-                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">🚢 선하증권 (B/L)</div>
-                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">42<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
-                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
-                    <div style="width:75%; height:100%; background:var(--blue);"></div>
-                </div>
-            </div>
-
-            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--success); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
-                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #02</div>
-                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">🛡️ 해상보험 (Insurance)</div>
-                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">28<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
-                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
-                    <div style="width:45%; height:100%; background:var(--success);"></div>
-                </div>
-            </div>
-
-            <div style="background:#fff; border:1px solid var(--border); border-top:4px solid var(--danger); border-radius:4px; padding:22px 24px; box-shadow:0 1px 2px rgba(0,0,0,0.02);">
-                <div style="font-size:11px; color:var(--gray); font-weight:700; margin-bottom:10px; font-family:'Inter', sans-serif; letter-spacing:0.5px;">TOP TREND #03</div>
-                <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px;">💥 선박충돌 (Collision)</div>
-                <div style="font-size:26px; font-weight:700; color:var(--navy); font-family:'Inter', sans-serif;">15<span style="font-size:13px; color:var(--gray); margin-left:6px; font-weight:500;">건 분석 중</span></div>
-                <div style="height:4px; background:var(--lgray); border-radius:2px; margin-top:14px; overflow:hidden;">
-                    <div style="width:30%; height:100%; background:var(--danger);"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="stats-row">
+    <div class="view active" id="v-dashboard">
+      <div style="margin-bottom:28px"><h2>Overview</h2><p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p></div>
+      <div class="stats-row">
         <div class="stat-card"><div class="stat-label">총 판례 수</div><div class="stat-val" id="stat-total">—</div><div class="stat-sub" id="stat-total-sub"></div></div>
         <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">—</div><div class="stat-sub" id="stat-ai-sub"></div></div>
         <div class="stat-card"><div class="stat-label">최근 1개월 신규</div><div class="stat-val" id="stat-month">—</div><div class="stat-sub" id="stat-month-sub"></div></div>
         <div class="stat-card"><div class="stat-label">내 북마크</div><div class="stat-val" id="stat-bm">—</div><div class="stat-sub" id="stat-bm-sub"></div></div>
+      </div>
+      <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
+      <div class="table-wrap"><table><thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead><tbody id="dashTable"></tbody></table></div>
     </div>
-
-    <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
-    <div class="table-wrap">
-        <table>
-            <thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead>
-            <tbody id="dashTable"></tbody>
-        </table>
-    </div>
-</div>
 
     <div class="view" id="v-search">
       <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">판례 검색</h2></div>
@@ -290,7 +284,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -434,10 +428,11 @@ window.switchTab = function(btn, tabId) {
     document.getElementById(tabId).classList.add('active');
 };
 
-// --- [4] 대시보드 및 데이터 렌더링 ---
+// --- [4] 대시보드 및 데이터 렌더링 (트렌드 포함) ---
 function renderDashboard() {
-    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = window.CASES.length;
-    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = window.CASES.length;
+    const total = window.CASES.length;
+    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = total;
+    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = total;
     if(document.getElementById('dash-date')) document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 현황";
     
     const tbody = document.getElementById('dashTable');
@@ -451,6 +446,35 @@ function renderDashboard() {
                 <td><span style="color:var(--success); font-weight:700">분석완료</span></td>
             </tr>`).join('');
     }
+    updateSidebarTrends();
+}
+
+function updateSidebarTrends() {
+    const total = window.CASES.length;
+    if (total === 0) return;
+
+    const counts = {
+        bl: window.CASES.filter(c => c.type === '선하증권').length,
+        ins: window.CASES.filter(c => c.type === '해상보험').length,
+        col: window.CASES.filter(c => c.type === '선박충돌').length
+    };
+
+    const updateItem = (idSuffix, count) => {
+        const countEl = document.getElementById('trend-count-' + idSuffix);
+        const barEl = document.getElementById('trend-bar-' + idSuffix);
+        if (countEl && barEl) {
+            countEl.innerText = count + '건';
+            const percent = Math.max((count / total) * 100, (count > 0 ? 5 : 0));
+            barEl.style.width = percent + '%';
+        }
+    };
+
+    updateItem('bl', counts.bl);
+    updateItem('ins', counts.ins);
+    updateItem('col', counts.col);
+
+    const trendArea = document.getElementById('sidebar-trend-area');
+    if (trendArea) trendArea.style.display = 'block';
 }
 
 // --- [5] Firebase 인증 및 관리자 기능 ---
@@ -505,7 +529,7 @@ onSnapshot(collection(db, "experts"), (snap) => {
     if(currentView === 'experts') applyExpertFilters();
 });
 
-// 초기화 실행
+// 초기화
 nav('dashboard');
 </script>
 </body>
