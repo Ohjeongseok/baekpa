@@ -2,500 +2,826 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>백파(Baekpa) — 해상 전문 법률 정보 플랫폼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── [1] CORE GLOBAL STYLES ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-    --navy: #101D33; --blue: #2B4C7E; --lb: #E2E8F0;
-    --white: #fff; --dark: #1A202C; --gray: #718096;
-    --lgray: #F8FAFC; --border: #CBD5E0; --sidebar: 240px;
-    --success: #2F855A; --danger: #C53030; --warning: #D69E2E;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#101D33;--blue:#2B4C7E;--lb:#E2E8F0;--white:#fff;--dark:#1A202C;--gray:#718096;--lgray:#F8FAFC;--border:#CBD5E0;--sidebar:240px;}
+body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);display:flex;height:100vh;overflow:hidden}
+.sidebar{width:var(--sidebar);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;height:100vh;overflow-y:auto;border-right:1px solid rgba(255,255,255,0.05);}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sb-logo-main{display:flex;align-items:center;gap:10px}
+.sb-icon{width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sb-name{font-size:18px;font-weight:700;color:#fff;letter-spacing:0.5px}
+.sb-en{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:2px}
+.sb-section{padding:20px 16px 8px;font-size:10px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;font-family:'Inter',sans-serif}
+.sb-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:4px;cursor:pointer;margin:2px 12px;transition:all 0.15s;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500}
+.sb-item:hover{background:rgba(255,255,255,0.06);color:#fff}
+.sb-item.active{background:rgba(255,255,255,0.12);color:#fff;border-left:3px solid var(--blue);padding-left:11px;}
+.sb-badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;font-family:'Inter',sans-serif}
+.sb-filter-section{padding:8px 20px 16px;border-top:1px solid rgba(255,255,255,0.05);margin-top:8px}
+.sf-tag{display:inline-block;padding:5px 10px;border-radius:3px;font-size:11px;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.15s;margin:2px 2px;border:1px solid transparent;}
+.sf-tag:hover{border-color:rgba(255,255,255,0.2);color:#fff}
+.sf-tag.on{background:var(--blue);color:#fff;border-color:var(--blue);}
+.sb-bottom{margin-top:auto;padding:16px;border-top:1px solid rgba(255,255,255,0.08)}
+.user-info-wrap{display:flex;align-items:center;gap:10px}
+.user-avatar{width:32px;height:32px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden}
+.user-avatar img{width:100%;height:100%;object-fit:cover}
+.user-name{font-size:13px;color:rgba(255,255,255,0.9);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+.user-email{font-size:11px;color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+.auth-btn{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.15);padding:10px 12px;border-radius:4px;font-size:13px;cursor:pointer;transition:background 0.2s;font-family:'Noto Sans KR',sans-serif;font-weight:500;}
+.auth-btn:hover{background:rgba(255,255,255,0.2)}
+.logout-btn{background:none;border:none;color:rgba(255,255,255,0.4);font-size:16px;cursor:pointer;padding:4px}
+.logout-btn:hover{color:#fff}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;gap:16px;flex-shrink:0;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.search-wrap{flex:1;max-width:600px;position:relative}
+.search-wrap input{width:100%;padding:10px 16px 10px 42px;border:1px solid var(--border);border-radius:4px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;background:var(--lgray);transition:all 0.2s;color:var(--dark)}
+.search-wrap input:focus{border-color:var(--navy);background:#fff;box-shadow:0 0 0 2px rgba(16,29,51,0.1)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:16px}
+.tb-right{display:flex;align-items:center;gap:12px;margin-left:auto}
+.tb-btn{padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:'Noto Sans KR',sans-serif;transition:all 0.15s}
+.tb-btn-outline{background:#fff;color:var(--navy);border:1px solid var(--border)}
+.tb-btn-outline:hover{border-color:var(--navy);background:var(--lgray)}
+.tb-btn-primary{background:var(--navy);color:#fff}
+.tb-btn-primary:hover{background:#1A2D4C}
+.notif{width:36px;height:36px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;background:#fff;position:relative}
+.notif:hover{background:var(--lgray)}
+.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:#E53E3E;border-radius:50%;border:1.5px solid #fff}
+.content{flex:1;overflow-y:auto;padding:32px 40px}
+.view{display:none}.view.active{display:block}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;transition:all 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.stat-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.05);transform:translateY(-1px)}
+.stat-label{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
+.stat-val{font-size:28px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif;line-height:1}
+.stat-sub{font-size:11px;color:#2F855A;font-weight:600;margin-top:8px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;border-bottom:2px solid var(--navy);padding-bottom:10px}
+.section-head h3{font-size:16px;font-weight:700;color:var(--navy)}
+.view-all{font-size:12px;color:var(--gray);cursor:pointer;font-weight:600;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
+.view-all:hover{color:var(--navy)}
+.table-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+table{width:100%;border-collapse:collapse}
+th{background:var(--lgray);padding:12px 16px;font-size:11px;font-weight:600;color:var(--gray);text-align:left;letter-spacing:0.5px;text-transform:uppercase;font-family:'Inter',sans-serif;border-bottom:1px solid var(--border)}
+td{padding:14px 16px;font-size:13px;color:var(--dark);border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F7FAFC;cursor:pointer}
+.badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:3px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid transparent}
+.badge-blue{background:#EBF8FF;color:#2B6CB0;border-color:#BEE3F8}
+.badge-green{background:#F0FFF4;color:#2F855A;border-color:#C6F6D5}
+.badge-yellow{background:#FFFFF0;color:#975A16;border-color:#FEFCBF}
+.badge-red{background:#FFF5F5;color:#C53030;border-color:#FED7D7}
+.badge-purple{background:#FAF5FF;color:#6B46C1;border-color:#E9D8FD}
+.flag{font-size:15px}
+.ai-done{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#2F855A;font-weight:600;font-family:'Inter',sans-serif}
+.ai-done::before{content:'✓';font-weight:800}
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.trend-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;transition:all 0.2s;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.trend-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.trend-num{font-size:11px;color:var(--gray);font-family:'Inter',sans-serif;margin-bottom:8px;font-weight:600}
+.trend-type{margin-bottom:6px}
+.trend-count{font-size:24px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif}
+.trend-change{font-size:11px;color:#2F855A;font-weight:600;margin-left:6px}
+.trend-bar{height:4px;background:var(--lgray);border-radius:2px;margin-top:12px;overflow:hidden}
+.trend-bar-fill{height:100%;background:var(--blue);border-radius:2px;transition:width 0.8s}
+.search-filters{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.filter-select{padding:8px 12px;border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);outline:none;cursor:pointer;background:#fff;transition:border-color 0.2s}
+.filter-select:focus{border-color:var(--navy)}
+.filter-label{font-size:12px;font-weight:600;color:var(--gray);white-space:nowrap}
+.result-count{font-size:13px;color:var(--gray);margin-bottom:14px;font-family:'Inter',sans-serif}
+.result-count strong{color:var(--navy)}
+.case-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.2s;border-left:4px solid transparent;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.case-card:hover{border-color:var(--border);border-left-color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,0.05);background:#FAFCFF}
+.case-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.case-card-title{font-size:15px;font-weight:700;color:var(--navy);flex:1;line-height:1.4}
+.case-card-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;border-bottom:1px dashed var(--border);padding-bottom:10px;}
+.case-card-summary{font-size:13px;color:var(--dark);line-height:1.7}
+.case-card-footer{display:flex;gap:16px;margin-top:14px;padding-top:12px;align-items:center}
+.case-meta-item{font-size:11px;color:var(--gray);display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-weight:600}
+.conf-bar{display:flex;align-items:center;gap:6px;margin-left:auto}
+.conf-label{font-size:11px;color:var(--gray);font-family:'Inter',sans-serif}
+.conf-track{width:60px;height:4px;background:var(--lgray);border-radius:2px;overflow:hidden}
+.conf-fill{height:100%;background:#2F855A;border-radius:2px}
+.detail-back{display:flex;align-items:center;gap:8px;color:var(--gray);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:20px;background:none;border:none;font-family:'Noto Sans KR',sans-serif;padding:0;transition:color 0.2s}
+.detail-back:hover{color:var(--navy)}
+.detail-header{background:#fff;border:1px solid var(--border);border-radius:4px;padding:28px 32px;margin-bottom:20px;border-top:4px solid var(--navy);box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.detail-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.4}
+.detail-meta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.detail-body{display:grid;grid-template-columns:1fr 340px;gap:20px}
+.detail-left{display:flex;flex-direction:column;gap:16px}
+.detail-right{display:flex;flex-direction:column;gap:16px}
+.analysis-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.analysis-section{margin-bottom:24px;border-bottom:1px solid var(--lgray);padding-bottom:20px}
+.analysis-section:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0}
+.analysis-section-title{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;font-family:'Noto Sans KR',sans-serif;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.analysis-text{font-size:14px;color:var(--dark);line-height:1.8}
+.analysis-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:16px;position:relative}
+.analysis-list li::before{content:'-';position:absolute;left:0;color:var(--gray);font-weight:700}
+.implication-item{background:#F7FAFC;border-left:3px solid var(--blue);padding:14px 16px;border-radius:0 4px 4px 0;font-size:13px;color:var(--dark);line-height:1.7;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.info-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--lgray)}
+.info-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);gap:12px}
+.info-row:last-child{border-bottom:none}
+.info-key{font-size:12px;color:var(--gray);font-weight:600;flex-shrink:0}
+.info-val{font-size:12px;color:var(--dark);font-weight:500;text-align:right;line-height:1.5}
+
+/* ── ✅ 전문가 네트워크 뷰 (모던 카드 레이아웃 수정) ── */
+.expert-filters { display:flex; gap:8px; margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:16px; flex-wrap:wrap; }
+.expert-tab { padding:8px 16px; border:1px solid transparent; background:none; font-size:13px; font-weight:600; color:var(--gray); cursor:pointer; border-radius:4px; transition:all 0.2s; font-family:'Noto Sans KR',sans-serif; }
+.expert-tab.active { background:#fff; border-color:var(--border); color:var(--navy); box-shadow:0 1px 2px rgba(0,0,0,0.05); }
+.expert-tab:hover:not(.active) { background:var(--lgray); color:var(--navy); }
+.expert-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; }
+
+/* 전문가 카드 전체 감싸개 */
+.expert-card { background:#fff; border:1px solid var(--border); border-radius:6px; transition:all 0.2s; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.03); }
+.expert-card:hover { border-color:var(--navy); box-shadow:0 8px 20px rgba(0,0,0,0.08); transform:translateY(-2px); }
+
+/* 전문가 카드 상단 이미지 영역 (커버 형태) */
+.expert-cover { width:100%; height:160px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:48px; position:relative; padding:16px; }
+.expert-cover img { width:100%; height:100%; object-fit:contain; }
+
+/* 전문가 카드 하단 텍스트 및 버튼 영역 */
+.expert-body { padding:20px 24px 24px; display:flex; flex-direction:column; flex:1; }
+.expert-info { margin-bottom:12px; }
+.expert-role { font-size:11px; color:var(--gray); font-weight:600; letter-spacing:0.5px; margin-bottom:8px; display:block; }
+.expert-info h4 { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
+.expert-desc { font-size:13px; color:var(--dark); line-height:1.6; margin-bottom:18px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.expert-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.expert-tag { padding:4px 8px; background:var(--lgray); border:1px solid var(--border); color:var(--gray); font-size:11px; border-radius:3px; font-weight:600; }
+.expert-contact { width:100%; padding:12px; background:#fff; color:var(--navy); border:1px solid var(--navy); border-radius:4px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; text-align:center; }
+.expert-contact:hover { background:var(--navy); color:#fff; }
+
+.detail-tabs{display:flex;gap:4px;margin-bottom:16px;background:none;border-bottom:1px solid var(--border);padding-bottom:0px}
+.detail-tab{padding:10px 16px;border:1px solid transparent;border-bottom:none;border-radius:4px 4px 0 0;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--gray);background:none;transition:all 0.15s;margin-bottom:-1px}
+.detail-tab.active{background:#fff;border-color:var(--border);color:var(--navy);border-bottom-color:#fff;}
+.detail-tab:hover:not(.active){color:var(--navy)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+.original-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;padding:32px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.original-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--lgray)}
+.original-stamp{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;font-family:'Inter',sans-serif;letter-spacing:1px}
+.original-body{font-size:14px;line-height:2;color:var(--dark);white-space:pre-wrap;word-break:keep-all}
+.original-body strong{color:var(--navy);font-weight:700}
+.original-section-title{font-size:13px;font-weight:700;color:var(--navy);margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.provision-item{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.provision-header{padding:14px 18px;background:var(--lgray);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.provision-law{font-size:11px;font-weight:700;color:var(--blue);font-family:'Inter',sans-serif;letter-spacing:0.5px}
+.provision-title{font-size:14px;font-weight:700;color:var(--navy)}
+.provision-body{padding:16px 18px;font-size:13px;color:var(--dark);line-height:1.9}
+.provision-relevance{margin-top:12px;padding:10px 14px;background:#F7FAFC;border-radius:4px;font-size:12px;color:var(--gray);font-weight:600;border:1px solid var(--border)}
+.empty{text-align:center;padding:60px;color:var(--gray)}
+.empty-icon{font-size:40px;margin-bottom:12px;opacity:0.5}
+.empty p{font-size:14px}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:4px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px);z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.toast.show{opacity:1;transform:translateY(0)}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199}
+.sidebar-overlay.show{display:block}
+.mob-menu{display:none;width:36px;height:36px;border:1px solid var(--border);background:#fff;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:4px;border-radius:4px;flex-shrink:0}
+.mob-menu span{display:block;width:18px;height:2px;background:var(--navy);border-radius:2px}
+.mob-tabbar{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:#fff;border-top:1px solid var(--border);z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.mob-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;color:var(--gray);font-size:10px;font-weight:600;border:none;background:none;font-family:'Noto Sans KR',sans-serif;transition:color 0.15s;padding:6px 0}
+.mob-tab.active{color:var(--navy)}
+.mob-tab-icon{font-size:18px;line-height:1}
+.mob-tab-badge{position:relative}
+.mob-tab-badge::after{content:attr(data-count);position:absolute;top:-4px;right:-10px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;font-family:'Inter',sans-serif;min-width:14px;text-align:center}
+
+@media (max-width:1024px){ :root{--sidebar:200px} .stats-row{grid-template-columns:repeat(2,1fr)} .detail-body{grid-template-columns:1fr 280px} }
+@media (max-width:768px){
+  body{overflow:auto} .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh} .sidebar.open{left:0} .main{width:100%} .topbar{padding:0 16px;gap:10px} .mob-menu{display:flex} .search-wrap{max-width:none;flex:1} .search-wrap input{font-size:14px;padding:9px 14px 9px 38px} .tb-btn{display:none} .notif{width:34px;height:34px} .content{padding:16px 14px 76px} .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px} .stat-card{padding:16px 16px} .stat-val{font-size:22px} .table-wrap{overflow-x:auto} table{min-width:520px} .case-card{padding:16px} .case-card-title{font-size:14px} .case-card-footer{flex-wrap:wrap;gap:8px} .conf-bar{margin-left:0} .search-filters{padding:14px 16px;gap:8px} .filter-select{font-size:12px;padding:6px 10px} .detail-header{padding:18px 16px} .detail-title{font-size:17px} .detail-body{grid-template-columns:1fr;gap:14px} .detail-right{order:2} .detail-left{order:1} .original-wrap{padding:16px} .original-body{font-size:13px;line-height:1.9} .analysis-card{padding:16px} .analysis-text{font-size:13px} .analysis-list li{font-size:13px} .info-card{padding:16px} .mob-tabbar{display:flex} .toast{bottom:72px;right:16px;left:16px;text-align:center}
 }
-body { font-family: 'Noto Sans KR', sans-serif; background: #F1F5F9; color: var(--dark); display: flex; height: 100vh; overflow: hidden; }
-
-/* ── [2] SIDEBAR (PREMIUM DESIGN RECOVERY) ── */
-.sidebar { width: var(--sidebar); background: var(--navy); display: flex; flex-direction: column; flex-shrink: 0; height: 100vh; overflow-y: auto; border-right: 1px solid rgba(255,255,255,0.05); z-index: 100; transition: left 0.3s ease; }
-.sb-logo { padding: 24px 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.08) }
-.sb-logo-main { display: flex; align-items: center; gap: 10px }
-.sb-icon { width: 32px; height: 32px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px }
-.sb-name { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0.5px }
-.sb-en { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 3px; color: rgba(255,255,255,0.4); margin-top: 2px }
-
-.sb-section { padding: 20px 16px 8px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif }
-.sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 4px; cursor: pointer; margin: 2px 12px; transition: all 0.15s; color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500 }
-.sb-item:hover { background: rgba(255,255,255,0.06); color: #fff }
-.sb-item.active { background: rgba(255,255,255,0.12); color: #fff; border-left: 3px solid var(--blue); padding-left: 11px; }
-.sb-badge { margin-left: auto; background: var(--blue); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; font-family: 'Inter', sans-serif }
-
-.sb-filter-section { padding: 8px 20px 16px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 8px }
-.sf-tag { display: inline-block; padding: 5px 10px; border-radius: 3px; font-size: 11px; color: rgba(255,255,255,0.55); cursor: pointer; transition: all 0.15s; margin: 2px 2px; border: 1px solid transparent; }
-.sf-tag:hover { border-color: rgba(255,255,255,0.2); color: #fff }
-.sf-tag.on { background: var(--blue); color: #fff; border-color: var(--blue); }
-
-/* ── [3] TOPBAR & GLOBAL SEARCH ── */
-.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
-.topbar { background: #fff; border-bottom: 1px solid var(--border); padding: 0 28px; height: 60px; display: flex; align-items: center; gap: 16px; flex-shrink: 0; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.search-wrap { flex: 1; max-width: 600px; position: relative }
-.search-wrap input { width: 100%; padding: 10px 16px 10px 42px; border: 1px solid var(--border); border-radius: 4px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; outline: none; background: var(--lgray); transition: all 0.2s; color: var(--dark) }
-.search-wrap input:focus { border-color: var(--navy); background: #fff; box-shadow: 0 0 0 2px rgba(16,29,51,0.1) }
-.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 16px }
-.tb-right { display: flex; align-items: center; gap: 12px; margin-left: auto }
-.tb-btn { padding: 8px 16px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'Noto Sans KR', sans-serif; transition: all 0.15s }
-.tb-btn-outline { background: #fff; color: var(--navy); border: 1px solid var(--border) }
-.notif { width: 36px; height: 36px; border-radius: 4px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; background: #fff; }
-.notif-dot { position: absolute; top: 6px; right: 6px; width: 7px; height: 7px; background: #E53E3E; border-radius: 50%; border: 1.5px solid #fff }
-
-/* ── [4] DASHBOARD (ULTRA FULL RECOVERY) ── */
-.content { flex: 1; overflow-y: auto; padding: 32px 40px; scroll-behavior: smooth; }
-.view { display: none; animation: fadeIn 0.3s ease; }
-.view.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px }
-.stat-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 22px 24px; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.stat-card:hover { border-color: var(--blue); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-1px) }
-.stat-label { font-size: 12px; color: var(--gray); font-weight: 600; margin-bottom: 8px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.5px }
-.stat-val { font-size: 28px; font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; line-height: 1 }
-.stat-sub { font-size: 11px; color: var(--success); font-weight: 600; margin-top: 8px }
-
-.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 2px solid var(--navy); padding-bottom: 10px }
-.section-head h3 { font-size: 16px; font-weight: 700; color: var(--navy) }
-.view-all { font-size: 12px; color: var(--gray); cursor: pointer; font-weight: 600; background: none; border: none; font-family: 'Noto Sans KR', sans-serif }
-
-.table-wrap { background: #fff; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-table { width: 100%; border-collapse: collapse }
-th { background: var(--lgray); padding: 12px 16px; font-size: 11px; font-weight: 600; color: var(--gray); text-align: left; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Inter', sans-serif; border-bottom: 1px solid var(--border) }
-td { padding: 14px 16px; font-size: 13px; color: var(--dark); border-bottom: 1px solid var(--border); vertical-align: middle }
-tr:hover td { background: #F7FAFC; cursor: pointer }
-
-/* ── [5] CASE LIST & CARDS (FULL RECOVERY) ── */
-.case-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 22px 24px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; border-left: 4px solid transparent; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.case-card:hover { border-color: var(--border); border-left-color: var(--navy); box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: #FAFCFF }
-.case-card-title { font-size: 15px; font-weight: 700; color: var(--navy); flex: 1; line-height: 1.4 }
-.case-card-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; border-bottom: 1px dashed var(--border); padding-bottom: 10px; }
-.case-card-summary { font-size: 13px; color: var(--dark); line-height: 1.7 }
-.case-card-footer { display: flex; gap: 16px; margin-top: 14px; padding-top: 12px; align-items: center }
-.conf-bar { display: flex; align-items: center; gap: 6px; margin-left: auto }
-.conf-track { width: 60px; height: 4px; background: var(--lgray); border-radius: 2px; overflow: hidden }
-.conf-fill { height: 100%; background: var(--success); border-radius: 2px }
-
-/* ── [6] EXPERT NETWORK (MODERN RECOVERY) ── */
-.expert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-.expert-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
-.expert-card:hover { border-color: var(--navy); box-shadow: 0 8px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
-.expert-cover { width: 100%; height: 160px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 16px; position: relative; }
-.expert-cover img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.expert-body { padding: 20px 24px 24px; display: flex; flex-direction: column; flex: 1; }
-.expert-info h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
-.expert-desc { font-size: 13px; color: var(--dark); line-height: 1.6; margin-bottom: 18px; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.expert-contact { width: 100%; padding: 12px; background: #fff; color: var(--navy); border: 1px solid var(--navy); border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
-.expert-contact:hover { background: var(--navy); color: #fff; }
-
-/* ── [7] DETAIL VIEW & PROVISIONS (ULTRA RECOVERY) ── */
-.detail-back { display: flex; align-items: center; gap: 8px; color: var(--gray); cursor: pointer; font-size: 13px; font-weight: 600; margin-bottom: 20px; background: none; border: none; transition: color 0.2s }
-.detail-back:hover { color: var(--navy) }
-.detail-header { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; margin-bottom: 20px; border-top: 4px solid var(--navy); box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.detail-title { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.4 }
-.detail-body { display: grid; grid-template-columns: 1fr 340px; gap: 20px }
-.detail-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
-.detail-tab { padding: 10px 20px; border: 1px solid transparent; border-bottom: none; border-radius: 4px 4px 0 0; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--gray); background: none; transition: all 0.15s; margin-bottom: -1px; }
-.detail-tab.active { background: #fff; border-color: var(--border); color: var(--navy); border-bottom-color: #fff; }
-
-.original-wrap { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 32px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); line-height: 2; font-size: 14px; white-space: pre-wrap; color: var(--dark); }
-.analysis-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.analysis-section { margin-bottom: 24px; border-bottom: 1px solid var(--lgray); padding-bottom: 20px }
-.analysis-section-title { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px }
-.provision-item { background: #fff; border: 1px solid var(--border); border-radius: 4px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-.provision-header { padding: 14px 18px; background: var(--lgray); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border) }
-
-/* ── [8] MODAL PROFILE (NEW INTEGRATION) ── */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(2px); }
-.modal-content { background: #fff; width: 100%; max-width: 550px; border-radius: 12px; overflow: hidden; animation: slideUp 0.3s ease-out; }
-@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.modal-body { padding: 40px; }
-.modal-close { width: 100%; padding: 16px; background: var(--lgray); border: none; font-weight: 700; cursor: pointer; color: var(--gray); border-top: 1px solid var(--border); }
-
-/* ── [9] ADMIN UI & UTILS ── */
-.admin-wrap { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 32px; box-shadow: 0 1px 2px rgba(0,0,0,0.02) }
-#admin-json-input { width: 100%; height: 350px; padding: 16px; border: 1px solid var(--border); border-radius: 4px; font-family: 'Inter', monospace; font-size: 13px; margin-bottom: 16px; resize: vertical; outline: none; }
-.preview-box { width: 120px; height: 120px; border: 2px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; background: #fff; overflow: hidden; }
-.preview-box img { width: 100%; height: 100%; object-fit: contain; }
-
-.badge { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; border: 1px solid transparent; }
-.badge-blue { background: #EBF8FF; color: #2B6CB0; border-color: #BEE3F8; }
-.toast { position: fixed; bottom: 24px; right: 24px; background: var(--navy); color: #fff; padding: 12px 24px; border-radius: 4px; font-size: 13px; font-weight: 600; opacity: 0; transition: all 0.3s; z-index: 1100; transform: translateY(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-.toast.show { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 1024px) { .detail-body { grid-template-columns: 1fr; } }
-@media (max-width: 768px) { .sidebar { position: fixed; left: -240px; } .stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:400px){ .stats-row{grid-template-columns:1fr} .detail-tabs{gap:2px} .detail-tab{font-size:12px;padding:8px 4px} }
 </style>
 </head>
 <body>
 
+<div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<nav class="mob-tabbar" id="mobTabbar">
+  <button class="mob-tab active" onclick="mobNav('dashboard')"><span class="mob-tab-icon">🏠</span>대시보드</button>
+  <button class="mob-tab" onclick="mobNav('search')"><span class="mob-tab-icon mob-tab-badge" data-count="0">🔍</span>판례 검색</button>
+  <button class="mob-tab" onclick="mobNav('experts')"><span class="mob-tab-icon">🤝</span>전문가</button>
+  <button class="mob-tab" onclick="mobNav('bookmarks')"><span class="mob-tab-icon">🔖</span>북마크</button>
+</nav>
+
 <aside class="sidebar" id="sidebar">
-    <div class="sb-logo">
-        <div class="sb-logo-main">
-            <div class="sb-icon">🛳️</div>
-            <div><div class="sb-name">백파</div><div class="sb-en">BAEKPA</div></div>
-        </div>
+  <div class="sb-logo">
+    <div class="sb-logo-main">
+      <div class="sb-icon">🛳️</div>
+      <div><div class="sb-name">백파</div><div class="sb-en">BAEKPA</div></div>
     </div>
-    <div class="sb-section">메뉴</div>
-    <div class="sb-item active" onclick="nav('dashboard')">📊 대시보드</div>
-    <div class="sb-item" onclick="nav('search')">📄 판례 데이터 <span class="sb-badge" id="sb-total-badge">0</span></div>
-    <div class="sb-item" onclick="nav('experts')">🤝 전문가 네트워크</div>
-    <div class="sb-item" onclick="nav('bookmarks')">🔖 북마크 보관함</div>
-    <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none;">⚙️ 시스템 관리</div>
+  </div>
+  <div class="sb-section">메뉴</div>
+  <div class="sb-item active" onclick="nav('dashboard')">📊 대시보드</div>
+  <div class="sb-item" onclick="nav('search')">📄 판례 데이터<span class="sb-badge" id="sb-total-badge">—</span></div>
+  <div class="sb-item" onclick="nav('experts')">🤝 전문가 네트워크</div>
+  <div class="sb-item" onclick="nav('bookmarks')">🔖 북마크 보관함</div>
+  <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">⚙️ 시스템 관리</div>
 
-    <div class="sb-section">사건 유형별</div>
-    <div class="sb-filter-section">
-        <div style="display:flex; flex-wrap:wrap">
-            <div class="sf-tag on" onclick="toggleFilter(this)">전체</div>
-            <div class="sf-tag" onclick="toggleFilter(this)">선하증권</div>
-            <div class="sf-tag" onclick="toggleFilter(this)">해상보험</div>
-            <div class="sf-tag" onclick="toggleFilter(this)">선박충돌</div>
-            <div class="sf-tag" onclick="toggleFilter(this)">화물손해</div>
-            <div class="sf-tag" onclick="toggleFilter(this)">용선계약</div>
-        </div>
+  <div class="sb-section">사건 유형</div>
+  <div class="sb-filter-section">
+    <div style="display:flex;flex-wrap:wrap">
+      <div class="sf-tag on" onclick="toggleFilter(this)">전체</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">선하증권</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">해상보험</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">선박충돌</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">화물손해</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">용선계약</div>
+      <div class="sf-tag" onclick="toggleFilter(this)">해난구조</div>
     </div>
+  </div>
 
-    <div class="sb-bottom" id="auth-container">
-        <button class="tb-btn tb-btn-outline" style="width:100%; border-color:rgba(255,255,255,0.15); color:#fff;" onclick="loginWithGoogle()">🔑 관리자 로그인</button>
+  <div class="sb-bottom">
+    <div class="user-row" id="auth-container">
+      <button class="auth-btn" onclick="loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>
     </div>
+  </div>
 </aside>
 
 <div class="main">
-    <div class="topbar">
-        <div class="search-wrap">
-            <span class="search-icon">🔍</span>
-            <input id="mainSearch" type="text" placeholder="사건번호, 법률 쟁점, 판례 키워드 검색..." onkeydown="if(event.key==='Enter')doSearch()">
-        </div>
-        <div class="tb-right">
-            <div class="notif"><span>🔔</span><div class="notif-dot"></div></div>
-            <button class="tb-btn tb-btn-outline" onclick="nav('search')">상세 검색</button>
+  <div class="topbar">
+    <button class="mob-menu" onclick="openSidebar()" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="mainSearch" type="text" placeholder="사건번호, 법률 쟁점, 판례 키워드 검색..." onkeydown="if(event.key==='Enter')doSearch()">
+    </div>
+    <div class="tb-right">
+      <div class="notif" title="알림"><span>🔔</span><div class="notif-dot"></div></div>
+      <button class="tb-btn tb-btn-outline" onclick="nav('search')">상세 검색</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="view active" id="v-dashboard">
+      <div style="margin-bottom:28px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">Overview</h2>
+        <p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-label">총 판례 수</div><div class="stat-val" id="stat-total">—</div><div class="stat-sub" id="stat-total-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">—</div><div class="stat-sub" id="stat-ai-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">최근 1개월 신규</div><div class="stat-val" id="stat-month">—</div><div class="stat-sub" id="stat-month-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">내 북마크</div><div class="stat-val" id="stat-bm">—</div><div class="stat-sub" id="stat-bm-sub"></div></div>
+      </div>
+
+      <div class="section-head">
+        <h3>최신 등록 판례</h3>
+        <button class="view-all" onclick="nav('search')">전체 보기 →</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead>
+          <tbody id="dashTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="view" id="v-search">
+      <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">판례 검색</h2></div>
+      <div class="search-filters">
+        <span class="filter-label">국가</span>
+        <select class="filter-select" id="f-country" onchange="renderSearch()"><option>전체</option><option>🇰🇷 한국</option><option>🇬🇧 영국</option><option>🇸🇬 싱가포르</option><option>🇭🇰 홍콩</option><option>🇺🇸 미국</option></select>
+        <span class="filter-label">사건유형</span>
+        <select class="filter-select" id="f-type" onchange="renderSearch()"><option>전체</option><option>선하증권</option><option>해상보험</option><option>선박충돌</option><option>화물손해</option><option>용선계약</option><option>해난구조</option></select>
+        <span class="filter-label">정렬</span>
+        <select class="filter-select" id="f-sort" onchange="renderSearch()"><option>최신순</option><option>신뢰도순</option></select>
+      </div>
+      <div class="result-count" id="resultCount"></div>
+      <div id="searchResults"></div>
+    </div>
+
+    <div class="view" id="v-detail">
+      <button class="detail-back" onclick="goBack()">← 목록으로</button>
+      <div id="detailContent"></div>
+    </div>
+
+    <div class="view" id="v-experts">
+      <div style="margin-bottom:24px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">전문가 네트워크</h2>
+        <p style="font-size:14px;color:var(--gray);margin-top:6px">해상 분쟁 해결을 위한 최적의 로펌, 감정사, 선박 대리점 및 보험사를 만나보세요.</p>
+      </div>
+      
+      <div class="search-filters" style="margin-bottom: 20px;">
+        <span class="filter-label">국가 선택</span>
+        <select class="filter-select" id="expert-country-filter" onchange="applyExpertFilters()">
+          <option value="전체">🌐 전 세계</option><option value="한국">🇰🇷 한국</option><option value="영국">🇬🇧 영국</option><option value="싱가포르">🇸🇬 싱가포르</option><option value="홍콩">🇭🇰 홍콩</option><option value="미국">🇺🇸 미국</option>
+        </select>
+      </div>
+
+      <div class="expert-filters">
+        <button class="expert-tab active" onclick="setExpertType('all', this)">전체보기</button>
+        <button class="expert-tab" onclick="setExpertType('lawyer', this)">⚖️ 해상 전문 로펌</button>
+        <button class="expert-tab" onclick="setExpertType('surveyor', this)">🔎 감정사</button>
+        <button class="expert-tab" onclick="setExpertType('agency', this)">🏢 선박 대리점</button>
+        <button class="expert-tab" onclick="setExpertType('insurance', this)">🛡️ 해상 보험사</button>
+      </div>
+
+      <div class="expert-grid" id="expertGrid">
         </div>
     </div>
 
-    <div class="content" id="scroll-content">
-        <div class="view active" id="v-dashboard">
-            <div style="margin-bottom:28px">
-                <h2 style="font-size:24px; font-weight:700; color:var(--navy)">Dashboard Overview</h2>
-                <p id="dash-date" style="font-size:13px; color:var(--gray); margin-top:6px"></p>
-            </div>
-            
-            <div class="stats-row">
-                <div class="stat-card"><div class="stat-label">총 판례 데이터</div><div class="stat-val" id="stat-total">0</div><div class="stat-sub" id="stat-total-sub"></div></div>
-                <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">0%</div><div class="stat-sub" id="stat-ai-sub">0건 분석됨</div></div>
-                <div class="stat-card"><div class="stat-label">최근 1개월 신규</div><div class="stat-val" id="stat-month">0</div><div class="stat-sub" id="stat-month-sub"></div></div>
-                <div class="stat-card"><div class="stat-label">내 북마크</div><div class="stat-val" id="stat-bm">0</div><div class="stat-sub" id="stat-bm-sub">북마크 없음</div></div>
-            </div>
-
-            <div class="section-head">
-                <h3>최신 등록 판례</h3>
-                <button class="view-all" onclick="nav('search')">전체 보기 →</button>
-            </div>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead>
-                    <tbody id="dashTable"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="view" id="v-search">
-            <h2 style="font-size:24px; font-weight:700; margin-bottom:24px;">판례 검색 결과</h2>
-            <div class="search-filters">
-                <span class="filter-label">국가 선택</span>
-                <select id="f-country" class="filter-select" onchange="renderSearch()"><option>전체</option><option>🇰🇷 한국</option><option>🇬🇧 영국</option><option>🇸🇬 싱가포르</option><option>🇺🇸 미국</option></select>
-                <span class="filter-label">정렬 방식</span>
-                <select id="f-sort" class="filter-select" onchange="renderSearch()"><option>최신순</option><option>신뢰도순</option></select>
-            </div>
-            <div id="searchResults" style="display:flex; flex-direction:column; gap:12px;"></div>
-        </div>
-
-        <div class="view" id="v-detail">
-            <button class="detail-back" onclick="goBack()">← 목록으로 돌아가기</button>
-            <div id="detailViewContent"></div>
-        </div>
-
-        <div class="view" id="v-experts">
-            <div style="margin-bottom:32px">
-                <h2 style="font-size:24px; font-weight:700; color:var(--navy)">전문가 네트워크</h2>
-                <p style="font-size:15px; color:var(--gray); margin-top:8px">해상 사건 전문 파트너 솔루션을 확인하십시오.</p>
-            </div>
-            <div class="expert-grid" id="expertGrid"></div>
-        </div>
-
-        <div class="view" id="v-bookmarks">
-            <h2 style="font-size:24px; font-weight:700; margin-bottom:24px;">🔖 북마크 보관함</h2>
-            <div id="bookmarkResults"></div>
-        </div>
-
-        <div class="view" id="v-admin">
-            <div style="margin-bottom:28px">
-                <h2 style="font-size:24px; font-weight:700;">시스템 데이터 관리</h2>
-                <p style="font-size:14px; color:var(--gray); margin-top:6px">판례(Case) 또는 전문가(Expert)의 JSON 데이터를 통합 관리합니다.</p>
-            </div>
-            <div class="admin-wrap">
-                <div style="margin-bottom:20px; display:flex; gap:12px; align-items:center;">
-                    <label style="font-weight:700; font-size:14px;">업로드 대상:</label>
-                    <select id="admin-upload-type" class="filter-select" style="width:200px;">
-                        <option value="case">📄 판례 데이터 (Case JSON)</option>
-                        <option value="expert" selected>🤝 전문가 프로필 (Expert JSON)</option>
-                    </select>
-                </div>
-                <textarea id="admin-json-input" placeholder="JSON 데이터를 입력하세요..."></textarea>
-                
-                <div id="admin-preview-area" style="display:none">
-                    <p style="font-size:12px; font-weight:700; color:var(--gray); margin-bottom:8px;">입력된 로고 미리보기:</p>
-                    <div class="preview-box" id="imgPreview"></div>
-                </div>
-
-                <button onclick="uploadJsonToFirebase()" style="width:100%; padding:16px; background:var(--navy); color:#fff; border:none; border-radius:4px; font-weight:700; cursor:pointer; font-size:15px;">🚀 Firebase 데이터베이스에 즉시 반영</button>
-                <div id="upload-status" style="margin-top:20px; font-weight:700; text-align:center;"></div>
-            </div>
-        </div>
+    <div class="view" id="v-bookmarks">
+      <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">북마크 보관함</h2></div>
+      <div id="bookmarkResults"></div>
     </div>
-</div>
 
-<div class="modal" id="expertModal" onclick="if(event.target==this)this.style.display='none'">
-    <div class="modal-content">
-        <div id="modalContent" class="modal-body"></div>
-        <button class="modal-close" onclick="document.getElementById('expertModal').style.display='none'">닫기</button>
+    <div class="view" id="v-admin">
+      <div style="margin-bottom:24px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">데이터 통합 관리 <span style="font-size:12px;font-weight:400;color:red;margin-left:10px;border:1px solid red;padding:2px 6px;border-radius:3px;">🔒 관리자 전용</span></h2>
+        <p style="font-size:14px;color:var(--gray);margin-top:6px">판례(Case) 또는 전문가(Expert)의 JSON 데이터를 붙여넣고 업로드하세요.</p>
+      </div>
+
+      <div style="margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+        <label style="font-size:13px; font-weight:700; color:var(--navy);">업로드 대상:</label>
+        <select id="admin-upload-type" class="filter-select" style="width:200px;">
+          <option value="case">📄 판례 데이터 (Case)</option>
+          <option value="expert">🤝 전문가 프로필 (Expert)</option>
+        </select>
+      </div>
+      
+      <textarea id="admin-json-input" placeholder="여기에 JSON 데이터를 붙여넣으세요..." style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:4px; font-family:monospace; font-size:13px; resize:vertical; margin-bottom:16px;"></textarea>
+      <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer; font-size:14px; transition:background 0.2s">🚀 데이터베이스에 업로드</button>
+      <div id="upload-status" style="margin-top:16px; font-size:14px; font-weight:600;"></div>
     </div>
+
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+<script>
+const CASES = [];
+let EXPERTS = [];
+
+let currentView = 'dashboard';
+let prevView = 'dashboard';
+let bookmarks = new Set();
+let currentExpertType = 'all';
+
+function nav(view) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('v-' + view).classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  
+  const map = {dashboard:0, search:1, experts:2, bookmarks:3, admin:4};
+  const items = document.querySelectorAll('.sb-item');
+  if (map[view] !== undefined && items[map[view]]) { items[map[view]].classList.add('active'); }
+  
+  prevView = currentView; currentView = view;
+  if (view === 'dashboard') renderDashboard();
+  if (view === 'search') renderSearch();
+  if (view === 'bookmarks') renderBookmarks();
+  if (view === 'experts') applyExpertFilters();
+  
+  document.querySelector('.content').scrollTop = 0;
+  updateMobTabbar(view); closeSidebar();
+}
+
+function goBack() { nav(prevView === 'detail' ? 'search' : prevView); }
+function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('show'); }
+function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('show'); }
+function mobNav(view) { nav(view); }
+function updateMobTabbar(view) {
+  const tabMap = {dashboard:0, search:1, experts:2, bookmarks:3};
+  const tabs = document.querySelectorAll('.mob-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (tabMap[view] !== undefined && tabs[tabMap[view]]) { tabs[tabMap[view]].classList.add('active'); }
+  const badge = document.querySelector('#mobTabbar .mob-tab:nth-child(2) .mob-tab-badge');
+  if (badge) badge.setAttribute('data-count', CASES ? new Set(CASES.map(c=>c.id)).size : '');
+}
+
+function toggleFilter(el) {
+  el.closest('.sb-filter-section').querySelectorAll('.sf-tag').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  const sections = document.querySelectorAll('.sb-filter-section');
+  const idx = Array.from(sections).indexOf(el.closest('.sb-filter-section'));
+  if (idx === 0) { const s = document.getElementById('f-type'); if (s) s.value = '전체'; }
+  if (idx === 1) { const s = document.getElementById('f-country'); if (s) s.value = '전체'; }
+  nav('search');
+}
+
+let currentSearchQuery = '';
+function doSearch() { currentSearchQuery = document.getElementById('mainSearch').value.trim(); nav('search'); }
+
+function getSidebarFilter(idx) {
+  const sections = document.querySelectorAll('.sb-filter-section');
+  if (!sections[idx]) return '전체';
+  const on = sections[idx].querySelector('.sf-tag.on');
+  return on ? on.textContent.trim() : '전체';
+}
+
+function renderSearch() {
+  const q = currentSearchQuery.toLowerCase();
+  const dropCountry = document.getElementById('f-country')?.value || '전체';
+  const dropType    = document.getElementById('f-type')?.value    || '전체';
+  const sort = document.getElementById('f-sort')?.value || '최신순';
+
+  const sbType = getSidebarFilter(0);
+  const sbCountry = getSidebarFilter(1);
+
+  const type = (dropType !== '전체') ? dropType : (sbType !== '전체' ? sbType : '전체');
+  const country = (dropCountry !== '전체') ? dropCountry : (sbCountry !== '전체' ? sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,'') : '전체');
+
+  if (sbType !== '전체' && dropType === '전체') { const sel = document.getElementById('f-type'); if (sel) [...sel.options].forEach(o => { if(o.value === sbType) sel.value = sbType; }); }
+  if (sbCountry !== '전체') { const cleanSb = sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,''); const sel = document.getElementById('f-country'); if (sel && dropCountry === '전체') [...sel.options].forEach(o => { if(o.value === cleanSb) sel.value = cleanSb; }); }
+
+  let results = CASES.filter(c => {
+    const matchQ = !q || (c.caseNum||'').toLowerCase().includes(q) || (c.title||'').toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || (c.type||'').includes(q) || (c.country||'').includes(q);
+    const matchC = country === '전체' || c.country === country;
+    const matchT = type === '전체' || c.type === type;
+    return matchQ && matchC && matchT;
+  });
+
+  if (sort === '관련도순') results = results.slice().sort((a,b)=>(b.conf||0)-(a.conf||0));
+  else results = results.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+
+  const countEl = document.getElementById('resultCount');
+  countEl.innerHTML = q ? `<strong>"${q}"</strong> 검색 결과 — <strong>${results.length}건</strong>` : `<strong>${results.length}건</strong> 표시 중`;
+
+  const container = document.getElementById('searchResults');
+  if (!results.length) { container.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>검색 결과가 없습니다</p></div>`; return; }
+  
+  container.innerHTML = results.map(c => `
+    <div class="case-card" onclick="openDetail('${c.id}')">
+      <div class="case-card-top"><div class="case-card-title">${c.title}</div><span class="badge ${typeBadge(c.type)}">${c.type}</span></div>
+      <div class="case-card-meta"><span class="flag">${c.flag}</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span><span style="font-size:12px;color:var(--border)">|</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span><span style="font-size:12px;color:var(--border)">|</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.caseNum}</span></div>
+      <div class="case-card-summary">${c.summary}</div>
+      <div class="case-card-footer">
+        <div class="case-meta-item">📋 ${(c.laws&&c.laws[0])||(c.provisions&&c.provisions[0]?c.provisions[0].law+' '+c.provisions[0].article:c.type)}</div>
+        <div class="conf-bar"><div class="conf-label">신뢰도</div><div class="conf-track"><div class="conf-fill" style="width:${(c.conf||0)*100}%"></div></div><div class="conf-label" style="color:var(--dark);font-weight:700">${((c.conf||0)*100).toFixed(0)}%</div></div>
+        <span style="font-size:16px;margin-left:8px;cursor:pointer;user-select:none" onclick="event.stopPropagation();toggleBookmark('${c.id}')" title="${bookmarks.has(c.id)?'북마크 해제':'북마크 추가'}">${bookmarks.has(c.id)?'🔖':'🤍'}</span>
+      </div>
+    </div>`).join('');
+}
+
+// ── ✅ EXPERTS RENDER (모던 카드 레이아웃) ──
+function setExpertType(type, btn) {
+  document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  currentExpertType = type;
+  applyExpertFilters();
+}
+
+function applyExpertFilters() {
+  const container = document.getElementById('expertGrid');
+  const country = document.getElementById('expert-country-filter').value;
+  const type = currentExpertType;
+
+  let filtered = EXPERTS;
+  if (type !== 'all') filtered = filtered.filter(e => e.type === type);
+  if (country !== '전체') filtered = filtered.filter(e => e.country === country);
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">👥</div><p>해당 조건의 전문가가 없습니다</p></div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(e => {
+    const logoHtml = e.logoUrl && e.logoUrl.trim() !== '' 
+      ? `<img src="${e.logoUrl}" alt="${e.name} 로고">` 
+      : (e.avatar || '🏢');
+    const flagMap = {'한국':'🇰🇷', '영국':'🇬🇧', '싱가포르':'🇸🇬', '홍콩':'🇭🇰', '미국':'🇺🇸'};
+    const flag = flagMap[e.country] || '🌐';
+      
+    return `
+    <div class="expert-card">
+      <div class="expert-cover">${logoHtml}</div>
+      <div class="expert-body">
+        <div class="expert-info">
+          <span class="expert-role">${flag} ${e.country || '글로벌'} · ${e.role}</span>
+          <h4>${e.name}</h4>
+        </div>
+        <div class="expert-desc">${e.desc}</div>
+        <div class="expert-tags">
+          ${(e.tags||[]).map(t => `<span class="expert-tag">#${t}</span>`).join('')}
+        </div>
+        <button class="expert-contact" onclick="showToast('📞 ${e.name} 프로필 연동 준비 중입니다.')">문의하기 / 프로필 보기</button>
+      </div>
+    </div>
+  `}).join('');
+}
+
+// ── DETAIL ──
+window.openDetail = function(id) {
+  const c = CASES.find(x => x.id == id);
+  if (!c) return;
+  prevView = currentView;
+  
+  let recommended = [];
+  if (EXPERTS && EXPERTS.length > 0) {
+    const shuffled = EXPERTS.slice().sort(() => 0.5 - Math.random());
+    recommended = shuffled.slice(0, 2);
+  }
+
+  const expertsHtml = recommended.map(r => {
+    // 디테일 뷰 사이드바 전문가 로고 수정 (작은 크기에서 짤리지 않게 처리)
+    const icon = r.logoUrl ? `<img src="${r.logoUrl}" style="width:100%;height:100%;object-fit:contain;">` : (r.avatar || '🏢');
+    return `
+    <div class="related-item" style="padding:16px; flex-direction:column; gap:12px; border:1px solid var(--border); box-shadow:0 1px 2px rgba(0,0,0,0.02);">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:40px;height:40px;font-size:24px;background:var(--lgray);padding:4px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">${icon}</div>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px">${r.name}</div>
+          <div style="font-size:11px;color:var(--gray);font-weight:600">${r.role}</div>
+        </div>
+      </div>
+      <button style="width:100%;padding:8px;background:var(--lgray);border:1px solid var(--border);border-radius:4px;font-size:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--dark);transition:all 0.15s" onclick="nav('experts')">프로필 보기</button>
+    </div>`
+  }).join('');
+
+  const html = `
+    <div class="detail-header">
+      <div class="detail-meta-row">
+        <span class="flag" style="font-size:18px">${c.flag}</span>
+        <span class="badge ${typeBadge(c.type)}">${c.type}</span>
+        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif;font-weight:600">${c.court}</span>
+        <span style="font-size:13px;color:var(--border)">|</span>
+        <span style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif;font-weight:600">${c.date}</span>
+      </div>
+      <div class="detail-title">${c.title}</div>
+      <div style="font-size:13px;color:var(--gray);font-family:'Inter',sans-serif;font-weight:600">${c.caseNum}</div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-left">
+        <div class="detail-tabs">
+          <button class="detail-tab active" onclick="switchTab(this,'tab-original')">문서 원문</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-analysis')">AI 분석 리포트</button>
+          <button class="detail-tab" onclick="switchTab(this,'tab-provisions')">관련 조문</button>
+        </div>
+        <div class="tab-pane active" id="tab-original">
+          <div class="original-wrap" id="print-area-${c.id}">
+            <div class="original-header">
+              <span class="original-stamp">원 문</span>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:var(--navy)">${c.caseNum}</div>
+                <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} · ${c.date}</div>
+              </div>
+            </div>
+            <div class="original-body">${c.original||'원문 준비 중입니다.'}</div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab-analysis">
+          <div class="analysis-card">
+            <div class="analysis-section"><div class="analysis-section-title">사실관계 (FACTS)</div><div class="analysis-text">${c.facts||c.summary||''}</div></div>
+            <div class="analysis-section"><div class="analysis-section-title">주요 쟁점 (ISSUES)</div><ul class="analysis-list">${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul></div>
+            <div class="analysis-section"><div class="analysis-section-title">법원 판단 (HELD)</div><div class="analysis-text">${c.holding||c.summary||''}</div></div>
+            <div class="analysis-section"><div class="analysis-section-title">실무 시사점 (IMPLICATIONS)</div><div style="display:flex;flex-direction:column;gap:8px">${(c.implications||[]).map(i=>`<div class="implication-item">${i}</div>`).join('')||`<div class="implication-item">${c.summary||''}</div>`}</div></div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab-provisions">
+          ${(c.provisions||[]).map(p=>`
+            <div class="provision-item">
+              <div class="provision-header"><div><div class="provision-law">${p.law} ${p.article}</div><div class="provision-title">${p.title}</div></div></div>
+              <div class="provision-body"><div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">조문 내용</div><div style="line-height:1.9;color:var(--dark)">${p.text}</div><div class="provision-relevance">🔗 판결과의 관련성: ${p.relevance}</div></div>
+            </div>`).join('')}
+          ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">📋</div><p>관련조문 준비 중입니다</p></div>':''}
+        </div>
+      </div>
+      <div class="detail-right">
+        <div class="info-card">
+          <h4>판례 정보</h4>
+          <div class="info-row"><span class="info-key">사건번호</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.caseNum}</span></div>
+          <div class="info-row"><span class="info-key">국가</span><span class="info-val">${c.flag} ${c.country}</span></div>
+          <div class="info-row"><span class="info-key">법원</span><span class="info-val">${c.court}</span></div>
+          <div class="info-row"><span class="info-key">선고일</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
+          <div class="info-row"><span class="info-key">사건유형</span><span class="info-val">${c.type}</span></div>
+          <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#2F855A;font-weight:700">${((c.conf||0)*100).toFixed(0)}%</span></div>
+          <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws?c.laws.join('<br>'):(c.provisions&&c.provisions.length?c.provisions.map(p=>p.law+' '+p.article).join('<br>'):'—')}</span></div>
+        </div>
+        <div class="info-card">
+          <h4>소송 경과</h4>
+          ${c.history && c.history.length > 0 ? `<div class="history-list">${c.history.map(h => `<div class="history-item">${h}</div>`).join('')}</div>` : `<div style="font-size:12px; color:var(--gray); padding:8px 0; text-align:center;">등록된 소송 경과가 없습니다.</div>`}
+        </div>
+        <div class="info-card"><h4 style="color:var(--navy);display:flex;align-items:center;gap:6px">🤝 추천 전문가</h4>${expertsHtml}</div>
+        <div class="info-card">
+          <div style="font-size:12px;color:var(--gray);margin-bottom:12px;font-weight:600;">빠른 실행</div>
+          <button onclick="printCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;cursor:pointer;margin-bottom:8px;font-weight:600;">📄 PDF 문서 저장</button>
+          <button onclick="toggleBookmarkBtn('${c.id}',this)" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;cursor:pointer;margin-bottom:8px;font-weight:600;">${bookmarks.has(c.id)?'🔖 북마크 저장됨':'🔖 북마크 추가'}</button>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('detailContent').innerHTML = html;
+  nav('detail');
+}
+
+window.switchTab = function(btn, tabId) {
+  const left = btn.closest('.detail-left');
+  left.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+  left.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+function renderDashTable() {
+  const tbody = document.getElementById('dashTable');
+  if (!tbody) return;
+  tbody.innerHTML = CASES.slice(0,5).map(c => `
+    <tr onclick="openDetail('${c.id}')">
+      <td style="font-family:'Inter',sans-serif;font-weight:600">${c.caseNum}</td>
+      <td><span class="badge ${typeBadge(c.type)}">${c.type}</span></td>
+      <td><span class="flag">${c.flag}</span> <span style="font-size:12px;color:var(--gray)">${c.court}</span></td>
+      <td style="font-family:'Inter',sans-serif;font-size:12px;color:var(--gray)">${c.date}</td>
+      <td><span class="ai-done">완료</span></td>
+    </tr>`).join('');
+}
+
+function renderDashboard() {
+  const total = CASES.length;
+  const now = new Date();
+  document.getElementById('dash-date').textContent = now.getFullYear() + '년 ' + (now.getMonth()+1) + '월 ' + now.getDate() + '일 기준 데이터 현황';
+  document.getElementById('stat-total').textContent = total.toLocaleString();
+
+  const oneMonthAgo = new Date(now); oneMonthAgo.setMonth(now.getMonth()-1);
+  const recentCases = CASES.filter(c => {
+    if (!c.date) return false;
+    const parts = c.date.split('.');
+    if (parts.length < 2) return false;
+    const d = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]||1));
+    return d >= oneMonthAgo;
+  });
+  document.getElementById('stat-month').textContent = recentCases.length;
+  document.getElementById('stat-month-sub').textContent = recentCases.length > 0 ? '최근 30일 내 등록' : '최근 30일 신규 없음';
+  document.getElementById('stat-month-sub').style.color = recentCases.length > 0 ? '#2F855A' : 'var(--gray)';
+
+  const latestDate = CASES.map(c => c.date || '').filter(Boolean).sort().reverse()[0] || '';
+  document.getElementById('stat-total-sub').textContent = latestDate ? '마지막 업데이트: ' + latestDate : '';
+
+  const analyzed = CASES.filter(c => c.conf > 0).length;
+  const analyzeRate = total > 0 ? Math.round(analyzed / total * 100) : 0;
+  document.getElementById('stat-ai-rate').innerHTML = analyzeRate + '<span style="font-size:18px">%</span>';
+  document.getElementById('stat-ai-sub').textContent = analyzed + '건 분석 완료';
+
+  const bmCount = bookmarks.size;
+  document.getElementById('stat-bm').textContent = bmCount.toLocaleString();
+  document.getElementById('stat-bm-sub').textContent = bmCount > 0 ? bmCount + '건 저장됨' : '북마크 없음';
+  if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').textContent = total.toLocaleString();
+  renderDashTable();
+}
+
+function toggleBookmark(id) {
+  if (bookmarks.has(id)) { bookmarks.delete(id); showToast('북마크가 해제되었습니다'); } 
+  else { bookmarks.add(id); showToast('🔖 북마크에 추가되었습니다'); }
+  if (currentView === 'search') renderSearch();
+  else if (currentView === 'bookmarks') renderBookmarks();
+  else if (currentView === 'dashboard') renderDashboard();
+}
+
+function renderBookmarks() {
+  const container = document.getElementById('bookmarkResults');
+  if (bookmarks.size === 0) { container.innerHTML = `<div class="empty"><div class="empty-icon">🔖</div><p>북마크한 판례가 없습니다</p></div>`; return; }
+  container.innerHTML = [...bookmarks].map(id => {
+    const c = CASES.find(x => x.id == id);
+    if (!c) return '';
+    return `<div class="case-card" onclick="openDetail('${id}')">
+      <div class="case-card-top"><div class="case-card-title">${c.title}</div><span class="badge ${typeBadge(c.type)}">${c.type}</span></div>
+      <div class="case-card-meta"><span class="flag">${c.flag}</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} · ${c.date}</span></div>
+      <div class="case-card-summary">${c.summary}</div>
+    </div>`;
+  }).join('');
+}
+
+function typeBadge(t) { return {선하증권:'badge-blue',해상보험:'badge-green',화물손해:'badge-yellow',선박충돌:'badge-red',용선계약:'badge-purple',해난구조:'badge-blue'}[t] || 'badge-blue'; }
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+window.printCase = function(id) {
+  const c = CASES.find(x => x.id == id);
+  if (!c) return;
+  const win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>${c.caseNum}</title></head><body style="font-family:sans-serif;padding:20px;"><h1>${c.title}</h1><hr><p>${c.original||''}</p><script>window.print();<\/script></body></html>`);
+  win.document.close();
+};
+
+window.toggleBookmarkBtn = function(id, btn) {
+  toggleBookmark(id);
+  if (btn) btn.textContent = bookmarks.has(id) ? '🔖 북마크 저장됨' : '🔖 북마크 추가';
+};
+
+setTimeout(() => { renderDashboard(); renderSearch(); }, 100);
+</script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getFirestore, collection, getDocs, doc, setDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, doc, setDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDzS9pBTm0MziKUQwD0aB9qa8089DTTMQI",
-    authDomain: "baekpa-9234c.firebaseapp.com",
-    projectId: "baekpa-9234c",
-    storageBucket: "baekpa-9234c.firebasestorage.app",
-    messagingSenderId: "857860455109",
-    appId: "1:857860455109:web:edf5641153724511e68eac"
+  apiKey: "AIzaSyDzS9pBTm0MziKUQwD0aB9qa8089DTTMQI",
+  authDomain: "baekpa-9234c.firebaseapp.com",
+  projectId: "baekpa-9234c",
+  storageBucket: "baekpa-9234c.firebasestorage.app",
+  messagingSenderId: "857860455109",
+  appId: "1:857860455109:web:edf5641153724511e68eac",
+  measurementId: "G-F08FZ61BQ5"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const ADMIN_EMAILS = ["ojs8851@gmail.com", "baekpa0814@gmail.com"]; 
 
-window.CASES = [];
-window.EXPERTS = [];
-window.bookmarks = new Set();
-let currentView = 'dashboard';
-let prevView = 'dashboard';
-
-// --- [CORE] NAVIGATION ---
-window.nav = (view) => {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.getElementById('v-' + view).classList.add('active');
-    document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-    
-    const map = {dashboard:0, search:1, experts:2, bookmarks:3, admin:4};
-    const items = document.querySelectorAll('.sb-item');
-    if(map[view] !== undefined && items[map[view]]) items[map[view]].classList.add('active');
-    
-    prevView = currentView; currentView = view;
-    document.getElementById('scroll-content').scrollTop = 0;
-
-    if(view === 'dashboard') renderDashboard();
-    if(view === 'search') renderSearch();
-    if(view === 'experts') renderExperts();
-    if(view === 'bookmarks') renderBookmarks();
-};
-
-window.goBack = () => nav(prevView);
-
-// --- [LOGIC] DASHBOARD & STATISTICS ---
-function renderDashboard() {
-    const total = CASES.length;
-    document.getElementById('stat-total').innerText = total;
-    document.getElementById('stat-expert').innerText = EXPERTS.length;
-    document.getElementById('stat-bm').innerText = bookmarks.size;
-    document.getElementById('sb-total-badge').innerText = total;
-    
-    const analyzedCount = CASES.filter(c => c.conf > 0).length;
-    document.getElementById('stat-ai-rate').innerText = total > 0 ? Math.round((analyzedCount / total) * 100) + "%" : "0%";
-    document.getElementById('stat-ai-sub').innerText = analyzedCount + "건 분석 완료";
-
-    const tbody = document.getElementById('dashTable');
-    tbody.innerHTML = CASES.slice(0, 6).map(c => `
-        <tr onclick="openDetail('${c.id}')">
-            <td style="font-weight:700;">${c.caseNum}</td>
-            <td><span class="badge badge-blue">${c.type}</span></td>
-            <td>${c.flag || '🌐'} ${c.court}</td>
-            <td>${c.date}</td>
-            <td style="color:var(--success); font-weight:700;">분석완료</td>
-        </tr>
-    `).join('') || '<tr><td colspan="5" style="text-align:center; padding:50px; color:var(--gray);">판례 데이터를 불러오는 중...</td></tr>';
-    
-    document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 기준 실시간 현황";
-}
-
-// --- [LOGIC] CASE RENDER & DETAIL (ULTRA RECOVERY) ---
-function renderSearch(queryStr = '') {
-    const results = queryStr ? CASES.filter(c => JSON.stringify(c).includes(queryStr)) : CASES;
-    const container = document.getElementById('searchResults');
-    container.innerHTML = results.map(c => `
-        <div class="case-card" onclick="openDetail('${c.id}')">
-            <div class="case-card-title">${c.title}</div>
-            <div class="case-card-meta"><span>${c.flag} ${c.court}</span> | <span>${c.date}</span> | <span>${c.caseNum}</span></div>
-            <div class="case-card-summary">${c.summary || ''}</div>
-            <div class="case-card-footer">
-                <div class="badge badge-blue">${c.type}</div>
-                <div class="conf-bar">
-                    <div style="font-size:11px; font-weight:700;">AI 신뢰도 ${(c.conf*100).toFixed(0)}%</div>
-                    <div class="conf-track"><div class="conf-fill" style="width:${c.conf*100}%"></div></div>
-                </div>
-                <span style="font-size:16px; margin-left:auto; cursor:pointer;" onclick="event.stopPropagation(); toggleBookmark('${c.id}')">${bookmarks.has(c.id)?'🔖':'🤍'}</span>
-            </div>
-        </div>
-    `).join('');
-}
-
-window.openDetail = (id) => {
-    const c = CASES.find(x => x.id === id);
-    if(!c) return;
-    const html = `
-        <div class="detail-header">
-            <div style="margin-bottom:12px;"><span class="badge badge-blue">${c.type}</span></div>
-            <h2 class="detail-title">${c.title}</h2>
-            <div class="detail-meta-row">
-                <span style="font-size:14px; font-weight:700; color:var(--gray);">${c.flag} ${c.court}</span>
-                <span style="color:var(--border);">|</span>
-                <span style="font-size:14px; color:var(--gray);">${c.date} | ${c.caseNum}</span>
-            </div>
-        </div>
-        <div class="detail-tabs">
-            <button class="detail-tab active" onclick="switchTab(this, 'tab-org')">문서 원문</button>
-            <button class="detail-tab" onclick="switchTab(this, 'tab-ai')">AI 정밀 분석</button>
-            <button class="detail-tab" onclick="switchTab(this, 'tab-law')">관련 법조문</button>
-        </div>
-        <div class="detail-body">
-            <div class="detail-left">
-                <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 데이터가 없습니다.'}</div>
-                <div id="tab-ai" class="tab-pane" style="background:#fff; padding:32px; border:1px solid var(--border); border-radius:4px;">
-                    <div class="analysis-section"><div class="analysis-section-title">⚖️ 사실관계 (Facts)</div><p style="line-height:1.8;">${c.facts || c.summary}</p></div>
-                    <div class="analysis-section"><div class="analysis-section-title">📑 법원 판단 (Holding)</div><p style="line-height:1.8;">${c.holding || '준비 중'}</p></div>
-                </div>
-                <div id="tab-law" class="tab-pane">
-                    <div class="provision-item"><div class="provision-header" style="font-weight:700;">${c.laws || '관련 조문을 불러오는 중입니다.'}</div></div>
-                </div>
-            </div>
-            <div class="detail-right">
-                <div class="info-card">
-                    <h4>판례 핵심 정보</h4>
-                    <div class="info-row"><span class="info-key">신뢰도</span><span class="info-val" style="color:var(--success); font-weight:700;">${(c.conf*100).toFixed(0)}%</span></div>
-                    <div class="info-row"><span class="info-key">유형</span><span class="info-val">${c.type}</span></div>
-                    <button onclick="toggleBookmark('${c.id}')" style="width:100%; margin-top:20px; padding:12px; background:none; border:1px solid var(--navy); border-radius:4px; font-weight:700; cursor:pointer;">${bookmarks.has(c.id)?'🔖 북마크 해제':'🔖 북마크 저장'}</button>
-                </div>
-            </div>
-        </div>`;
-    document.getElementById('detailViewContent').innerHTML = html;
-    nav('detail');
-};
-
-window.switchTab = (btn, tabId) => {
-    const parent = btn.closest('.detail-left');
-    btn.parentElement.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(tabId).classList.add('active');
-};
-
-// --- [LOGIC] EXPERT NETWORK & MODAL ---
-function renderExperts() {
-    const grid = document.getElementById('expertGrid');
-    grid.innerHTML = EXPERTS.map(e => `
-        <div class="expert-card">
-            <div class="expert-cover">${e.logoUrl ? `<img src="${e.logoUrl}">` : '🏢'}</div>
-            <div class="expert-body">
-                <span style="font-size:11px; color:var(--blue); font-weight:700; margin-bottom:8px;">🇰🇷 ${e.country}</span>
-                <h4>${e.name}</h4>
-                <p class="expert-desc">${e.desc || ''}</p>
-                <button class="expert-contact" onclick="openExpertModal('${e.name}')">문의하기 / 프로필 보기</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-window.openExpertModal = (name) => {
-    const e = EXPERTS.find(x => x.name === name);
-    if(!e) return;
-    document.getElementById('modalContent').innerHTML = `
-        <h2 style="color:var(--navy); margin-bottom:8px;">${e.name}</h2>
-        <p style="color:var(--blue); font-weight:700; margin-bottom:24px;">${e.role || '해상 전문가'}</p>
-        <div style="font-size:14px; line-height:1.8; color:var(--dark);">
-            <p><strong>📍 위치:</strong> ${e.country}</p>
-            <p><strong>📧 이메일:</strong> ${e.email || '대표 메일 문의'}</p>
-            <p><strong>📞 연락처:</strong> ${e.phone || '정보 없음'}</p>
-            <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--lb)">${e.desc || ''}</div>
-        </div>
-        <button onclick="location.href='mailto:${e.email || 'admin@baekpa.com'}'" style="width:100%; margin-top:30px; padding:16px; background:var(--navy); color:#fff; border:none; border-radius:4px; font-weight:700; cursor:pointer; font-size:15px;">📩 지금 바로 이메일 문의하기</button>
-    `;
-    document.getElementById('expertModal').style.display = 'flex';
-};
-
-// --- [LOGIC] ADMIN & SYNC ---
-document.getElementById('admin-json-input').addEventListener('input', (e) => {
-    try {
-        const data = JSON.parse(e.target.value);
-        if(data.logoUrl) {
-            document.getElementById('admin-preview-area').style.display = 'block';
-            document.getElementById('imgPreview').innerHTML = `<img src="${data.logoUrl}">`;
-        }
-    } catch(err) {}
-});
-
-window.uploadJsonToFirebase = async () => {
-    const type = document.getElementById('admin-upload-type').value;
-    const input = document.getElementById('admin-json-input').value;
-    const status = document.getElementById('upload-status');
-    try {
-        const data = JSON.parse(input);
-        const id = (type === 'case' ? data.caseNum : data.name).replace(/\s+/g, '_');
-        await setDoc(doc(db, type + 's', id), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
-        status.style.color = "var(--success)"; status.innerText = "✅ Firebase 실시간 업데이트 성공!";
-        document.getElementById('admin-json-input').value = "";
-        showToast("데이터가 성공적으로 반영되었습니다.");
-    } catch(e) { status.style.color = "var(--danger)"; status.innerText = "❌ JSON 에러: " + e.message; }
-};
-
-// --- [DATA] AUTH & SYNC ---
 onAuthStateChanged(auth, (user) => {
-    if(user && ["ojs8851@gmail.com", "baekpa0814@gmail.com"].includes(user.email)) {
-        document.getElementById('menu-admin').style.display = "flex";
-    }
-});
-window.loginWithGoogle = () => signInWithPopup(auth, provider);
-
-onSnapshot(collection(db, "experts"), (snap) => {
-    EXPERTS = snap.docs.map(d => d.data());
-    if(currentView === 'experts') renderExperts();
-    renderDashboard();
-});
-onSnapshot(query(collection(db, "cases"), orderBy("updatedAt", "desc")), (snap) => {
-    CASES = snap.docs.map(d => ({...d.data(), id: d.id}));
-    renderDashboard();
+  const authContainer = document.getElementById('auth-container');
+  const adminMenu = document.getElementById('menu-admin');
+  
+  if (user && ADMIN_EMAILS.includes(user.email)) {
+    adminMenu.style.display = 'flex';
+    authContainer.innerHTML = `<div class="user-info-wrap"><div class="user-avatar"><img src="${user.photoURL || ''}" alt="프로필" onerror="this.style.display='none'"></div><div><div class="user-name">${user.displayName || '관리자'}</div><div class="user-email">${user.email}</div></div></div><button class="logout-btn" onclick="logoutFromGoogle()">🚪</button>`;
+  } else {
+    adminMenu.style.display = 'none';
+    authContainer.innerHTML = `<button class="auth-btn" onclick="loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>`;
+    if (currentView === 'admin') nav('dashboard');
+  }
 });
 
-window.showToast = (msg) => {
-    const t = document.getElementById('toast');
-    t.innerText = msg; t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
+window.loginWithGoogle = () => { signInWithPopup(auth, provider); };
+window.logoutFromGoogle = () => { signOut(auth).then(() => showToast('로그아웃 되었습니다.')); };
+
+window.loadCasesFromFirestore = async function() {
+  try {
+    const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(500));
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) return;
+    CASES.length = 0; 
+    snapshot.docs.forEach((d, i) => { CASES.push({ ...d.data(), _fsId: d.id, id: d.id || (4000+i) }); });
+    if (currentView === 'dashboard') renderDashboard();
+    if (currentView === 'search') renderSearch();
+  } catch(e) { console.warn("Firestore 판례 로드 실패:", e.message); }
 };
 
-nav('dashboard');
+window.loadExpertsFromFirestore = async function() {
+  try {
+    const q = query(collection(db, "experts"));
+    const snapshot = await getDocs(q);
+    if (!snapshot.empty) {
+      EXPERTS.length = 0;
+      snapshot.docs.forEach(d => { EXPERTS.push({ ...d.data(), _fsId: d.id }); });
+      if (currentView === 'experts') applyExpertFilters();
+    }
+  } catch(e) { console.warn("전문가 로드 실패:", e.message); }
+};
+
+window.saveCase = async function(data) {
+  if (data.caseNum) {
+    const customId = data.caseNum.replace(/\s+/g, '_');
+    await setDoc(doc(db, "cases", customId), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
+    return customId;
+  } else {
+    const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
+    return docRef.id;
+  }
+};
+
+window.saveExpert = async function(data) {
+  if (data.name) {
+    const customId = data.name.replace(/\s+/g, '_');
+    await setDoc(doc(db, "experts", customId), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
+    return customId;
+  } else {
+    const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
+    return docRef.id;
+  }
+};
+
+window.uploadJsonToFirebase = async function() {
+  const inputEl = document.getElementById('admin-json-input');
+  const statusEl = document.getElementById('upload-status');
+  const uploadType = document.getElementById('admin-upload-type').value;
+  try {
+    const rawText = inputEl.value.trim();
+    if (!rawText) throw new Error("데이터를 입력해주세요.");
+    const parsedData = new Function("return " + rawText)(); 
+    statusEl.style.color = "var(--blue)";
+    statusEl.textContent = "⏳ 데이터 전송 중...";
+
+    let docId;
+    if (uploadType === 'case') {
+      docId = await saveCase(parsedData);
+      await loadCasesFromFirestore();
+    } else {
+      docId = await saveExpert(parsedData);
+      await loadExpertsFromFirestore();
+    }
+    
+    if (docId) {
+      statusEl.style.color = "#2F855A"; 
+      statusEl.textContent = "✅ 성공! 데이터가 실시간으로 화면에 반영되었습니다.";
+      inputEl.value = ""; 
+    } else { throw new Error("저장 권한이 없거나 오류가 발생했습니다."); }
+  } catch(error) {
+    statusEl.style.color = "#C53030"; 
+    statusEl.textContent = "❌ 처리 실패: " + error.message;
+  }
+};
+
+loadCasesFromFirestore();
+loadExpertsFromFirestore();
 </script>
 </body>
 </html>
