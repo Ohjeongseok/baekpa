@@ -1281,14 +1281,14 @@ async function loadExpertsFromFirestore() {
   }
 }
 
-// ✅ 판례 저장 시 caseNum을 문서 ID로 사용하도록 수정
+// ✅ 판례 저장 (부분 업데이트 지원)
 window.saveCase = async function(data) {
   try {
     if (data.caseNum) {
-      // 띄어쓰기를 언더바(_)로 치환하여 더 깔끔한 ID 생성 (예: "대법원_2000다70064")
       const customId = data.caseNum.replace(/\s+/g, '_');
       const docRef = doc(db, "cases", customId);
-      await setDoc(docRef, { ...data, createdAt: new Date().toISOString() });
+      // 🔥 { merge: true } 옵션을 넣으면 기존 데이터를 지우지 않고, 입력한 부분만 수정(덮어쓰기) 됩니다!
+      await setDoc(docRef, { ...data, updatedAt: new Date().toISOString() }, { merge: true });
       return customId;
     } else {
       const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
@@ -1300,13 +1300,14 @@ window.saveCase = async function(data) {
   }
 };
 
-// ✅ 전문가 저장 시 name을 문서 ID로 사용하도록 수정
+// ✅ 전문가 저장 (부분 업데이트 지원)
 window.saveExpert = async function(data) {
   try {
     if (data.name) {
       const customId = data.name.replace(/\s+/g, '_');
       const docRef = doc(db, "experts", customId);
-      await setDoc(docRef, { ...data, createdAt: new Date().toISOString() });
+      // 🔥 { merge: true } 옵션 추가
+      await setDoc(docRef, { ...data, updatedAt: new Date().toISOString() }, { merge: true });
       return customId;
     } else {
       const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
