@@ -246,7 +246,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -268,16 +268,15 @@ window.EXPERTS = [];
 window.bookmarks = new Set();
 let currentView = 'dashboard';
 let prevView = 'dashboard';
+let currentExpertType = 'all';
 
-// --- [1] 네비게이션 및 메뉴 클릭 활성화 ---
+// --- [1] 네비게이션 및 사이드바 제어 ---
 window.nav = function(view) {
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
     
     const targetView = document.getElementById('v-' + view);
     const sidebarItems = document.querySelectorAll('.sb-item');
-    
-    // 사이드바 순서에 따른 활성화 (대시보드:0, 검색:1, 전문가:2, 북마크:3, 관리자:4)
     const navMap = { dashboard: 0, search: 1, experts: 2, bookmarks: 3, admin: 4 };
     
     if (targetView) targetView.classList.add('active');
@@ -285,57 +284,50 @@ window.nav = function(view) {
     
     prevView = currentView;
     currentView = view;
-    document.getElementById('scroll-container').scrollTop = 0;
+    
+    const scrollContainer = document.getElementById('scroll-container');
+    if (scrollContainer) scrollContainer.scrollTop = 0;
 
     if (view === 'dashboard') renderDashboard();
     if (view === 'experts') applyExpertFilters();
+    closeSidebar();
 };
 
 window.goBack = () => nav(prevView);
+window.openSidebar = () => { document.getElementById('sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('show'); };
+window.closeSidebar = () => { 
+    const sb = document.getElementById('sidebar');
+    const ov = document.querySelector('.sidebar-overlay');
+    if(sb) sb.classList.remove('open'); 
+    if(ov) ov.classList.remove('show'); 
+};
+window.mobNav = (view) => nav(view);
 
-// --- [2] 전문가 상세 팝업(모달) 로직 ---
-window.openExpertModal = (name) => {
-    const e = window.EXPERTS.find(x => x.name === name);
-    if (!e) return;
-
-    const modal = document.getElementById('expertModal');
-    const content = document.getElementById('modalContent');
-
-    content.innerHTML = `
-        <h2 style="color:var(--navy); margin-bottom:8px; font-size:24px;">${e.name}</h2>
-        <p style="color:var(--blue); font-weight:700; margin-bottom:24px; font-size:16px;">${e.role || '해상 법률 전문가'}</p>
-        <div style="font-size:14px; line-height:1.8; color:var(--dark);">
-            <div style="margin-bottom:12px; padding:15px; background:var(--lgray); border-radius:6px;">
-                <p>📍 <b>위치:</b> ${e.country || '정보 없음'}</p>
-                <p>📧 <b>이메일:</b> ${e.email || '대표 메일 문의'}</p>
-                <p>📞 <b>연락처:</b> ${e.phone || '정보 없음'}</p>
-            </div>
-            <div style="margin-top:20px; border-top:1px solid var(--lb); padding-top:20px;">
-                <h4 style="margin-bottom:10px; color:var(--navy);">상세 정보</h4>
-                <p style="white-space:pre-wrap;">${e.desc || '상세 설명이 등록되지 않았습니다.'}</p>
-            </div>
-        </div>
-        <button onclick="location.href='mailto:${e.email || ''}'" 
-                style="width:100%; margin-top:30px; padding:16px; background:var(--navy); color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer; font-size:15px; transition:0.2s;">
-                📩 지금 바로 이메일 문의하기
-        </button>
-    `;
-    modal.style.display = 'flex';
+// --- [2] 전문가 상세 팝업 및 필터 로직 ---
+window.setExpertType = (type, btn) => {
+    document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    currentExpertType = type;
+    applyExpertFilters();
 };
 
-// --- [3] 전문가 카드 렌더링 (팝업 연결 포함) ---
 window.applyExpertFilters = function() {
     const grid = document.getElementById('expertGrid');
     if (!grid) return;
 
-    grid.innerHTML = window.EXPERTS.map(e => `
+    const countryFilter = document.getElementById('expert-country-filter');
+    const country = countryFilter ? countryFilter.value : '전체';
+    
+    let filtered = window.EXPERTS;
+    if (currentExpertType !== 'all') filtered = filtered.filter(e => e.type === currentExpertType);
+    if (country !== '전체') filtered = filtered.filter(e => e.country === country);
+
+    grid.innerHTML = filtered.map(e => `
         <div class="expert-card">
-            <div class="expert-cover">
-                ${e.logoUrl ? `<img src="${e.logoUrl}" onerror="this.src='https://via.placeholder.com/150?text=No+Image'">` : '🏢'}
-            </div>
+            <div class="expert-cover">${e.logoUrl ? `<img src="${e.logoUrl}" onerror="this.src='🏢'">` : '🏢'}</div>
             <div class="expert-body">
                 <div class="expert-info">
-                    <span style="font-size:11px; color:var(--blue); font-weight:700; margin-bottom:6px; display:block;">🇰🇷 ${e.country} · ${e.role}</span>
+                    <span style="font-size:11px; color:var(--blue); font-weight:700; margin-bottom:6px; display:block;">🇰🇷 ${e.country || '한국'} · ${e.role || '전문가'}</span>
                     <h4>${e.name}</h4>
                 </div>
                 <p class="expert-desc">${e.desc || ''}</p>
@@ -345,166 +337,132 @@ window.applyExpertFilters = function() {
     `).join('');
 };
 
-// --- [4] 관리자 로그인 및 상단 사용자 표시 ---
+window.openExpertModal = (name) => {
+    const e = window.EXPERTS.find(x => x.name === name);
+    if (!e) return;
+
+    document.getElementById('modalContent').innerHTML = `
+        <h2 style="color:var(--navy); margin-bottom:8px; font-size:24px;">${e.name}</h2>
+        <p style="color:var(--blue); font-weight:700; margin-bottom:24px; font-size:16px;">${e.role || '해상 전문가'}</p>
+        <div style="font-size:14px; line-height:1.8">
+            <div style="margin-bottom:12px; padding:15px; background:var(--lgray); border-radius:6px;">
+                <p>📍 <b>위치:</b> ${e.country || '정보 없음'}</p>
+                <p>📧 <b>이메일:</b> ${e.email || '정보 없음'}</p>
+                <p>📞 <b>연락처:</b> ${e.phone || '정보 없음'}</p>
+            </div>
+            <div style="margin-top:20px; border-top:1px solid var(--lb); padding-top:20px;">
+                <p style="white-space:pre-wrap;">${e.desc || ''}</p>
+            </div>
+        </div>
+        <button onclick="location.href='mailto:${e.email || ''}'" style="width:100%; margin-top:30px; padding:14px; background:var(--navy); color:#fff; border:none; border-radius:4px; font-weight:700; cursor:pointer">📩 이메일 문의하기</button>
+    `;
+    document.getElementById('expertModal').style.display = 'flex';
+};
+
+// --- [3] 판례 상세 및 렌더링 ---
+window.openDetail = (id) => {
+    const c = window.CASES.find(x => x.id == id);
+    if (!c) return;
+    document.getElementById('detailContent').innerHTML = `
+        <div class="detail-header">
+            <h2 style="font-size:24px; color:var(--navy)">${c.title}</h2>
+            <p style="color:var(--gray); margin-top:8px">${c.caseNum} | ${c.court} | ${c.date}</p>
+        </div>
+        <div class="detail-tabs">
+            <button class="detail-tab active" onclick="switchTab(this,'tab-org')">문서 원문</button>
+            <button class="detail-tab" onclick="switchTab(this,'tab-ai')">AI 정밀 분석</button>
+        </div>
+        <div class="detail-body">
+            <div class="detail-left">
+                <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 준비 중'}</div>
+                <div id="tab-ai" class="tab-pane" style="background:#fff; padding:32px; border:1px solid var(--border); border-radius:4px;">
+                    <h4 style="color:var(--blue); margin-bottom:16px;">핵심 요약</h4><p style="line-height:1.8">${c.facts || c.summary}</p>
+                </div>
+            </div>
+        </div>`;
+    nav('detail');
+};
+
+window.switchTab = function(btn, tabId) {
+    const paneContainer = btn.closest('.detail-left') || document;
+    paneContainer.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+    paneContainer.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+};
+
+function renderDashboard() {
+    const total = window.CASES.length;
+    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = total;
+    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = total;
+    if(document.getElementById('dash-date')) document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 현황";
+    
+    const tbody = document.getElementById('dashTable');
+    if(tbody) {
+        tbody.innerHTML = window.CASES.slice(0, 5).map(c => `
+            <tr onclick="openDetail('${c.id}')">
+                <td><b>${c.caseNum}</b></td>
+                <td><span class="badge badge-blue">${c.type}</span></td>
+                <td>${c.flag || '🌐'} ${c.court}</td>
+                <td>${c.date}</td>
+                <td><span class="ai-done">완료</span></td>
+            </tr>`).join('');
+    }
+}
+
+// --- [4] 관리자 및 Firebase 설정 ---
 onAuthStateChanged(auth, (user) => {
     const authContainer = document.getElementById('auth-container');
     const adminMenu = document.getElementById('menu-admin');
-    
     if (user && ["ojs8851@gmail.com", "baekpa0814@gmail.com"].includes(user.email)) {
-        adminMenu.style.display = 'flex';
+        if(adminMenu) adminMenu.style.display = 'flex';
         authContainer.innerHTML = `
-            <div style="display:flex; align-items:center; gap:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px; width:100%;">
-                <div style="width:30px; height:30px; border-radius:4px; overflow:hidden; background:var(--blue);">
-                    <img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div style="flex:1; overflow:hidden;">
-                    <div style="color:#fff; font-size:12px; font-weight:700; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${user.displayName}</div>
-                </div>
-                <button onclick="signOut(getAuth())" style="background:none; border:none; color:rgba(255,255,255,0.3); cursor:pointer; font-size:14px;">🚪</button>
+            <div class="user-info-wrap" style="display:flex; align-items:center; gap:10px; color:#fff;">
+                <img src="${user.photoURL}" style="width:30px; height:30px; border-radius:4px;">
+                <span style="font-size:12px;">${user.displayName}</span>
+                <button onclick="signOut(getAuth())" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer;">🚪</button>
             </div>`;
     } else {
-        adminMenu.style.display = 'none';
+        if(adminMenu) adminMenu.style.display = 'none';
         authContainer.innerHTML = `<button class="auth-btn" onclick="signInWithPopup(getAuth(), new GoogleAuthProvider())" style="width:100%">🔑 관리자 로그인</button>`;
     }
 });
 
-// --- [5] 실시간 데이터 동기화 (Snapshot) ---
-onSnapshot(query(collection(db, "cases"), orderBy("updatedAt", "desc")), (snap) => {
+window.uploadJsonToFirebase = async () => {
+    const type = document.getElementById('admin-upload-type').value;
+    const input = document.getElementById('admin-json-input').value;
+    try {
+        const data = JSON.parse(input);
+        const id = (type === 'case' ? data.caseNum : data.name).replace(/\s+/g, '_');
+        await setDoc(doc(db, type + 's', id), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
+        alert('✅ 성공적으로 반영되었습니다.');
+    } catch(e) { alert('❌ 에러: ' + e.message); }
+};
+
+document.getElementById('admin-json-input')?.addEventListener('input', (e) => {
+    try {
+        const data = JSON.parse(e.target.value);
+        const preview = document.getElementById('admin-preview-area');
+        const imgBox = document.getElementById('imgPreview');
+        if(data.logoUrl && preview && imgBox) {
+            preview.style.display = 'block';
+            imgBox.innerHTML = `<img src="${data.logoUrl}">`;
+        }
+    } catch(err) {}
+});
+
+// --- [5] 실시간 동기화 실행 ---
+onSnapshot(collection(db, "cases"), (snap) => {
     window.CASES = snap.docs.map(d => ({ ...d.data(), id: d.id }));
     renderDashboard();
 });
 
 onSnapshot(collection(db, "experts"), (snap) => {
     window.EXPERTS = snap.docs.map(d => d.data());
-    if (currentView === 'experts') applyExpertFilters();
+    if(currentView === 'experts') applyExpertFilters();
 });
 
-function renderDashboard() {
-    const total = window.CASES.length;
-    document.getElementById('stat-total').innerText = total;
-    document.getElementById('sb-total-badge').innerText = total;
-    document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 기준 실시간 현황";
-    
-    const tbody = document.getElementById('dashTable');
-    if (tbody) {
-        tbody.innerHTML = window.CASES.slice(0, 5).map(c => `
-            <tr onclick="openDetail('${c.id}')">
-                <td><b>${c.caseNum}</b></td>
-                <td><span class="badge-blue">${c.type}</span></td>
-                <td>${c.flag || '🌐'} ${c.court}</td>
-                <td>${c.date}</td>
-                <td><span style="color:var(--success); font-weight:700;">완료</span></td>
-            </tr>
-        `).join('');
-    }
-}
-
-// --- 초기 실행 ---
-nav('dashboard');}
-
-window.applyExpertFilters = function() {
-  const grid = document.getElementById('expertGrid');
-  const country = document.getElementById('expert-country-filter').value;
-  let filtered = EXPERTS;
-  if (currentExpertType !== 'all') filtered = filtered.filter(e => e.type === currentExpertType);
-  if (country !== '전체') filtered = filtered.filter(e => e.country === country);
-  
-  grid.innerHTML = filtered.map(e => `
-    <div class="expert-card">
-      <div class="expert-cover">${e.logoUrl ? `<img src="${e.logoUrl}">` : '🏢'}</div>
-      <div class="expert-body">
-        <h4>${e.name}</h4>
-        <p class="expert-desc">${e.desc || ''}</p>
-        <button class="expert-contact" onclick="openExpertModal('${e.name}')">프로필 상세보기</button>
-      </div>
-    </div>`).join('');
-};
-
-window.setExpertType = (type, btn) => {
-  document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  currentExpertType = type;
-  applyExpertFilters();
-};
-
-window.openExpertModal = (name) => {
-  const e = EXPERTS.find(x => x.name === name);
-  if(!e) return;
-  document.getElementById('modalContent').innerHTML = `
-    <h2 style="color:var(--navy);margin-bottom:8px">${e.name}</h2>
-    <p style="color:var(--blue);font-weight:700;margin-bottom:24px">${e.role || '전문가'}</p>
-    <div style="font-size:14px;line-height:1.8">
-      <p>📍 <b>위치:</b> ${e.country}</p>
-      <p>📧 <b>이메일:</b> ${e.email || '정보 없음'}</p>
-      <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--lb)">${e.desc || ''}</div>
-    </div>
-    <button onclick="location.href='mailto:${e.email}'" style="width:100%;margin-top:30px;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:4px;font-weight:700;cursor:pointer">📩 이메일 문의하기</button>
-  `;
-  document.getElementById('expertModal').style.display = 'flex';
-};
-
-window.openDetail = (id) => {
-  const c = CASES.find(x => x.id == id);
-  if(!c) return;
-  document.getElementById('detailContent').innerHTML = `
-    <div class="detail-header">
-      <h2 style="font-size:24px;color:var(--navy)">${c.title}</h2>
-      <p style="color:var(--gray);margin-top:8px">${c.caseNum} | ${c.court} | ${c.date}</p>
-    </div>
-    <div class="detail-tabs">
-      <button class="detail-tab active" onclick="switchTab(this,'tab-org')">문서 원문</button>
-      <button class="detail-tab" onclick="switchTab(this,'tab-ai')">AI 정밀 분석</button>
-    </div>
-    <div class="detail-body">
-      <div class="detail-left">
-        <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 데이터가 없습니다.'}</div>
-        <div id="tab-ai" class="tab-pane" style="background:#fff;padding:32px;border:1px solid var(--border);border-radius:4px;">
-          <h4 style="color:var(--blue);margin-bottom:16px;">핵심 요약</h4><p style="line-height:1.8">${c.facts || c.summary}</p>
-        </div>
-      </div>
-    </div>`;
-  nav('detail');
-};
-
-// --- 관리자 & Firebase ---
-window.loginWithGoogle = () => signInWithPopup(auth, provider);
-window.uploadJsonToFirebase = async () => {
-  const type = document.getElementById('admin-upload-type').value;
-  const input = document.getElementById('admin-json-input').value;
-  try {
-    const data = JSON.parse(input);
-    const id = (type === 'case' ? data.caseNum : data.name).replace(/\s+/g, '_');
-    await setDoc(doc(db, type + 's', id), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
-    alert('✅ 성공!');
-  } catch(e) { alert('❌ 에러: ' + e.message); }
-};
-
-document.getElementById('admin-json-input').addEventListener('input', (e) => {
-  try {
-    const data = JSON.parse(e.target.value);
-    if(data.logoUrl) {
-      document.getElementById('admin-preview-area').style.display = 'block';
-      document.getElementById('imgPreview').innerHTML = `<img src="${data.logoUrl}">`;
-    }
-  } catch(err) {}
-});
-
-onAuthStateChanged(auth, (user) => {
-  if(user && ["ojs8851@gmail.com", "baekpa0814@gmail.com"].includes(user.email)) {
-    document.getElementById('menu-admin').style.display = 'flex';
-  }
-});
-
-onSnapshot(collection(db, "cases"), (snap) => {
-  window.CASES = snap.docs.map(d => ({...d.data(), id: d.id}));
-  renderDashboard();
-});
-
-onSnapshot(collection(db, "experts"), (snap) => {
-  window.EXPERTS = snap.docs.map(d => d.data());
-  if(currentView==='experts') applyExpertFilters();
-});
-
+// 초기화
 nav('dashboard');
 </script>
 </body>
