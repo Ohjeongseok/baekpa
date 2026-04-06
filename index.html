@@ -9,15 +9,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy: #101D33; 
-  --blue: #2B4C7E; 
-  --lb: #E2E8F0;
-  --white: #fff;
-  --dark: #1A202C; 
-  --gray: #718096;
-  --lgray: #F8FAFC;
-  --border: #CBD5E0; 
-  --sidebar: 240px;
+  --navy: #101D33; --blue: #2B4C7E; --lb: #E2E8F0;
+  --white: #fff; --dark: #1A202C; --gray: #718096; --lgray: #F8FAFC;
+  --border: #CBD5E0; --sidebar: 240px;
 }
 body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);display:flex;height:100vh;overflow:hidden}
 
@@ -32,7 +26,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .sb-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:4px;cursor:pointer;margin:2px 12px;transition:all 0.15s;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500}
 .sb-item:hover{background:rgba(255,255,255,0.06);color:#fff}
 .sb-item.active{background:rgba(255,255,255,0.12);color:#fff;border-left:3px solid var(--blue);padding-left:11px;}
-.sb-item .icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
 .sb-badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;font-family:'Inter',sans-serif}
 .sb-filter-section{padding:8px 20px 16px;border-top:1px solid rgba(255,255,255,0.05);margin-top:8px}
 .sf-label{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;font-family:'Inter',sans-serif}
@@ -40,7 +33,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .sf-tag:hover{border-color:rgba(255,255,255,0.2);color:#fff}
 .sf-tag.on{background:var(--blue);color:#fff;border-color:var(--blue);}
 .sb-bottom{margin-top:auto;padding:16px;border-top:1px solid rgba(255,255,255,0.08)}
-.user-row{display:flex;align-items:center;gap:10px;justify-content:space-between;width:100%}
 .user-info-wrap{display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden}
 .user-avatar img{width:100%;height:100%;object-fit:cover}
@@ -79,7 +71,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .stat-label{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
 .stat-val{font-size:28px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif;line-height:1}
 .stat-sub{font-size:11px;color:#2F855A;font-weight:600;margin-top:8px}
-
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;border-bottom:2px solid var(--navy);padding-bottom:10px}
 .section-head h3{font-size:16px;font-weight:700;color:var(--navy)}
 .view-all{font-size:12px;color:var(--gray);cursor:pointer;font-weight:600;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
@@ -120,7 +111,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .filter-label{font-size:12px;font-weight:600;color:var(--gray);white-space:nowrap}
 .result-count{font-size:13px;color:var(--gray);margin-bottom:14px;font-family:'Inter',sans-serif}
 .result-count strong{color:var(--navy)}
-
 .case-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.2s;border-left:4px solid transparent;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .case-card:hover{border-color:var(--border);border-left-color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,0.05);background:#FAFCFF}
 .case-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
@@ -143,7 +133,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .detail-body{display:grid;grid-template-columns:1fr 340px;gap:20px}
 .detail-left{display:flex;flex-direction:column;gap:16px}
 .detail-right{display:flex;flex-direction:column;gap:16px}
-
 .analysis-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .analysis-section{margin-bottom:24px;border-bottom:1px solid var(--lgray);padding-bottom:20px}
 .analysis-section:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0}
@@ -153,21 +142,17 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:16px;position:relative}
 .analysis-list li::before{content:'-';position:absolute;left:0;color:var(--gray);font-weight:700}
 .implication-item{background:#F7FAFC;border-left:3px solid var(--blue);padding:14px 16px;border-radius:0 4px 4px 0;font-size:13px;color:var(--dark);line-height:1.7;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-
 .info-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .info-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--lgray)}
 .info-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);gap:12px}
 .info-row:last-child{border-bottom:none}
 .info-key{font-size:12px;color:var(--gray);font-weight:600;flex-shrink:0}
 .info-val{font-size:12px;color:var(--dark);font-weight:500;text-align:right;line-height:1.5}
-
-/* ── HISTORY TIMELINE ── */
 .history-list { display:flex; flex-direction:column; gap:0; padding:8px 0 0 4px; }
 .history-item { font-size:13px; color:var(--dark); position:relative; padding:0 0 20px 16px; line-height:1.4; }
 .history-item:last-child { padding-bottom:0; }
 .history-item::before { content:''; position:absolute; left:-3px; top:5px; width:7px; height:7px; border-radius:50%; background:#fff; border:2px solid var(--navy); z-index:2; }
 .history-item:not(:last-child)::after { content:''; position:absolute; left:0px; top:12px; bottom:-5px; width:1px; background:var(--border); z-index:1; }
-
 .related-item{padding:12px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
 .related-item:last-child{margin-bottom:0;}
 .related-item:hover{background:#F7FAFC;border-color:var(--blue);}
@@ -280,7 +265,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
   .stat-card{padding:16px 16px}
   .stat-val{font-size:22px}
-  .trend-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .trend-grid{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
   .table-wrap{overflow-x:auto}
   table{min-width:520px}
   .case-card{padding:16px}
@@ -322,7 +307,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <nav class="mob-tabbar" id="mobTabbar">
   <button class="mob-tab active" onclick="mobNav('dashboard')"><span class="mob-tab-icon">🏠</span>대시보드</button>
-  <button class="mob-tab" onclick="mobNav('search')"><span class="mob-tab-icon mob-tab-badge" data-count="176">🔍</span>판례 검색</button>
+  <button class="mob-tab" onclick="mobNav('search')"><span class="mob-tab-icon mob-tab-badge" data-count="0">🔍</span>판례 검색</button>
   <button class="mob-tab" onclick="mobNav('experts')"><span class="mob-tab-icon">🤝</span>전문가</button>
   <button class="mob-tab" onclick="mobNav('bookmarks')"><span class="mob-tab-icon">🔖</span>북마크</button>
 </nav>
@@ -582,21 +567,15 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       <div id="upload-status" style="margin-top:16px; font-size:14px; font-weight:600;"></div>
     </div>
 
-  </div></div><div class="toast" id="toast"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
 // ══ DATA ══
 const CASES = [];
 let EXPERTS = [];
-
-// MOCK_EXPERTS: 기본 데이터
-const MOCK_EXPERTS = [
-  { id: 1, type: 'lawyer', country: '한국', role: '해상·국제거래 전문 변호사', name: '법무법인 해무', logoUrl: '', desc: '국제물품매매협약(CISG) 및 국제 해상운송 분쟁 해결에 특화된 로펌입니다.', tags: ['CISG', '국제거래법', '용선계약'] },
-  { id: 2, type: 'surveyor', country: '한국', role: '수석 감정사', name: '오션 감정평가법인', logoUrl: '', desc: '선창(Hold) 내 철재 화물 붕괴 등 인명 사고 조사 및 감정에 압도적인 현장 전문성을 갖추고 있습니다.', tags: ['인명사고 조사', 'Stevedore', 'Hold 조사'] },
-  { id: 3, type: 'insurance', country: '영국', role: '클레임 매니저', name: 'K-Ocean P&I Club', logoUrl: '', desc: '국내외 선주들의 책임 한도 방어 및 해상 사고 클레임을 신속하게 처리하는 P&I 전문 클럽입니다.', tags: ['P&I 클레임', '선주책임제한'] },
-  { id: 4, type: 'lawyer', country: '영국', role: '영국법 자문 변호사', name: '해양종합법률사무소', logoUrl: '', desc: '영국 해상보험법(MIA) 및 영국 중재에 특화된 로펌으로, 담보특약(Warranty) 분쟁을 다룹니다.', tags: ['영국법', '해상보험', '런던중재'] },
-  { id: 5, type: 'agency', country: '싱가포르', role: '현지 선박 대리점', name: '마린 포트 에이전시', logoUrl: '', desc: '싱가포르 항구 입출항 수속, 선원 교대 및 하역 작업 조율을 전문으로 하는 현지 최고 수준의 대리점입니다.', tags: ['싱가포르 기항', '항만수속', '선원교대'] }
-];
 
 let currentView = 'dashboard';
 let prevView = 'dashboard';
@@ -708,7 +687,7 @@ function renderSearch() {
   }
 
   let results = CASES.filter(c => {
-    const matchQ = !q || c.caseNum.toLowerCase().includes(q) || c.title.toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || c.type.includes(q) || c.country.includes(q);
+    const matchQ = !q || (c.caseNum||'').toLowerCase().includes(q) || (c.title||'').toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || (c.type||'').includes(q) || (c.country||'').includes(q);
     const matchC = country === '전체' || c.country === country;
     const matchT = type === '전체' || c.type === type;
     const y = parseInt((c.date||'').slice(0,4));
@@ -732,7 +711,7 @@ function renderSearch() {
     return;
   }
   container.innerHTML = results.map(c => `
-    <div class="case-card" onclick="openDetail(${c.id})">
+    <div class="case-card" onclick="openDetail('${c.id}')">
       <div class="case-card-top">
         <div class="case-card-title">${c.title}</div>
         <span class="badge ${typeBadge(c.type)}">${c.type}</span>
@@ -750,10 +729,10 @@ function renderSearch() {
         <div class="case-meta-item">📋 ${(c.laws&&c.laws[0])||(c.provisions&&c.provisions[0]?c.provisions[0].law+' '+c.provisions[0].article:c.type)}</div>
         <div class="conf-bar">
           <div class="conf-label">신뢰도</div>
-          <div class="conf-track"><div class="conf-fill" style="width:${c.conf*100}%"></div></div>
-          <div class="conf-label" style="color:var(--dark);font-weight:700">${(c.conf*100).toFixed(0)}%</div>
+          <div class="conf-track"><div class="conf-fill" style="width:${(c.conf||0)*100}%"></div></div>
+          <div class="conf-label" style="color:var(--dark);font-weight:700">${((c.conf||0)*100).toFixed(0)}%</div>
         </div>
-        <span style="font-size:16px;margin-left:8px;cursor:pointer;user-select:none" onclick="event.stopPropagation();toggleBookmark(${c.id})" title="${bookmarks.has(c.id)?'북마크 해제':'북마크 추가'}">${bookmarks.has(c.id)?'🔖':'🤍'}</span>
+        <span style="font-size:16px;margin-left:8px;cursor:pointer;user-select:none" onclick="event.stopPropagation();toggleBookmark('${c.id}')" title="${bookmarks.has(c.id)?'북마크 해제':'북마크 추가'}">${bookmarks.has(c.id)?'🔖':'🤍'}</span>
       </div>
     </div>`).join('');
 }
@@ -776,7 +755,6 @@ function applyExpertFilters() {
   if (type !== 'all') {
     filtered = filtered.filter(e => e.type === type);
   }
-  
   if (country !== '전체') {
     filtered = filtered.filter(e => e.country === country);
   }
@@ -813,7 +791,7 @@ function applyExpertFilters() {
 }
 
 // ══ DETAIL ══
-function openDetail(id) {
+window.openDetail = function(id) {
   const c = CASES.find(x => x.id == id);
   if (!c) return;
   prevView = currentView;
@@ -822,8 +800,6 @@ function openDetail(id) {
   if (EXPERTS && EXPERTS.length > 0) {
     const shuffled = EXPERTS.slice().sort(() => 0.5 - Math.random());
     recommended = shuffled.slice(0, 2);
-  } else {
-    recommended = MOCK_EXPERTS.slice(0, 2);
   }
 
   const expertsHtml = recommended.map(r => {
@@ -920,7 +896,7 @@ function openDetail(id) {
           <div class="info-row"><span class="info-key">법원</span><span class="info-val">${c.court}</span></div>
           <div class="info-row"><span class="info-key">선고일</span><span class="info-val" style="font-family:'Inter',sans-serif">${c.date}</span></div>
           <div class="info-row"><span class="info-key">사건유형</span><span class="info-val">${c.type}</span></div>
-          <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#2F855A;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
+          <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#2F855A;font-weight:700">${((c.conf||0)*100).toFixed(0)}%</span></div>
           <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws?c.laws.join('<br>'):(c.provisions&&c.provisions.length?c.provisions.map(p=>p.law+' '+p.article).join('<br>'):'—')}</span></div>
         </div>
 
@@ -950,9 +926,9 @@ function openDetail(id) {
         
         <div class="info-card" style="background:var(--lgray);border-color:var(--border)">
           <div style="font-size:12px;color:var(--gray);margin-bottom:12px;font-family:'Noto Sans KR',sans-serif;font-weight:600;letter-spacing:1px">빠른 실행</div>
-          <button onclick="printCase(${c.id})" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">📄 PDF 문서 저장</button>
-          <button id="bm-btn-${c.id}" onclick="toggleBookmarkBtn(${c.id},this)" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">${bookmarks.has(c.id)?'🔖 북마크 저장됨':'🔖 북마크 추가'}</button>
-          <button onclick="shareCase(${c.id})" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">🔗 링크 복사</button>
+          <button onclick="printCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">📄 PDF 문서 저장</button>
+          <button id="bm-btn-${c.id}" onclick="toggleBookmarkBtn('${c.id}',this)" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">${bookmarks.has(c.id)?'🔖 북마크 저장됨':'🔖 북마크 추가'}</button>
+          <button onclick="shareCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">🔗 링크 복사</button>
         </div>
       </div>
     </div>`;
@@ -960,7 +936,7 @@ function openDetail(id) {
   nav('detail');
 }
 
-function switchTab(btn, tabId) {
+window.switchTab = function(btn, tabId) {
   const left = btn.closest('.detail-left');
   left.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
   left.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
@@ -972,7 +948,7 @@ function renderDashTable() {
   const tbody = document.getElementById('dashTable');
   if (!tbody) return;
   tbody.innerHTML = CASES.slice(0,5).map(c => `
-    <tr onclick="openDetail(${c.id})">
+    <tr onclick="openDetail('${c.id}')">
       <td style="font-family:'Inter',sans-serif;font-weight:600">${c.caseNum}</td>
       <td><span class="badge ${typeBadge(c.type)}">${c.type}</span></td>
       <td><span class="flag">${c.flag}</span> <span style="font-size:12px;color:var(--gray)">${c.court}</span></td>
@@ -980,12 +956,10 @@ function renderDashTable() {
       <td><span class="ai-done">완료</span></td>
     </tr>`).join('');
 }
-function renderDash() { renderDashTable(); }
 
 function renderDashboard() {
   const total = CASES.length;
   const now = new Date();
-
   document.getElementById('dash-date').textContent = now.getFullYear() + '년 ' + (now.getMonth()+1) + '월 ' + now.getDate() + '일 기준 데이터 현황';
   document.getElementById('stat-total').textContent = total.toLocaleString();
 
@@ -1085,7 +1059,7 @@ function renderBookmarks() {
   container.innerHTML = [...bookmarks].map(id => {
     const c = CASES.find(x => x.id == id);
     if (!c) return '';
-    return `<div class="case-card" onclick="openDetail(${id})">
+    return `<div class="case-card" onclick="openDetail('${id}')">
       <div class="case-card-top"><div class="case-card-title">${c.title}</div><span class="badge ${typeBadge(c.type)}">${c.type}</span></div>
       <div class="case-card-meta"><span class="flag">${c.flag}</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court} · ${c.date}</span></div>
       <div class="case-card-summary">${c.summary}</div>
@@ -1100,22 +1074,22 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-function printCase(id) {
-  const c = typeof id === 'number' ? CASES[id] : CASES.find(x => x.id == id);
+window.printCase = function(id) {
+  const c = CASES.find(x => x.id == id);
   if (!c) return;
   const win = window.open('', '_blank');
   win.document.write(`<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>${c.caseNum} — 백파</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>body { font-family: 'Noto Sans KR', sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #111827; line-height: 1.8; } h1 { font-size: 20px; color: #101D33; margin-bottom: 8px; } .meta { font-size: 13px; color: #718096; margin-bottom: 24px; padding-bottom:12px; border-bottom:2px solid #E2E8F0; } .section-title { font-size: 13px; font-weight: 700; color: #2B4C7E; letter-spacing: 1px; text-transform: uppercase; margin: 24px 0 10px; border-bottom: 1px solid #CBD5E0; padding-bottom: 6px; } .body-text { font-size: 14px; white-space: pre-wrap; } .implication { background: #F8FAFC; border-left: 3px solid #2B4C7E; padding: 12px 16px; margin: 8px 0; font-size: 13px; border:1px solid #E2E8F0; border-left:none; } ul { padding-left: 20px; } li { margin-bottom: 8px; font-size: 14px; } strong { color: #101D33; font-weight: 700; } @media print { body { margin: 20px; } }</style></head><body><h1>${c.title}</h1><div class="meta">${c.flag} ${c.country} | ${c.court} | ${c.date} | ${c.caseNum}</div><div class="section-title">사실관계</div><p style="font-size:14px">${c.facts||c.summary||''}</p><div class="section-title">주요 쟁점</div><ul>${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul><div class="section-title">법원 판단</div><p style="font-size:14px">${c.holding||c.summary||''}</p><div class="section-title">실무 시사점</div>${(c.implications||[]).map(i=>`<div class="implication">${i}</div>`).join('')||`<div class="implication">${c.summary||''}</div>`}<div class="section-title">판결 원문</div><div class="body-text" style="white-space: pre-wrap;">${c.original||''}</div><script>window.onload=function(){window.print();}<\/script></body></html>`);
   win.document.close();
-}
+};
 
-function shareCase(id) {
-  const c = typeof id === 'number' ? CASES[id] : CASES.find(x => x.id == id);
+window.shareCase = function(id) {
+  const c = CASES.find(x => x.id == id);
   if (!c) return;
   const text = `[백파 문서] ${c.title}\n${c.caseNum} | ${c.court} | ${c.date}\n${c.summary}`;
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => showToast('📋 클립보드에 복사되었습니다')).catch(() => fallbackCopy(text));
   } else { fallbackCopy(text); }
-}
+};
 
 function fallbackCopy(text) {
   const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
@@ -1124,60 +1098,24 @@ function fallbackCopy(text) {
   document.body.removeChild(ta);
 }
 
-function openRelated(text) {
+window.openRelated = function(text) {
   const caseNum = text.split(' — ')[0].trim();
   const found = CASES.find(c => c.caseNum === caseNum);
   if (found) { openDetail(found.id); return; }
-  const partial = CASES.find(c => c.caseNum.includes(caseNum) || caseNum.includes(c.caseNum));
+  const partial = CASES.find(c => (c.caseNum||'').includes(caseNum) || caseNum.includes(c.caseNum));
   if (partial) { openDetail(partial.id); return; }
   showToast(`📋 "${caseNum}" — 아직 데이터베이스에 없는 판례입니다`);
-}
+};
 
-function toggleBookmarkBtn(id, btn) {
+window.toggleBookmarkBtn = function(id, btn) {
   toggleBookmark(id);
   if (btn) btn.textContent = bookmarks.has(id) ? '🔖 북마크 저장됨' : '🔖 북마크 추가';
-}
+};
 
-async function uploadJsonToFirebase() {
-  const inputEl = document.getElementById('admin-json-input');
-  const statusEl = document.getElementById('upload-status');
-  const uploadType = document.getElementById('admin-upload-type').value;
-  
-  try {
-    const rawText = inputEl.value.trim();
-    if (!rawText) throw new Error("데이터를 입력해주세요.");
-    
-    const parsedData = new Function("return " + rawText)(); 
-    statusEl.style.color = "var(--blue)";
-    statusEl.textContent = "⏳ 데이터 전송 중...";
-
-    let docId;
-    if (uploadType === 'case') {
-      if(typeof window.saveCase !== 'function') throw new Error("시스템 연결이 완료되지 않았습니다.");
-      docId = await window.saveCase(parsedData);
-    } else {
-      if(typeof window.saveExpert !== 'function') throw new Error("시스템 연결이 완료되지 않았습니다.");
-      docId = await window.saveExpert(parsedData);
-    }
-    
-    if (docId) {
-      statusEl.style.color = "#2F855A"; 
-      statusEl.textContent = "✅ 성공적으로 반영되었습니다. (새로고침 시 리스트에 나타납니다)";
-      inputEl.value = ""; 
-    } else {
-      throw new Error("보안 권한이 없거나 네트워크 오류가 발생했습니다.");
-    }
-  } catch(error) {
-    statusEl.style.color = "#C53030"; 
-    statusEl.textContent = "❌ 처리 실패: " + error.message;
-  }
-}
-
+// ── INIT ──
 setTimeout(() => {
-  try {
-    renderDashboard();
-    renderSearch();
-  } catch (err) { console.error("초기화 오류:", err); }
+  renderDashboard();
+  renderSearch();
 }, 100);
 
 function initMobile() {
@@ -1192,8 +1130,7 @@ window.addEventListener('popstate', () => { if (currentView === 'detail') goBack
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-// ✅ doc, setDoc 함수가 추가되었습니다.
-import { getFirestore, collection, getDocs, addDoc, doc, setDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, doc, setDoc, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -1243,79 +1180,95 @@ onAuthStateChanged(auth, (user) => {
 window.loginWithGoogle = () => { signInWithPopup(auth, provider); };
 window.logoutFromGoogle = () => { signOut(auth).then(() => showToast('로그아웃 되었습니다.')); };
 
-async function loadCasesFromFirestore() {
+window.loadCasesFromFirestore = async function() {
   try {
     const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(500));
     const snapshot = await getDocs(q);
     if (snapshot.empty) return;
     
     CASES.length = 0; 
-    snapshot.docs.forEach((doc, i) => {
-      CASES.push({ ...doc.data(), _fsId: doc.id, id: doc.data().id || (4000+i) });
+    snapshot.docs.forEach((d, i) => {
+      CASES.push({ ...d.data(), _fsId: d.id, id: d.id || (4000+i) });
     });
     
     updateMobTabbar && updateMobTabbar(currentView);
     if (currentView === 'dashboard') renderDashboard();
     if (currentView === 'search') renderSearch();
   } catch(e) { console.warn("Firestore 판례 로드 실패:", e.message); }
-}
+};
 
-async function loadExpertsFromFirestore() {
+window.loadExpertsFromFirestore = async function() {
   try {
     const q = query(collection(db, "experts"), orderBy("createdAt", "desc"));
     const snapshot = await getDocs(q);
     
     if (!snapshot.empty) {
       EXPERTS.length = 0;
-      snapshot.docs.forEach(doc => {
-        EXPERTS.push({ ...doc.data(), _fsId: doc.id });
+      snapshot.docs.forEach(d => {
+        EXPERTS.push({ ...d.data(), _fsId: d.id });
       });
-      if (currentView === 'experts') applyExpertFilters();
-    } else {
-      EXPERTS = [...MOCK_EXPERTS];
       if (currentView === 'experts') applyExpertFilters();
     }
   } catch(e) { 
     console.warn("전문가 로드 실패:", e.message); 
-    EXPERTS = [...MOCK_EXPERTS];
-  }
-}
-
-// ✅ 판례 저장 (부분 업데이트 지원)
-window.saveCase = async function(data) {
-  try {
-    if (data.caseNum) {
-      const customId = data.caseNum.replace(/\s+/g, '_');
-      const docRef = doc(db, "cases", customId);
-      // 🔥 { merge: true } 옵션을 넣으면 기존 데이터를 지우지 않고, 입력한 부분만 수정(덮어쓰기) 됩니다!
-      await setDoc(docRef, { ...data, updatedAt: new Date().toISOString() }, { merge: true });
-      return customId;
-    } else {
-      const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
-      return docRef.id;
-    }
-  } catch (e) {
-    console.error("판례 저장 실패:", e);
-    return null;
   }
 };
 
-// ✅ 전문가 저장 (부분 업데이트 지원)
+window.saveCase = async function(data) {
+  if (data.caseNum) {
+    const customId = data.caseNum.replace(/\s+/g, '_');
+    await setDoc(doc(db, "cases", customId), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
+    return customId;
+  } else {
+    const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
+    return docRef.id;
+  }
+};
+
 window.saveExpert = async function(data) {
+  if (data.name) {
+    const customId = data.name.replace(/\s+/g, '_');
+    await setDoc(doc(db, "experts", customId), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
+    return customId;
+  } else {
+    const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
+    return docRef.id;
+  }
+};
+
+// 실시간 업로드 및 화면 갱신
+window.uploadJsonToFirebase = async function() {
+  const inputEl = document.getElementById('admin-json-input');
+  const statusEl = document.getElementById('upload-status');
+  const uploadType = document.getElementById('admin-upload-type').value;
+  
   try {
-    if (data.name) {
-      const customId = data.name.replace(/\s+/g, '_');
-      const docRef = doc(db, "experts", customId);
-      // 🔥 { merge: true } 옵션 추가
-      await setDoc(docRef, { ...data, updatedAt: new Date().toISOString() }, { merge: true });
-      return customId;
+    const rawText = inputEl.value.trim();
+    if (!rawText) throw new Error("데이터를 입력해주세요.");
+    
+    const parsedData = new Function("return " + rawText)(); 
+    statusEl.style.color = "var(--blue)";
+    statusEl.textContent = "⏳ 데이터 전송 중...";
+
+    let docId;
+    if (uploadType === 'case') {
+      docId = await saveCase(parsedData);
+      await loadCasesFromFirestore();
     } else {
-      const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
-      return docRef.id;
+      docId = await saveExpert(parsedData);
+      await loadExpertsFromFirestore();
     }
-  } catch (e) {
-    console.error("전문가 저장 실패:", e);
-    return null;
+    
+    if (docId) {
+      statusEl.style.color = "#2F855A"; 
+      statusEl.textContent = "✅ 성공! 데이터가 실시간으로 화면에 반영되었습니다.";
+      inputEl.value = ""; 
+    } else {
+      throw new Error("저장 권한이 없거나 오류가 발생했습니다.");
+    }
+  } catch(error) {
+    statusEl.style.color = "#C53030"; 
+    statusEl.textContent = "❌ 처리 실패: " + error.message;
   }
 };
 
