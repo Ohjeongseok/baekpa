@@ -225,6 +225,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   <div class="content" id="scroll-container">
     <div class="view active" id="v-dashboard">
       <div style="margin-bottom:28px"><h2>Overview</h2><p id="dash-date" style="font-size:13px;color:var(--gray);margin-top:6px"></p></div>
+      
       <div class="stats-row">
         <div class="stat-card"><div class="stat-label">총 판례 수</div><div class="stat-val" id="stat-total">—</div><div class="stat-sub" id="stat-total-sub"></div></div>
         <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">—</div><div class="stat-sub" id="stat-ai-sub"></div></div>
@@ -428,7 +429,7 @@ window.switchTab = function(btn, tabId) {
     document.getElementById(tabId).classList.add('active');
 };
 
-// --- [4] 대시보드 및 데이터 렌더링 (트렌드 포함) ---
+// --- [4] 대시보드 및 데이터 렌더링 (사이드바 트렌드 로직 통합) ---
 function renderDashboard() {
     const total = window.CASES.length;
     if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = total;
@@ -446,9 +447,12 @@ function renderDashboard() {
                 <td><span style="color:var(--success); font-weight:700">분석완료</span></td>
             </tr>`).join('');
     }
+
+    // 🚀 대시보드 렌더링 시 트렌드 함수 호출
     updateSidebarTrends();
 }
 
+// 🚀 실시간 사이드바 트렌드 연동 함수
 function updateSidebarTrends() {
     const total = window.CASES.length;
     if (total === 0) return;
