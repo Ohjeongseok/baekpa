@@ -246,7 +246,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -270,7 +270,7 @@ let currentView = 'dashboard';
 let prevView = 'dashboard';
 let currentExpertType = 'all';
 
-// --- [1] 네비게이션 및 사이드바 제어 ---
+// --- [1] 네비게이션 엔진 ---
 window.nav = function(view) {
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
@@ -303,7 +303,7 @@ window.closeSidebar = () => {
 };
 window.mobNav = (view) => nav(view);
 
-// --- [2] 전문가 상세 팝업 및 필터 로직 ---
+// --- [2] 전문가 시스템 ---
 window.setExpertType = (type, btn) => {
     document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
     if(btn) btn.classList.add('active');
@@ -340,7 +340,6 @@ window.applyExpertFilters = function() {
 window.openExpertModal = (name) => {
     const e = window.EXPERTS.find(x => x.name === name);
     if (!e) return;
-
     document.getElementById('modalContent').innerHTML = `
         <h2 style="color:var(--navy); margin-bottom:8px; font-size:24px;">${e.name}</h2>
         <p style="color:var(--blue); font-weight:700; margin-bottom:24px; font-size:16px;">${e.role || '해상 전문가'}</p>
@@ -359,7 +358,7 @@ window.openExpertModal = (name) => {
     document.getElementById('expertModal').style.display = 'flex';
 };
 
-// --- [3] 판례 상세 및 렌더링 ---
+// --- [3] 판례 리포트 시스템 ---
 window.openDetail = (id) => {
     const c = window.CASES.find(x => x.id == id);
     if (!c) return;
@@ -374,9 +373,9 @@ window.openDetail = (id) => {
         </div>
         <div class="detail-body">
             <div class="detail-left">
-                <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 준비 중'}</div>
+                <div id="tab-org" class="tab-pane active original-wrap">${c.original || '원문 데이터가 없습니다.'}</div>
                 <div id="tab-ai" class="tab-pane" style="background:#fff; padding:32px; border:1px solid var(--border); border-radius:4px;">
-                    <h4 style="color:var(--blue); margin-bottom:16px;">핵심 요약</h4><p style="line-height:1.8">${c.facts || c.summary}</p>
+                    <h4 style="color:var(--blue); margin-bottom:16px;">핵심 분석</h4><p style="line-height:1.8">${c.facts || c.summary}</p>
                 </div>
             </div>
         </div>`;
@@ -391,10 +390,10 @@ window.switchTab = function(btn, tabId) {
     document.getElementById(tabId).classList.add('active');
 };
 
+// --- [4] 대시보드 및 데이터 렌더링 ---
 function renderDashboard() {
-    const total = window.CASES.length;
-    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = total;
-    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = total;
+    if(document.getElementById('stat-total')) document.getElementById('stat-total').innerText = window.CASES.length;
+    if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').innerText = window.CASES.length;
     if(document.getElementById('dash-date')) document.getElementById('dash-date').innerText = new Date().toLocaleDateString() + " 현황";
     
     const tbody = document.getElementById('dashTable');
@@ -405,21 +404,21 @@ function renderDashboard() {
                 <td><span class="badge badge-blue">${c.type}</span></td>
                 <td>${c.flag || '🌐'} ${c.court}</td>
                 <td>${c.date}</td>
-                <td><span class="ai-done">완료</span></td>
+                <td><span style="color:var(--success); font-weight:700">분석완료</span></td>
             </tr>`).join('');
     }
 }
 
-// --- [4] 관리자 및 Firebase 설정 ---
+// --- [5] Firebase 인증 및 관리자 기능 ---
 onAuthStateChanged(auth, (user) => {
     const authContainer = document.getElementById('auth-container');
     const adminMenu = document.getElementById('menu-admin');
     if (user && ["ojs8851@gmail.com", "baekpa0814@gmail.com"].includes(user.email)) {
         if(adminMenu) adminMenu.style.display = 'flex';
         authContainer.innerHTML = `
-            <div class="user-info-wrap" style="display:flex; align-items:center; gap:10px; color:#fff;">
+            <div style="display:flex; align-items:center; gap:10px; color:#fff; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px; width:100%;">
                 <img src="${user.photoURL}" style="width:30px; height:30px; border-radius:4px;">
-                <span style="font-size:12px;">${user.displayName}</span>
+                <span style="font-size:12px; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${user.displayName}</span>
                 <button onclick="signOut(getAuth())" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer;">🚪</button>
             </div>`;
     } else {
@@ -446,12 +445,12 @@ document.getElementById('admin-json-input')?.addEventListener('input', (e) => {
         const imgBox = document.getElementById('imgPreview');
         if(data.logoUrl && preview && imgBox) {
             preview.style.display = 'block';
-            imgBox.innerHTML = `<img src="${data.logoUrl}">`;
+            imgBox.innerHTML = `<img src="${data.logoUrl}" style="max-width:100%; max-height:100%; object-fit:contain;">`;
         }
     } catch(err) {}
 });
 
-// --- [5] 실시간 동기화 실행 ---
+// --- [6] 실시간 동기화 ---
 onSnapshot(collection(db, "cases"), (snap) => {
     window.CASES = snap.docs.map(d => ({ ...d.data(), id: d.id }));
     renderDashboard();
@@ -462,7 +461,7 @@ onSnapshot(collection(db, "experts"), (snap) => {
     if(currentView === 'experts') applyExpertFilters();
 });
 
-// 초기화
+// 초기화 실행
 nav('dashboard');
 </script>
 </body>
