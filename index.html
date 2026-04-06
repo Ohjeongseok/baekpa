@@ -2,39 +2,29 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>백파(Baekpa) — 해상 전문 법률 정보 플랫폼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy: #101D33; --blue: #2B4C7E; --lb: #E2E8F0;
-  --white: #fff; --dark: #1A202C; --gray: #718096; --lgray: #F8FAFC;
-  --border: #CBD5E0; --sidebar: 240px;
-}
+:root{--navy:#101D33;--blue:#2B4C7E;--lb:#E2E8F0;--white:#fff;--dark:#1A202C;--gray:#718096;--lgray:#F8FAFC;--border:#CBD5E0;--sidebar:240px;}
 body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);display:flex;height:100vh;overflow:hidden}
-
-/* ── SIDEBAR ── */
 .sidebar{width:var(--sidebar);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;height:100vh;overflow-y:auto;border-right:1px solid rgba(255,255,255,0.05);}
 .sb-logo{padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .sb-logo-main{display:flex;align-items:center;gap:10px}
-.sb-icon{width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.sb-icon{width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px}
 .sb-name{font-size:18px;font-weight:700;color:#fff;letter-spacing:0.5px}
 .sb-en{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:2px}
 .sb-section{padding:20px 16px 8px;font-size:10px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;font-family:'Inter',sans-serif}
 .sb-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:4px;cursor:pointer;margin:2px 12px;transition:all 0.15s;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500}
 .sb-item:hover{background:rgba(255,255,255,0.06);color:#fff}
 .sb-item.active{background:rgba(255,255,255,0.12);color:#fff;border-left:3px solid var(--blue);padding-left:11px;}
-.sb-item .icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
 .sb-badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;font-family:'Inter',sans-serif}
 .sb-filter-section{padding:8px 20px 16px;border-top:1px solid rgba(255,255,255,0.05);margin-top:8px}
-.sf-label{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;font-family:'Inter',sans-serif}
 .sf-tag{display:inline-block;padding:5px 10px;border-radius:3px;font-size:11px;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.15s;margin:2px 2px;border:1px solid transparent;}
 .sf-tag:hover{border-color:rgba(255,255,255,0.2);color:#fff}
 .sf-tag.on{background:var(--blue);color:#fff;border-color:var(--blue);}
 .sb-bottom{margin-top:auto;padding:16px;border-top:1px solid rgba(255,255,255,0.08)}
-.user-row{display:flex;align-items:center;gap:10px;justify-content:space-between;width:100%}
 .user-info-wrap{display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden}
 .user-avatar img{width:100%;height:100%;object-fit:cover}
@@ -44,8 +34,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .auth-btn:hover{background:rgba(255,255,255,0.2)}
 .logout-btn{background:none;border:none;color:rgba(255,255,255,0.4);font-size:16px;cursor:pointer;padding:4px}
 .logout-btn:hover{color:#fff}
-
-/* ── MAIN ── */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;height:60px;display:flex;align-items:center;gap:16px;flex-shrink:0;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .search-wrap{flex:1;max-width:600px;position:relative}
@@ -61,25 +49,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .notif{width:36px;height:36px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;background:#fff;position:relative}
 .notif:hover{background:var(--lgray)}
 .notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:#E53E3E;border-radius:50%;border:1.5px solid #fff}
-
-/* ── CONTENT AREA ── */
 .content{flex:1;overflow-y:auto;padding:32px 40px}
 .view{display:none}.view.active{display:block}
-
-/* ── DASHBOARD ── */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;transition:all 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .stat-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.05);transform:translateY(-1px)}
 .stat-label{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
 .stat-val{font-size:28px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif;line-height:1}
 .stat-sub{font-size:11px;color:#2F855A;font-weight:600;margin-top:8px}
-
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;border-bottom:2px solid var(--navy);padding-bottom:10px}
 .section-head h3{font-size:16px;font-weight:700;color:var(--navy)}
 .view-all{font-size:12px;color:var(--gray);cursor:pointer;font-weight:600;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
 .view-all:hover{color:var(--navy)}
-
-/* ── TABLE ── */
 .table-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 table{width:100%;border-collapse:collapse}
 th{background:var(--lgray);padding:12px 16px;font-size:11px;font-weight:600;color:var(--gray);text-align:left;letter-spacing:0.5px;text-transform:uppercase;font-family:'Inter',sans-serif;border-bottom:1px solid var(--border)}
@@ -95,8 +76,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .flag{font-size:15px}
 .ai-done{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#2F855A;font-weight:600;font-family:'Inter',sans-serif}
 .ai-done::before{content:'✓';font-weight:800}
-
-/* ── TREND CARDS ── */
 .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
 .trend-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;transition:all 0.2s;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .trend-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.05)}
@@ -106,15 +85,12 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .trend-change{font-size:11px;color:#2F855A;font-weight:600;margin-left:6px}
 .trend-bar{height:4px;background:var(--lgray);border-radius:2px;margin-top:12px;overflow:hidden}
 .trend-bar-fill{height:100%;background:var(--blue);border-radius:2px;transition:width 0.8s}
-
-/* ── SEARCH VIEW ── */
 .search-filters{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .filter-select{padding:8px 12px;border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--dark);outline:none;cursor:pointer;background:#fff;transition:border-color 0.2s}
 .filter-select:focus{border-color:var(--navy)}
 .filter-label{font-size:12px;font-weight:600;color:var(--gray);white-space:nowrap}
 .result-count{font-size:13px;color:var(--gray);margin-bottom:14px;font-family:'Inter',sans-serif}
 .result-count strong{color:var(--navy)}
-
 .case-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.2s;border-left:4px solid transparent;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .case-card:hover{border-color:var(--border);border-left-color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,0.05);background:#FAFCFF}
 .case-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
@@ -127,8 +103,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .conf-label{font-size:11px;color:var(--gray);font-family:'Inter',sans-serif}
 .conf-track{width:60px;height:4px;background:var(--lgray);border-radius:2px;overflow:hidden}
 .conf-fill{height:100%;background:#2F855A;border-radius:2px}
-
-/* ── DETAIL VIEW ── */
 .detail-back{display:flex;align-items:center;gap:8px;color:var(--gray);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:20px;background:none;border:none;font-family:'Noto Sans KR',sans-serif;padding:0;transition:color 0.2s}
 .detail-back:hover{color:var(--navy)}
 .detail-header{background:#fff;border:1px solid var(--border);border-radius:4px;padding:28px 32px;margin-bottom:20px;border-top:4px solid var(--navy);box-shadow:0 1px 2px rgba(0,0,0,0.02)}
@@ -137,7 +111,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .detail-body{display:grid;grid-template-columns:1fr 340px;gap:20px}
 .detail-left{display:flex;flex-direction:column;gap:16px}
 .detail-right{display:flex;flex-direction:column;gap:16px}
-
 .analysis-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .analysis-section{margin-bottom:24px;border-bottom:1px solid var(--lgray);padding-bottom:20px}
 .analysis-section:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0}
@@ -147,7 +120,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:16px;position:relative}
 .analysis-list li::before{content:'-';position:absolute;left:0;color:var(--gray);font-weight:700}
 .implication-item{background:#F7FAFC;border-left:3px solid var(--blue);padding:14px 16px;border-radius:0 4px 4px 0;font-size:13px;color:var(--dark);line-height:1.7;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-
 .info-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .info-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--lgray)}
 .info-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);gap:12px}
@@ -155,92 +127,54 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .info-key{font-size:12px;color:var(--gray);font-weight:600;flex-shrink:0}
 .info-val{font-size:12px;color:var(--dark);font-weight:500;text-align:right;line-height:1.5}
 
-/* ── HISTORY TIMELINE ── */
-.history-list { display:flex; flex-direction:column; gap:0; padding:8px 0 0 4px; }
-.history-item { font-size:13px; color:var(--dark); position:relative; padding:0 0 20px 16px; line-height:1.4; }
-.history-item:last-child { padding-bottom:0; }
-.history-item::before { content:''; position:absolute; left:-3px; top:5px; width:7px; height:7px; border-radius:50%; background:#fff; border:2px solid var(--navy); z-index:2; }
-.history-item:not(:last-child)::after { content:''; position:absolute; left:0px; top:12px; bottom:-5px; width:1px; background:var(--border); z-index:1; }
-
-.related-item{padding:12px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
-.related-item:last-child{margin-bottom:0;}
-.related-item:hover{background:#F7FAFC;border-color:var(--blue);}
-.related-flag{font-size:14px;flex-shrink:0;margin-top:1px}
-.related-text{font-size:12px;color:var(--dark);line-height:1.5;font-weight:500}
-
-/* ── EXPERTS DIRECTORY VIEW ── */
+/* ── ✅ 전문가 네트워크 뷰 (모던 카드 레이아웃 수정) ── */
 .expert-filters { display:flex; gap:8px; margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:16px; flex-wrap:wrap; }
 .expert-tab { padding:8px 16px; border:1px solid transparent; background:none; font-size:13px; font-weight:600; color:var(--gray); cursor:pointer; border-radius:4px; transition:all 0.2s; font-family:'Noto Sans KR',sans-serif; }
 .expert-tab.active { background:#fff; border-color:var(--border); color:var(--navy); box-shadow:0 1px 2px rgba(0,0,0,0.05); }
 .expert-tab:hover:not(.active) { background:var(--lgray); color:var(--navy); }
-.expert-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px; }
-.expert-card { background:#fff; border:1px solid var(--border); border-radius:4px; padding:24px; transition:all 0.2s; display:flex; flex-direction:column; border-top:3px solid var(--border); }
-.expert-card:hover { border-top-color:var(--navy); box-shadow:0 4px 12px rgba(0,0,0,0.05); transform:translateY(-2px); }
-.expert-header { display:flex; gap:16px; margin-bottom:16px; align-items:center; }
-.expert-logo { width:72px; height:72px; background:#fff; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; overflow:hidden; padding:4px; box-shadow:0 1px 3px rgba(0,0,0,0.02); }
-.expert-logo img { width:100%; height:100%; object-fit:contain; }
-.expert-info { flex:1; }
-.expert-info h4 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
-.expert-role { font-size:11px; color:var(--gray); font-weight:600; letter-spacing:0.5px; margin-bottom:6px; }
+.expert-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; }
+
+/* 전문가 카드 전체 감싸개 */
+.expert-card { background:#fff; border:1px solid var(--border); border-radius:6px; transition:all 0.2s; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.03); }
+.expert-card:hover { border-color:var(--navy); box-shadow:0 8px 20px rgba(0,0,0,0.08); transform:translateY(-2px); }
+
+/* 전문가 카드 상단 이미지 영역 (커버 형태) */
+.expert-cover { width:100%; height:160px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:48px; position:relative; padding:16px; }
+.expert-cover img { width:100%; height:100%; object-fit:contain; }
+
+/* 전문가 카드 하단 텍스트 및 버튼 영역 */
+.expert-body { padding:20px 24px 24px; display:flex; flex-direction:column; flex:1; }
+.expert-info { margin-bottom:12px; }
+.expert-role { font-size:11px; color:var(--gray); font-weight:600; letter-spacing:0.5px; margin-bottom:8px; display:block; }
+.expert-info h4 { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
 .expert-desc { font-size:13px; color:var(--dark); line-height:1.6; margin-bottom:18px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .expert-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
 .expert-tag { padding:4px 8px; background:var(--lgray); border:1px solid var(--border); color:var(--gray); font-size:11px; border-radius:3px; font-weight:600; }
-.expert-contact { width:100%; padding:10px; background:#fff; color:var(--navy); border:1px solid var(--border); border-radius:4px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; }
-.expert-contact:hover { background:var(--lgray); border-color:var(--navy); }
+.expert-contact { width:100%; padding:12px; background:#fff; color:var(--navy); border:1px solid var(--navy); border-radius:4px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; text-align:center; }
+.expert-contact:hover { background:var(--navy); color:#fff; }
 
-/* ── TREND REPORT VIEW ── */
-.report-header{background:var(--navy);border-radius:4px;padding:32px;margin-bottom:24px;color:#fff}
-.report-header h2{font-size:22px;font-weight:700;margin-bottom:6px}
-.report-header p{font-size:14px;color:rgba(255,255,255,0.6)}
-.chart-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;margin-bottom:20px}
-.chart-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:20px}
-.bar-chart{display:flex;align-items:flex-end;gap:12px;height:160px}
-.bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
-.bar{width:100%;border-radius:3px 3px 0 0;background:var(--blue);transition:all 0.5s;cursor:pointer;min-height:4px}
-.bar:hover{background:var(--navy)}
-.bar-label{font-size:11px;color:var(--gray);text-align:center;font-family:'Inter',sans-serif;white-space:nowrap}
-.bar-val{font-size:11px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif}
-.report-highlight{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px}
-.highlight-item{padding:16px 0;border-bottom:1px solid var(--border);display:flex;gap:16px;cursor:pointer}
-.highlight-item:last-child{border-bottom:none;padding-bottom:0}
-.highlight-item:hover .highlight-title{color:var(--blue)}
-.highlight-num{width:28px;height:28px;background:var(--lgray);color:var(--navy);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;font-family:'Inter',sans-serif}
-.highlight-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.4}
-.highlight-body{font-size:13px;color:var(--dark);line-height:1.7}
-
-/* ── DETAIL TABS ── */
 .detail-tabs{display:flex;gap:4px;margin-bottom:16px;background:none;border-bottom:1px solid var(--border);padding-bottom:0px}
 .detail-tab{padding:10px 16px;border:1px solid transparent;border-bottom:none;border-radius:4px 4px 0 0;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--gray);background:none;transition:all 0.15s;margin-bottom:-1px}
 .detail-tab.active{background:#fff;border-color:var(--border);color:var(--navy);border-bottom-color:#fff;}
 .detail-tab:hover:not(.active){color:var(--navy)}
 .tab-pane{display:none}.tab-pane.active{display:block}
-
-/* ── ORIGINAL TEXT ── */
 .original-wrap{background:#fff;border:1px solid var(--border);border-radius:4px;padding:32px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .original-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--lgray)}
 .original-stamp{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;font-family:'Inter',sans-serif;letter-spacing:1px}
 .original-body{font-size:14px;line-height:2;color:var(--dark);white-space:pre-wrap;word-break:keep-all}
 .original-body strong{color:var(--navy);font-weight:700}
 .original-section-title{font-size:13px;font-weight:700;color:var(--navy);margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-
-/* ── PROVISIONS ── */
 .provision-item{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .provision-header{padding:14px 18px;background:var(--lgray);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
 .provision-law{font-size:11px;font-weight:700;color:var(--blue);font-family:'Inter',sans-serif;letter-spacing:0.5px}
 .provision-title{font-size:14px;font-weight:700;color:var(--navy)}
 .provision-body{padding:16px 18px;font-size:13px;color:var(--dark);line-height:1.9}
 .provision-relevance{margin-top:12px;padding:10px 14px;background:#F7FAFC;border-radius:4px;font-size:12px;color:var(--gray);font-weight:600;border:1px solid var(--border)}
-
-/* ── EMPTY / LOADING ── */
 .empty{text-align:center;padding:60px;color:var(--gray)}
 .empty-icon{font-size:40px;margin-bottom:12px;opacity:0.5}
 .empty p{font-size:14px}
-
-/* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:4px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px);z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
 .toast.show{opacity:1;transform:translateY(0)}
-
-/* ══ MOBILE RESPONSIVE ══ */
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199}
 .sidebar-overlay.show{display:block}
 .mob-menu{display:none;width:36px;height:36px;border:1px solid var(--border);background:#fff;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:4px;border-radius:4px;flex-shrink:0}
@@ -252,62 +186,11 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .mob-tab-badge{position:relative}
 .mob-tab-badge::after{content:attr(data-count);position:absolute;top:-4px;right:-10px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;font-family:'Inter',sans-serif;min-width:14px;text-align:center}
 
-@media (max-width:1024px){
-  :root{--sidebar:200px}
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .trend-grid{grid-template-columns:repeat(2,1fr)}
-  .detail-body{grid-template-columns:1fr 280px}
-}
-
+@media (max-width:1024px){ :root{--sidebar:200px} .stats-row{grid-template-columns:repeat(2,1fr)} .detail-body{grid-template-columns:1fr 280px} }
 @media (max-width:768px){
-  body{overflow:auto}
-  .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh}
-  .sidebar.open{left:0}
-  .main{width:100%}
-  .topbar{padding:0 16px;gap:10px}
-  .mob-menu{display:flex}
-  .search-wrap{max-width:none;flex:1}
-  .search-wrap input{font-size:14px;padding:9px 14px 9px 38px}
-  .tb-btn{display:none}
-  .notif{width:34px;height:34px}
-  .content{padding:16px 14px 76px}
-  .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
-  .stat-card{padding:16px 16px}
-  .stat-val{font-size:22px}
-  .trend-grid{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
-  .table-wrap{overflow-x:auto}
-  table{min-width:520px}
-  .case-card{padding:16px}
-  .case-card-title{font-size:14px}
-  .case-card-footer{flex-wrap:wrap;gap:8px}
-  .conf-bar{margin-left:0}
-  .search-filters{padding:14px 16px;gap:8px}
-  .filter-select{font-size:12px;padding:6px 10px}
-  .detail-header{padding:18px 16px}
-  .detail-title{font-size:17px}
-  .detail-body{grid-template-columns:1fr;gap:14px}
-  .detail-right{order:2}
-  .detail-left{order:1}
-  .original-wrap{padding:16px}
-  .original-body{font-size:13px;line-height:1.9}
-  .analysis-card{padding:16px}
-  .analysis-text{font-size:13px}
-  .analysis-list li{font-size:13px}
-  .info-card{padding:16px}
-  .trend-grid{grid-template-columns:1fr}
-  .report-header{padding:20px 18px; border-radius:0}
-  .report-header h2{font-size:18px}
-  .bar-chart{height:120px}
-  .mob-tabbar{display:flex}
-  .toast{bottom:72px;right:16px;left:16px;text-align:center}
+  body{overflow:auto} .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh} .sidebar.open{left:0} .main{width:100%} .topbar{padding:0 16px;gap:10px} .mob-menu{display:flex} .search-wrap{max-width:none;flex:1} .search-wrap input{font-size:14px;padding:9px 14px 9px 38px} .tb-btn{display:none} .notif{width:34px;height:34px} .content{padding:16px 14px 76px} .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px} .stat-card{padding:16px 16px} .stat-val{font-size:22px} .table-wrap{overflow-x:auto} table{min-width:520px} .case-card{padding:16px} .case-card-title{font-size:14px} .case-card-footer{flex-wrap:wrap;gap:8px} .conf-bar{margin-left:0} .search-filters{padding:14px 16px;gap:8px} .filter-select{font-size:12px;padding:6px 10px} .detail-header{padding:18px 16px} .detail-title{font-size:17px} .detail-body{grid-template-columns:1fr;gap:14px} .detail-right{order:2} .detail-left{order:1} .original-wrap{padding:16px} .original-body{font-size:13px;line-height:1.9} .analysis-card{padding:16px} .analysis-text{font-size:13px} .analysis-list li{font-size:13px} .info-card{padding:16px} .mob-tabbar{display:flex} .toast{bottom:72px;right:16px;left:16px;text-align:center}
 }
-
-@media (max-width:400px){
-  .stats-row{grid-template-columns:1fr}
-  .trend-grid{grid-template-columns:1fr}
-  .detail-tabs{gap:2px}
-  .detail-tab{font-size:12px;padding:8px 4px}
-}
+@media (max-width:400px){ .stats-row{grid-template-columns:1fr} .detail-tabs{gap:2px} .detail-tab{font-size:12px;padding:8px 4px} }
 </style>
 </head>
 <body>
@@ -323,31 +206,17 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <aside class="sidebar" id="sidebar">
   <div class="sb-logo">
-    <div class="sb-logo-main" style="justify-content:space-between">
-      <div style="display:flex;align-items:center;gap:10px">
-      <div class="sb-icon">
-        <svg viewBox="0 0 36 36" width="20" fill="none">
-          <path d="M4 18 C9 11,15 11,20 16 C25 21,31 20,32 15" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M4 24 C9 20,14 20,19 23 C24 26,29 25,32 22" stroke="rgba(255,255,255,0.45)" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <div class="sb-name">백파</div>
-        <div class="sb-en">BAEKPA</div>
-      </div>
-      </div>
-      <button onclick="closeSidebar()" style="display:none;background:none;border:none;color:rgba(255,255,255,0.6);font-size:22px;cursor:pointer;line-height:1;padding:4px" id="sb-close">✕</button>
+    <div class="sb-logo-main">
+      <div class="sb-icon">🛳️</div>
+      <div><div class="sb-name">백파</div><div class="sb-en">BAEKPA</div></div>
     </div>
   </div>
-
   <div class="sb-section">메뉴</div>
-  <div class="sb-item active" onclick="nav('dashboard')"><span class="icon">📊</span>대시보드</div>
-  <div class="sb-item" onclick="nav('search')"><span class="icon">📄</span>판례 데이터<span class="sb-badge" id="sb-total-badge">—</span></div>
-  <div class="sb-item" onclick="nav('experts')"><span class="icon">🤝</span>전문가 네트워크</div>
-  <div class="sb-item" onclick="nav('trend')"><span class="icon">📈</span>트렌드 리포트</div>
-  <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">🔖</span>북마크 보관함</div>
-  
-  <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;"><span class="icon">⚙️</span>시스템 관리</div>
+  <div class="sb-item active" onclick="nav('dashboard')">📊 대시보드</div>
+  <div class="sb-item" onclick="nav('search')">📄 판례 데이터<span class="sb-badge" id="sb-total-badge">—</span></div>
+  <div class="sb-item" onclick="nav('experts')">🤝 전문가 네트워크</div>
+  <div class="sb-item" onclick="nav('bookmarks')">🔖 북마크 보관함</div>
+  <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">⚙️ 시스템 관리</div>
 
   <div class="sb-section">사건 유형</div>
   <div class="sb-filter-section">
@@ -362,18 +231,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
     </div>
   </div>
 
-  <div class="sb-section">국가</div>
-  <div class="sb-filter-section">
-    <div style="display:flex;flex-wrap:wrap">
-      <div class="sf-tag on" onclick="toggleFilter(this)">🌐 전체</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇰🇷 한국</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇬🇧 영국</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇸🇬 싱가포르</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇭🇰 홍콩</div>
-      <div class="sf-tag" onclick="toggleFilter(this)">🇺🇸 미국</div>
-    </div>
-  </div>
-
   <div class="sb-bottom">
     <div class="user-row" id="auth-container">
       <button class="auth-btn" onclick="loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>
@@ -383,9 +240,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <div class="main">
   <div class="topbar">
-    <button class="mob-menu" onclick="openSidebar()" aria-label="메뉴">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="mob-menu" onclick="openSidebar()" aria-label="메뉴"><span></span><span></span><span></span></button>
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
       <input id="mainSearch" type="text" placeholder="사건번호, 법률 쟁점, 판례 키워드 검색..." onkeydown="if(event.key==='Enter')doSearch()">
@@ -393,7 +248,6 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
     <div class="tb-right">
       <div class="notif" title="알림"><span>🔔</span><div class="notif-dot"></div></div>
       <button class="tb-btn tb-btn-outline" onclick="nav('search')">상세 검색</button>
-      <button class="tb-btn tb-btn-primary" onclick="showToast('✅ 새 판례 알림이 설정되었습니다')">알림 설정</button>
     </div>
   </div>
 
@@ -406,29 +260,11 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       </div>
 
       <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-label">총 판례 수</div>
-          <div class="stat-val" id="stat-total">—</div>
-          <div class="stat-sub" id="stat-total-sub"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">AI 분석 완료</div>
-          <div class="stat-val" id="stat-ai-rate">—</div>
-          <div class="stat-sub" id="stat-ai-sub"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">최근 1개월 신규</div>
-          <div class="stat-val" id="stat-month">—</div>
-          <div class="stat-sub" id="stat-month-sub"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">내 북마크</div>
-          <div class="stat-val" id="stat-bm">—</div>
-          <div class="stat-sub" id="stat-bm-sub"></div>
-        </div>
+        <div class="stat-card"><div class="stat-label">총 판례 수</div><div class="stat-val" id="stat-total">—</div><div class="stat-sub" id="stat-total-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">AI 분석 완료</div><div class="stat-val" id="stat-ai-rate">—</div><div class="stat-sub" id="stat-ai-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">최근 1개월 신규</div><div class="stat-val" id="stat-month">—</div><div class="stat-sub" id="stat-month-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">내 북마크</div><div class="stat-val" id="stat-bm">—</div><div class="stat-sub" id="stat-bm-sub"></div></div>
       </div>
-
-      <div class="trend-grid" id="trend-grid"></div>
 
       <div class="section-head">
         <h3>최신 등록 판례</h3>
@@ -436,38 +272,21 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr>
-            <th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th>
-          </tr></thead>
+          <thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead>
           <tbody id="dashTable"></tbody>
         </table>
       </div>
     </div>
 
     <div class="view" id="v-search">
-      <div style="margin-bottom:24px">
-        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">판례 검색</h2>
-      </div>
+      <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">판례 검색</h2></div>
       <div class="search-filters">
         <span class="filter-label">국가</span>
-        <select class="filter-select" id="f-country" onchange="renderSearch()">
-          <option>전체</option><option>🇰🇷 한국</option><option>🇬🇧 영국</option>
-          <option>🇸🇬 싱가포르</option><option>🇭🇰 홍콩</option><option>🇺🇸 미국</option>
-        </select>
+        <select class="filter-select" id="f-country" onchange="renderSearch()"><option>전체</option><option>🇰🇷 한국</option><option>🇬🇧 영국</option><option>🇸🇬 싱가포르</option><option>🇭🇰 홍콩</option><option>🇺🇸 미국</option></select>
         <span class="filter-label">사건유형</span>
-        <select class="filter-select" id="f-type" onchange="renderSearch()">
-          <option>전체</option><option>선하증권</option><option>해상보험</option>
-          <option>선박충돌</option><option>화물손해</option><option>용선계약</option>
-          <option>해난구조</option>
-        </select>
-        <span class="filter-label">기간</span>
-        <select class="filter-select" id="f-year" onchange="renderSearch()">
-          <option>전체</option><option>2024~2025</option><option>2022~2023</option><option>~2021</option>
-        </select>
+        <select class="filter-select" id="f-type" onchange="renderSearch()"><option>전체</option><option>선하증권</option><option>해상보험</option><option>선박충돌</option><option>화물손해</option><option>용선계약</option><option>해난구조</option></select>
         <span class="filter-label">정렬</span>
-        <select class="filter-select" id="f-sort" onchange="renderSearch()">
-          <option>최신순</option><option>신뢰도순</option><option>관련도순</option>
-        </select>
+        <select class="filter-select" id="f-sort" onchange="renderSearch()"><option>최신순</option><option>신뢰도순</option></select>
       </div>
       <div class="result-count" id="resultCount"></div>
       <div id="searchResults"></div>
@@ -487,12 +306,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       <div class="search-filters" style="margin-bottom: 20px;">
         <span class="filter-label">국가 선택</span>
         <select class="filter-select" id="expert-country-filter" onchange="applyExpertFilters()">
-          <option value="전체">🌐 전 세계</option>
-          <option value="한국">🇰🇷 한국</option>
-          <option value="영국">🇬🇧 영국</option>
-          <option value="싱가포르">🇸🇬 싱가포르</option>
-          <option value="홍콩">🇭🇰 홍콩</option>
-          <option value="미국">🇺🇸 미국</option>
+          <option value="전체">🌐 전 세계</option><option value="한국">🇰🇷 한국</option><option value="영국">🇬🇧 영국</option><option value="싱가포르">🇸🇬 싱가포르</option><option value="홍콩">🇭🇰 홍콩</option><option value="미국">🇺🇸 미국</option>
         </select>
       </div>
 
@@ -508,48 +322,8 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
         </div>
     </div>
 
-    <div class="view" id="v-trend">
-      <div class="report-header">
-        <p style="font-size:11px;letter-spacing:2px;opacity:.5;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px">월간 리포트</p>
-        <h2>2026년 3월 해상 판례 트렌드 리포트</h2>
-        <p>이달 수집 판례 234건 분석 | 발행일: 2026.03.26</p>
-      </div>
-      <div class="chart-wrap">
-        <div class="chart-title">사건 유형별 판례 수 (2026년 3월)</div>
-        <div class="bar-chart" id="barChart"></div>
-      </div>
-      <div class="section-head">
-        <h3>이달의 주목 판례 3선</h3>
-      </div>
-      <div class="report-highlight">
-        <div class="highlight-item" onclick="openDetail(CASES[0]?.id ?? 0)">
-          <div class="highlight-num">1</div>
-          <div>
-            <div class="highlight-title">대법원 2025다31205 — 해상보험 고지의무 위반 면책 범위 재정립</div>
-            <div class="highlight-body">피보험자의 고지의무 위반이 보험사고와 인과관계가 없는 경우에도 보험자가 면책될 수 있는지에 대해 대법원이 기존 판례를 변경, 인과관계 필요성을 명시하였습니다. 국내 해상보험 실무에 즉각적 영향이 예상됩니다.</div>
-          </div>
-        </div>
-        <div class="highlight-item" onclick="openDetail(CASES[1]?.id ?? 1)">
-          <div class="highlight-num">2</div>
-          <div>
-            <div class="highlight-title">[2025] EWHC 441 — 선하증권 전자화와 권리 이전 유효성</div>
-            <div class="highlight-body">영국 High Court가 전자 선하증권(e-B/L)의 배서에 의한 권리 이전의 법적 유효성을 최초로 인정한 판결로, 국제 전자무역 서류 실무에 중대한 영향을 미칠 것으로 예상됩니다.</div>
-          </div>
-        </div>
-        <div class="highlight-item" onclick="openDetail(CASES[2]?.id ?? 2)">
-          <div class="highlight-num">3</div>
-          <div>
-            <div class="highlight-title">[2025] SGCA 12 — 용선계약 해제 시 손해배상 범위</div>
-            <div class="highlight-body">싱가포르 Court of Appeal이 정기용선계약 조기해제 시 잔존 용선기간 전체에 대한 일실이익 배상을 인정하여, 아시아 해운 분쟁의 새로운 기준을 제시했습니다.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="view" id="v-bookmarks">
-      <div style="margin-bottom:24px">
-        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">북마크 보관함</h2>
-      </div>
+      <div style="margin-bottom:24px"><h2 style="font-size:22px;font-weight:700;color:var(--navy)">북마크 보관함</h2></div>
       <div id="bookmarkResults"></div>
     </div>
 
@@ -567,12 +341,8 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
         </select>
       </div>
       
-      <textarea id="admin-json-input" placeholder="여기에 JSON 데이터를 붙여넣으세요..." 
-                style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:4px; font-family:monospace; font-size:13px; resize:vertical; margin-bottom:16px;"></textarea>
-      
-      <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer; font-size:14px; transition:background 0.2s">
-        🚀 데이터베이스에 업로드
-      </button>
+      <textarea id="admin-json-input" placeholder="여기에 JSON 데이터를 붙여넣으세요..." style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:4px; font-family:monospace; font-size:13px; resize:vertical; margin-bottom:16px;"></textarea>
+      <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer; font-size:14px; transition:background 0.2s">🚀 데이터베이스에 업로드</button>
       <div id="upload-status" style="margin-top:16px; font-size:14px; font-weight:600;"></div>
     </div>
 
@@ -582,14 +352,8 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 <div class="toast" id="toast"></div>
 
 <script>
-// ══ DATA ══
 const CASES = [];
 let EXPERTS = [];
-
-// MOCK_EXPERTS: 만약 DB가 완전히 비었을 때만 보여줄 샘플 데이터
-const MOCK_EXPERTS = [
-  { id: 1, type: 'lawyer', country: '한국', role: '해상·국제거래 전문 변호사', name: '법무법인 해무 샘플', logoUrl: '', desc: '데이터베이스에 연결하여 전문가를 추가해 보세요.', tags: ['샘플 데이터'] }
-];
 
 let currentView = 'dashboard';
 let prevView = 'dashboard';
@@ -601,50 +365,29 @@ function nav(view) {
   document.getElementById('v-' + view).classList.add('active');
   document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
   
-  const map = {dashboard:0, search:1, experts:2, trend:3, bookmarks:4, admin:5};
+  const map = {dashboard:0, search:1, experts:2, bookmarks:3, admin:4};
   const items = document.querySelectorAll('.sb-item');
-  if (map[view] !== undefined && items[map[view]]) {
-    items[map[view]].classList.add('active');
-  }
+  if (map[view] !== undefined && items[map[view]]) { items[map[view]].classList.add('active'); }
   
-  prevView = currentView;
-  currentView = view;
+  prevView = currentView; currentView = view;
   if (view === 'dashboard') renderDashboard();
   if (view === 'search') renderSearch();
   if (view === 'bookmarks') renderBookmarks();
-  if (view === 'trend') renderChart();
   if (view === 'experts') applyExpertFilters();
   
   document.querySelector('.content').scrollTop = 0;
-  updateMobTabbar(view);
-  closeSidebar();
+  updateMobTabbar(view); closeSidebar();
 }
 
-function goBack() {
-  nav(prevView === 'detail' ? 'search' : prevView);
-}
-
-function openSidebar() {
-  document.getElementById('sidebar').classList.add('open');
-  document.querySelector('.sidebar-overlay').classList.add('show');
-  document.getElementById('sb-close').style.display = 'block';
-}
-
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.querySelector('.sidebar-overlay').classList.remove('show');
-  document.getElementById('sb-close').style.display = 'none';
-}
-
+function goBack() { nav(prevView === 'detail' ? 'search' : prevView); }
+function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.querySelector('.sidebar-overlay').classList.add('show'); }
+function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('show'); }
 function mobNav(view) { nav(view); }
-
 function updateMobTabbar(view) {
   const tabMap = {dashboard:0, search:1, experts:2, bookmarks:3};
   const tabs = document.querySelectorAll('.mob-tab');
   tabs.forEach(t => t.classList.remove('active'));
-  if (tabMap[view] !== undefined && tabs[tabMap[view]]) {
-    tabs[tabMap[view]].classList.add('active');
-  }
+  if (tabMap[view] !== undefined && tabs[tabMap[view]]) { tabs[tabMap[view]].classList.add('active'); }
   const badge = document.querySelector('#mobTabbar .mob-tab:nth-child(2) .mob-tab-badge');
   if (badge) badge.setAttribute('data-count', CASES ? new Set(CASES.map(c=>c.id)).size : '');
 }
@@ -660,20 +403,12 @@ function toggleFilter(el) {
 }
 
 let currentSearchQuery = '';
-function doSearch() {
-  currentSearchQuery = document.getElementById('mainSearch').value.trim();
-  nav('search');
-}
+function doSearch() { currentSearchQuery = document.getElementById('mainSearch').value.trim(); nav('search'); }
 
-function filterAndSearch(type) {
-  document.querySelectorAll('#v-search .filter-select')[1].value = type;
-  nav('search');
-}
-
-function getSidebarFilter(sectionIndex) {
+function getSidebarFilter(idx) {
   const sections = document.querySelectorAll('.sb-filter-section');
-  if (!sections[sectionIndex]) return '전체';
-  const on = sections[sectionIndex].querySelector('.sf-tag.on');
+  if (!sections[idx]) return '전체';
+  const on = sections[idx].querySelector('.sf-tag.on');
   return on ? on.textContent.trim() : '전체';
 }
 
@@ -681,77 +416,47 @@ function renderSearch() {
   const q = currentSearchQuery.toLowerCase();
   const dropCountry = document.getElementById('f-country')?.value || '전체';
   const dropType    = document.getElementById('f-type')?.value    || '전체';
-  const year = document.getElementById('f-year')?.value || '전체';
   const sort = document.getElementById('f-sort')?.value || '최신순';
 
-  const sbType    = getSidebarFilter(0);
+  const sbType = getSidebarFilter(0);
   const sbCountry = getSidebarFilter(1);
 
-  const type    = (dropType !== '전체') ? dropType : (sbType !== '전체' ? sbType : '전체');
+  const type = (dropType !== '전체') ? dropType : (sbType !== '전체' ? sbType : '전체');
   const country = (dropCountry !== '전체') ? dropCountry : (sbCountry !== '전체' ? sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,'') : '전체');
 
-  if (sbType !== '전체' && dropType === '전체') {
-    const sel = document.getElementById('f-type');
-    if (sel) [...sel.options].forEach(o => { if(o.value === sbType) sel.value = sbType; });
-  }
-  if (sbCountry !== '전체') {
-    const cleanSb = sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,'');
-    const sel = document.getElementById('f-country');
-    if (sel && dropCountry === '전체') [...sel.options].forEach(o => { if(o.value === cleanSb) sel.value = cleanSb; });
-  }
+  if (sbType !== '전체' && dropType === '전체') { const sel = document.getElementById('f-type'); if (sel) [...sel.options].forEach(o => { if(o.value === sbType) sel.value = sbType; }); }
+  if (sbCountry !== '전체') { const cleanSb = sbCountry.replace(/🌐|🇰🇷|🇬🇧|🇸🇬|🇭🇰|🇺🇸|\s/g,''); const sel = document.getElementById('f-country'); if (sel && dropCountry === '전체') [...sel.options].forEach(o => { if(o.value === cleanSb) sel.value = cleanSb; }); }
 
   let results = CASES.filter(c => {
     const matchQ = !q || (c.caseNum||'').toLowerCase().includes(q) || (c.title||'').toLowerCase().includes(q) || (c.summary||'').toLowerCase().includes(q) || (c.type||'').includes(q) || (c.country||'').includes(q);
     const matchC = country === '전체' || c.country === country;
     const matchT = type === '전체' || c.type === type;
-    const y = parseInt((c.date||'').slice(0,4));
-    const matchY = year === '전체' ||
-      (year === '2024~2025' && y >= 2024 && y <= 2025) ||
-      (year === '2022~2023' && y >= 2022 && y <= 2023) ||
-      (year === '~2021' && y <= 2021);
-    return matchQ && matchC && matchT && matchY;
+    return matchQ && matchC && matchT;
   });
 
-  if (sort === '오래된순') results = results.slice().sort((a,b)=>(a.date||'').localeCompare(b.date||''));
-  else if (sort === '관련도순') results = results.slice().sort((a,b)=>(b.conf||0)-(a.conf||0));
+  if (sort === '관련도순') results = results.slice().sort((a,b)=>(b.conf||0)-(a.conf||0));
   else results = results.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
 
   const countEl = document.getElementById('resultCount');
   countEl.innerHTML = q ? `<strong>"${q}"</strong> 검색 결과 — <strong>${results.length}건</strong>` : `<strong>${results.length}건</strong> 표시 중`;
 
   const container = document.getElementById('searchResults');
-  if (!results.length) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>검색 결과가 없습니다</p></div>`;
-    return;
-  }
+  if (!results.length) { container.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>검색 결과가 없습니다</p></div>`; return; }
+  
   container.innerHTML = results.map(c => `
     <div class="case-card" onclick="openDetail('${c.id}')">
-      <div class="case-card-top">
-        <div class="case-card-title">${c.title}</div>
-        <span class="badge ${typeBadge(c.type)}">${c.type}</span>
-      </div>
-      <div class="case-card-meta">
-        <span class="flag">${c.flag}</span>
-        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span>
-        <span style="font-size:12px;color:var(--border)">|</span>
-        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span>
-        <span style="font-size:12px;color:var(--border)">|</span>
-        <span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.caseNum}</span>
-      </div>
+      <div class="case-card-top"><div class="case-card-title">${c.title}</div><span class="badge ${typeBadge(c.type)}">${c.type}</span></div>
+      <div class="case-card-meta"><span class="flag">${c.flag}</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.court}</span><span style="font-size:12px;color:var(--border)">|</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.date}</span><span style="font-size:12px;color:var(--border)">|</span><span style="font-size:12px;color:var(--gray);font-family:'Inter',sans-serif">${c.caseNum}</span></div>
       <div class="case-card-summary">${c.summary}</div>
       <div class="case-card-footer">
         <div class="case-meta-item">📋 ${(c.laws&&c.laws[0])||(c.provisions&&c.provisions[0]?c.provisions[0].law+' '+c.provisions[0].article:c.type)}</div>
-        <div class="conf-bar">
-          <div class="conf-label">신뢰도</div>
-          <div class="conf-track"><div class="conf-fill" style="width:${(c.conf||0)*100}%"></div></div>
-          <div class="conf-label" style="color:var(--dark);font-weight:700">${((c.conf||0)*100).toFixed(0)}%</div>
-        </div>
+        <div class="conf-bar"><div class="conf-label">신뢰도</div><div class="conf-track"><div class="conf-fill" style="width:${(c.conf||0)*100}%"></div></div><div class="conf-label" style="color:var(--dark);font-weight:700">${((c.conf||0)*100).toFixed(0)}%</div></div>
         <span style="font-size:16px;margin-left:8px;cursor:pointer;user-select:none" onclick="event.stopPropagation();toggleBookmark('${c.id}')" title="${bookmarks.has(c.id)?'북마크 해제':'북마크 추가'}">${bookmarks.has(c.id)?'🔖':'🤍'}</span>
       </div>
     </div>`).join('');
 }
 
-// ══ EXPERTS RENDER ══
+// ── ✅ EXPERTS RENDER (모던 카드 레이아웃) ──
 function setExpertType(type, btn) {
   document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -765,13 +470,8 @@ function applyExpertFilters() {
   const type = currentExpertType;
 
   let filtered = EXPERTS;
-  
-  if (type !== 'all') {
-    filtered = filtered.filter(e => e.type === type);
-  }
-  if (country !== '전체') {
-    filtered = filtered.filter(e => e.country === country);
-  }
+  if (type !== 'all') filtered = filtered.filter(e => e.type === type);
+  if (country !== '전체') filtered = filtered.filter(e => e.country === country);
   
   if (filtered.length === 0) {
     container.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">👥</div><p>해당 조건의 전문가가 없습니다</p></div>`;
@@ -782,29 +482,28 @@ function applyExpertFilters() {
     const logoHtml = e.logoUrl && e.logoUrl.trim() !== '' 
       ? `<img src="${e.logoUrl}" alt="${e.name} 로고">` 
       : (e.avatar || '🏢');
-    
     const flagMap = {'한국':'🇰🇷', '영국':'🇬🇧', '싱가포르':'🇸🇬', '홍콩':'🇭🇰', '미국':'🇺🇸'};
     const flag = flagMap[e.country] || '🌐';
       
     return `
     <div class="expert-card">
-      <div class="expert-header">
-        <div class="expert-logo">${logoHtml}</div>
+      <div class="expert-cover">${logoHtml}</div>
+      <div class="expert-body">
         <div class="expert-info">
-          <div class="expert-role">${flag} ${e.country || '글로벌'} · ${e.role}</div>
+          <span class="expert-role">${flag} ${e.country || '글로벌'} · ${e.role}</span>
           <h4>${e.name}</h4>
         </div>
+        <div class="expert-desc">${e.desc}</div>
+        <div class="expert-tags">
+          ${(e.tags||[]).map(t => `<span class="expert-tag">#${t}</span>`).join('')}
+        </div>
+        <button class="expert-contact" onclick="showToast('📞 ${e.name} 프로필 연동 준비 중입니다.')">문의하기 / 프로필 보기</button>
       </div>
-      <div class="expert-desc">${e.desc}</div>
-      <div class="expert-tags">
-        ${(e.tags||[]).map(t => `<span class="expert-tag">#${t}</span>`).join('')}
-      </div>
-      <button class="expert-contact" onclick="showToast('📞 ${e.name} 연락처 연동 준비 중입니다.')">문의하기 / 프로필 보기</button>
     </div>
   `}).join('');
 }
 
-// ══ DETAIL ══
+// ── DETAIL ──
 window.openDetail = function(id) {
   const c = CASES.find(x => x.id == id);
   if (!c) return;
@@ -817,17 +516,18 @@ window.openDetail = function(id) {
   }
 
   const expertsHtml = recommended.map(r => {
-    const icon = r.logoUrl ? '🏢' : (r.avatar || '🏢');
+    // 디테일 뷰 사이드바 전문가 로고 수정 (작은 크기에서 짤리지 않게 처리)
+    const icon = r.logoUrl ? `<img src="${r.logoUrl}" style="width:100%;height:100%;object-fit:contain;">` : (r.avatar || '🏢');
     return `
     <div class="related-item" style="padding:16px; flex-direction:column; gap:12px; border:1px solid var(--border); box-shadow:0 1px 2px rgba(0,0,0,0.02);">
       <div style="display:flex; align-items:center; gap:12px;">
-        <div style="font-size:24px;background:var(--lgray);padding:6px;border-radius:4px;border:1px solid var(--border)">${icon}</div>
+        <div style="width:40px;height:40px;font-size:24px;background:var(--lgray);padding:4px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">${icon}</div>
         <div>
           <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px">${r.name}</div>
           <div style="font-size:11px;color:var(--gray);font-weight:600">${r.role}</div>
         </div>
       </div>
-      <button style="width:100%;padding:8px;background:var(--lgray);border:1px solid var(--border);border-radius:4px;font-size:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--dark);transition:all 0.15s" onmouseover="this.style.borderColor='var(--navy)';this.style.color='var(--navy)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--dark)'" onclick="nav('experts')">프로필 보기</button>
+      <button style="width:100%;padding:8px;background:var(--lgray);border:1px solid var(--border);border-radius:4px;font-size:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--dark);transition:all 0.15s" onclick="nav('experts')">프로필 보기</button>
     </div>`
   }).join('');
 
@@ -864,40 +564,17 @@ window.openDetail = function(id) {
         </div>
         <div class="tab-pane" id="tab-analysis">
           <div class="analysis-card">
-            <div class="analysis-section">
-              <div class="analysis-section-title">사실관계 (FACTS)</div>
-              <div class="analysis-text">${c.facts||c.summary||''}</div>
-            </div>
-            <div class="analysis-section">
-              <div class="analysis-section-title">주요 쟁점 (ISSUES)</div>
-              <ul class="analysis-list">${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul>
-            </div>
-            <div class="analysis-section">
-              <div class="analysis-section-title">법원 판단 (HELD)</div>
-              <div class="analysis-text">${c.holding||c.summary||''}</div>
-            </div>
-            <div class="analysis-section">
-              <div class="analysis-section-title">실무 시사점 (IMPLICATIONS)</div>
-              <div style="display:flex;flex-direction:column;gap:8px">
-                ${(c.implications||[]).map(i=>`<div class="implication-item">${i}</div>`).join('')||`<div class="implication-item">${c.summary||''}</div>`}
-              </div>
-            </div>
+            <div class="analysis-section"><div class="analysis-section-title">사실관계 (FACTS)</div><div class="analysis-text">${c.facts||c.summary||''}</div></div>
+            <div class="analysis-section"><div class="analysis-section-title">주요 쟁점 (ISSUES)</div><ul class="analysis-list">${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul></div>
+            <div class="analysis-section"><div class="analysis-section-title">법원 판단 (HELD)</div><div class="analysis-text">${c.holding||c.summary||''}</div></div>
+            <div class="analysis-section"><div class="analysis-section-title">실무 시사점 (IMPLICATIONS)</div><div style="display:flex;flex-direction:column;gap:8px">${(c.implications||[]).map(i=>`<div class="implication-item">${i}</div>`).join('')||`<div class="implication-item">${c.summary||''}</div>`}</div></div>
           </div>
         </div>
         <div class="tab-pane" id="tab-provisions">
           ${(c.provisions||[]).map(p=>`
             <div class="provision-item">
-              <div class="provision-header">
-                <div>
-                  <div class="provision-law">${p.law} ${p.article}</div>
-                  <div class="provision-title">${p.title}</div>
-                </div>
-              </div>
-              <div class="provision-body">
-                <div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">조문 내용</div>
-                <div style="line-height:1.9;color:var(--dark)">${p.text}</div>
-                <div class="provision-relevance">🔗 판결과의 관련성: ${p.relevance}</div>
-              </div>
+              <div class="provision-header"><div><div class="provision-law">${p.law} ${p.article}</div><div class="provision-title">${p.title}</div></div></div>
+              <div class="provision-body"><div style="font-size:12px;font-weight:600;color:var(--gray);margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0.5px">조문 내용</div><div style="line-height:1.9;color:var(--dark)">${p.text}</div><div class="provision-relevance">🔗 판결과의 관련성: ${p.relevance}</div></div>
             </div>`).join('')}
           ${!(c.provisions&&c.provisions.length)?'<div class="empty"><div class="empty-icon">📋</div><p>관련조문 준비 중입니다</p></div>':''}
         </div>
@@ -913,36 +590,15 @@ window.openDetail = function(id) {
           <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#2F855A;font-weight:700">${((c.conf||0)*100).toFixed(0)}%</span></div>
           <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws?c.laws.join('<br>'):(c.provisions&&c.provisions.length?c.provisions.map(p=>p.law+' '+p.article).join('<br>'):'—')}</span></div>
         </div>
-
         <div class="info-card">
           <h4>소송 경과</h4>
-          ${c.history && c.history.length > 0 ? 
-            `<div class="history-list">
-              ${c.history.map(h => `<div class="history-item">${h}</div>`).join('')}
-            </div>` 
-            : `<div style="font-size:12px; color:var(--gray); padding:8px 0; text-align:center;">등록된 소송 경과가 없습니다.</div>`
-          }
+          ${c.history && c.history.length > 0 ? `<div class="history-list">${c.history.map(h => `<div class="history-item">${h}</div>`).join('')}</div>` : `<div style="font-size:12px; color:var(--gray); padding:8px 0; text-align:center;">등록된 소송 경과가 없습니다.</div>`}
         </div>
-
+        <div class="info-card"><h4 style="color:var(--navy);display:flex;align-items:center;gap:6px">🤝 추천 전문가</h4>${expertsHtml}</div>
         <div class="info-card">
-          <h4 style="color:var(--navy);display:flex;align-items:center;gap:6px">🤝 추천 전문가</h4>
-          ${expertsHtml}
-        </div>
-
-        <div class="info-card">
-          <h4>유사 판례</h4>
-          ${(c.related||[]).map(r=>`
-            <div class="related-item" onclick="openRelated('${r.text.replace(/'/g,"\\'")}')">
-              <div class="related-flag">${r.flag}</div>
-              <div class="related-text">${r.text}</div>
-            </div>`).join('')||'<div style="font-size:13px;color:rgba(255,255,255,0.4);padding:8px 0">유사 판례 데이터 없음</div>'}
-        </div>
-        
-        <div class="info-card" style="background:var(--lgray);border-color:var(--border)">
-          <div style="font-size:12px;color:var(--gray);margin-bottom:12px;font-family:'Noto Sans KR',sans-serif;font-weight:600;letter-spacing:1px">빠른 실행</div>
-          <button onclick="printCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">📄 PDF 문서 저장</button>
-          <button id="bm-btn-${c.id}" onclick="toggleBookmarkBtn('${c.id}',this)" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:8px;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">${bookmarks.has(c.id)?'🔖 북마크 저장됨':'🔖 북마크 추가'}</button>
-          <button onclick="shareCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;font-weight:600;transition:all 0.2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">🔗 링크 복사</button>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:12px;font-weight:600;">빠른 실행</div>
+          <button onclick="printCase('${c.id}')" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;cursor:pointer;margin-bottom:8px;font-weight:600;">📄 PDF 문서 저장</button>
+          <button onclick="toggleBookmarkBtn('${c.id}',this)" style="width:100%;padding:10px;background:#fff;color:var(--dark);border:1px solid var(--border);border-radius:4px;font-size:13px;cursor:pointer;margin-bottom:8px;font-weight:600;">${bookmarks.has(c.id)?'🔖 북마크 저장됨':'🔖 북마크 추가'}</button>
         </div>
       </div>
     </div>`;
@@ -986,13 +642,8 @@ function renderDashboard() {
     return d >= oneMonthAgo;
   });
   document.getElementById('stat-month').textContent = recentCases.length;
-  if (recentCases.length > 0) {
-    document.getElementById('stat-month-sub').textContent = '최근 30일 내 등록';
-    document.getElementById('stat-month-sub').style.color = '#2F855A';
-  } else {
-    document.getElementById('stat-month-sub').textContent = '최근 30일 신규 없음';
-    document.getElementById('stat-month-sub').style.color = 'var(--gray)';
-  }
+  document.getElementById('stat-month-sub').textContent = recentCases.length > 0 ? '최근 30일 내 등록' : '최근 30일 신규 없음';
+  document.getElementById('stat-month-sub').style.color = recentCases.length > 0 ? '#2F855A' : 'var(--gray)';
 
   const latestDate = CASES.map(c => c.date || '').filter(Boolean).sort().reverse()[0] || '';
   document.getElementById('stat-total-sub').textContent = latestDate ? '마지막 업데이트: ' + latestDate : '';
@@ -1005,71 +656,21 @@ function renderDashboard() {
   const bmCount = bookmarks.size;
   document.getElementById('stat-bm').textContent = bmCount.toLocaleString();
   document.getElementById('stat-bm-sub').textContent = bmCount > 0 ? bmCount + '건 저장됨' : '북마크 없음';
-
-  const badge = document.getElementById('sb-total-badge');
-  if (badge) badge.textContent = total.toLocaleString();
-
-  const TYPE_COLORS = {선하증권:'#2B6CB0', 해상보험:'#2F855A', 화물손해:'#B7791F', 선박충돌:'#C53030', 용선계약:'#6B46C1', 해난구조:'#2C5282'};
-  const TYPE_BADGE  = {선하증권:'badge-blue', 해상보험:'badge-green', 화물손해:'badge-yellow', 선박충돌:'badge-red', 용선계약:'badge-purple', 해난구조:'badge-blue'};
-  const typeCounts = {};
-  CASES.forEach(c => { typeCounts[c.type] = (typeCounts[c.type] || 0) + 1; });
-  const sortedTypes = Object.entries(typeCounts).sort((a,b) => b[1]-a[1]);
-  const maxCount = sortedTypes.length > 0 ? sortedTypes[0][1] : 1;
-
-  const trendGrid = document.getElementById('trend-grid');
-  if (trendGrid) {
-    trendGrid.innerHTML = sortedTypes.slice(0,3).map(([type, count], i) => {
-      const pct = Math.round(count / maxCount * 100);
-      const color = TYPE_COLORS[type] || '#2B6CB0';
-      const badgeClass = TYPE_BADGE[type] || 'badge-blue';
-      return `<div class="trend-card" onclick="filterAndSearch('${type}')">
-        <div class="trend-num">TOP 0${i+1}</div>
-        <div class="trend-type"><span class="badge ${badgeClass}">${type}</span></div>
-        <div><span class="trend-count">${count}</span><span class="trend-change" style="color:var(--gray);font-size:12px"> 건</span></div>
-        <div class="trend-bar"><div class="trend-bar-fill" style="width:${pct}%;background:${color}"></div></div>
-      </div>`;
-    }).join('');
-  }
+  if(document.getElementById('sb-total-badge')) document.getElementById('sb-total-badge').textContent = total.toLocaleString();
   renderDashTable();
 }
 
-function renderChart() {
-  const TYPE_COLORS = {선하증권:'#2B6CB0', 해상보험:'#2F855A', 화물손해:'#B7791F', 선박충돌:'#C53030', 용선계약:'#6B46C1', 해난구조:'#2C5282'};
-  const typeCounts = {};
-  CASES.forEach(c => { typeCounts[c.type] = (typeCounts[c.type] || 0) + 1; });
-  const data = Object.entries(typeCounts).sort((a,b) => b[1]-a[1]).map(([label, val]) => ({label, val, color: TYPE_COLORS[label] || '#6B7280'}));
-  const max = Math.max(...data.map(d=>d.val), 1);
-  document.getElementById('barChart').innerHTML = data.map(d=>`
-    <div class="bar-col">
-      <div class="bar-val">${d.val}</div>
-      <div class="bar" style="height:${(d.val/max)*130}px;background:${d.color}" title="${d.label}: ${d.val}건"></div>
-      <div class="bar-label">${d.label}</div>
-    </div>`).join('');
-}
-
 function toggleBookmark(id) {
-  if (bookmarks.has(id)) {
-    bookmarks.delete(id);
-    showToast('북마크가 해제되었습니다');
-  } else {
-    bookmarks.add(id);
-    showToast('🔖 북마크에 추가되었습니다');
-  }
+  if (bookmarks.has(id)) { bookmarks.delete(id); showToast('북마크가 해제되었습니다'); } 
+  else { bookmarks.add(id); showToast('🔖 북마크에 추가되었습니다'); }
   if (currentView === 'search') renderSearch();
   else if (currentView === 'bookmarks') renderBookmarks();
   else if (currentView === 'dashboard') renderDashboard();
-  const bmEl = document.getElementById('stat-bm');
-  const bmSubEl = document.getElementById('stat-bm-sub');
-  if (bmEl) bmEl.textContent = bookmarks.size;
-  if (bmSubEl) bmSubEl.textContent = bookmarks.size > 0 ? bookmarks.size + '건 저장됨' : '북마크 없음';
 }
 
 function renderBookmarks() {
   const container = document.getElementById('bookmarkResults');
-  if (bookmarks.size === 0) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">🔖</div><p>북마크한 판례가 없습니다</p></div>`;
-    return;
-  }
+  if (bookmarks.size === 0) { container.innerHTML = `<div class="empty"><div class="empty-icon">🔖</div><p>북마크한 판례가 없습니다</p></div>`; return; }
   container.innerHTML = [...bookmarks].map(id => {
     const c = CASES.find(x => x.id == id);
     if (!c) return '';
@@ -1092,33 +693,8 @@ window.printCase = function(id) {
   const c = CASES.find(x => x.id == id);
   if (!c) return;
   const win = window.open('', '_blank');
-  win.document.write(`<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>${c.caseNum} — 백파</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>body { font-family: 'Noto Sans KR', sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #111827; line-height: 1.8; } h1 { font-size: 20px; color: #101D33; margin-bottom: 8px; } .meta { font-size: 13px; color: #718096; margin-bottom: 24px; padding-bottom:12px; border-bottom:2px solid #E2E8F0; } .section-title { font-size: 13px; font-weight: 700; color: #2B4C7E; letter-spacing: 1px; text-transform: uppercase; margin: 24px 0 10px; border-bottom: 1px solid #CBD5E0; padding-bottom: 6px; } .body-text { font-size: 14px; white-space: pre-wrap; } .implication { background: #F8FAFC; border-left: 3px solid #2B4C7E; padding: 12px 16px; margin: 8px 0; font-size: 13px; border:1px solid #E2E8F0; border-left:none; } ul { padding-left: 20px; } li { margin-bottom: 8px; font-size: 14px; } strong { color: #101D33; font-weight: 700; } @media print { body { margin: 20px; } }</style></head><body><h1>${c.title}</h1><div class="meta">${c.flag} ${c.country} | ${c.court} | ${c.date} | ${c.caseNum}</div><div class="section-title">사실관계</div><p style="font-size:14px">${c.facts||c.summary||''}</p><div class="section-title">주요 쟁점</div><ul>${(c.issues||[]).map(i=>`<li>${i}</li>`).join('')||`<li>${c.summary||''}</li>`}</ul><div class="section-title">법원 판단</div><p style="font-size:14px">${c.holding||c.summary||''}</p><div class="section-title">실무 시사점</div>${(c.implications||[]).map(i=>`<div class="implication">${i}</div>`).join('')||`<div class="implication">${c.summary||''}</div>`}<div class="section-title">판결 원문</div><div class="body-text" style="white-space: pre-wrap;">${c.original||''}</div><script>window.onload=function(){window.print();}<\/script></body></html>`);
+  win.document.write(`<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>${c.caseNum}</title></head><body style="font-family:sans-serif;padding:20px;"><h1>${c.title}</h1><hr><p>${c.original||''}</p><script>window.print();<\/script></body></html>`);
   win.document.close();
-};
-
-window.shareCase = function(id) {
-  const c = CASES.find(x => x.id == id);
-  if (!c) return;
-  const text = `[백파 문서] ${c.title}\n${c.caseNum} | ${c.court} | ${c.date}\n${c.summary}`;
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => showToast('📋 클립보드에 복사되었습니다')).catch(() => fallbackCopy(text));
-  } else { fallbackCopy(text); }
-};
-
-function fallbackCopy(text) {
-  const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-  document.body.appendChild(ta); ta.focus(); ta.select();
-  try { document.execCommand('copy'); showToast('📋 클립보드에 복사되었습니다'); } catch(e) { showToast('복사에 실패했습니다.'); }
-  document.body.removeChild(ta);
-}
-
-window.openRelated = function(text) {
-  const caseNum = text.split(' — ')[0].trim();
-  const found = CASES.find(c => c.caseNum === caseNum);
-  if (found) { openDetail(found.id); return; }
-  const partial = CASES.find(c => (c.caseNum||'').includes(caseNum) || caseNum.includes(c.caseNum));
-  if (partial) { openDetail(partial.id); return; }
-  showToast(`📋 "${caseNum}" — 아직 데이터베이스에 없는 판례입니다`);
 };
 
 window.toggleBookmarkBtn = function(id, btn) {
@@ -1126,20 +702,7 @@ window.toggleBookmarkBtn = function(id, btn) {
   if (btn) btn.textContent = bookmarks.has(id) ? '🔖 북마크 저장됨' : '🔖 북마크 추가';
 };
 
-// ── INIT ──
-setTimeout(() => {
-  renderDashboard();
-  renderSearch();
-}, 100);
-
-function initMobile() {
-  const isMobile = window.innerWidth <= 768;
-  const closeBtn = document.getElementById('sb-close');
-  if (closeBtn) closeBtn.style.display = isMobile ? 'none' : 'none';
-  updateMobTabbar(currentView);
-}
-window.addEventListener('resize', initMobile);
-window.addEventListener('popstate', () => { if (currentView === 'detail') goBack(); });
+setTimeout(() => { renderDashboard(); renderSearch(); }, 100);
 </script>
 
 <script type="module">
@@ -1161,7 +724,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-
 const ADMIN_EMAILS = ["ojs8851@gmail.com", "baekpa0814@gmail.com"]; 
 
 onAuthStateChanged(auth, (user) => {
@@ -1170,24 +732,11 @@ onAuthStateChanged(auth, (user) => {
   
   if (user && ADMIN_EMAILS.includes(user.email)) {
     adminMenu.style.display = 'flex';
-    authContainer.innerHTML = `
-      <div class="user-info-wrap">
-        <div class="user-avatar"><img src="${user.photoURL || ''}" alt="프로필" onerror="this.style.display='none'"></div>
-        <div>
-          <div class="user-name" title="${user.displayName || '관리자'}">${user.displayName || '관리자'}</div>
-          <div class="user-email" title="${user.email}">${user.email}</div>
-        </div>
-      </div>
-      <button class="logout-btn" onclick="logoutFromGoogle()" title="로그아웃">🚪</button>
-    `;
+    authContainer.innerHTML = `<div class="user-info-wrap"><div class="user-avatar"><img src="${user.photoURL || ''}" alt="프로필" onerror="this.style.display='none'"></div><div><div class="user-name">${user.displayName || '관리자'}</div><div class="user-email">${user.email}</div></div></div><button class="logout-btn" onclick="logoutFromGoogle()">🚪</button>`;
   } else {
     adminMenu.style.display = 'none';
     authContainer.innerHTML = `<button class="auth-btn" onclick="loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>`;
     if (currentView === 'admin') nav('dashboard');
-    if (user && !ADMIN_EMAILS.includes(user.email)) {
-      showToast('❌ 권한이 없는 계정입니다.');
-      signOut(auth);
-    }
   }
 });
 
@@ -1199,34 +748,23 @@ window.loadCasesFromFirestore = async function() {
     const q = query(collection(db, "cases"), orderBy("date", "desc"), limit(500));
     const snapshot = await getDocs(q);
     if (snapshot.empty) return;
-    
     CASES.length = 0; 
-    snapshot.docs.forEach((d, i) => {
-      CASES.push({ ...d.data(), _fsId: d.id, id: d.id || (4000+i) });
-    });
-    
-    updateMobTabbar && updateMobTabbar(currentView);
+    snapshot.docs.forEach((d, i) => { CASES.push({ ...d.data(), _fsId: d.id, id: d.id || (4000+i) }); });
     if (currentView === 'dashboard') renderDashboard();
     if (currentView === 'search') renderSearch();
   } catch(e) { console.warn("Firestore 판례 로드 실패:", e.message); }
 };
 
-// 🔥 핵심 수정: orderBy("createdAt")을 제거하여 createdAt 필드가 없는 데이터도 모두 불러오도록 조치했습니다.
 window.loadExpertsFromFirestore = async function() {
   try {
     const q = query(collection(db, "experts"));
     const snapshot = await getDocs(q);
-    
     if (!snapshot.empty) {
       EXPERTS.length = 0;
-      snapshot.docs.forEach(d => {
-        EXPERTS.push({ ...d.data(), _fsId: d.id });
-      });
+      snapshot.docs.forEach(d => { EXPERTS.push({ ...d.data(), _fsId: d.id }); });
       if (currentView === 'experts') applyExpertFilters();
     }
-  } catch(e) { 
-    console.warn("전문가 로드 실패:", e.message); 
-  }
+  } catch(e) { console.warn("전문가 로드 실패:", e.message); }
 };
 
 window.saveCase = async function(data) {
@@ -1251,16 +789,13 @@ window.saveExpert = async function(data) {
   }
 };
 
-// 실시간 업로드 및 화면 갱신
 window.uploadJsonToFirebase = async function() {
   const inputEl = document.getElementById('admin-json-input');
   const statusEl = document.getElementById('upload-status');
   const uploadType = document.getElementById('admin-upload-type').value;
-  
   try {
     const rawText = inputEl.value.trim();
     if (!rawText) throw new Error("데이터를 입력해주세요.");
-    
     const parsedData = new Function("return " + rawText)(); 
     statusEl.style.color = "var(--blue)";
     statusEl.textContent = "⏳ 데이터 전송 중...";
@@ -1278,9 +813,7 @@ window.uploadJsonToFirebase = async function() {
       statusEl.style.color = "#2F855A"; 
       statusEl.textContent = "✅ 성공! 데이터가 실시간으로 화면에 반영되었습니다.";
       inputEl.value = ""; 
-    } else {
-      throw new Error("저장 권한이 없거나 오류가 발생했습니다.");
-    }
+    } else { throw new Error("저장 권한이 없거나 오류가 발생했습니다."); }
   } catch(error) {
     statusEl.style.color = "#C53030"; 
     statusEl.textContent = "❌ 처리 실패: " + error.message;
