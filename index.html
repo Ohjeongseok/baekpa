@@ -26,6 +26,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .sb-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:4px;cursor:pointer;margin:2px 12px;transition:all 0.15s;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500}
 .sb-item:hover{background:rgba(255,255,255,0.06);color:#fff}
 .sb-item.active{background:rgba(255,255,255,0.12);color:#fff;border-left:3px solid var(--blue);padding-left:11px;}
+.sb-item .icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
 .sb-badge{margin-left:auto;background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;font-family:'Inter',sans-serif}
 .sb-filter-section{padding:8px 20px 16px;border-top:1px solid rgba(255,255,255,0.05);margin-top:8px}
 .sf-label{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;font-family:'Inter',sans-serif}
@@ -33,6 +34,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .sf-tag:hover{border-color:rgba(255,255,255,0.2);color:#fff}
 .sf-tag.on{background:var(--blue);color:#fff;border-color:var(--blue);}
 .sb-bottom{margin-top:auto;padding:16px;border-top:1px solid rgba(255,255,255,0.08)}
+.user-row{display:flex;align-items:center;gap:10px;justify-content:space-between;width:100%}
 .user-info-wrap{display:flex;align-items:center;gap:10px}
 .user-avatar{width:32px;height:32px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden}
 .user-avatar img{width:100%;height:100%;object-fit:cover}
@@ -71,6 +73,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#F1F5F9;color:var(--dark);
 .stat-label{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px}
 .stat-val{font-size:28px;font-weight:700;color:var(--navy);font-family:'Inter',sans-serif;line-height:1}
 .stat-sub{font-size:11px;color:#2F855A;font-weight:600;margin-top:8px}
+
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;border-bottom:2px solid var(--navy);padding-bottom:10px}
 .section-head h3{font-size:16px;font-weight:700;color:var(--navy)}
 .view-all{font-size:12px;color:var(--gray);cursor:pointer;font-weight:600;background:none;border:none;font-family:'Noto Sans KR',sans-serif}
@@ -111,6 +114,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .filter-label{font-size:12px;font-weight:600;color:var(--gray);white-space:nowrap}
 .result-count{font-size:13px;color:var(--gray);margin-bottom:14px;font-family:'Inter',sans-serif}
 .result-count strong{color:var(--navy)}
+
 .case-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:12px;cursor:pointer;transition:all 0.2s;border-left:4px solid transparent;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .case-card:hover{border-color:var(--border);border-left-color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,0.05);background:#FAFCFF}
 .case-card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
@@ -133,6 +137,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .detail-body{display:grid;grid-template-columns:1fr 340px;gap:20px}
 .detail-left{display:flex;flex-direction:column;gap:16px}
 .detail-right{display:flex;flex-direction:column;gap:16px}
+
 .analysis-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .analysis-section{margin-bottom:24px;border-bottom:1px solid var(--lgray);padding-bottom:20px}
 .analysis-section:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0}
@@ -142,17 +147,21 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .analysis-list li{font-size:14px;color:var(--dark);line-height:1.7;padding-left:16px;position:relative}
 .analysis-list li::before{content:'-';position:absolute;left:0;color:var(--gray);font-weight:700}
 .implication-item{background:#F7FAFC;border-left:3px solid var(--blue);padding:14px 16px;border-radius:0 4px 4px 0;font-size:13px;color:var(--dark);line-height:1.7;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+
 .info-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .info-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--lgray)}
 .info-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);gap:12px}
 .info-row:last-child{border-bottom:none}
 .info-key{font-size:12px;color:var(--gray);font-weight:600;flex-shrink:0}
 .info-val{font-size:12px;color:var(--dark);font-weight:500;text-align:right;line-height:1.5}
+
+/* ── HISTORY TIMELINE ── */
 .history-list { display:flex; flex-direction:column; gap:0; padding:8px 0 0 4px; }
 .history-item { font-size:13px; color:var(--dark); position:relative; padding:0 0 20px 16px; line-height:1.4; }
 .history-item:last-child { padding-bottom:0; }
 .history-item::before { content:''; position:absolute; left:-3px; top:5px; width:7px; height:7px; border-radius:50%; background:#fff; border:2px solid var(--navy); z-index:2; }
 .history-item:not(:last-child)::after { content:''; position:absolute; left:0px; top:12px; bottom:-5px; width:1px; background:var(--border); z-index:1; }
+
 .related-item{padding:12px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
 .related-item:last-child{margin-bottom:0;}
 .related-item:hover{background:#F7FAFC;border-color:var(--blue);}
@@ -576,6 +585,11 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 // ══ DATA ══
 const CASES = [];
 let EXPERTS = [];
+
+// MOCK_EXPERTS: 만약 DB가 완전히 비었을 때만 보여줄 샘플 데이터
+const MOCK_EXPERTS = [
+  { id: 1, type: 'lawyer', country: '한국', role: '해상·국제거래 전문 변호사', name: '법무법인 해무 샘플', logoUrl: '', desc: '데이터베이스에 연결하여 전문가를 추가해 보세요.', tags: ['샘플 데이터'] }
+];
 
 let currentView = 'dashboard';
 let prevView = 'dashboard';
@@ -1197,9 +1211,10 @@ window.loadCasesFromFirestore = async function() {
   } catch(e) { console.warn("Firestore 판례 로드 실패:", e.message); }
 };
 
+// 🔥 핵심 수정: orderBy("createdAt")을 제거하여 createdAt 필드가 없는 데이터도 모두 불러오도록 조치했습니다.
 window.loadExpertsFromFirestore = async function() {
   try {
-    const q = query(collection(db, "experts"), orderBy("createdAt", "desc"));
+    const q = query(collection(db, "experts"));
     const snapshot = await getDocs(q);
     
     if (!snapshot.empty) {
