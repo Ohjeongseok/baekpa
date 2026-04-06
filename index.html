@@ -152,10 +152,36 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .info-row:last-child{border-bottom:none}
 .info-key{font-size:12px;color:var(--gray);font-weight:500;flex-shrink:0}
 .info-val{font-size:12px;color:var(--dark);font-weight:500;text-align:right;line-height:1.5}
+
+/* ── HISTORY TIMELINE ── */
+.history-list { display:flex; flex-direction:column; gap:0; padding:4px 0 0 4px; }
+.history-item { font-size:12px; color:var(--dark); position:relative; padding:0 0 16px 16px; line-height:1.4; }
+.history-item:last-child { padding-bottom:0; }
+.history-item::before { content:''; position:absolute; left:-3px; top:4px; width:8px; height:8px; border-radius:50%; background:#fff; border:2px solid var(--blue); z-index:2; }
+.history-item:not(:last-child)::after { content:''; position:absolute; left:0px; top:12px; bottom:-4px; width:2px; background:var(--border); z-index:1; }
+
 .related-item{padding:10px 12px;border-radius:8px;cursor:pointer;transition:background 0.15s;display:flex;align-items:flex-start;gap:10px}
 .related-item:hover{background:var(--lgray)}
 .related-flag{font-size:14px;flex-shrink:0;margin-top:1px}
 .related-text{font-size:12px;color:var(--navy);line-height:1.5;font-weight:500}
+
+/* ── EXPERTS DIRECTORY VIEW ── */
+.expert-filters { display:flex; gap:10px; margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:16px; flex-wrap:wrap; }
+.expert-tab { padding:8px 16px; border:none; background:none; font-size:13px; font-weight:600; color:var(--gray); cursor:pointer; border-radius:8px; transition:all 0.2s; font-family:'Noto Sans KR',sans-serif; }
+.expert-tab.active { background:var(--navy); color:#fff; }
+.expert-tab:hover:not(.active) { background:var(--lgray); color:var(--navy); }
+.expert-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:20px; }
+.expert-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; transition:all 0.2s; display:flex; flex-direction:column; }
+.expert-card:hover { border-color:var(--blue); box-shadow:0 4px 20px rgba(46,117,182,0.1); transform:translateY(-2px); }
+.expert-header { display:flex; gap:16px; margin-bottom:16px; align-items:center; }
+.expert-avatar { width:52px; height:52px; border-radius:50%; background:var(--lgray); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; border:1px solid var(--border); }
+.expert-info h4 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.3; }
+.expert-role { font-size:11px; color:var(--blue); font-weight:600; letter-spacing:0.5px; }
+.expert-desc { font-size:13px; color:var(--gray); line-height:1.6; margin-bottom:18px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.expert-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.expert-tag { padding:4px 10px; background:#F0F7FF; color:var(--blue); font-size:11px; border-radius:6px; font-weight:600; }
+.expert-contact { width:100%; padding:10px; background:#fff; color:var(--navy); border:1px solid var(--border); border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans KR',sans-serif; transition:all 0.2s; }
+.expert-contact:hover { background:var(--navy); color:#fff; border-color:var(--navy); }
 
 /* ── TREND REPORT VIEW ── */
 .report-header{background:var(--navy);border-radius:16px;padding:32px;margin-bottom:24px;color:#fff}
@@ -206,7 +232,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 .empty p{font-size:14px}
 
 /* ── TOAST ── */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px)}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;transform:translateY(8px);z-index:999;}
 .toast.show{opacity:1;transform:translateY(0)}
 
 /* ══ MOBILE RESPONSIVE ══ */
@@ -238,44 +264,28 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 /* 모바일 */
 @media (max-width:768px){
   body{overflow:auto}
-
-  /* 사이드바 — 숨겼다가 열기 */
   .sidebar{position:fixed;top:0;left:-260px;width:260px;z-index:200;transition:left 0.3s ease;height:100dvh}
   .sidebar.open{left:0}
-
-  /* 메인 영역 풀폭 */
   .main{width:100%}
-
-  /* 상단바 */
   .topbar{padding:0 16px;gap:10px}
   .mob-menu{display:flex}
   .search-wrap{max-width:none;flex:1}
   .search-wrap input{font-size:14px;padding:9px 14px 9px 38px}
   .tb-btn{display:none}
   .notif{width:34px;height:34px}
-
-  /* 콘텐츠 여백 */
   .content{padding:16px 14px 76px}
-
-  /* 대시보드 */
   .stats-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
   .stat-card{padding:16px 16px}
   .stat-val{font-size:22px}
   .trend-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .table-wrap{overflow-x:auto}
   table{min-width:520px}
-
-  /* 판례 카드 */
   .case-card{padding:16px}
   .case-card-title{font-size:14px}
   .case-card-footer{flex-wrap:wrap;gap:8px}
   .conf-bar{margin-left:0}
-
-  /* 검색 필터 */
   .search-filters{padding:14px 16px;gap:8px}
   .filter-select{font-size:12px;padding:6px 10px}
-
-  /* 상세 페이지 */
   .detail-header{padding:18px 16px}
   .detail-title{font-size:17px}
   .detail-body{grid-template-columns:1fr;gap:14px}
@@ -283,26 +293,16 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
   .detail-left{order:1}
   .original-wrap{padding:16px}
   .original-body{font-size:13px;line-height:1.9}
-
-  /* 분석 카드 */
   .analysis-card{padding:16px}
   .analysis-text{font-size:13px}
   .analysis-list li{font-size:13px}
-
-  /* 정보 카드 */
   .info-card{padding:16px}
-
-  /* 트렌드 리포트 */
   .trend-grid{grid-template-columns:1fr}
   .report-header{padding:20px 18px}
   .report-header h2{font-size:18px}
   .bar-chart{height:120px}
-
-  /* 하단 탭바 표시 */
   .mob-tabbar{display:flex}
-
-  /* 토스트 */
-  .toast{bottom:72px;right:16px;left:16px;right:16px;text-align:center}
+  .toast{bottom:72px;right:16px;left:16px;text-align:center}
 }
 
 @media (max-width:400px){
@@ -318,18 +318,10 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 <div class="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <nav class="mob-tabbar" id="mobTabbar">
-  <button class="mob-tab active" onclick="mobNav('dashboard')">
-    <span class="mob-tab-icon">🏠</span>대시보드
-  </button>
-  <button class="mob-tab" onclick="mobNav('search')">
-    <span class="mob-tab-icon mob-tab-badge" data-count="176">🔍</span>판례 검색
-  </button>
-  <button class="mob-tab" onclick="mobNav('trend')">
-    <span class="mob-tab-icon">📊</span>트렌드
-  </button>
-  <button class="mob-tab" onclick="mobNav('bookmarks')">
-    <span class="mob-tab-icon">🔖</span>북마크
-  </button>
+  <button class="mob-tab active" onclick="mobNav('dashboard')"><span class="mob-tab-icon">🏠</span>대시보드</button>
+  <button class="mob-tab" onclick="mobNav('search')"><span class="mob-tab-icon mob-tab-badge" data-count="176">🔍</span>판례 검색</button>
+  <button class="mob-tab" onclick="mobNav('experts')"><span class="mob-tab-icon">🤝</span>전문가</button>
+  <button class="mob-tab" onclick="mobNav('bookmarks')"><span class="mob-tab-icon">🔖</span>북마크</button>
 </nav>
 
 <aside class="sidebar" id="sidebar">
@@ -356,6 +348,7 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
   <div class="sb-item" onclick="nav('search')"><span class="icon">🔍</span>판례 검색<span class="sb-badge" id="sb-total-badge">—</span></div>
   <div class="sb-item" onclick="nav('trend')"><span class="icon">📈</span>트렌드 리포트</div>
   <div class="sb-item" onclick="nav('bookmarks')"><span class="icon">🔖</span>북마크</div>
+  <div class="sb-item" onclick="nav('experts')"><span class="icon">🤝</span>전문가 매칭</div>
   
   <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none;"><span class="icon">⚙️</span>업로드(관리자)</div>
 
@@ -488,6 +481,23 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
       <div id="detailContent"></div>
     </div>
 
+    <div class="view" id="v-experts">
+      <div style="margin-bottom:20px">
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy)">전문가 네트워크</h2>
+        <p style="font-size:13px;color:var(--gray);margin-top:5px">해상 분쟁 해결을 위한 최적의 로펌, 서베이어, 보험 관계사를 만나보세요.</p>
+      </div>
+      
+      <div class="expert-filters">
+        <button class="expert-tab active" onclick="filterExperts('all', this)">전체보기</button>
+        <button class="expert-tab" onclick="filterExperts('lawyer', this)">⚖️ 해상 전문 로펌</button>
+        <button class="expert-tab" onclick="filterExperts('surveyor', this)">🔎 P&I 서베이어 / 감정사</button>
+        <button class="expert-tab" onclick="filterExperts('insurance', this)">🛡️ 해상 보험사</button>
+      </div>
+
+      <div class="expert-grid" id="expertGrid">
+        </div>
+    </div>
+
     <div class="view" id="v-trend">
       <div class="report-header">
         <p style="font-size:11px;letter-spacing:2px;opacity:.5;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px">월간 리포트</p>
@@ -554,1057 +564,45 @@ tr:hover td{background:#FAFBFF;cursor:pointer}
 // ══ DATA ══
 const CASES = [];
 
-// ══ RICH DATA (원문 + 조항) ══
-const RICH_DATA = {
-  1: {
-  "original": "【대법원 2023. 8. 31. 선고 2018다289825 판결】\n\n【사건】손해배상(기)\n\n【판시사항】\n[1] 송하인을 대신하여 운송인으로부터 선하증권을 교부받은 자가 선하증권의 정당한 소지인으로서 이를 처분할 수 있는 권한을 가지는지 여부(적극)\n[2] 선하증권과 상환 없이 운송물을 인도받아간 자가 운송인과 함께 공동불법행위책임을 부담하는지 여부(적극)\n\n【판결요지】\n[1] 선하증권은 유가증권으로서 담보적 기능을 가진다. 송하인으로부터 선하증권을 적법하게 교부받은 자는 그 배서 유무와 무관하게 선하증권의 정당한 소지인으로서 화물에 대한 권리를 가진다.\n[2] 선하증권과 상환 없이 화물을 인도받아간 수하인은, 선하증권 소지인의 화물에 대한 담보권을 침해하는 행위로서, 운송인과 함께 공동불법행위책임을 부담한다. 이는 선하증권상 수하인란에 기재된 자가 직접 화물을 수령한 경우에도 마찬가지이다.\n\n【의의】\n이 판결은 선하증권상 수하인란에 기재되지 않은 소지인의 담보적 권리를 인정하고, 이를 침해한 수하인의 불법행위책임을 명시적으로 인정한 최초의 대법원 판례이다.\n\n※ 출처: 대법원 판례속보 (scourt.go.kr, seqnum=9427)",
-  "provisions": [
-    {
-      "law": "상법",
-      "article": "제861조",
-      "title": "선하증권 소지인의 권리",
-      "text": "선하증권의 정당한 소지인은 운송인에 대하여 화물의 인도를 청구할 수 있다.",
-      "relevance": "선하증권 소지인 권리의 법적 근거"
-    },
-    {
-      "law": "민법",
-      "article": "제760조",
-      "title": "공동불법행위자의 책임",
-      "text": "수인이 공동의 불법행위로 타인에게 손해를 가한 때에는 연대하여 그 손해를 배상할 책임이 있다.",
-      "relevance": "수하인과 운송인의 공동불법행위책임 근거"
-    },
-    {
-      "law": "상법",
-      "article": "제129조",
-      "title": "지시식 증권의 양도",
-      "text": "지시식 증권은 배서에 의하여 양도한다.",
-      "relevance": "선하증권의 유가증권성 근거"
-    }
-  ]
-},
-  2: {
-  "original": "【대법원 2025. 8. 14. 선고 2024다270860 판결】\n\n【사건】손해배상(기)\n\n【판시사항】\n[1] 도착지 운송주선인이 부담하는 수입화물 보관·인도 의무의 내용\n[2] 보세창고업자가 선하증권과의 상환 없이 화물을 반출한 행위의 위법성\n\n【판결요지】\n운송주선인은 화물이 도착지 보세창고에 입고된 후 통관이 완료될 때까지 화물을 보관하고, 선하증권의 정당한 수령인 또는 그가 지정하는 자에게 화물을 인도할 의무가 있다. 운송주선인의 이행보조자인 보세창고업자가 선하증권 원본 또는 적법한 화물인도지시서와의 상환 없이 화물을 반출한 것은 위법하며, 운송주선인은 이에 대해 연대하여 손해배상 책임을 진다.\n\n※ 출처: 대법원 판례속보 (scourt.go.kr, seqnum=10584)",
-  "provisions": [
-    {
-      "law": "민법",
-      "article": "제391조",
-      "title": "이행보조자의 고의·과실",
-      "text": "채무자의 법정대리인이 채무이행에 관여하거나 채무자가 이행보조자를 사용한 경우, 그 대리인 또는 이행보조자의 고의나 과실은 채무자의 고의나 과실로 본다.",
-      "relevance": "보세창고업자의 과실에 대한 운송주선인 연대책임 근거"
-    },
-    {
-      "law": "상법",
-      "article": "제115조",
-      "title": "운송주선인의 의무",
-      "text": "운송주선인은 위탁자의 이익을 위하여 선량한 관리자의 주의로써 운송을 주선하여야 한다.",
-      "relevance": "운송주선인의 화물 관리 의무"
-    },
-    {
-      "law": "관세법",
-      "article": "제157조",
-      "title": "보세화물 반출 요건",
-      "text": "보세구역에 장치된 화물은 수입신고가 수리된 후에 반출할 수 있다.",
-      "relevance": "보세창고 화물 반출의 적법 요건"
-    }
-  ]
-},
-  3: {
-  "original": "Herculito Maritime Ltd & Ors v Gunvor International BV & Ors\n[2024] UKSC 2\nUK Supreme Court — 17 January 2024\nLord Hodge, Lord Hamblen, Lord Leggatt, Lady Rose, Lord Richards\n\nFACTS\nMT POLAR was seized by Somali pirates on 30 October 2010 in the Gulf of Aden while on a voyage from St Petersburg to Singapore laden with fuel oil cargo. The vessel was held for ten months. The shipowner, Herculito Maritime, paid a ransom of USD 7.7 million to secure the vessel's release. The shipowner declared general average and sought contributions from cargo interests totalling USD 5,914,560. The time charterparty contained provisions for the charterer to pay additional war risks insurance premiums. Charterers argued this created an implied insurance code under which the shipowner was to look to insurance rather than general average.\n\nHELD (Unanimous)\n(1) No implied insurance code existed in the charterparty. For such a code to be implied, it must be a necessary consequence of what the parties agreed — a high threshold that was not met here.\n(2) The fact that charterers paid the K&R insurance premium did not strip the shipowner of its right to claim general average contribution.\n(3) The shipowner had contractually agreed to the 'via Suez' voyage route and could not have refused to follow it. However, this question was separate from the general average entitlement.\n\nSource: [2024] UKSC 2 — supremecourt.uk/cases/judgments/uksc-2022-0009",
-  "provisions": [
-    {
-      "law": "York-Antwerp Rules 2004",
-      "article": "Rule A",
-      "title": "General Average 정의",
-      "text": "There is a general average act when, and only when, any extraordinary sacrifice or expenditure is intentionally and reasonably made for the common safety for the purpose of preserving from peril the property involved in a common maritime adventure.",
-      "relevance": "몸값 지급의 공동해손 성립 근거"
-    },
-    {
-      "law": "English Contract Law",
-      "article": "Implied Terms",
-      "title": "묵시적 조건 성립 요건",
-      "text": "A term will only be implied if it is necessary to give business efficacy to the contract or if it is so obvious that it goes without saying.",
-      "relevance": "묵시적 보험 코드 인정 여부 판단 기준"
-    },
-    {
-      "law": "Carriage of Goods by Sea Act 1971 (UK)",
-      "article": "s.1",
-      "title": "헤이그-비스비 규칙 적용",
-      "text": "The Hague-Visby Rules shall have the force of law.",
-      "relevance": "선하증권 및 운송인 책임 규범"
-    }
-  ]
-},
-  4: {
-  "original": "FIMBank Plc v KCH Shipping Co Ltd (The Giant Ace)\n[2024] UKSC 38\nUK Supreme Court — 13 November 2024\nLord Hodge, Lord Lloyd-Jones, Lord Hamblen, Lord Burrows, Lord Richards\n\nFACTS\nApproximately 85,510 metric tonnes of steam coal were shipped aboard the vessel GIANT ACE from Indonesia to India under 13 bills of lading incorporating the Hague-Visby Rules via Congenbill 1994. The cargo was discharged at Indian ports between 1–18 April 2018 against letters of indemnity without production of the original bills of lading. FIMBank held the bills as security for financing to the buyer, Farlin Energy. Notice of arbitration was served on KCH Shipping on 24 April 2020 — approximately two years after discharge.\n\nISSUES\n(i) Does Article III rule 6 HVR apply to misdelivery claims occurring after discharge?\n(ii) Does Congenbill clause 2(c) disapply the HVR time bar for post-discharge events?\n(iii) Does the time bar apply contractually to post-discharge misdelivery?\n\nHELD (Unanimous — Lord Hamblen)\nThe HVR time bar in Article III rule 6 applies to misdelivery occurring after discharge but before or at the time of delivery. Although the Hague Rules establish a period of responsibility (loading to discharge), this does not limit the scope of the time bar provision, which operates up to delivery. Congenbill clause 2(c) does not disapply the time bar. FIMBank's claim was time-barred.\n\nSource: [2024] UKSC 38 — supremecourt.uk/cases/judgments/uksc-2023-0085",
-  "provisions": [
-    {
-      "law": "Hague-Visby Rules",
-      "article": "Art.III r.6",
-      "title": "1년 시효",
-      "text": "In any event the carrier and the ship shall be discharged from all liability in respect of loss or damage unless suit is brought within one year after delivery of the goods or the date when the goods should have been delivered.",
-      "relevance": "무단 인도 청구에 적용되는 1년 시효의 근거"
-    },
-    {
-      "law": "Carriage of Goods by Sea Act 1971 (UK)",
-      "article": "s.1(2)",
-      "title": "HVR의 영국 내 법률적 효력",
-      "text": "The Hague-Visby Rules shall have the force of law.",
-      "relevance": "HVR의 강행법규적 적용 근거"
-    },
-    {
-      "law": "Congenbill 1994",
-      "article": "Clause 2(c)",
-      "title": "HVR 적용 범위 조항",
-      "text": "The carrier shall be under no liability whatsoever for any loss or damage to the goods after discharge from the vessel.",
-      "relevance": "HVR 배제 주장의 근거 — 대법원은 시효 조항에는 적용 안 됨 판시"
-    }
-  ]
-},
-  5: {
-  "original": "Hapag-Lloyd AG v Skyros Maritime Corporation and Agios Minas Shipping Company\n[2024] EWHC 3139 (Comm)\nEnglish High Court — 13 December 2024\nMr Justice Bright\n\nFACTS\nTwo containerships were time-chartered to Hapag-Lloyd. Both were due for redelivery at end of May 2021. The Skyros was redelivered 2 days late; the Agios Minas 7 days late. During that period, the owners had agreed MOAs to sell the vessels (to MSC and Maersk respectively) — the MOAs prohibited further fixtures once the charters expired. The charter hire was paid up to actual redelivery. The market had risen sharply during the overrun period. Owners claimed market-rate damages for the overrun.\n\nHELD (Mr Justice Bright)\n(1) Quantum meruit: No claim lies where the owners were entitled to charterparty hire until redelivery.\n(2) User damages: Not available following One Step Support v Morris-Garner [2018] UKSC 20. The user damages remedy is limited to cases where the defendant has exploited a valuable right belonging to the claimant (e.g. use of intellectual property). That was not this case.\n(3) Negotiating damages: Not available because the obligation to redeliver does not create or protect a valuable asset in the relevant sense.\nRESULT: Only token (nominal) damages awarded to owners.\n\nSource: [2024] EWHC 3139 (Comm) — jusmundi.com",
-  "provisions": [
-    {
-      "law": "English Contract Law",
-      "article": "Damages for Breach",
-      "title": "채무불이행 손해배상 원칙",
-      "text": "Damages for breach of contract are intended to put the innocent party in the position they would have been in had the contract been performed.",
-      "relevance": "반선 지연 손해배상의 일반 원칙"
-    },
-    {
-      "law": "One Step v Morris-Garner [2018] UKSC 20",
-      "article": "User Damages",
-      "title": "이용 이익 손해 인정 요건",
-      "text": "User damages are available where a defendant has made use of the claimant's property without consent and the claimant would have charged for that use.",
-      "relevance": "User damages의 적용 범위 — 본 사건에서 부적용"
-    },
-    {
-      "law": "NYPE Charterparty",
-      "article": "Redelivery Clause",
-      "title": "반선 조항",
-      "text": "Charterers to have the liberty to sublet the vessel, but charterers to remain responsible for the fulfilment of this charter.",
-      "relevance": "정기용선 반선 기준 조항"
-    }
-  ]
-},
-  6: {
-  "original": "Owner of the Vessel 'Navigator Aries' v Owner of the Vessel 'Leo Perdana'\n[2023] SGCA 20\nSingapore Court of Appeal — 7 July 2023\nJudith Prakash JCA, Steven Chong JCA, Belinda Ang Saw Ean JCA\n\nFACTS\nOn 28 June 2015, a collision occurred in the Surabaya Strait between the Navigator Aries (LPG tanker, 18,311 GT) and the Leo Perdana (container vessel, 27,104 GT). About one minute before collision, the Leo Perdana experienced a sudden sheer to port onto the path of the Navigator Aries. The Leo Perdana's bridge transmitted a VHF message stating 'steering not responding'. The Navigator Aries then altered hard-to-starboard in avoidance but could not prevent the collision. The first instance judge apportioned liability 70 (Leo Perdana) : 30 (Navigator Aries).\n\nHELD\nThe Court of Appeal disagreed with the first instance apportionment and held both vessels equally to blame at 50:50.\nCOLREGS Rule 9(a) requires a vessel in a narrow channel to keep as near to the outer limit on her starboard side as is safe and practicable — not merely to keep to the starboard 'lane'. The Navigator Aries had not fully complied with this obligation. The Leo Perdana's sudden sheer to port was the more proximate cause, but both vessels contributed to the collision.\n\nSource: [2023] SGCA 20 — elitigation.sg/gd/s/2023_SGCA_20",
-  "provisions": [
-    {
-      "law": "COLREGS",
-      "article": "Rule 9(a)",
-      "title": "협수로 항행 규칙",
-      "text": "A vessel proceeding along the course of a narrow channel or fairway shall keep as near to the outer limit of the channel or fairway which lies on her starboard side as is safe and practicable.",
-      "relevance": "협수로 우현 항행 의무의 내용과 범위"
-    },
-    {
-      "law": "COLREGS",
-      "article": "Rule 16",
-      "title": "피항선의 의무",
-      "text": "Every vessel which is directed to keep out of the way of another vessel shall, so far as possible, take early and substantial action to keep well clear.",
-      "relevance": "충돌 회피 의무"
-    },
-    {
-      "law": "Singapore Merchant Shipping Act",
-      "article": "Cap.179A",
-      "title": "국제 항법 규정 적용",
-      "text": "The Collision Regulations shall have effect as if enacted in this Act.",
-      "relevance": "싱가포르에서 COLREGS의 강행법규적 적용"
-    }
-  ]
-},
-  7: {
-  "original": "Marchand Navigation Co v Olam Global Agri Pte Ltd and Sinco Shipping Pte Ltd\n[2023] SGHC 339\nSingapore High Court — 29 November 2023\nKwek Mean Luck J\n\nFACTS\nMarchand Navigation Co was disponent owner of the vessel Maria Theo 1, chartered to Sinco Shipping under a NYPE charterparty (29 April 2022). Sinco sub-chartered to Olam Global Agri on a voyage charter. After the voyage, demurrage of USD 190,112 was agreed between Sinco and Olam (USD 192,812 demurrage less USD 2,700 dunnage/cleaning). On 11 January 2023, Marchand exercised a Clause 18 lien by written notice to Olam, instructing Olam to pay the liened sum directly to Marchand.\n\nHELD\nOlam was entitled to make payment of the liened sum to Marchand, because the lien had been validly exercised as against Olam. The lien on sub-freights/demurrage under NYPE Clause 18 extends to sub-demurrage payable under the sub-charter. Upon valid exercise of the lien, Olam could safely pay Marchand rather than Sinco, and any such payment discharged Olam's obligation under the sub-charter.\n\nSource: [2023] SGHC 339 — elitigation.sg/gd/s/2023_SGHC_339",
-  "provisions": [
-    {
-      "law": "NYPE",
-      "article": "Clause 18",
-      "title": "Lien on Sub-freights",
-      "text": "Owners shall have a lien upon all cargoes and all sub-freights for any amounts due under this charter.",
-      "relevance": "선주의 sub-freight 유치권 행사 근거"
-    },
-    {
-      "law": "English Common Law",
-      "article": "Lien on Sub-freights",
-      "title": "Sub-freight 유치권의 법적 성질",
-      "text": "A contractual lien on sub-freights operates as an equitable assignment of the right to receive sub-freights, effective on notice to the sub-charterer.",
-      "relevance": "유치권 행사의 요건 — 통보의 중요성"
-    },
-    {
-      "law": "Singapore Contract Law",
-      "article": "Assignment",
-      "title": "채권 양도",
-      "text": "An assignment of a chose in action is effective in equity upon notice to the debtor.",
-      "relevance": "Olam에 대한 통보로 유치권 효력 발생 근거"
-    }
-  ]
-},
-  8: {
-  "original": "Meck Petroleum DMCC v Owner and/or Demise Charterer of the Vessel 'Victor 1' and Another\n[2024] SGHC 165\nSingapore High Court — 28 June 2024\nS Mohan J\n\nFACTS\nSavory Shipping Inc owned the vessel Victor 1. Ceto Shipping Corporation held a bareboat (demise) charter of the vessel. Victor 1 was arrested and judicially sold in separate admiralty proceedings, with the sale proceeds paid into court. Meck Petroleum DMCC commenced a new action in rem against the sale proceeds. Ceto filed a Notice of Intention to Contest as the 'owner and/or demise charterer' of the vessel. Savory applied to strike out Ceto's participation and Meck's claim.\n\nHELD (S Mohan J)\n(1) A judicial sale by an admiralty court extinguishes all liens, encumbrances and interests in the vessel — including a bareboat charterparty. The demise charter did not survive the judicial sale.\n(2) Ceto, having lost its demise charterer status upon the judicial sale, could not participate in the action against the sale proceeds as an owner or demise charterer.\n(3) Meck Petroleum's liability in personam was against Ceto (the demise charterer). Since the demise charter was extinguished, Meck Petroleum could not bring an action in rem against the proceeds of the sale of the vessel.\n\nSource: [2024] SGHC 165 — elitigation.sg/gd/s/2024_SGHC_165",
-  "provisions": [
-    {
-      "law": "Singapore High Court (Admiralty Jurisdiction) Act",
-      "article": "Cap.7 s.4",
-      "title": "대물소송 요건",
-      "text": "An action in rem may be brought against a ship if the claim arises in connection with that ship.",
-      "relevance": "대물소송의 성립 요건"
-    },
-    {
-      "law": "English Admiralty Law",
-      "article": "The Burns [1907] P 137",
-      "title": "사법 매각의 효력",
-      "text": "A judicial sale by the admiralty court vests a clean title in the purchaser, free from all encumbrances.",
-      "relevance": "사법 매각 후 나용선계약 소멸의 판례법적 근거"
-    },
-    {
-      "law": "Singapore Merchant Shipping Act",
-      "article": "Cap.179 s.5",
-      "title": "해사 채권 우선 순위",
-      "text": "Maritime liens have priority over mortgages and other encumbrances on a vessel.",
-      "relevance": "매각 대금에 대한 채권자 청구 순위"
-    }
-  ]
-},
-  9: {
-  "original": "COSCO Shipping Specialized Carriers Co Ltd v PT OKI Pulp & Paper Mills and Others\n[2024] SGCA 50\nSingapore Court of Appeal — 13 November 2024\nSundaresh Menon CJ, Steven Chong JCA, Belinda Ang Saw Ean JCA\n\nFACTS\nCOSCO's vessel Le Li was chartered to carry approximately 27,000 air-dried metric tonnes of bleached hardwood kraft pulp from PT OKI's terminal in Palembang, Indonesia. Nine bills of lading were issued. On 31 May 2022, as the vessel was departing from the terminal with tug assistance, she made contact with the Trestle Bridge. PT OKI commenced tortious proceedings in Indonesia for bridge damage. COSCO applied for an anti-suit injunction in Singapore on the basis that the dispute fell within the arbitration clause in the bills of lading.\n\nHELD (Court of Appeal)\n(1) The proper approach is a common-sense inquiry into whether the claims are 'sufficiently connected' to the arbitration agreement rather than a formulaic test.\n(2) The collision occurred during the performance of the contract of carriage (departure from the loading berth with cargo on board). The tortious claims arose out of or in connection with the bills of lading.\n(3) Anti-suit injunction granted. PT OKI was restrained from continuing Indonesian court proceedings.\n\nSource: [2024] SGCA 50 — elitigation.sg/gd/s/2024_SGCA_50",
-  "provisions": [
-    {
-      "law": "Singapore International Arbitration Act",
-      "article": "Cap.143A s.6",
-      "title": "중재 합의의 효력",
-      "text": "Any party to an arbitration agreement may apply to the court to stay proceedings in favour of arbitration.",
-      "relevance": "중재조항에 의한 법원 소송 중지 근거"
-    },
-    {
-      "law": "English Law",
-      "article": "Anti-suit Injunction",
-      "title": "Anti-suit 인용 요건",
-      "text": "An anti-suit injunction may be granted to restrain foreign proceedings where they are vexatious or oppressive, or where the claimant is acting in breach of an arbitration or jurisdiction agreement.",
-      "relevance": "인도네시아 소송 중지 명령의 근거"
-    },
-    {
-      "law": "COGSA (Singapore)",
-      "article": "Bills of Lading Act (Cap.384)",
-      "title": "선하증권의 계약적 효력",
-      "text": "Rights and liabilities under a bill of lading vest in the lawful holder.",
-      "relevance": "선하증권 중재조항의 구속력"
-    }
-  ]
-}
-,
-  10: {
-  "original": "【대법원 2024. 4. 25. 선고 2019다261558 판결】\n\n【사건】손해배상(기)\n\n【판시사항】\n[1] 영국법이 준거법인 용선계약에서 위약금 약정의 법적 성질 판단 기준\n[2] 민법 제398조 제2항의 '과다 위약금 감액 규정'이 국제사법상 강행규정에 해당하는지 여부(소극)\n\n【판결요지】\n[1] 영국법상 위약금 약정이 손해배상액의 예정인지 위약벌(unenforceable penalty)인지는 계약 당시의 약정 위약금이 상대방의 계약상 의무 이행을 강제할 정당한 이익(legitimate interest)과 비교하여 과도하고 비양심적인지에 따라 결정된다(Cavendish Square Holding BV v Makdessi [2015] UKSC 67 기준). 정당한 이익은 계약 위반에 대한 예상 최대 손해액에 국한되지 않는다.\n[2] 우리 민법 제398조 제2항의 과다 손해배상액의 예정 감액 규정은 국제사법 제7조가 정한 국제적 강행규정이 아니므로, 준거법이 영국법인 경우에도 우리 민법을 별도로 적용하여 감액할 수 없다. 또한 영국법을 적용한 결과가 우리 공서양속(국제사법 제10조)에 반한다고 볼 수 없다.\n\n※ 출처: 대법원 판례속보 (scourt.go.kr, seqnum=9825); 국가법령정보센터 precSeq=240739",
-  "provisions": [
-    {
-      "law": "국제사법",
-      "article": "제7조",
-      "title": "국제적 강행규정",
-      "text": "입법목적에 비추어 준거법에 관계없이 해당 법률관계에 적용되어야 하는 대한민국의 강행규정은 이 법에 의하여 외국법이 준거법으로 지정되는 경우에도 이를 적용한다.",
-      "relevance": "민법 제398조가 강행규정인지 여부 판단 근거"
-    },
-    {
-      "law": "국제사법",
-      "article": "제10조",
-      "title": "공서양속",
-      "text": "외국법에 의하여야 할 경우에 그 규정의 적용이 대한민국의 선량한 풍속 그 밖의 사회질서에 명백히 위반되는 때에는 이를 적용하지 아니한다.",
-      "relevance": "영국법 적용 결과의 공서 위반 여부 판단"
-    },
-    {
-      "law": "민법",
-      "article": "제398조 제2항",
-      "title": "손해배상액의 예정 감액",
-      "text": "손해배상의 예정액이 부당히 과다한 경우에는 법원은 적당히 감액할 수 있다.",
-      "relevance": "준거법이 영국법인 경우 적용 불가 규정"
-    }
-  ]
-},
-  11: {
-  "original": "【대법원 2024. 10. 25. 선고 2022다243550 판결】\n\n【사건】손해배상(기)\n\n【판시사항】\n[1] 외국적 요소가 있는 보험계약에서 보험자대위의 준거법과 보험자·피보험자 간 채권양도의 준거법이 반드시 일치하여야 하는지 여부(소극)\n[2] 영국 해상보험법상 보험자대위 방법\n[3] 상법 제814조 제척기간의 보험자대위청구권 적용 여부(적극)\n\n【판결요지】\n[1] 보험계약에 기한 보험자대위의 준거법과 그에 의한 채권양도의 준거법은 반드시 일치할 필요가 없다. 보험자대위는 보험관계에서 발생하는 법정 이전이므로 보험계약의 준거법에 의하고, 당사자 간 채권양도는 별도의 계약으로 그 계약의 준거법에 의한다.\n[2] 영국 해상보험법(Marine Insurance Act 1906) 제79조에 따르면 보험자는 피보험자에게 보험금을 지급한 후 피보험자의 명의로 소를 제기하는 방식으로 대위권을 행사하여야 한다.\n[3] 원고(보험회사)의 피고(운송인)에 대한 손해배상청구권은 보험자대위 또는 채권양도의 준거법과 무관하게, 상법 제814조에 따라 '운송물을 인도한 날로부터 1년' 이내에 재판상 청구가 없으면 소멸한다.\n\n※ 출처: 대법원 판례속보 (scourt.go.kr, seqnum=10111); lbox.kr/v2/case/대법원/2022다243550",
-  "provisions": [
-    {
-      "law": "Marine Insurance Act 1906 (영국)",
-      "article": "s.79",
-      "title": "보험자의 대위권",
-      "text": "Where the insurer pays for a total loss...he thereupon becomes entitled to take over the interest of the assured in whatever may remain of the subject-matter so insured, and he is thereby subrogated to all the rights and remedies of the assured in and in respect of that subject-matter from the time of the casualty causing the loss.",
-      "relevance": "영국법상 보험자대위의 법적 근거 및 행사 방법"
-    },
-    {
-      "law": "상법",
-      "article": "제814조",
-      "title": "운송인의 책임소멸",
-      "text": "운송인의 송하인 또는 수하인에 대한 채권 및 채무는 그 청구원인의 여하에 불구하고 운송물을 인도한 날 또는 인도할 날부터 1년 이내에 재판상 청구가 없으면 소멸한다.",
-      "relevance": "보험자대위청구권에도 적용되는 1년 제척기간"
-    },
-    {
-      "law": "국제사법",
-      "article": "제45조",
-      "title": "보험계약의 준거법",
-      "text": "보험계약의 당사자는 보험계약의 준거법을 지정할 수 있다.",
-      "relevance": "영국법 준거법 지정의 유효성 근거"
-    }
-  ]
-},
-  12: {
-  "original": "Owner and/or Demise Charterer of the Vessel 'A Symphony' v Owner and/or Demise Charterer of the Vessel 'Sea Justice'\n[2024] SGCA 32\nSingapore Court of Appeal — 26 August 2024\nTay Yong Kwang JCA, Belinda Ang Saw Ean JCA\n\nFACTS\nA collision occurred between the oil tanker A Symphony and the general cargo vessel Sea Justice on 27 April 2021 off Qingdao, China in Chinese territorial waters. Substantial damage was caused to A Symphony and a marine pollution incident arose. Both owners commenced proceedings in the Qingdao Maritime Court. The owner of A Symphony arrested Sea Justice in Singapore on 20 October 2022, commencing admiralty in rem proceedings (ADM 61). Sea Justice was released against security (SG Security). Sea Justice's owner applied for a stay of ADM 61 on forum non conveniens grounds and for return of the SG Security.\n\nHELD\n(1) Applying the Spiliada two-stage test, the PRC (Qingdao Maritime Court) is the natural and more appropriate forum for the collision claims. ADM 61 is stayed.\n(2) Where admiralty in rem proceedings have been stayed on forum non conveniens grounds, the claimant cannot retain security to exploit higher limitation amounts available in Singapore. The right to choose the forum for limitation belongs exclusively to the shipowner (defendant), not the claimant.\n(3) The SG Security is not a legitimate juridical advantage. There is no valid ground to make the stay order conditional on retention of the SG Security; it must be returned.\n\nSource: [2024] SGCA 32 — elitigation.sg/gd/s/2024_SGCA_32; LMLN 26 August 2024",
-  "provisions": [
-    {
-      "law": "Spiliada Maritime Corp v Cansulex [1987] AC 460",
-      "article": "Two-Stage Test",
-      "title": "포럼 논 코벤이언스 심사 기준",
-      "text": "Stage 1: Is there another forum which is clearly or distinctly more appropriate? Stage 2: Even if so, are there circumstances by reason of which justice requires that a stay should not be granted?",
-      "relevance": "싱가포르 소송 중지 여부 판단의 핵심 기준"
-    },
-    {
-      "law": "Singapore High Court (Admiralty Jurisdiction) Act",
-      "article": "s.4",
-      "title": "대물소송 관할권",
-      "text": "The High Court shall have jurisdiction to hear and determine any question or claim mentioned in section 4.",
-      "relevance": "싱가포르 법원의 선박 억류 및 대물소송 관할 근거"
-    },
-    {
-      "law": "LLMC 1976",
-      "article": "Art. 11",
-      "title": "책임제한 기금 구성",
-      "text": "Any person alleged to be liable may constitute a fund with the Court in any State Party in which legal proceedings are instituted.",
-      "relevance": "책임 제한 법정 선택권이 피고(선주)에 귀속됨의 근거"
-    }
-  ]
-}
-,
-  13: {
-  "original": "AMS Ameropa Marketing and Sales AG & Anor v Ocean Unity Navigation Inc (The 'Doric Valour')\n[2024] EWCA Civ 1312\nEngland & Wales Court of Appeal — 1 November 2024\nLord Justice Underhill, Lord Justice Males, Lord Justice Snowden\n\nFACTS\nA voyage charter was concluded between Ocean Unity (Owners) and AMS Ameropa for the carriage of 50,000mt of yellow soybeans from Convent, Louisiana to Abu Qir Port, Egypt on board the Doric Valour. Ameropa had purchased the cargo FOB and resold to Oilex CIF. On arrival the cargo in Hold 4 was found damaged on its surface. Ameropa had compensated Oilex under the sale contract. Owners argued that Ameropa suffered no net loss since it had itself been compensated by Ameropa's seller.\n\nHELD (Court of Appeal)\nThe appeal was dismissed. A bill of lading holder's claim against a shipowner for cargo damage is not reducible by reason of a payment received from the seller of the damaged goods under a separate sales contract. Such a payment is collateral to the circumstances that caused the loss and the doctrine of res inter alios acta applies. The avoided loss rule does not apply here. The Owners could not take benefit from a payment received by Ameropa from a third party.\n\nDamages: The difference between the sound market value and the damaged value of the cargo was recoverable in full.\n\nSource: [2024] EWCA Civ 1312 — bailii.org/ew/cases/EWCA/Civ/2024/1312; LMLN 1 November 2024",
-  "provisions": [
-    {
-      "law": "English Contract Law",
-      "article": "Res inter alios acta",
-      "title": "제3자간 행위의 독립성",
-      "text": "Benefits received by a claimant from a source collateral to the breach of contract (i.e. from a third party unconnected to the defendant) are not to be taken into account in reducing the claimant's damages.",
-      "relevance": "매도인이 Ameropa에 지급한 보상금은 운송인 책임과 무관"
-    },
-    {
-      "law": "Hague-Visby Rules",
-      "article": "Art. III r.6",
-      "title": "운송인 책임의 소멸시효",
-      "text": "The carrier and the ship shall in any event be discharged from all liability whatsoever in respect of the goods unless suit is brought within one year.",
-      "relevance": "화물 손해 클레임의 기간 요건"
-    },
-    {
-      "law": "Carriage of Goods by Sea Act 1971 (UK)",
-      "article": "s.1",
-      "title": "헤이그-비스비 규칙의 법적 효력",
-      "text": "The Hague-Visby Rules shall have the force of law.",
-      "relevance": "영국법상 운송인 책임 규범의 적용 근거"
-    }
-  ]
-},
-  14: {
-  "original": "UOB (as holder of bills of lading) v Maersk Tankers Singapore Pte Ltd (The 'Maersk Katalin')\n[2024] SGHC 282\nSingapore High Court — 29 October 2024\nS Mohan J\n\nFACTS\nThe case arose from the collapse of Hin Leong Trading Pte Ltd in 2020. Winson Oil sold a cargo of gasoil to Hin Leong on DES terms. The cargo was shipped on board the Maersk Princess under a voyage charterparty between Maersk Tankers and Winson as charterers. Bills of lading were issued. UOB held the bills of lading as security for trade finance advanced to Hin Leong. Maersk discharged the cargo to Hin Leong without presentation of the original bills of lading, relying instead on letters of indemnity (LOI) from Winson. When Hin Leong collapsed, UOB's security was worthless.\n\nHELD (S Mohan J)\n(1) Maersk's delivery of cargo without original bills of lading was a misdelivery and a breach of the contract of carriage.\n(2) Maersk's Causation Defence — that UOB would have consented to delivery without presentation — was dismissed. Banks holding bills of lading as security take them for a reason; there is a 'baseline inference' that a bank will not give up security without commercial reasons. The evidential burden of displacing this inference lay on Maersk and was not discharged.\n(3) Damages of USD 39 million were awarded to UOB.\n\nSource: [2024] SGHC 282 — elitigation.sg/gd/s/2024_SGHC_282; HFW Insight January 2025; JTJB Commentary",
-  "provisions": [
-    {
-      "law": "Bills of Lading Act (Singapore)",
-      "article": "s.2",
-      "title": "선하증권 소지인의 권리",
-      "text": "A person who has become the lawful holder of a bill of lading shall (by virtue of becoming the holder of the bill) have transferred to and vested in him all rights of suit under the contract of carriage as if he had been an original party to that contract.",
-      "relevance": "UOB의 B/L 소지인으로서 소송 자격 근거"
-    },
-    {
-      "law": "English Common Law",
-      "article": "Misdelivery",
-      "title": "무단 인도의 성립",
-      "text": "A carrier who delivers cargo to a person not entitled to it under the bill of lading commits misdelivery and is liable in damages for the full value of the goods.",
-      "relevance": "원본 B/L 없는 인도는 계약 위반 및 무단 인도"
-    },
-    {
-      "law": "English Common Law",
-      "article": "Causation Defence",
-      "title": "인과관계 항변의 증명책임",
-      "text": "Where the shipowner raises a causation defence alleging that the claimant would have agreed to delivery without presentation of the bill of lading, the evidential burden lies on the shipowner to displace the baseline inference that a bank holding a bill of lading as security would not release it without commercial reasons.",
-      "relevance": "운송인이 인과관계 항변을 증명해야 하는 근거"
-    }
-  ]
-}
-,
-  15: {
-  "original": "【대법원 2023. 12. 14. 선고 2022다208649 판결】\n\n【사건】손해배상(기)\n\n【판시사항】\n[1] 해상화물운송에서 선하증권이 발행된 경우 보세창고업자가 운송인의 이행보조자로서 부담하는 의무의 내용\n[2] 보세창고업자가 화물인도지시서의 적법성을 확인할 주의의무를 부담하는지 여부(적극)\n[3] 운송인과 보세창고업자 간 임치계약 성립 및 그 내용\n\n【판결요지】\n[1] 해상화물운송에서 선하증권이 발행된 경우, 운송인의 이행보조자인 보세창고업자는 화물을 선하증권의 정당한 수령인에게 인도할 의무를 진다.\n[2] 보세창고업자는 화물인도지시서(D/O)가 화물을 인도하기 위한 유효한 서류로서 적법하게 발행된 것인지 확인할 주의의무를 부담한다.\n[3] 운송인이 화물을 보세창고에 맡김으로써 운송인과 보세창고업자 사이에 임치계약이 성립하고, 보세창고업자는 그 임치계약에 따라 운송인 또는 운송인이 지정하는 자에게 화물을 인도할 의무를 부담한다. 보세창고업자가 이 의무를 위반하여 선하증권 소지인이 손해를 입은 경우 손해배상책임이 성립한다.\n\n※ 출처: 대법원 주요판결 (scourt.go.kr, seqnum=9628); 법원도서관 2024.2.1. 판례공보 제675호",
-  "provisions": [
-    {
-      "law": "민법",
-      "article": "제391조",
-      "title": "이행보조자의 고의·과실",
-      "text": "채무자의 법정대리인이 채무이행에 관여하거나 채무자가 이행보조자를 사용한 경우, 그 대리인 또는 이행보조자의 고의나 과실은 채무자의 고의나 과실로 본다.",
-      "relevance": "보세창고업자의 과실을 운송인의 과실로 볼 수 있는 근거"
-    },
-    {
-      "law": "상법",
-      "article": "제861조",
-      "title": "선하증권 소지인의 권리",
-      "text": "선하증권의 정당한 소지인은 운송인에 대하여 화물의 인도를 청구할 수 있다.",
-      "relevance": "선하증권 소지인에 대한 화물 인도 의무의 근거"
-    },
-    {
-      "law": "관세법",
-      "article": "제157조",
-      "title": "보세화물 반출 요건",
-      "text": "보세구역에 장치된 화물은 수입신고가 수리된 후에 반출할 수 있다.",
-      "relevance": "보세창고 화물 반출의 적법 절차"
-    }
-  ]
-},
-  16: {
-  "original": "Alize 1954 and another v Allianz Elementar Versicherungs AG and others (The CMA CGM Libra)\n[2021] UKSC 51\nUK Supreme Court — 10 November 2021\nLord Hodge, Lord Briggs, Lord Hamblen, Lord Leggatt, Lord Burrows\n\nFACTS\nThe CMA CGM LIBRA ran aground shortly after departing Xiamen, China on 17 May 2011. A Notice to Mariners issued by the UK Hydrographic Office five months earlier had warned that depths outside the dredged fairway might be less than charted. The second officer prepared, and the master approved, a passage plan that failed to take account of this warning. The master deviated from the planned route, navigating into uncharted shallow waters.\n\nHELD (Unanimous)\n(1) Seaworthiness is not limited to physical attributes of the ship. A defective passage plan can render a vessel unseaworthy before the commencement of the voyage.\n(2) The 'attribute test' (the idea that unseaworthiness must relate to some physical quality of the vessel) was rejected.\n(3) A prudent owner who was aware of the defective passage plan would have required it to be corrected before sailing. The vessel was therefore unseaworthy.\n(4) The defective passage plan was not a 'navigational fault' under Art. IV r.2(a) of the Hague Rules, because it was a pre-voyage failure rather than an act or omission during the conduct of the voyage.\n(5) The shipowner's duty is not merely to provide a proper system for passage planning; due diligence requires that the plan actually produced is not defective.\n\nSource: [2021] UKSC 51 — supremecourt.uk; HFW Insight November 2021; Hill Dickinson Analysis",
-  "provisions": [
-    {
-      "law": "Hague Rules",
-      "article": "Art. III r.1",
-      "title": "선주의 감항성 보증 의무",
-      "text": "The carrier shall be bound before and at the beginning of the voyage to exercise due diligence to: (a) Make the ship seaworthy; (b) Properly man, equip and supply the ship; (c) Make the holds, refrigerating and cool chambers, and all other parts of the ship in which goods are carried, fit and safe for their reception, carriage and preservation.",
-      "relevance": "항로계획 결함이 감항성 의무(due diligence) 위반을 구성하는 근거"
-    },
-    {
-      "law": "Hague Rules",
-      "article": "Art. IV r.2(a)",
-      "title": "항해 과실 면책",
-      "text": "Neither the carrier nor the ship shall be responsible for loss or damage arising or resulting from: (a) Act, neglect, or default of the master, mariner, pilot, or the servants of the carrier in the navigation or in the management of the ship.",
-      "relevance": "항로계획 결함은 항해 중 과실이 아니므로 면책 불가 판시"
-    },
-    {
-      "law": "English Maritime Law",
-      "article": "Prudent Owner Test",
-      "title": "사려 깊은 선주 기준",
-      "text": "A ship is unseaworthy if a prudent owner, knowing the relevant defect, would not have sent the ship to sea in that condition.",
-      "relevance": "감항불능 판단의 표준"
-    }
-  ]
-}
-};
-
-// ══ NEW CASES (추가 판례) ══
-
-CASES.push({
-  "id": 1,
-  "caseNum": "대법원 2018다289825",
-  "type": "선하증권",
-  "country": "한국",
-  "flag": "🇰🇷",
-  "court": "대법원",
-  "date": "2023.08.31",
-  "conf": 1.0,
-  "title": "선하증권 무단 인도 — 수하인의 공동불법행위 책임 첫 판례",
-  "summary": "송하인으로부터 화물을 매수한 수하인이 선하증권과의 상환 없이 무단으로 화물을 인도받아 간 경우, 선하증권 소지인인 원고에 대한 공동불법행위책임이 성립하는지 여부.",
-  "facts": "PT Limas Tunggal(인도네시아 광산업자)이 한국 발전회사들에 석탄을 수출하면서 선하증권 발행. 원고 금융기관이 선하증권 담보로 대출 실행 후 선하증권 소지. 수입자인 피고 발전회사들이 원본 선하증권 없이 화물 인도받음.",
-  "holding": "선하증권과 상환 없이 운송물을 인도받아간 수하인은 운송인과 함께 공동불법행위 책임을 부담한다. 선하증권의 담보적 기능을 침해하였음. 선하증권상 수하인란에 기재되지 않은 소지인도 정당한 소지인으로서 처분 권한을 가진다.",
-  "issues": [
-    "선하증권과 상환 없는 화물 인도의 불법행위 성립 여부",
-    "선하증권의 담보적 기능",
-    "수하인의 공동불법행위책임 범위"
-  ],
-  "implications": [
-    "선하증권 원본 없는 화물 수령은 불법행위로서 손해배상 책임 발생",
-    "수입자는 반드시 원본 B/L 상환 후 화물 수령 필요"
-  ],
-  "laws": [
-    "상법 제129조",
-    "상법 제861조",
-    "민법 제750조",
-    "민법 제760조"
-  ],
-  "related": [
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2019다213405 — 동일 쟁점 병행 선고"
-    },
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2022다214064 — 동일 쟁점 병행 선고"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 2,
-  "caseNum": "대법원 2024다270860",
-  "type": "선하증권",
-  "country": "한국",
-  "flag": "🇰🇷",
-  "court": "대법원",
-  "date": "2025.08.14",
-  "conf": 1.0,
-  "title": "도착지 운송주선인 — 보세창고업자의 선하증권 상환 인도 의무",
-  "summary": "도착지 운송주선인이 마스터 화물인도지시서(D/O)를 수입업자에게 교부한 후, 보세창고업자가 선하증권과 상환 없이 화물을 반출한 사건에서 운송주선인과 보세창고업자의 책임.",
-  "facts": "외국 수출업체 甲이 수입업체에 화물 수출, 외국 乙사가 운송 주선하며 House B/L 발행. 선사 丙이 부산항 반입 후 운송주선인 丁을 통해 보세창고 입고. 수입업체가 마스터 D/O 사본을 보세창고업자에게 제시하고 결제 확인 없이 화물 반출.",
-  "holding": "도착지 운송주선인은 수입화물의 통관절차 완료 시까지 보관하고 선하증권의 정당한 수령인에게 인도할 의무를 부담한다. 보세창고업자가 선하증권과 상환 없이 화물을 반출한 것은 위법하다. 운송주선인의 이행보조자인 보세창고업자의 책임도 인정된다.",
-  "issues": [
-    "도착지 운송주선인의 화물 보관·인도 의무",
-    "보세창고업자의 선하증권 상환 인도 의무",
-    "이행보조자 책임"
-  ],
-  "implications": [
-    "보세창고업자는 원본 B/L 또는 적법한 D/O 확인 후 화물 반출 필수",
-    "운송주선인은 보세창고업자 선임 및 관리에 주의 의무"
-  ],
-  "laws": [
-    "상법 제115조",
-    "관세법 제157조",
-    "민법 제391조"
-  ],
-  "related": [
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2018다289825 — 선하증권 무단 인도 불법행위"
-    },
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2022다208649 — 보세창고업자 의무"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 3,
-  "caseNum": "[2024] UKSC 2",
-  "type": "해상보험",
-  "country": "영국",
-  "flag": "🇬🇧",
-  "court": "UK Supreme Court",
-  "date": "2024.01.17",
-  "conf": 1.0,
-  "title": "Herculito Maritime v Gunvor (The Polar) — 해적 납치·몸값과 공동해손 분담금",
-  "summary": "소말리아 해적에 납치된 선박의 선주가 지급한 몸값(ransom)을 공동해손으로 선언하여 화물 이해관계인에게 분담금을 청구한 사건. 용선계약의 묵시적 보험 조항 존재 여부.",
-  "facts": "MT Polar(Herculito 소유)가 2010년 10월 30일 St Petersburg→Singapore 운항 중 아덴만에서 소말리아 해적에 납치. 10개월 억류 후 선주가 USD 7,700,000 몸값 지급 후 석방. 선주는 공동해손 선언 후 용선자 Gunvor 등 화물 이해관계인에게 USD 5,914,560 분담금 청구. 용선자들은 용선계약의 전쟁위험 보험 조항이 묵시적 보험 코드를 형성하므로 선주가 보험으로 보전받아야 한다고 항변.",
-  "holding": "대법원은 만장일치로 화물 이해관계인의 공동해손 분담금 지급 의무를 인정. ① 용선계약에 묵시적 보험 코드(insurance code)가 존재하지 않음. ② 선주가 납치·몸값(K&R) 보험을 가입하고 그 보험료를 용선자가 부담했다는 사실만으로는 선주의 공동해손 청구권이 제한되지 않음. ③ 선주는 용선계약상 수에즈 항로 준수 의무 있으나, 이는 몸값 공동해손 청구와 별개 문제.",
-  "issues": [
-    "용선계약상 묵시적 보험 코드의 성립 요건",
-    "K&R 보험료 부담과 공동해손 청구권의 관계",
-    "아덴만 항로 지시와 선주 거부권"
-  ],
-  "implications": [
-    "선주는 용선자가 전쟁위험 보험료를 부담하더라도 공동해손 청구권 보유",
-    "묵시적 보험 코드 인정을 위해서는 계약에서 명확한 합의가 필요"
-  ],
-  "laws": [
-    "York-Antwerp Rules 2004 Rule A",
-    "Carriage of Goods by Sea Act 1971 (UK)",
-    "English Contract Law (implied terms)"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2022] EWCA Civ 1tin — 항소법원 단계"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGCA 50 — 해적 관련 항해 위험"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 4,
-  "caseNum": "[2024] UKSC 38",
-  "type": "선하증권",
-  "country": "영국",
-  "flag": "🇬🇧",
-  "court": "UK Supreme Court",
-  "date": "2024.11.13",
-  "conf": 1.0,
-  "title": "Fimbank v KCH Shipping (Giant Ace) — HVR 1년 시효의 양하 후 무단 인도 적용",
-  "summary": "헤이그-비스비 규칙 제3조 제6항의 1년 시효가 양하(discharge) 완료 후 발생한 무단 인도(misdelivery) 청구에도 적용되는지 여부.",
-  "facts": "인도네시아산 석탄 약 85,510MT가 선박 Giant Ace에 선적되어 인도 항구들에 양하. 선주 KCH Shipping이 2018년 4월 원본 B/L 없이 화물인도지시서(LOI)와 교환하여 화물 인도. 원고 은행 FIMBank는 B/L을 담보로 보유 중이었으나 화물 소멸. FIMBank가 2020년 4월(양하 후 약 2년)에 중재 개시. KCH는 HVR Article III rule 6의 1년 시효가 만료되었다고 항변.",
-  "holding": "대법원 만장일치: HVR Article III rule 6의 1년 시효는 양하 후 인도 전·인도 시점에 발생한 무단 인도 청구를 포함한다. HVR의 책임 기간(period of responsibility)은 제한적이지만, Article III rule 6 시효는 그 기간에만 한정되지 않고 인도까지의 모든 위반행위에 적용된다. FIMBank의 청구는 시효 만료로 각하.",
-  "issues": [
-    "HVR Article III rule 6 시효의 양하 후 무단 인도 적용 여부",
-    "HVR의 책임 기간(tackle-to-tackle)과 시효 조항의 적용 범위 불일치",
-    "Congenbill 조항(clause 2(c))의 HVR 배제 효력"
-  ],
-  "implications": [
-    "선하증권 소지인은 무단 인도 인지 후 1년 내에 반드시 중재·소송 개시 필요",
-    "양하 후 화물 관리 단계에서도 1년 시효가 진행됨을 주의"
-  ],
-  "laws": [
-    "Hague-Visby Rules Art.III r.6",
-    "Carriage of Goods by Sea Act 1971 (UK)",
-    "Congenbill 1994 clause 2(c)"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] UKSC 2 — Herculito v Gunvor (The Polar)"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGHC 339 — Marchand Navigation v Olam"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 5,
-  "caseNum": "[2024] EWHC 3139 (Comm)",
-  "type": "용선계약",
-  "country": "영국",
-  "flag": "🇬🇧",
-  "court": "English High Court (Comm)",
-  "date": "2024.12.13",
-  "conf": 1.0,
-  "title": "Hapag-Lloyd v Skyros Maritime — 정기용선 조기 반선과 손해배상 산정",
-  "summary": "정기용선 계약 기간 만료 후 선박이 수일 지연 반선된 경우, 용선료 외에 시장 기준 손해배상이 가능한지 여부.",
-  "facts": "컨테이너선 2척이 Hapag-Lloyd에 정기용선. 2021년 5월 말 반선 예정이었으나 Skyros호 2일, Agios Minas호 7일 지연 반선. 그 사이 선주들은 선박 매각 계약(MOA) 체결(MSC, Maersk에게). 반선 지연 기간 동안 용선료 수령하였으나 당시 시장운임은 크게 상승. 선주들이 용선자에게 시장 기준 초과손해 청구.",
-  "holding": "Mr Justice Bright: ① 반선 지연 기간 중 용선료가 지급되므로 quantum meruit 청구 불가. ② User damages — One Step v Morris-Garner [2018] UKSC 20에 따라 이용 이익 손해는 재산권 침해 상황에서만 인정, 본 사건에서 부적용. ③ Negotiating damages — 선박 반선 의무는 그 자체로 협상 가능한 자산을 보호하지 않으므로 부적용. 결론: 선주들에게 명목상(token) 손해배상만 인정.",
-  "issues": [
-    "반선 지연 시 시장 기준 손해배상의 가부",
-    "User damages의 적용 요건(One Step v Morris-Garner)",
-    "Quantum meruit 청구의 요건"
-  ],
-  "implications": [
-    "용선자 지연 반선 시 선주는 통상적으로 추가 용선료만 청구 가능",
-    "시장 급등기에 반선 지연이 발생하면 선주에게 불리한 결과"
-  ],
-  "laws": [
-    "English Contract Law — damages for breach",
-    "NYPE Charterparty Form",
-    "One Step (Support) Ltd v Morris-Garner [2018] UKSC 20"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] UKSC 2 — Herculito v Gunvor"
-    },
-    {
-      "flag": "🇬🇧",
-      "text": "[2025] EWCA Civ 1529 — 항소심 (2025)"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 6,
-  "caseNum": "[2023] SGCA 20",
-  "type": "선박충돌",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore Court of Appeal",
-  "date": "2023.07.07",
-  "conf": 1.0,
-  "title": "The Navigator Aries v Leo Perdana — 협수로 충돌과 COLREGS Rule 9(a) 해석",
-  "summary": "수라바야 해협(협수로)에서 LPG 탱커 Navigator Aries와 컨테이너선 Leo Perdana 간 충돌 사고. COLREGS Rule 9(a)의 협수로 항행 의무 해석.",
-  "facts": "2015년 6월 28일 수라바야 해협에서 LPG 탱커 Navigator Aries(18,311GT)와 컨테이너선 Leo Perdana(27,104GT) 충돌. 충돌 약 1분 전 Leo Perdana가 갑작스러운 좌현 편향(sheer to port)으로 Navigator Aries의 항로에 진입. LP 선교가 VHF로 '조타기 이상'을 알렸으나 NA는 이미 우현 전타 회피 시도. 원심은 LP 70% / NA 30% 과실 판단.",
-  "holding": "항소법원은 원심을 파기하고 50:50으로 수정. COLREGS Rule 9(a)는 협수로에서 선박이 우현 쪽 외측 한계에 최대한 가깝게 항행할 것을 요구하며, 단순히 우현 '차선'을 유지하는 것으로는 부족하다. Navigator Aries도 협수로 내 항행 중 충분한 우현 유지 의무를 완전히 이행하지 못하였다.",
-  "issues": [
-    "COLREGS Rule 9(a) 협수로 우현 항행 의무의 해석",
-    "조타기 고장 선박의 피항 의무",
-    "충돌 과실 비율 산정 방법"
-  ],
-  "implications": [
-    "협수로 항행 시 단순 우현 차선 유지가 아닌 우현 최외측 근접 항행 필요",
-    "상대 선박의 조타기 이상 VHF 통보 후에도 자선의 항행 기준 준수 필요"
-  ],
-  "laws": [
-    "COLREGS Rule 9(a)",
-    "COLREGS Rule 16",
-    "Singapore Merchant Shipping Act (Cap.179A)"
-  ],
-  "related": [
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGCA 50 — COSCO v PT OKI (선박 교량 충돌)"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGCA 26 — 동 사건 비용 판결"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 7,
-  "caseNum": "[2023] SGHC 339",
-  "type": "용선계약",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore High Court",
-  "date": "2023.11.29",
-  "conf": 1.0,
-  "title": "Marchand Navigation v Olam (Maria Theo 1) — Sub-freight 유치권 행사",
-  "summary": "선주(disponent owner)가 하위 용선자(voyage charterer)의 체선료 채무를 이유로 sub-freight에 대한 유치권을 행사한 사건. NYPE 표준 용선계약 Clause 18 유치권 조항의 해석.",
-  "facts": "Marchand Navigation(선주)이 Sinco Shipping에 정기용선. Sinco가 Olam Global Agri에 항해 용선 재용선. 항해 완료 후 체선료 USD 190,112(Sinco-Olam 합의) 미지급. 선주 Marchand가 2023년 1월 Clause 18에 따라 Olam에 유치권 행사 통보, sub-freight·sub-demurrage를 Marchand에 직접 지급하도록 요청.",
-  "holding": "법원: Olam은 Marchand의 유치권 행사 통보를 수령한 이상, 체선료를 Marchand에 직접 지급할 자격이 있다(Sinco가 아닌 Marchand에 지급이 유효). 유치권은 sub-freight에 유효하게 행사되었다. Sinco가 이미 Olam로부터 일부 금원을 수령하였더라도, 유치권 통보 이후 지급분은 Marchand에게 귀속된다.",
-  "issues": [
-    "NYPE Clause 18 유치권의 sub-freight 적용 여부",
-    "유치권 통보의 요건과 효과",
-    "수차 재용선 구조에서 선주의 직접 청구 가능성"
-  ],
-  "implications": [
-    "정기용선 선주는 체선료 미지급 시 Clause 18로 하위 용선자 운임에 유치권 행사 가능",
-    "하위 용선자는 유치권 통보 수령 후 원 선주에게 직접 지급해야 이중 지급 위험 방지"
-  ],
-  "laws": [
-    "NYPE Clause 18 (Lien)",
-    "English Law of Lien on Sub-freights",
-    "Singapore Contract Law"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] EWHC 3139 — Hapag-Lloyd v Skyros (용선 분쟁)"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGCA 50 — COSCO v PT OKI"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 8,
-  "caseNum": "[2024] SGHC 165",
-  "type": "해상보험",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore High Court",
-  "date": "2024.06.28",
-  "conf": 1.0,
-  "title": "Meck Petroleum v Victor 1 — 선박 사법 매각과 나용선계약 소멸",
-  "summary": "법원의 사법적 매각(judicial sale)으로 처분된 선박의 나용선(bareboat) 계약이 매각 후 계속 유효한지, 그리고 나용선자가 선박 매각 대금 채권에 대해 대물소송을 제기할 수 있는지 여부.",
-  "facts": "선박 Victor 1이 Savory Shipping Inc(선주) 소유. Ceto Shipping Corporation이 나용선(bareboat). Victor 1이 타 소송에서 사법 매각됨. 매각 대금이 법원에 예탁. Meck Petroleum이 별도 대물 소송(action in rem)으로 매각 대금에 대한 청구 제기. Ceto가 나용선자로서 소송에 개입, Savory도 선주로서 개입. Savory는 Ceto의 소송 자격 없다며 청구 기각 신청.",
-  "holding": "사법적 매각은 선박에 대한 모든 선취특권(liens) 및 부담(encumbrances)을 소멸시키며, 나용선계약도 함께 소멸한다. 따라서 Ceto는 매각 이후 나용선자 지위를 유지할 수 없고, 매각 대금에 대한 대물 청구를 할 수 없다. Meck Petroleum은 나용선자에 대한 인적 채무(in personam)만 가지므로, 선박의 소유자(선주)에 대한 대물 소송을 제기할 수 없다.",
-  "issues": [
-    "사법적 매각과 나용선계약의 소멸 여부",
-    "대물소송(action in rem)의 요건 — in personam 채무와의 관계",
-    "매각 대금에 대한 채권자의 청구 순위"
-  ],
-  "implications": [
-    "나용선자 채권자는 선박 사법 매각 전에 대물 청구를 제기해야 권리 보전 가능",
-    "사법 매각 후에는 매각 대금에 대해 제한된 방식으로만 청구 가능"
-  ],
-  "laws": [
-    "Singapore High Court (Admiralty Jurisdiction) Act (Cap.7)",
-    "English Admiralty Law (The Burns [1907])",
-    "Singapore Merchant Shipping Act"
-  ],
-  "related": [
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGCA 50 — COSCO v PT OKI"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGCA 20 — Navigator Aries v Leo Perdana"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 9,
-  "caseNum": "[2024] SGCA 50",
-  "type": "선박충돌",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore Court of Appeal",
-  "date": "2024.11.13",
-  "conf": 1.0,
-  "title": "COSCO Shipping v PT OKI Pulp (Le Li) — 출항 중 교량 충돌과 중재조항 포섭 범위",
-  "summary": "선박 Le Li가 선적항 부두 출항 중 Trestle 교량에 충돌. 화주가 인도네시아 법원에 불법행위 소송 제기. 선하증권의 중재조항이 불법행위 청구를 포섭하는지 및 anti-suit injunction 인정 여부.",
-  "facts": "COSCO Shipping Specialized Carriers Co Ltd(선사)가 화주 PT OKI Pulp & Paper Mills와 선하증권 계약. 선박 Le Li가 2022년 5월 31일 OKI 부두에서 약 27,000MT 표백 하드우드 펄프 선적 후 출항 중 Trestle 교량에 충돌. PT OKI가 인도네시아 법원에 불법행위 손해배상 청구 제기. COSCO가 싱가포르 법원에 anti-suit injunction 신청.",
-  "holding": "항소법원: ① 공동이익(common sense) 접근법에 따라 불법행위 청구가 선하증권 중재조항의 범위에 포섭되는지 여부는 형식적이 아닌 실질적·충분한 관련성으로 판단. ② 본 사건의 불법행위 청구(교량 충돌)는 선하증권 계약 관계에서 발생하였으므로 중재조항에 '충분히 관련됨(sufficiently connected)'. ③ Anti-suit injunction 인용 — PT OKI는 인도네시아 소송 중지 의무.",
-  "issues": [
-    "선하증권 중재조항의 불법행위 청구 포섭 기준",
-    "Anti-suit injunction의 인용 요건",
-    "선박 출항 중 사고와 운송계약의 관련성"
-  ],
-  "implications": [
-    "선하증권 중재조항은 계약에서 발생한 불법행위 청구도 포섭할 수 있음",
-    "외국 소송 중지를 위해 싱가포르 법원에서 anti-suit injunction 적극 활용 가능"
-  ],
-  "laws": [
-    "Singapore International Arbitration Act (Cap.143A)",
-    "COGSA (Singapore)",
-    "English Law on Anti-suit Injunctions"
-  ],
-  "related": [
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGCA 20 — Navigator Aries v Leo Perdana"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGHC 92 — 동 사건 1심"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 10,
-  "caseNum": "대법원 2019다261558",
-  "type": "용선계약",
-  "country": "한국",
-  "flag": "🇰🇷",
-  "court": "대법원",
-  "date": "2024.04.25",
-  "conf": 1.0,
-  "title": "영국법 준거 용선계약 위약금 — 위약벌 해당 여부 및 민법 제398조 적용 불가",
-  "summary": "이탈리아 선주와 국내 용선주 간 영국법 준거 용선계약에서 운임의 100%를 손해배상액으로 약정한 위약금 조항이 영국법상 강제 불가능한 '위약벌(penalty)'에 해당하는지, 우리 민법 제398조 제2항(과다 위약금 감액)을 적용해 감액해야 하는지 여부.",
-  "facts": "이탈리아 법인인 선주가 선박을 국내 용선주에게 22일 간 용선하고 용선료 약 USD 900만을 받기로 하는 용선계약 체결. 계약에 '용선자가 30일 이상 운임 지급을 지체하여 선주가 계약 해제할 경우 용선자는 운임의 100%를 손해배상 예정액으로 지급한다'는 조항 포함. 준거법은 영국법. 용선주가 운임을 미지급하자 선주가 계약을 해제하고 위약금을 청구.",
-  "holding": "[1] 영국법상 위약금 약정이 손해배상액의 예정인지 위약벌인지는 계약 당시 약정된 위약금이 상대방의 계약상 의무 이행을 강제할 '정당한 이익'과 비례하는지에 따라 판단한다. 정당한 이익은 예상 최대 손해에 국한되지 않으며, 위반의 성격·손해 예측 가능성·계약 협상력 대등 여부 등을 종합 고려한다. [2] 민법 제398조 제2항의 '과다한 손해배상액의 예정' 감액 규정은 국제사법상 강행규정이 아니므로, 준거법이 영국법인 경우에는 적용되지 않는다. 영국법을 적용한 결과가 한국의 공서양속에 반하지도 않는다.",
-  "issues": [
-    "영국법상 위약벌(penalty) 해당 여부 판단 기준",
-    "민법 제398조 제2항의 국제적 강행규정 성격",
-    "준거법과 공서양속"
-  ],
-  "implications": [
-    "영국법 준거 계약의 위약금은 한국 민법 감액 규정 적용 없이 영국법으로만 판단",
-    "국제 선박용선계약에서 준거법 선택의 실무적 중요성"
-  ],
-  "laws": [
-    "영국 계약법 (Cavendish Square v Makdessi 기준)",
-    "국제사법 제7조(국제적 강행규정)",
-    "국제사법 제10조(공서양속)",
-    "민법 제398조 제2항"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "Cavendish Square v Makdessi [2015] UKSC 67 — 위약벌 판단 기준 최신 영국 판례"
-    },
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2022다243550 — 해상보험 준거법 문제"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 11,
-  "caseNum": "대법원 2022다243550",
-  "type": "해상보험",
-  "country": "한국",
-  "flag": "🇰🇷",
-  "court": "대법원",
-  "date": "2024.10.25",
-  "conf": 1.0,
-  "title": "적하보험 보험자대위 준거법 — 보험자대위와 채권양도의 준거법은 별개",
-  "summary": "외국적 요소가 있는 영국법 준거 적하보험계약에서 보험금 지급 후 보험자대위의 준거법과, 보험자·피보험자 간 채권양도의 준거법이 반드시 동일하여야 하는지 여부, 및 영국법에 따른 보험자대위 방법.",
-  "facts": "외국 화물에 대해 영국법을 준거법으로 하는 적하보험계약 체결. 원고 보험회사가 피보험자에게 보험금 지급 후, 국내 운송인 피고를 상대로 대위권 행사. 피고는 상법 제814조의 1년 제척기간 도과를 주장.",
-  "holding": "[1] 보험계약에 기한 보험자대위의 준거법과 보험자·피보험자 간 채권양도의 준거법은 반드시 일치하지 않는다. [2] 영국 해상보험법(Marine Insurance Act 1906)에 따르면 보험자는 피보험자 명의로 소를 제기하는 방식으로 대위권을 행사한다. [3] 운송인에 대한 보험자대위청구권도 상법 제814조의 '운송물을 인도한 날로부터 1년' 제척기간의 적용을 받는다.",
-  "issues": [
-    "보험자대위와 채권양도의 준거법 동일성 여부",
-    "영국 해상보험법상 보험자대위 방법",
-    "상법 제814조 제척기간의 대위청구권 적용 여부"
-  ],
-  "implications": [
-    "영국법 준거 보험계약에서 대위소송은 피보험자 명의로 제기해야 함",
-    "해상운송인 상대 클레임은 화물 인도일부터 1년 내 제기 필수"
-  ],
-  "laws": [
-    "Marine Insurance Act 1906 (영국) s.79",
-    "상법 제814조",
-    "국제사법 제45조(보험계약의 준거법)"
-  ],
-  "related": [
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2019다261558 — 준거법과 한국 강행규정의 적용"
-    },
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2018다289825 — 운송인 책임과 제척기간"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 12,
-  "caseNum": "[2024] SGCA 32",
-  "type": "선박충돌",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore Court of Appeal",
-  "date": "2024.08.26",
-  "conf": 1.0,
-  "title": "The A Symphony v The Sea Justice — 선박충돌 후 포럼 논 코벤이언스와 싱가포르 보전 담보 반환",
-  "summary": "중국 해역에서 발생한 선박 충돌 사건에서 싱가포르 법원의 포럼 논 코벤이언스(forum non conveniens) 적용에 따른 소송 중지와, 중지 후 원고가 싱가포르에서 확보한 담보(security)를 계속 보유할 수 있는지 여부.",
-  "facts": "2021년 4월 27일, 유조선 A Symphony와 일반화물선 Sea Justice가 중국 청도(Qingdao) 인근 중국 영해에서 충돌. A Symphony에 심각한 손상과 해양오염 발생. A Symphony 선주는 청도 해사법원에서 중국 소송을 진행하는 한편, 2022년 10월 20일 Sea Justice가 싱가포르 기항 시 대물소송(admiralty in rem) 제기 및 선박 억류(arrest). Sea Justice 선주가 싱가포르 담보(SG Security) 제공 후 석방. 이후 Sea Justice 선주가 싱가포르 소송 중지(forum non conveniens) 및 담보 반환 신청.",
-  "holding": "[1] 싱가포르 항소법원은 Spiliada 2단계 심사를 적용하여 중국(청도 해사법원)이 더 자연스럽고 적절한 법정임을 인정, 싱가포르 소송 중지 확정. [2] 소송이 포럼 논 코벤이언스로 중지된 경우, 원고는 싱가포르에서 더 높은 책임 제한 한도를 이용하기 위해 담보를 계속 보유할 수 없다. 책임 제한 법정 선택권은 피고(선주)에게만 귀속된다. [3] 싱가포르 보전 담보는 정당한 법적 이익이 아니므로 중지 조건으로 보유를 허용할 수 없고 반환되어야 한다.",
-  "issues": [
-    "해상 사건에서 포럼 논 코벤이언스 적용 기준",
-    "소송 중지 후 보전 담보의 계속 보유 가능 여부",
-    "책임 제한 법정 선택권의 귀속 주체"
-  ],
-  "implications": [
-    "선박 억류 후 소송이 중지되면 원고는 더 높은 책임 제한을 위해 담보를 활용할 수 없음",
-    "책임 제한 법정 선택권은 오직 선주(피고)에게 속함"
-  ],
-  "laws": [
-    "Singapore High Court (Admiralty Jurisdiction) Act",
-    "Spiliada Maritime Corp v Cansulex [1987] AC 460",
-    "International Convention on Limitation of Liability for Maritime Claims (LLMC) 1976"
-  ],
-  "related": [
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGHC 37 — 동일 사건 고법 1심 판결"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGHCR 24 — 동일 사건 사전 절차"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 13,
-  "caseNum": "[2024] EWCA Civ 1312",
-  "type": "화물손해",
-  "country": "영국",
-  "flag": "🇬🇧",
-  "court": "England & Wales Court of Appeal",
-  "date": "2024.11.01",
-  "conf": 1.0,
-  "title": "The Doric Valour (AMS Ameropa v Ocean Unity) — 화물손해 배상과 매도인 보상금의 상계 불가",
-  "summary": "항해 중 손상된 화물에 대해 선하증권 소지인이 운송인을 상대로 손해배상을 청구할 때, 소지인이 화물 매도인으로부터 별도로 받은 보상금을 손해액에서 공제(상계)해야 하는지 여부.",
-  "facts": "AMS Ameropa가 미국 루이지애나에서 이집트 아부키르항으로 대두 50,000mt를 항해용선계약으로 벌크선 Doric Valour에 선적. Ameropa는 매도인으로부터 FOB로 구매 후 수입자 Oilex에 CIF로 재판매. 항해 중 4번 화물창(hold 4) 표면 화물이 손상 발견. 운송인은 Ameropa가 화물 매도인으로부터 손상 화물 매입가격 상당의 보상을 받았으므로 그 금액을 공제해야 한다고 주장.",
-  "holding": "항소법원은 원심을 유지하며 Ameropa의 운송인 대상 손해배상청구를 인용. 선하증권 소지인이 화물 손상에 대해 매도인(제3자)으로부터 별도 보상을 받은 것은 '부수적 이익(collateral benefit)'이며 운송인의 책임과 무관하다(res inter alios acta). 회피손실(avoided loss) 원칙은 적용되지 않으며, 운송인은 그 보상금을 자신의 책임에서 공제받을 수 없다.",
-  "issues": [
-    "화물 손상 배상액 산정 시 제3자 보상금의 공제 여부",
-    "부수적 이익(collateral benefit) 원칙",
-    "회피손실(avoided loss) 법리의 적용 범위"
-  ],
-  "implications": [
-    "운송인은 B/L 소지인이 매도인으로부터 받은 별도 보상금을 이유로 자신의 책임을 감경받을 수 없음",
-    "화물 매도인의 매수인에 대한 보상은 운송인과 무관한 별개 거래"
-  ],
-  "laws": [
-    "Hague-Visby Rules Art. III r.6",
-    "English Contract Law (res inter alios acta)",
-    "Carriage of Goods by Sea Act 1971 (UK)"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] UKSC 38 — Fimbank v KCH Giant Ace — HVR 시간제한"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2024] SGHC 282 — Maersk Katalin — 선하증권 무상환 인도"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 14,
-  "caseNum": "[2024] SGHC 282",
-  "type": "선하증권",
-  "country": "싱가포르",
-  "flag": "🇸🇬",
-  "court": "Singapore High Court",
-  "date": "2024.10.29",
-  "conf": 1.0,
-  "title": "The Maersk Katalin (UOB v Maersk Tankers) — 선하증권 무상환 인도와 은행 손해 인과관계",
-  "summary": "Hin Leong 붕괴 사태 관련, 은행(UOB)이 선하증권 소지인으로서 원본 제시 없이 화물을 인도한 운송인(Maersk)을 상대로 무단 인도(misdelivery) 손해배상을 청구한 사건. 운송인의 인과관계 항변(은행이 어차피 인도에 동의했을 것) 성립 여부.",
-  "facts": "Winson Oil이 Hin Leong에 가스오일(gasoil 10ppm, 일정 수량)을 DES 조건으로 매각. 화물은 용선계약에 따라 Maersk Princess호에 선적, 선하증권 발행. 원고 UOB은행이 Hin Leong의 무역금융 제공 목적으로 선하증권 소지. Maersk는 원본 B/L 제시 없이 Winson의 LOI(보상장)를 믿고 화물 인도. 2020년 Hin Leong이 파산하면서 UOB는 담보로 확보한 선하증권이 무용지물이 됨.",
-  "holding": "[1] 운송인이 원본 선하증권 제시 없이 화물을 인도한 것은 계약 위반이며 무단 인도(misdelivery)에 해당함. [2] 운송인의 인과관계 항변('어차피 은행이 인도 동의했을 것')은 기각. 은행이 선하증권을 담보로 취득한 이상, 상업적 이유 없이 이를 포기하거나 담보가치를 훼손하는 인도에 동의했을 것이라는 점은 운송인이 증명해야 할 사항이며, 증명되지 않았다. [3] USD 3,900만 상당의 손해배상 인용.",
-  "issues": [
-    "원본 B/L 미제시 화물 인도의 무단 인도 해당 여부",
-    "운송인의 인과관계 항변(은행의 추정적 동의)의 성립 요건",
-    "은행 소지인의 담보 목적 B/L 처분 추정"
-  ],
-  "implications": [
-    "운송인은 보상장(LOI)만으로 화물 인도 시 B/L 소지인에 대한 손해배상 책임을 부담",
-    "인과관계 항변은 운송인이 입증해야 하는 높은 기준 적용"
-  ],
-  "laws": [
-    "Bills of Lading Act (Singapore) Cap 384",
-    "Carriage of Goods by Sea Act (Singapore)",
-    "English Common Law misdelivery doctrine"
-  ],
-  "related": [
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2018다289825 — 선하증권 무단 인도 공동불법행위"
-    },
-    {
-      "flag": "🇸🇬",
-      "text": "[2023] SGHC 339 — Marchand Navigation v Olam 운임 유치권"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 15,
-  "caseNum": "대법원 2022다208649",
-  "type": "선하증권",
-  "country": "한국",
-  "flag": "🇰🇷",
-  "court": "대법원",
-  "date": "2023.12.14",
-  "conf": 1.0,
-  "title": "보세창고업자의 선하증권 상환 인도 의무 — 운송인 이행보조자 책임",
-  "summary": "해상화물운송에서 선하증권이 발행된 경우, 화물을 보관하는 보세창고업자가 운송인의 이행보조자로서 부담하는 선하증권 상환 인도 의무의 내용과 범위, 및 화물인도지시서(D/O)의 적법성 확인 의무.",
-  "facts": "수입화물이 운송인과 보세창고업자 간 임치계약에 따라 보세창고에 입고. 보세창고업자는 운송인의 이행보조자로서 화물을 보관. 선하증권 원본 제시 없이 화물인도지시서만으로 화물 반출이 이루어짐. 원고(선하증권 소지인)가 피고(보세창고업자)를 상대로 손해배상 청구.",
-  "holding": "[1] 해상화물운송에서 선하증권이 발행된 경우, 운송인의 이행보조자인 보세창고업자는 화물을 선하증권의 정당한 수령인에게 인도할 의무가 있다. [2] 보세창고업자는 화물인도지시서(D/O)가 적법하게 발행된 유효한 화물 인도 서류인지 확인할 주의의무를 부담한다. [3] 운송인이 화물을 보세창고에 맡김으로써 운송인과 보세창고업자 사이에 임치계약이 성립하고, 보세창고업자는 그 임치계약에 따라 운송인 또는 운송인이 지정하는 자에게 화물을 인도할 의무를 부담한다.",
-  "issues": [
-    "보세창고업자의 선하증권 소지인에 대한 직접 의무 성립 여부",
-    "D/O 적법성 확인 의무의 범위",
-    "운송인-보세창고업자 간 임치계약의 성질"
-  ],
-  "implications": [
-    "보세창고업자는 D/O만으로 화물 반출 시 선하증권 소지인에 대한 손해배상 책임 가능",
-    "보세창고업자는 D/O 발행 출처 및 적법성 확인 절차 필수"
-  ],
-  "laws": [
-    "상법 제861조",
-    "상법 제129조",
-    "민법 제391조(이행보조자)",
-    "관세법 제157조"
-  ],
-  "related": [
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2018다289825 — 선하증권 무단 인도 공동불법행위"
-    },
-    {
-      "flag": "🇰🇷",
-      "text": "대법원 2024다270860 — 운송주선인 보세창고업자 책임"
-    }
-  ]
-});
-
-CASES.push({
-  "id": 16,
-  "caseNum": "[2021] UKSC 51",
-  "type": "감항성",
-  "country": "영국",
-  "flag": "🇬🇧",
-  "court": "UK Supreme Court",
-  "date": "2021.11.10",
-  "conf": 1.0,
-  "title": "The CMA CGM Libra (Alize 1954 v Allianz) — 항로계획 결함과 감항불능 — 헤이그 규칙",
-  "summary": "컨테이너선 CMA CGM Libra가 중국 하문항을 출항 직후 좌초된 사건. 항해사가 출항 전 작성한 항로계획(passage plan)의 결함이 감항성(seaworthiness) 결여를 구성하는지 여부, 및 헤이그 규칙 제4조 제2항 (a)호(항해 과실 면책)의 적용 여부.",
-  "facts": "2011년 5월 17일 CMA CGM Libra가 중국 하문항 출항 후 계획 항로를 이탈, 수심 불명 해역으로 진입하여 좌초. 5개월 전 영국 수로국의 항행통보(Notice to Mariners)에서 해당 구역의 수심이 해도보다 얕을 수 있다고 경고했으나, 2항사가 작성하고 선장이 승인한 항로계획에 이 통보를 반영하지 않았음. 화물 보험회사(Allianz 등)가 선주(Alize 1954)를 상대로 공동해손 분담금 청구 항변으로 감항불능을 주장.",
-  "holding": "대법원은 만장일치로 선박이 감항불능 상태였다고 판시. [1] 감항성은 선박 자체의 속성(physical attribute)에 국한되지 않는다. 출항 전 항로계획의 결함은 선박의 감항성 결여를 구성할 수 있다. [2] 사려 깊은 선주(prudent owner)라면 항로계획의 결함을 알았더라면 출항을 허용하지 않았을 것이다. [3] 항로계획 결함은 '항해 중 과실(navigational fault)'이 아니므로 헤이그 규칙 제4조 제2항 (a)호 항해 과실 면책이 적용되지 않는다. [4] 선주의 감항성 유지 의무는 적절한 시스템 마련에 그치지 않고, 실제 항로계획이 결함 없이 작성되도록 상당한 주의(due diligence)를 다해야 한다.",
-  "issues": [
-    "항로계획 결함의 감항불능 구성 여부",
-    "헤이그 규칙 제4조 제2항(a)호 항해 과실 면책의 적용 범위",
-    "감항성의 '속성 기준(attribute test)' 폐기"
-  ],
-  "implications": [
-    "선주는 출항 전 항로계획이 적절하게 작성되었는지 확인할 due diligence 의무가 있음",
-    "항행통보(NtM)를 반영하지 않은 항로계획은 감항불능 사유가 될 수 있음"
-  ],
-  "laws": [
-    "Hague Rules Art. III r.1 (감항성 의지)",
-    "Hague Rules Art. IV r.2(a) (항해 과실 면책)",
-    "Carriage of Goods by Sea Act 1971 (UK)"
-  ],
-  "related": [
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] UKSC 2 Herculito v Gunvor — 헤이그 규칙 및 용선계약"
-    },
-    {
-      "flag": "🇬🇧",
-      "text": "[2024] UKSC 38 Fimbank v KCH — HVR 책임 제한"
-    }
-  ]
-});
+// ✅ 전문가 목업 데이터 추가 (맞춤형 데이터 반영)
+const EXPERTS = [
+  {
+    id: 1,
+    type: 'lawyer',
+    role: '해상·국제거래 전문 변호사',
+    name: '법무법인 해무 (김해상 변호사)',
+    avatar: '👨‍⚖️',
+    desc: '국제물품매매협약(CISG) 및 국제 해상운송 분쟁 해결에 특화된 로펌입니다. 다국적 화물 손해 및 용선계약 분쟁에서 높은 승소율을 보유하고 있습니다.',
+    tags: ['CISG', '국제거래법', '용선계약', '화물손해']
+  },
+  {
+    id: 2,
+    type: 'surveyor',
+    role: '수석 P&I 서베이어',
+    name: '오션 감정평가법인',
+    avatar: '🚢',
+    desc: '선창(Hold No. 3 등) 내 하역작업 사고, 특히 철제파이프 등 철재 화물 붕괴로 인한 하역인부(Stevedore) 사고 조사 및 감정에 압도적인 현장 전문성을 갖추고 있습니다.',
+    tags: ['인명사고 조사', '하역작업(Stevedore)', '철재화물 감정', 'Hold 조사']
+  },
+  {
+    id: 3,
+    type: 'insurance',
+    role: '클레임 매니저',
+    name: 'K-Ocean P&I Club',
+    avatar: '🏢',
+    desc: '국내외 선주들의 책임 한도 방어 및 해상 사고 클레임을 신속하게 처리하는 P&I 전문 클럽입니다. 선박충돌 및 오염 사고 대응에 강점이 있습니다.',
+    tags: ['P&I 클레임', '선주책임제한', '선박충돌']
+  },
+  {
+    id: 4,
+    type: 'lawyer',
+    role: '영국법 자문 변호사',
+    name: '해양종합법률사무소',
+    avatar: '👩‍⚖️',
+    desc: '영국 해상보험법(MIA) 및 영국 중재에 특화된 로펌으로, 담보특약(Warranty) 위반 관련 분쟁을 심도 있게 다룹니다.',
+    tags: ['영국법', '해상보험', '런던중재']
+  }
+];
 
 let currentView = 'dashboard';
 let prevView = 'dashboard';
@@ -1616,7 +614,8 @@ function nav(view) {
   document.getElementById('v-' + view).classList.add('active');
   document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
   
-  const map = {dashboard:0, search:1, trend:2, bookmarks:3, admin:4};
+  // 전문가 탭 (experts) 인덱스 매핑 추가
+  const map = {dashboard:0, search:1, trend:2, bookmarks:3, experts:4, admin:5};
   const items = document.querySelectorAll('.sb-item');
   if (map[view] !== undefined && items[map[view]]) {
     items[map[view]].classList.add('active');
@@ -1628,6 +627,8 @@ function nav(view) {
   if (view === 'search') renderSearch();
   if (view === 'bookmarks') renderBookmarks();
   if (view === 'trend') renderChart();
+  if (view === 'experts') renderExperts('all'); // 전문가 탭 진입 시 렌더링
+  
   document.querySelector('.content').scrollTop = 0;
   
   updateMobTabbar(view);
@@ -1655,7 +656,7 @@ function closeSidebar() {
 function mobNav(view) { nav(view); }
 
 function updateMobTabbar(view) {
-  const tabMap = {dashboard:0, search:1, trend:2, bookmarks:3};
+  const tabMap = {dashboard:0, search:1, experts:2, bookmarks:3};
   const tabs = document.querySelectorAll('.mob-tab');
   tabs.forEach(t => t.classList.remove('active'));
   if (tabMap[view] !== undefined && tabs[tabMap[view]]) {
@@ -1770,6 +771,44 @@ function renderSearch() {
     </div>`).join('');
 }
 
+// ══ EXPERTS RENDER ══
+function renderExperts(filterType) {
+  const container = document.getElementById('expertGrid');
+  let filtered = EXPERTS;
+  if (filterType !== 'all') {
+    filtered = EXPERTS.filter(e => e.type === filterType);
+  }
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">👥</div><p>해당하는 전문가가 없습니다</p></div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(e => `
+    <div class="expert-card">
+      <div class="expert-header">
+        <div class="expert-avatar">${e.avatar}</div>
+        <div class="expert-info">
+          <div class="expert-role">${e.role}</div>
+          <h4>${e.name}</h4>
+        </div>
+      </div>
+      <div class="expert-desc">${e.desc}</div>
+      <div class="expert-tags">
+        ${e.tags.map(t => `<span class="expert-tag">#${t}</span>`).join('')}
+      </div>
+      <button class="expert-contact" onclick="showToast('📞 ${e.name} 연락처 연동 준비 중입니다.')">문의하기 / 프로필 보기</button>
+    </div>
+  `).join('');
+}
+
+function filterExperts(type, btn) {
+  // Update active tab styling
+  document.querySelectorAll('.expert-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderExperts(type);
+}
+
 // ══ DETAIL ══
 function openDetail(id) {
   const c = CASES.find(x => x.id == id);
@@ -1803,7 +842,7 @@ function openDetail(id) {
                 <div style="font-size:12px;color:var(--gray);margin-top:2px">${c.court} · ${c.date}</div>
               </div>
             </div>
-            <div class="original-body">${(c.original||'원문 준비 중입니다.').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+            <div class="original-body">${c.original||'원문 준비 중입니다.'}</div>
           </div>
         </div>
         <div class="tab-pane" id="tab-analysis">
@@ -1857,6 +896,42 @@ function openDetail(id) {
           <div class="info-row"><span class="info-key">AI 신뢰도</span><span class="info-val" style="color:#059669;font-weight:700">${(c.conf*100).toFixed(0)}%</span></div>
           <div class="info-row"><span class="info-key">관련 법조문</span><span class="info-val">${c.laws?c.laws.join('<br>'):(c.provisions&&c.provisions.length?c.provisions.map(p=>p.law+' '+p.article).join('<br>'):'—')}</span></div>
         </div>
+
+        <div class="info-card">
+          <h4>소송 경과</h4>
+          ${c.history && c.history.length > 0 ? 
+            `<div class="history-list">
+              ${c.history.map(h => `<div class="history-item">${h}</div>`).join('')}
+            </div>` 
+            : `<div style="font-size:12px; color:var(--gray); padding:8px 0; text-align:center;">등록된 소송 경과가 없습니다.</div>`
+          }
+        </div>
+
+        <div class="info-card">
+          <h4 style="color:var(--blue)">🤝 추천 전문가</h4>
+          <div class="related-item" style="border:1px solid var(--border); padding:12px; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="font-size:24px;">👨‍⚖️</div>
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--navy)">법무법인 해무</div>
+                <div style="font-size:11px;color:var(--blue)">CISG 및 국제거래법 자문</div>
+              </div>
+            </div>
+            <button style="width:100%;padding:6px;background:var(--lgray);border:none;border-radius:6px;font-size:11px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--dark);" onclick="nav('experts')">프로필 보기</button>
+          </div>
+          
+          <div class="related-item" style="border:1px solid var(--border); margin-top:8px; padding:12px; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="font-size:24px;">🚢</div>
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--navy)">오션 감정평가법인</div>
+                <div style="font-size:11px;color:var(--blue)">Hold 사고/철재 화물 조사</div>
+              </div>
+            </div>
+            <button style="width:100%;padding:6px;background:var(--lgray);border:none;border-radius:6px;font-size:11px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--dark);" onclick="nav('experts')">프로필 보기</button>
+          </div>
+        </div>
+
         <div class="info-card">
           <h4>유사 판례</h4>
           ${(c.related||[]).map(r=>`
@@ -2072,7 +1147,7 @@ function printCase(id) {
   <div class="section-title">실무 시사점</div>
   ${(c.implications||[]).map(i=>`<div class="implication">${i}</div>`).join('')||`<div class="implication">${c.summary||''}</div>`}
   <div class="section-title">판결 원문</div>
-  <pre class="body-text">${(c.original||'').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+  <div class="body-text" style="white-space: pre-wrap;">${c.original||''}</div>
   <script>window.onload=function(){window.print();}<\/script>
 </body></html>`);
   win.document.close();
@@ -2139,7 +1214,6 @@ async function uploadJsonToFirebase() {
     const rawText = inputEl.value.trim();
     if (!rawText) throw new Error("데이터를 입력해주세요.");
     
-    // JSON 파싱
     const caseData = new Function("return " + rawText)(); 
     
     statusEl.style.color = "var(--blue)";
@@ -2165,15 +1239,25 @@ async function uploadJsonToFirebase() {
 }
 
 // ══ INIT ══
-CASES.forEach(c => {
-  const rich = RICH_DATA[c.id]; // ✅ c.id 오류 수정 반영됨
-  if (rich) {
-    if (!c.original || c.original.length < 20) c.original = rich.original;
-    if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
+// 🚫 setTimeout으로 Firestore가 충분히 로드될 여유 부여 및 에러 핸들링
+setTimeout(() => {
+  try {
+    // 혹시라도 CASES나 RICH_DATA 접근 시 문제가 없는지 안전장치
+    if (typeof CASES !== 'undefined' && Array.isArray(CASES)) {
+      CASES.forEach(c => {
+        if(typeof RICH_DATA !== 'undefined' && RICH_DATA[c.id]) {
+          const rich = RICH_DATA[c.id]; 
+          if (!c.original || c.original.length < 20) c.original = rich.original;
+          if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
+        }
+      });
+    }
+    renderDashboard();
+    renderSearch();
+  } catch (err) {
+    console.error("초기 렌더링 에러:", err);
   }
-});
-renderDashboard();
-renderSearch();
+}, 100);
 
 function initMobile() {
   const isMobile = window.innerWidth <= 768;
@@ -2217,7 +1301,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// 🚨 관리자 구글 이메일을 배열 형태로 입력하세요
+// 🚨 관리자 구글 이메일
 const ADMIN_EMAILS = ["ojs8851@gmail.com", "baekpa0814@gmail.com"]; 
 
 // ══ 구글 로그인 상태 감지 및 UI 변경 ══
@@ -2225,9 +1309,7 @@ onAuthStateChanged(auth, (user) => {
   const authContainer = document.getElementById('auth-container');
   const adminMenu = document.getElementById('menu-admin');
   
-  // user.email이 ADMIN_EMAILS 목록 안에 포함되어 있는지 확인 (includes 사용)
   if (user && ADMIN_EMAILS.includes(user.email)) {
-    // 관리자 로그인 성공: 프로필 보여주고, 비밀 메뉴 열기
     adminMenu.style.display = 'flex';
     authContainer.innerHTML = `
       <div class="user-info-wrap">
@@ -2239,28 +1321,24 @@ onAuthStateChanged(auth, (user) => {
       </div>
       <button class="logout-btn" onclick="logoutFromGoogle()" title="로그아웃">🚪</button>
     `;
-    // 최초 1회만 토스트 띄우기 (페이지 이동 시마다 뜨는 것 방지)
     if(!window.loggedInMessageShown) {
       showToast('환영합니다 관리자님! 숨겨진 메뉴가 열렸습니다.');
       window.loggedInMessageShown = true;
     }
   } else {
-    // 로그인 안됨 또는 관리자가 아님: 메뉴 숨기고, 로그인 버튼 보여주기
     adminMenu.style.display = 'none';
     authContainer.innerHTML = `<button class="auth-btn" onclick="loginWithGoogle()" style="width:100%">🔑 관리자 로그인</button>`;
     
-    // 만약 현재 관리자 페이지를 보고 있었다면 강제로 대시보드로 쫓아내기
     if (currentView === 'admin') nav('dashboard');
     
     if (user && !ADMIN_EMAILS.includes(user.email)) {
       showToast('❌ 권한이 없는 계정입니다.');
-      signOut(auth); // 관리자가 아니면 즉시 강제 로그아웃
+      signOut(auth);
     }
     window.loggedInMessageShown = false;
   }
 });
 
-// 전역 함수로 등록
 window.loginWithGoogle = () => {
   signInWithPopup(auth, provider).catch(error => console.error("로그인 에러:", error));
 };
@@ -2298,7 +1376,7 @@ async function loadCasesFromFirestore() {
     const htmlOnly = CASES.filter(c => !fsCaseNums.has(c.caseNum));
 
     fsCases.forEach(c => {
-      const rich = RICH_DATA[c.id]; // ✅ c.id 오류 수정 반영됨
+      const rich = typeof RICH_DATA !== 'undefined' ? RICH_DATA[c.id] : null; 
       if (rich) {
         if (!c.original || c.original.length < 20) c.original = rich.original;
         if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2336,7 +1414,7 @@ async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
       const data = doc.data();
       if (!existingNums.has(data.caseNum)) {
         const c = { ...data, _fsId: doc.id, id: idOffset + i };
-        const rich = RICH_DATA[c.id]; // ✅ c.id 오류 수정 반영됨
+        const rich = typeof RICH_DATA !== 'undefined' ? RICH_DATA[c.id] : null; 
         if (rich) {
           if (!c.original || c.original.length < 20) c.original = rich.original;
           if (!c.provisions || c.provisions.length === 0) c.provisions = rich.provisions;
@@ -2356,7 +1434,6 @@ async function loadMoreFromFirestore(lastDoc, existingNums, idOffset) {
   }
 }
 
-// ══ Firestore에 판례 저장 (관리자용) ══
 window.saveCase = async function(caseData) {
   try {
     const docRef = await addDoc(collection(db, "cases"), {
