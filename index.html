@@ -1192,7 +1192,8 @@ window.addEventListener('popstate', () => { if (currentView === 'detail') goBack
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+// ✅ doc, setDoc 함수가 추가되었습니다.
+import { getFirestore, collection, getDocs, addDoc, doc, setDoc, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -1280,14 +1281,41 @@ async function loadExpertsFromFirestore() {
   }
 }
 
+// ✅ 판례 저장 시 caseNum을 문서 ID로 사용하도록 수정
 window.saveCase = async function(data) {
-  const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
-  return docRef.id;
+  try {
+    if (data.caseNum) {
+      // 띄어쓰기를 언더바(_)로 치환하여 더 깔끔한 ID 생성 (예: "대법원_2000다70064")
+      const customId = data.caseNum.replace(/\s+/g, '_');
+      const docRef = doc(db, "cases", customId);
+      await setDoc(docRef, { ...data, createdAt: new Date().toISOString() });
+      return customId;
+    } else {
+      const docRef = await addDoc(collection(db, "cases"), { ...data, createdAt: new Date().toISOString() });
+      return docRef.id;
+    }
+  } catch (e) {
+    console.error("판례 저장 실패:", e);
+    return null;
+  }
 };
 
+// ✅ 전문가 저장 시 name을 문서 ID로 사용하도록 수정
 window.saveExpert = async function(data) {
-  const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
-  return docRef.id;
+  try {
+    if (data.name) {
+      const customId = data.name.replace(/\s+/g, '_');
+      const docRef = doc(db, "experts", customId);
+      await setDoc(docRef, { ...data, createdAt: new Date().toISOString() });
+      return customId;
+    } else {
+      const docRef = await addDoc(collection(db, "experts"), { ...data, createdAt: new Date().toISOString() });
+      return docRef.id;
+    }
+  } catch (e) {
+    console.error("전문가 저장 실패:", e);
+    return null;
+  }
 };
 
 loadCasesFromFirestore();
