@@ -206,6 +206,83 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .empty-state{text-align:center;padding:80px 20px;color:var(--gray)}
 .empty-state-icon{font-size:48px;margin-bottom:16px}
 .empty-state p{font-size:15px;font-weight:600;margin-top:8px}
+
+/* ── 인용 관계 그래프 ── */
+.graph-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.graph-canvas{width:100%;background:#F8FAFC;border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative}
+.graph-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.graph-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--gray)}
+.graph-legend-dot{width:12px;height:12px;border-radius:50%}
+.graph-info-panel{background:#fff;border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-top:12px;display:none}
+.graph-info-panel.show{display:block}
+.graph-hint{position:absolute;bottom:12px;right:14px;font-size:11px;color:var(--gray);font-weight:600;pointer-events:none}
+.cit-list-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.cit-list-box{background:var(--lgray);border-radius:6px;padding:14px 16px}
+.cit-list-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:var(--gray);margin-bottom:10px;font-family:'Inter',sans-serif}
+.cit-item{font-size:12px;font-weight:600;color:var(--navy);padding:7px 10px;background:#fff;border-radius:4px;margin-bottom:6px;cursor:pointer;border:1px solid var(--border);transition:all 0.15s;display:flex;align-items:center;gap:8px}
+.cit-item:hover{border-color:var(--navy);transform:translateX(2px)}
+.cit-item:last-child{margin-bottom:0}
+
+/* ── 판례 비교 ── */
+.cmp-btn{padding:4px 10px;border:1px solid var(--border);border-radius:3px;background:#fff;font-size:11px;color:var(--gray);cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;transition:all 0.15s}
+.cmp-btn:hover{border-color:#6B46C1;color:#6B46C1}
+.cmp-btn.selected{background:#6B46C1;color:#fff;border-color:#6B46C1}
+.cmp-float{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 24px;border-radius:40px;display:none;align-items:center;gap:14px;z-index:500;box-shadow:0 8px 28px rgba(0,0,0,0.25);font-size:13px;font-weight:600;white-space:nowrap}
+.cmp-float.show{display:flex}
+.cmp-float-btn{padding:8px 20px;background:#fff;color:var(--navy);border:none;border-radius:20px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all 0.15s}
+.cmp-float-btn:hover{background:var(--lb);transform:scale(1.03)}
+.cmp-float-cancel{background:none;border:none;color:rgba(255,255,255,0.5);font-size:18px;cursor:pointer;line-height:1;padding:0 4px}
+.cmp-float-cancel:hover{color:#fff}
+.cmp-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;align-items:flex-start;justify-content:center;padding:24px 16px;backdrop-filter:blur(3px);overflow-y:auto}
+.cmp-modal.show{display:flex}
+.cmp-modal-inner{background:#fff;width:100%;max-width:960px;border-radius:12px;overflow:hidden;animation:slideUp 0.3s ease-out;margin:auto}
+.cmp-modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:var(--navy);color:#fff}
+.cmp-modal-head h3{font-size:16px;font-weight:700}
+.cmp-modal-close{background:none;border:none;color:rgba(255,255,255,0.6);font-size:22px;cursor:pointer;line-height:1}
+.cmp-modal-close:hover{color:#fff}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.cmp-col{padding:24px 28px;border-right:1px solid var(--border)}
+.cmp-col:last-child{border-right:none}
+.cmp-col-head{padding-bottom:16px;margin-bottom:16px;border-bottom:2px solid var(--navy)}
+.cmp-col-head h4{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:4px}
+.cmp-col-head p{font-size:12px;color:var(--gray)}
+.cmp-row{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--lb)}
+.cmp-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.cmp-row-label{font-size:10px;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:5px;font-family:'Inter',sans-serif}
+.cmp-row-val{font-size:13px;color:var(--dark);line-height:1.65}
+.cmp-highlight{background:#FFFBEB;border-left:3px solid #D97706;padding:8px 12px;border-radius:0 4px 4px 0;font-size:12px;line-height:1.7;color:var(--dark)}
+.cmp-section-title{font-size:11px;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:1px;padding:12px 28px 8px;background:var(--lgray);border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-family:'Inter',sans-serif}
+@media(max-width:640px){.cmp-grid{grid-template-columns:1fr}.cmp-col{border-right:none;border-bottom:1px solid var(--border)}}
+
+/* ── 법리 타임라인 ── */
+.tl-type-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.tl-type-btn{padding:7px 16px;border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:'Noto Sans KR',sans-serif;transition:all 0.15s}
+.tl-type-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tl-type-btn:hover:not(.active){border-color:var(--navy);color:var(--navy)}
+.tl-wrap{position:relative;padding-left:48px}
+.tl-wrap::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--navy),var(--blue),rgba(43,76,126,0.1))}
+.tl-year-group{margin-bottom:32px}
+.tl-year-marker{position:absolute;left:0;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(43,76,126,0.2);z-index:1}
+.tl-year-label{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:12px;padding-left:12px;font-family:'Inter',sans-serif;letter-spacing:0.5px}
+.tl-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:10px;cursor:pointer;transition:all 0.15s;position:relative;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.tl-card::before{content:'';position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:10px;height:2px;background:var(--border)}
+.tl-card:hover{border-color:var(--navy);box-shadow:0 4px 14px rgba(0,0,0,0.08);transform:translateX(3px)}
+.tl-card-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.4}
+.tl-card-meta{font-size:12px;color:var(--gray);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tl-card-holding{font-size:12px;color:var(--dark);line-height:1.65;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── 인쇄/PDF ── */
+.print-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#fff;border:1px solid var(--border);border-radius:4px;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;transition:all 0.15s;font-family:'Noto Sans KR',sans-serif}
+.print-btn:hover{border-color:var(--navy);color:var(--navy);background:var(--lgray)}
+@media print{
+  .sidebar,.topbar,.detail-back,.detail-tabs,.print-btn,.bm-btn,.mob-tabbar,.mob-menu,.notif,.tb-btn{display:none!important}
+  .main{overflow:visible!important}.content{overflow:visible!important;padding:0!important}
+  .view{display:none!important}.view.active{display:block!important}
+  body{background:#fff!important;display:block!important;height:auto!important}
+  .original-wrap{border:none!important;box-shadow:none!important;padding:0!important}
+  .detail-info-grid{page-break-inside:avoid}
+  #tab-ai{display:block!important}
+}
 </style>
 </head>
 <body>
@@ -238,42 +315,11 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
   
   <div class="sb-item" onclick="nav('search')">📄 판례 데이터<span class="sb-badge" id="sb-total-badge">—</span></div>
   
-  <div id="sidebar-trend-area" style="margin: 4px 12px 16px 36px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); display: none;">
-      <div style="font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-bottom: 10px; font-weight: 700;">REAL-TIME TREND</div>
-      
-      <div style="margin-bottom: 10px;">
-          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
-              <span>선하증권</span>
-              <span id="trend-count-bl" style="color: var(--blue); font-weight: 700;">0건</span>
-          </div>
-          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
-              <div id="trend-bar-bl" style="width: 0%; height: 100%; background: var(--blue); transition: width 0.5s ease;"></div>
-          </div>
-      </div>
-
-      <div style="margin-bottom: 10px;">
-          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
-              <span>해상보험</span>
-              <span id="trend-count-ins" style="color: #2F855A; font-weight: 700;">0건</span>
-          </div>
-          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
-              <div id="trend-bar-ins" style="width: 0%; height: 100%; background: #2F855A; transition: width 0.5s ease;"></div>
-          </div>
-      </div>
-
-      <div>
-          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 4px;">
-              <span>선박충돌</span>
-              <span id="trend-count-col" style="color: #C53030; font-weight: 700;">0건</span>
-          </div>
-          <div style="height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
-              <div id="trend-bar-col" style="width: 0%; height: 100%; background: #C53030; transition: width 0.5s ease;"></div>
-          </div>
-      </div>
-  </div>
-
   <div class="sb-item" onclick="nav('experts')">🤝 전문가 네트워크</div>
   <div class="sb-item" onclick="nav('bookmarks')">🔖 북마크 보관함</div>
+  <div class="sb-item" onclick="nav('history')">🕐 최근 열람<span class="sb-badge" id="sb-history-badge" style="display:none">0</span></div>
+  <div class="sb-item" onclick="nav('timeline')">📅 법리 타임라인</div>
+  <div class="sb-item" onclick="nav('graph')">🕸 인용 관계 그래프</div>
   <div class="sb-item" id="menu-admin" onclick="nav('admin')" style="display:none; margin-top:8px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">⚙️ 시스템 관리</div>
 
   <div class="sb-section">사건 유형</div>
@@ -301,7 +347,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
     <button class="mob-menu" onclick="openSidebar()"><span></span><span></span><span></span></button>
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input id="mainSearch" type="text" placeholder="사건번호, 법률 쟁점 검색..." onkeydown="if(event.key==='Enter')doSearch()">
+      <input id="mainSearch" type="text" placeholder="사건번호, 법률 쟁점, 선박명 검색..." onkeydown="if(event.key==='Enter')doSearch()">
     </div>
     <div class="tb-right">
       <div class="notif"><span>🔔</span><div class="notif-dot"></div></div>
@@ -426,6 +472,44 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
     <div class="view" id="v-bookmarks"><div style="margin-bottom:24px"><h2>북마크 보관함</h2></div><div id="bookmarkResults"></div></div>
 
+    <div class="view" id="v-history">
+      <div style="margin-bottom:24px;display:flex;align-items:baseline;gap:12px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy)">🕐 최근 열람</h2>
+        <span style="font-size:13px;color:var(--gray)">최근 열람한 판례 최대 10건</span>
+        <button onclick="clearHistory()" style="margin-left:auto;padding:6px 14px;border:1px solid var(--border);border-radius:4px;background:#fff;font-size:12px;font-weight:700;color:var(--gray);cursor:pointer;font-family:'Noto Sans KR',sans-serif" onmouseover="this.style.borderColor='#C53030';this.style.color='#C53030'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--gray)'">🗑 기록 지우기</button>
+      </div>
+      <div id="historyResults"></div>
+    </div>
+
+    <div class="view" id="v-graph">
+      <div style="margin-bottom:16px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px">🕸 인용 관계 그래프</h2>
+        <p style="font-size:13px;color:var(--gray)">판례 간 인용 관계를 네트워크로 시각화합니다. 노드를 클릭하면 판례 상세로 이동합니다.</p>
+      </div>
+      <div class="graph-toolbar">
+        <div class="graph-legend">
+          <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#101D33"></div>선택 판례</div>
+          <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#2B4C7E"></div>이 판례가 인용한 판례</div>
+          <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#2F855A"></div>이 판례를 인용한 판례</div>
+          <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#A0AEC0"></div>DB 미등록 판례</div>
+        </div>
+        <button onclick="renderFullGraph()" style="margin-left:auto;padding:7px 14px;border:1px solid var(--border);border-radius:4px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);font-family:'Noto Sans KR',sans-serif">↺ 새로고침</button>
+      </div>
+      <div class="graph-canvas" id="fullGraphCanvas" style="height:520px">
+        <div class="graph-hint">드래그로 이동 · 스크롤로 확대/축소</div>
+      </div>
+      <div class="graph-info-panel" id="graphInfoPanel"></div>
+    </div>
+
+    <div class="view" id="v-timeline">
+      <div style="margin-bottom:20px">
+        <h2 style="font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px">📅 법리 타임라인</h2>
+        <p style="font-size:13px;color:var(--gray)">사건 유형을 선택하면 연도순으로 판례 법리의 흐름을 확인할 수 있습니다.</p>
+      </div>
+      <div class="tl-type-bar" id="tl-type-bar"></div>
+      <div id="tl-content"></div>
+    </div>
+
     <div class="view" id="v-admin">
       <h2 style="margin-bottom:20px">데이터 통합 관리 <span style="font-size:12px;color:red;border:1px solid red;padding:2px 6px;border-radius:3px;">🔒 관리자</span></h2>
       <select id="admin-upload-type" class="filter-select" style="margin-bottom:16px"><option value="case">📄 판례 데이터</option><option value="expert" selected>🤝 전문가 프로필 (로펌 / 감정사 / 선박 대리점)</option></select>
@@ -434,6 +518,24 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
       <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer;">🚀 업로드</button>
       <div id="upload-status" style="margin-top:16px; font-weight:600;"></div>
     </div>
+  </div>
+</div>
+
+<!-- 판례 비교 플로팅 바 -->
+<div class="cmp-float" id="cmpFloat">
+  <span id="cmpFloatLabel">판례 1건 선택됨</span>
+  <button class="cmp-float-btn" onclick="openCompareModal()" id="cmpFloatOpenBtn" disabled style="opacity:0.5">비교하기 ⚖️</button>
+  <button class="cmp-float-cancel" onclick="clearCompare()" title="비교 취소">✕</button>
+</div>
+
+<!-- 판례 비교 모달 -->
+<div class="cmp-modal" id="cmpModal" onclick="if(event.target===this)closeCmpModal()">
+  <div class="cmp-modal-inner">
+    <div class="cmp-modal-head">
+      <h3>⚖️ 판례 비교 분석</h3>
+      <button class="cmp-modal-close" onclick="closeCmpModal()">✕</button>
+    </div>
+    <div id="cmpModalBody"></div>
   </div>
 </div>
 
@@ -446,6 +548,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
 <div class="toast" id="toast"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, onSnapshot, doc, setDoc, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -468,6 +571,7 @@ const provider = new GoogleAuthProvider();
 window.CASES = [];
 window.EXPERTS = [];
 window.bookmarks = new Set();
+window.historyLog = []; // 최근 열람 판례 ID 목록 (최대 10)
 let currentView = 'dashboard';
 let prevView = 'dashboard';
 let currentExpertType = 'all';
@@ -479,7 +583,7 @@ window.nav = function(view) {
     
     const targetView = document.getElementById('v-' + view);
     const sidebarItems = document.querySelectorAll('.sb-item');
-    const navMap = { dashboard: 0, search: 1, experts: 2, bookmarks: 3, admin: 4 };
+    const navMap = { dashboard: 0, search: 1, experts: 2, bookmarks: 3, history: 4, timeline: 5, graph: 6, admin: 7 };
     
     if (targetView) targetView.classList.add('active');
     if (sidebarItems[navMap[view]]) sidebarItems[navMap[view]].classList.add('active');
@@ -494,6 +598,9 @@ window.nav = function(view) {
     if (view === 'search') renderSearch();
     if (view === 'experts') applyExpertFilters();
     if (view === 'bookmarks') renderBookmarks();
+    if (view === 'history') renderHistory();
+    if (view === 'timeline') renderTimeline();
+    if (view === 'graph') renderFullGraph();
     closeSidebar();
 };
 
@@ -568,8 +675,14 @@ window.openDetail = (id) => {
     const c = window.CASES.find(x => x.id == id || x.id === id);
     if (!c) return;
 
+    // 열람 히스토리 기록 (맨 앞에 추가, 중복 제거, 최대 10건)
+    window.historyLog = [String(id), ...window.historyLog.filter(x => x !== String(id))].slice(0, 10);
+    // 사이드바 히스토리 뱃지 갱신
+    const histBadge = document.getElementById('sb-history-badge');
+    if(histBadge) histBadge.innerText = window.historyLog.length;
+
     const lawsHtml = (c.laws||[]).length
-        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">📋 관련 법령</h4><div style="display:flex;flex-wrap:wrap;gap:6px">${(c.laws||[]).map(l=>`<span class="badge" style="background:var(--lgray);color:var(--dark);border:1px solid var(--border);font-size:12px">${l}</span>`).join('')}</div></div>` : '';
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">📋 관련 법령 <span style="font-size:11px;font-weight:500;color:var(--gray)">(클릭 시 관련 판례 검색)</span></h4><div style="display:flex;flex-wrap:wrap;gap:6px">${(c.laws||[]).map(l=>`<span class="badge" onclick="searchByLaw('${l.replace(/'/g,'\\\'')}')" style="background:var(--lgray);color:var(--blue);border:1px solid var(--border);font-size:12px;cursor:pointer;transition:all 0.15s" onmouseover="this.style.background='#EBF8FF';this.style.borderColor='var(--blue)'" onmouseout="this.style.background='var(--lgray)';this.style.borderColor='var(--border)'">${l} 🔍</span>`).join('')}</div></div>` : '';
 
     const issuesHtml = (c.issues||[]).length
         ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">⚖️ 주요 쟁점</h4><ul style="padding-left:20px;line-height:1.9">${(c.issues||[]).map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
@@ -584,9 +697,12 @@ window.openDetail = (id) => {
 
     document.getElementById('detailContent').innerHTML = `
         <div class="detail-header">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap">
                 <h2>${c.title||c.caseNum}</h2>
-                <button class="bm-btn${bm?' bookmarked':''}" onclick="toggleBookmark('${c.id}',this)" style="flex-shrink:0;margin-top:4px">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+                <div style="display:flex;gap:8px;flex-shrink:0;margin-top:4px">
+                    <button class="print-btn" onclick="window.print()">🖨️ PDF 저장</button>
+                    <button class="bm-btn${bm?' bookmarked':''}" onclick="toggleBookmark('${c.id}',this)">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+                </div>
             </div>
             <p>${c.caseNum} &nbsp;|&nbsp; ${c.flag||'🌐'} ${c.court||''} &nbsp;|&nbsp; ${c.date||''}</p>
         </div>
@@ -595,14 +711,17 @@ window.openDetail = (id) => {
             <div class="detail-info-item"><div class="detail-info-label">국가</div><div class="detail-info-val">${c.flag||''} ${c.country||'—'}</div></div>
             <div class="detail-info-item"><div class="detail-info-label">선고일</div><div class="detail-info-val">${c.date||'—'}</div></div>
             <div class="detail-info-item"><div class="detail-info-label">신뢰도</div><div class="detail-info-val">${c.conf!=null?Math.round(c.conf*100)+'%':'—'}</div></div>
+            ${c.vessel ? `<div class="detail-info-item" style="grid-column:1/-1"><div class="detail-info-label">⚓ 선박명</div><div class="detail-info-val" style="display:flex;align-items:center;gap:8px">${c.vessel}<button onclick="searchByVessel('${c.vessel.replace(/'/g,'\\\'')}')" style="font-size:11px;padding:2px 8px;border:1px solid var(--border);border-radius:3px;background:#fff;cursor:pointer;color:var(--blue);font-weight:700">동명 선박 판례 검색 🔍</button></div></div>` : ''}
         </div>
         <div class="detail-tabs">
             <button class="detail-tab active" onclick="switchTab(this,'tab-org')">📄 판결 원문</button>
             <button class="detail-tab" onclick="switchTab(this,'tab-ai')">🤖 AI 분석</button>
+            <button class="detail-tab" onclick="switchTab(this,'tab-citation');renderCitationGraph('${c.id}')">🕸 인용 관계</button>
         </div>
         <div class="detail-body">
             <div class="detail-left">
                 <div id="tab-org" class="tab-pane active original-wrap" style="white-space:pre-wrap;line-height:1.85;font-size:13.5px">${c.original||'<span style="color:var(--gray)">원문 데이터가 아직 등록되지 않았습니다.</span>'}</div>
+                <div id="tab-citation" class="tab-pane" style="background:#fff;padding:24px;border:1px solid var(--border);border-radius:4px"></div>
                 <div id="tab-ai" class="tab-pane" style="background:#fff;padding:32px;border:1px solid var(--border);border-radius:4px">
                     <h4 style="color:var(--navy);margin-bottom:12px;font-size:15px">사건 개요</h4>
                     <p style="line-height:1.85;font-size:13px;margin-bottom:0">${c.facts||c.summary||''}</p>
@@ -669,7 +788,6 @@ function renderDashboard() {
 
     // 트렌드 카드
     renderTrendCards();
-    updateSidebarTrends();
 }
 
 function renderTrendCards() {
@@ -710,35 +828,6 @@ function renderTrendCards() {
         makeCard('법원별 분포', courtList);
 }
 
-// 🚀 실시간 사이드바 트렌드 연동 함수
-function updateSidebarTrends() {
-    const total = window.CASES.length;
-    if (total === 0) return;
-
-    const counts = {
-        bl: window.CASES.filter(c => c.type === '선하증권').length,
-        ins: window.CASES.filter(c => c.type === '해상보험').length,
-        col: window.CASES.filter(c => c.type === '선박충돌').length
-    };
-
-    const updateItem = (idSuffix, count) => {
-        const countEl = document.getElementById('trend-count-' + idSuffix);
-        const barEl = document.getElementById('trend-bar-' + idSuffix);
-        if (countEl && barEl) {
-            countEl.innerText = count + '건';
-            const percent = Math.max((count / total) * 100, (count > 0 ? 5 : 0));
-            barEl.style.width = percent + '%';
-        }
-    };
-
-    updateItem('bl', counts.bl);
-    updateItem('ins', counts.ins);
-    updateItem('col', counts.col);
-
-    const trendArea = document.getElementById('sidebar-trend-area');
-    if (trendArea) trendArea.style.display = 'block';
-}
-
 // --- [5] Firebase 인증 및 관리자 기능 ---
 window.loginWithGoogle = () => signInWithPopup(auth, provider).catch(e => showToast('로그인 실패: ' + e.message));
 window.logoutFromGoogle = () => signOut(auth).catch(e => showToast('로그아웃 실패'));
@@ -762,14 +851,33 @@ onAuthStateChanged(auth, (user) => {
 });
 
 window.uploadJsonToFirebase = async () => {
-    const type = document.getElementById('admin-upload-type').value;
-    const input = document.getElementById('admin-json-input').value;
+    const type    = document.getElementById('admin-upload-type').value;
+    const textarea = document.getElementById('admin-json-input');
+    const statusEl = document.getElementById('upload-status');
+    const input   = textarea.value.trim();
+
+    if(!input) { showToast('⚠️ 데이터를 입력해주세요'); return; }
+
+    if(statusEl) { statusEl.innerHTML = '<span style="color:var(--gray)">⏳ 업로드 중...</span>'; }
+
     try {
         const data = JSON.parse(input);
-        const id = (type === 'case' ? data.caseNum : data.name).replace(/\s+/g, '_');
+        const id   = (type === 'case' ? data.caseNum : data.name).replace(/[\s/]/g, '_');
         await setDoc(doc(db, type + 's', id), { ...data, updatedAt: new Date().toISOString() }, { merge: true });
-        alert('✅ 성공적으로 반영되었습니다.');
-    } catch(e) { alert('❌ 에러: ' + e.message); }
+
+        // 성공 시 텍스트박스 초기화
+        textarea.value = '';
+        const preview = document.getElementById('admin-preview-area');
+        if(preview) preview.style.display = 'none';
+
+        showToast('✅ 업로드 성공: ' + id);
+        if(statusEl) { statusEl.innerHTML = `<span style="color:#2F855A">✅ 성공적으로 저장됨: <b>${id}</b></span>`; }
+        setTimeout(() => { if(statusEl) statusEl.innerHTML = ''; }, 5000);
+
+    } catch(e) {
+        showToast('❌ 에러: ' + e.message);
+        if(statusEl) { statusEl.innerHTML = `<span style="color:#C53030">❌ ${e.message}</span>`; }
+    }
 };
 
 document.getElementById('admin-json-input')?.addEventListener('input', (e) => {
@@ -799,6 +907,28 @@ window.doSearch = () => {
     setTimeout(renderSearch, 50);
 };
 
+// 선박명 클릭 → 선박명으로 검색 이동
+window.searchByVessel = (vesselName) => {
+    const searchInput = document.getElementById('mainSearch');
+    if(searchInput) searchInput.value = vesselName;
+    nav('search');
+    setTimeout(() => {
+        renderSearch();
+        showToast(`⚓ "${vesselName}" 선박 관련 판례를 검색합니다`);
+    }, 50);
+};
+
+// 법령 배지 클릭 → 해당 법령명으로 검색 이동
+window.searchByLaw = (lawName) => {
+    const searchInput = document.getElementById('mainSearch');
+    if(searchInput) searchInput.value = lawName;
+    nav('search');
+    setTimeout(() => {
+        renderSearch();
+        showToast(`📋 "${lawName}" 관련 판례를 검색합니다`);
+    }, 50);
+};
+
 function countryFlagToName(flag) {
     if(!flag) return '';
     if(flag.includes('🇰🇷')) return '한국';
@@ -815,11 +945,14 @@ window.renderSearch = () => {
     const sort    = document.getElementById('f-sort')?.value    || '최신순';
 
     let filtered = window.CASES.filter(c => {
+        const lawsText = (c.laws||[]).join(' ').toLowerCase();
         const matchQ = !q ||
             (c.caseNum||'').toLowerCase().includes(q) ||
             (c.title||'').toLowerCase().includes(q) ||
             (c.summary||'').toLowerCase().includes(q) ||
-            (c.type||'').toLowerCase().includes(q);
+            (c.type||'').toLowerCase().includes(q) ||
+            (c.vessel||'').toLowerCase().includes(q) ||
+            lawsText.includes(q);
         const matchCountry = country === '전체' || countryFlagToName(c.flag||'') === country || (c.country&&c.country===country);
         const matchType = activeFilter === '전체' || c.type === activeFilter;
         return matchQ && matchCountry && matchType;
@@ -850,7 +983,9 @@ window.renderSearch = () => {
             <div class="result-card-summary">${c.summary||''}</div>
             <div class="result-card-footer">
                 <span class="badge" style="background:var(--lgray);color:var(--gray);border:1px solid var(--border)">${c.caseNum}</span>
+                ${c.vessel ? `<span class="badge" onclick="event.stopPropagation();searchByVessel('${c.vessel.replace(/'/g,'\\\'')}')" style="background:#FFFBEB;color:#744210;border:1px solid #FEFCBF;cursor:pointer" title="선박명으로 검색">⚓ ${c.vessel}</span>` : ''}
                 <button class="bm-btn${bm?' bookmarked':''}" onclick="event.stopPropagation();toggleBookmark('${c.id}',this)">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+                <button class="cmp-btn${window.compareSet&&window.compareSet.has(String(c.id))?' selected':''}" onclick="event.stopPropagation();toggleCompare('${c.id}',this)">⚖️ 비교</button>
             </div>
         </div>`;
     }).join('');
@@ -893,6 +1028,532 @@ window.renderBookmarks = () => {
                 <button class="bm-btn bookmarked" onclick="event.stopPropagation();toggleBookmark('${c.id}',this)">🔖 저장됨</button>
             </div>
         </div>`).join('');
+};
+
+// --- [6-1] 인용 관계 그래프 ---
+
+// 케이스 번호 → ID 맵 빌드
+function buildNumToId() {
+    const map = {};
+    window.CASES.forEach(c => { if(c.caseNum) map[c.caseNum] = String(c.id); });
+    return map;
+}
+
+// 전체 인용 링크 추출
+function buildAllLinks(numToId) {
+    const links = [];
+    window.CASES.forEach(c => {
+        (c.cites || []).forEach(citedNum => {
+            const targetId = numToId[citedNum];
+            if(targetId && targetId !== String(c.id)) links.push({ source: String(c.id), target: targetId });
+        });
+    });
+    return links;
+}
+
+// D3 그래프 공통 렌더러
+function drawD3Graph(container, nodes, links, opts = {}) {
+    const W = container.offsetWidth || 700;
+    const H = opts.height || 440;
+    container.innerHTML = '';
+
+    const svg = d3.select(container).append('svg')
+        .attr('width', '100%').attr('height', H)
+        .attr('viewBox', `0 0 ${W} ${H}`)
+        .style('font-family', "'Inter','Noto Sans KR',sans-serif");
+
+    // 줌/패닝
+    const g = svg.append('g');
+    svg.call(d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => g.attr('transform', e.transform)));
+
+    // 화살표 마커
+    const defs = svg.append('defs');
+    [['cited','#2B4C7E'],['citing','#2F855A'],['ext','#A0AEC0'],['all','#718096']].forEach(([id, color]) => {
+        defs.append('marker').attr('id','arrow-'+id)
+            .attr('viewBox','0 -4 8 8').attr('refX', opts.nodeR ? opts.nodeR+8 : 24)
+            .attr('refY',0).attr('markerWidth',6).attr('markerHeight',6).attr('orient','auto')
+            .append('path').attr('d','M0,-4L8,0L0,4').attr('fill', color);
+    });
+
+    const simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d => d.id).distance(opts.linkDist || 130))
+        .force('charge', d3.forceManyBody().strength(opts.charge || -350))
+        .force('center', d3.forceCenter(W/2, H/2))
+        .force('collision', d3.forceCollide(opts.nodeR ? opts.nodeR+10 : 34));
+
+    const ROLE_COLOR = { center:'#101D33', cited:'#2B4C7E', citing:'#2F855A', 'cited-ext':'#A0AEC0', node:'#4A6FA5' };
+    const LINK_COLOR = { center:'#2B4C7E', cited:'#2B4C7E', citing:'#2F855A', default:'#718096' };
+
+    const link = g.append('g').selectAll('line').data(links).join('line')
+        .attr('stroke', d => {
+            const src = nodes.find(n => n.id === (typeof d.source==='object'?d.source.id:d.source));
+            return LINK_COLOR[src?.role] || LINK_COLOR.default;
+        })
+        .attr('stroke-width', 1.5).attr('stroke-opacity', 0.6)
+        .attr('marker-end', d => {
+            const src = nodes.find(n => n.id === (typeof d.source==='object'?d.source.id:d.source));
+            const mk = src?.role === 'center' ? 'cited' : src?.role === 'citing' ? 'citing' : 'all';
+            return `url(#arrow-${mk})`;
+        });
+
+    const node = g.append('g').selectAll('g').data(nodes).join('g')
+        .attr('cursor', d => d.role !== 'cited-ext' ? 'pointer' : 'default')
+        .call(d3.drag()
+            .on('start', (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+            .on('drag', (e,d) => { d.fx=e.x; d.fy=e.y; })
+            .on('end', (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; })
+        )
+        .on('click', (e,d) => { if(opts.onNodeClick) opts.onNodeClick(d); });
+
+    node.append('circle')
+        .attr('r', d => d.role==='center' ? (opts.nodeR||20)+4 : (opts.nodeR||18))
+        .attr('fill', d => ROLE_COLOR[d.role] || ROLE_COLOR.node)
+        .attr('stroke', '#fff').attr('stroke-width', 2)
+        .attr('filter', d => d.role==='center' ? 'drop-shadow(0 2px 6px rgba(0,0,0,0.25))' : '');
+
+    // 노드 내부 텍스트 (짧은 연도/번호)
+    node.append('text')
+        .text(d => {
+            const num = d.caseNum || '';
+            const yr = num.match(/\d{4}/)?.[0] || '';
+            return yr ? `'${yr.slice(2)}` : num.slice(-4);
+        })
+        .attr('text-anchor','middle').attr('dy','0.35em')
+        .attr('font-size', d => d.role==='center' ? '9px' : '8px')
+        .attr('fill','#fff').attr('font-weight','800').attr('pointer-events','none');
+
+    // 노드 아래 레이블
+    node.append('text')
+        .text(d => { const t = d.title || d.caseNum || ''; return t.length > 16 ? t.slice(0,16)+'…' : t; })
+        .attr('text-anchor','middle')
+        .attr('dy', d => (d.role==='center' ? (opts.nodeR||20)+4 : (opts.nodeR||18)) + 14)
+        .attr('font-size','9px').attr('fill','#4A5568').attr('pointer-events','none')
+        .attr('font-family',"'Noto Sans KR',sans-serif");
+
+    simulation.on('tick', () => {
+        link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+            .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+        node.attr('transform', d => `translate(${Math.max(30,Math.min(W-30,d.x))},${Math.max(30,Math.min(H-30,d.y))})`);
+    });
+
+    return simulation;
+}
+
+// 판례 상세 탭 — 1-hop 인용 그래프
+window.renderCitationGraph = (caseId) => {
+    const container = document.getElementById('tab-citation');
+    if(!container) return;
+
+    const numToId = buildNumToId();
+    const center = window.CASES.find(x => String(x.id) === String(caseId));
+    if(!center) return;
+
+    const nodes = [{ ...center, id: String(center.id), role: 'center' }];
+    const links = [];
+    const addedIds = new Set([String(center.id)]);
+
+    // 이 판례가 인용한 판례
+    (center.cites || []).forEach(citedNum => {
+        const targetId = numToId[citedNum];
+        if(targetId && !addedIds.has(targetId)) {
+            const c = window.CASES.find(x => String(x.id) === targetId);
+            nodes.push({ ...c, id: targetId, role: 'cited' });
+            addedIds.add(targetId);
+        } else if(!targetId) {
+            const extId = 'ext_' + citedNum.replace(/\s/g,'_');
+            if(!addedIds.has(extId)) {
+                nodes.push({ id: extId, caseNum: citedNum, title: citedNum, role: 'cited-ext' });
+                addedIds.add(extId);
+            }
+        }
+        links.push({ source: String(center.id), target: targetId || ('ext_'+citedNum.replace(/\s/g,'_')) });
+    });
+
+    // 이 판례를 인용한 판례
+    window.CASES.forEach(c => {
+        if((c.cites || []).includes(center.caseNum) && !addedIds.has(String(c.id))) {
+            nodes.push({ ...c, id: String(c.id), role: 'citing' });
+            addedIds.add(String(c.id));
+            links.push({ source: String(c.id), target: String(center.id) });
+        }
+    });
+
+    if(nodes.length <= 1) {
+        container.innerHTML = `
+            <div style="text-align:center;padding:48px 20px;color:var(--gray)">
+                <div style="font-size:40px;margin-bottom:12px">🕸</div>
+                <p style="font-weight:700;color:var(--navy)">인용 관계 데이터가 없습니다</p>
+                <p style="font-size:12px;margin-top:8px">판례 데이터에 <code style="background:var(--lgray);padding:2px 6px;border-radius:3px">"cites": ["사건번호", ...]</code> 필드를 추가하면 자동으로 연결됩니다.</p>
+            </div>`;
+        return;
+    }
+
+    // 그래프 영역
+    const graphDiv = document.createElement('div');
+    graphDiv.style.cssText = 'width:100%;background:#F8FAFC;border-radius:6px;position:relative;overflow:hidden;margin-bottom:16px';
+    graphDiv.style.height = '360px';
+    const hint = document.createElement('div');
+    hint.className = 'graph-hint';
+    hint.innerText = '드래그·스크롤로 조작';
+    graphDiv.appendChild(hint);
+    container.innerHTML = '';
+    container.appendChild(graphDiv);
+
+    drawD3Graph(graphDiv, nodes, links, {
+        height: 360,
+        onNodeClick: d => { if(d.role !== 'cited-ext' && d.role !== 'center') openDetail(d.id); }
+    });
+
+    // 인용 목록 (텍스트)
+    const citedList = nodes.filter(n => n.role === 'cited' || n.role === 'cited-ext');
+    const citingList = nodes.filter(n => n.role === 'citing');
+
+    const listHtml = `
+        <div class="cit-list-wrap">
+            <div class="cit-list-box">
+                <div class="cit-list-title">📤 이 판례가 인용한 판례 (${citedList.length}건)</div>
+                ${citedList.length
+                    ? citedList.map(n => `<div class="cit-item" onclick="${n.role==='cited'?`openDetail('${n.id}')`:''}">
+                        <span style="font-size:10px;background:${n.role==='cited'?'#2B4C7E':'#A0AEC0'};color:#fff;border-radius:3px;padding:1px 5px">${n.role==='cited'?'DB':'외부'}</span>
+                        ${n.title||n.caseNum}
+                      </div>`).join('')
+                    : '<div style="font-size:12px;color:var(--gray);padding:8px">없음</div>'}
+            </div>
+            <div class="cit-list-box">
+                <div class="cit-list-title">📥 이 판례를 인용한 판례 (${citingList.length}건)</div>
+                ${citingList.length
+                    ? citingList.map(n => `<div class="cit-item" onclick="openDetail('${n.id}')">
+                        <span style="font-size:10px;background:#2F855A;color:#fff;border-radius:3px;padding:1px 5px">DB</span>
+                        ${n.title||n.caseNum}
+                      </div>`).join('')
+                    : '<div style="font-size:12px;color:var(--gray);padding:8px">없음</div>'}
+            </div>
+        </div>`;
+
+    container.insertAdjacentHTML('beforeend', listHtml);
+};
+
+// 전체 인용 관계 그래프
+window.renderFullGraph = () => {
+    const canvas = document.getElementById('fullGraphCanvas');
+    if(!canvas) return;
+
+    if(!window.CASES.length) {
+        canvas.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--gray)"><div style="text-align:center"><div style="font-size:40px;margin-bottom:12px">🕸</div><p style="font-weight:700">판례 데이터가 없습니다</p></div></div>`;
+        return;
+    }
+
+    const numToId = buildNumToId();
+    const allLinks = buildAllLinks(numToId);
+
+    // 링크가 있는 노드 우선, 없는 노드도 포함
+    const linkedIds = new Set();
+    allLinks.forEach(l => { linkedIds.add(l.source); linkedIds.add(l.target); });
+
+    const TYPE_COLOR = {
+        '선하증권':'#2B4C7E','해상보험':'#2F855A','선박충돌':'#C53030',
+        '화물손해':'#D97706','용선계약':'#6B46C1','해난구조':'#0987A0'
+    };
+
+    const nodes = window.CASES.map(c => ({
+        ...c,
+        id: String(c.id),
+        role: 'node',
+        _color: TYPE_COLOR[c.type] || '#718096',
+        _degree: allLinks.filter(l => l.source===String(c.id)||l.target===String(c.id)).length
+    }));
+
+    const infoPanel = document.getElementById('graphInfoPanel');
+
+    const hint = canvas.querySelector('.graph-hint');
+    if(hint) hint.remove();
+    const newHint = document.createElement('div');
+    newHint.className = 'graph-hint';
+    newHint.innerText = '드래그로 이동 · 스크롤로 확대/축소 · 노드 클릭으로 판례 이동';
+    canvas.appendChild(newHint);
+
+    drawD3Graph(canvas, nodes, allLinks, {
+        height: 520,
+        linkDist: 160,
+        charge: -400,
+        nodeR: 14,
+        onNodeClick: d => {
+            // 사이드 패널 업데이트
+            if(infoPanel) {
+                infoPanel.classList.add('show');
+                infoPanel.innerHTML = `
+                    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                        <div>
+                            <span class="badge badge-blue" style="margin-bottom:8px">${d.type||'기타'}</span>
+                            <h4 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px">${d.title||d.caseNum}</h4>
+                            <p style="font-size:12px;color:var(--gray)">${d.flag||'🌐'} ${d.court||''} · ${d.date||''}</p>
+                            <p style="font-size:12px;color:var(--gray);margin-top:4px">인용 연결 수: <b style="color:var(--navy)">${d._degree}건</b></p>
+                        </div>
+                        <div style="display:flex;gap:8px;flex-shrink:0">
+                            <button onclick="openDetail('${d.id}')" style="padding:8px 16px;background:var(--navy);color:#fff;border:none;border-radius:4px;font-weight:700;cursor:pointer;font-size:13px;font-family:'Noto Sans KR',sans-serif">전문 보기 →</button>
+                            <button onclick="document.getElementById('cmpModal')&&renderCitationGraph('${d.id}');nav('detail');setTimeout(()=>document.querySelectorAll('.detail-tab')[2]?.click(),100)" style="padding:8px 16px;background:#fff;color:var(--navy);border:1px solid var(--navy);border-radius:4px;font-weight:700;cursor:pointer;font-size:13px;font-family:'Noto Sans KR',sans-serif" onclick="openDetail('${d.id}')">1-hop 그래프</button>
+                        </div>
+                    </div>`;
+            }
+        }
+    });
+
+    // 유형별 범례 오버레이
+    const legendData = Object.entries(TYPE_COLOR);
+    if(legendData.length) {
+        const legendDiv = document.createElement('div');
+        legendDiv.style.cssText = 'position:absolute;top:12px;left:14px;display:flex;flex-direction:column;gap:5px';
+        legendData.forEach(([type, color]) => {
+            const item = document.createElement('div');
+            item.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#4A5568;background:rgba(255,255,255,0.9);padding:3px 8px;border-radius:3px';
+            item.innerHTML = `<span style="width:10px;height:10px;border-radius:50%;background:${color};display:inline-block"></span>${type}`;
+            legendDiv.appendChild(item);
+        });
+        canvas.appendChild(legendDiv);
+    }
+};
+
+// --- [7-0] 판례 비교 ---
+window.compareSet = new Set(); // 최대 2건 ID 보관
+
+window.toggleCompare = (id, btn) => {
+    const sid = String(id);
+    if(window.compareSet.has(sid)) {
+        window.compareSet.delete(sid);
+        if(btn) { btn.classList.remove('selected'); btn.innerText = '⚖️ 비교'; }
+    } else {
+        if(window.compareSet.size >= 2) {
+            showToast('⚠️ 최대 2건까지만 선택할 수 있습니다');
+            return;
+        }
+        window.compareSet.add(sid);
+        if(btn) { btn.classList.add('selected'); btn.innerText = '✓ 선택됨'; }
+    }
+    updateCompareFloat();
+};
+
+function updateCompareFloat() {
+    const float = document.getElementById('cmpFloat');
+    const label = document.getElementById('cmpFloatLabel');
+    const openBtn = document.getElementById('cmpFloatOpenBtn');
+    const cnt = window.compareSet.size;
+    if(!float) return;
+    if(cnt === 0) {
+        float.classList.remove('show');
+    } else {
+        float.classList.add('show');
+        if(label) label.innerText = cnt === 1 ? '판례 1건 선택됨 (1건 더 선택하세요)' : '판례 2건 선택 완료!';
+        if(openBtn) { openBtn.disabled = cnt < 2; openBtn.style.opacity = cnt < 2 ? '0.5' : '1'; }
+    }
+}
+
+window.clearCompare = () => {
+    window.compareSet.clear();
+    updateCompareFloat();
+    // 버튼 상태 리셋
+    document.querySelectorAll('.cmp-btn').forEach(b => { b.classList.remove('selected'); b.innerText = '⚖️ 비교'; });
+};
+
+window.openCompareModal = () => {
+    if(window.compareSet.size < 2) return;
+    const ids = [...window.compareSet];
+    const cA = window.CASES.find(x => String(x.id) === ids[0]);
+    const cB = window.CASES.find(x => String(x.id) === ids[1]);
+    if(!cA || !cB) return;
+
+    const makeCol = (c) => `
+        <div class="cmp-col">
+            <div class="cmp-col-head">
+                <h4>${c.title||c.caseNum}</h4>
+                <p>${c.flag||'🌐'} ${c.court||''} · ${c.date||''}</p>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">사건번호</div>
+                <div class="cmp-row-val">${c.caseNum||'—'}</div>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">사건 유형</div>
+                <div class="cmp-row-val"><span class="badge badge-blue">${c.type||'—'}</span></div>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">국가 / 법원</div>
+                <div class="cmp-row-val">${c.flag||''} ${c.country||'—'} · ${c.court||'—'}</div>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">선고일</div>
+                <div class="cmp-row-val">${c.date||'—'}</div>
+            </div>
+            ${c.vessel ? `<div class="cmp-row"><div class="cmp-row-label">선박명</div><div class="cmp-row-val">⚓ ${c.vessel}</div></div>` : ''}
+            <div class="cmp-row">
+                <div class="cmp-row-label">판결 요지</div>
+                <div class="cmp-highlight">${c.holding||c.summary||'정보 없음'}</div>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">관련 법령</div>
+                <div class="cmp-row-val">${(c.laws||[]).length ? (c.laws||[]).map(l=>`<span class="badge" style="background:var(--lgray);color:var(--dark);border:1px solid var(--border);margin:2px;display:inline-block">${l}</span>`).join('') : '—'}</div>
+            </div>
+            <div class="cmp-row">
+                <div class="cmp-row-label">주요 쟁점</div>
+                <div class="cmp-row-val" style="font-size:12px;line-height:1.7">${(c.issues||[]).length ? (c.issues||[]).map(i=>`• ${i}`).join('<br>') : '—'}</div>
+            </div>
+            <div style="margin-top:16px">
+                <button onclick="openDetail('${c.id}')" style="width:100%;padding:10px;border:1px solid var(--navy);border-radius:4px;background:#fff;color:var(--navy);font-weight:700;cursor:pointer;font-size:13px;font-family:'Noto Sans KR',sans-serif">전문 보기 →</button>
+            </div>
+        </div>`;
+
+    document.getElementById('cmpModalBody').innerHTML = `
+        <div class="cmp-grid">
+            ${makeCol(cA)}
+            ${makeCol(cB)}
+        </div>`;
+
+    document.getElementById('cmpModal').classList.add('show');
+};
+
+window.closeCmpModal = () => {
+    document.getElementById('cmpModal').classList.remove('show');
+};
+
+// --- [7-1] 법리 타임라인 ---
+let activeTimelineType = '전체';
+
+window.renderTimeline = () => {
+    const bar = document.getElementById('tl-type-bar');
+    const content = document.getElementById('tl-content');
+    if(!bar || !content) return;
+
+    if(!window.CASES.length) {
+        content.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📅</div><p>등록된 판례가 없습니다</p></div>`;
+        return;
+    }
+
+    // 사건 유형 목록 추출
+    const types = ['전체', ...new Set(window.CASES.map(c => c.type).filter(Boolean))];
+
+    // 유형 버튼 렌더
+    bar.innerHTML = types.map(t => `
+        <button class="tl-type-btn${t === activeTimelineType ? ' active' : ''}"
+            onclick="setTimelineType('${t}', this)">${t}</button>
+    `).join('');
+
+    // 필터링
+    const filtered = activeTimelineType === '전체'
+        ? window.CASES
+        : window.CASES.filter(c => c.type === activeTimelineType);
+
+    if(!filtered.length) {
+        content.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📋</div><p>"${activeTimelineType}" 유형의 판례가 없습니다</p></div>`;
+        return;
+    }
+
+    // 연도별 그룹핑 (최신순)
+    const yearMap = {};
+    filtered.forEach(c => {
+        const year = (c.date||'').substring(0,4) || '연도미상';
+        if(!yearMap[year]) yearMap[year] = [];
+        yearMap[year].push(c);
+    });
+
+    const sortedYears = Object.keys(yearMap).sort((a,b) => b.localeCompare(a));
+
+    // 유형별 색상
+    const TYPE_COLORS = {
+        '선하증권':'#2B4C7E','해상보험':'#2F855A','선박충돌':'#C53030',
+        '화물손해':'#D97706','용선계약':'#6B46C1','해난구조':'#0987A0','기타':'#718096'
+    };
+    const typeColor = TYPE_COLORS[activeTimelineType] || '#2B4C7E';
+
+    content.innerHTML = `<div class="tl-wrap">` +
+        sortedYears.map(year => {
+            const cases = yearMap[year].sort((a,b) => new Date(b.date||0) - new Date(a.date||0));
+            const cards = cases.map(c => `
+                <div class="tl-card" onclick="openDetail('${c.id}')">
+                    <div style="display:flex;align-items:flex-start;gap:10px;justify-content:space-between;flex-wrap:wrap">
+                        <div class="tl-card-title">${c.title||c.caseNum}</div>
+                        <span class="badge" style="background:${typeColor}18;color:${typeColor};border:1px solid ${typeColor}40;flex-shrink:0">${c.type||'기타'}</span>
+                    </div>
+                    <div class="tl-card-meta">
+                        <span>${c.flag||'🌐'} ${c.court||''}</span>
+                        <span style="color:var(--border)">|</span>
+                        <span>${c.date||''}</span>
+                        ${c.vessel ? `<span style="color:var(--border)">|</span><span>⚓ ${c.vessel}</span>` : ''}
+                    </div>
+                    ${(c.holding||c.summary) ? `<div class="tl-card-holding">${c.holding||c.summary}</div>` : ''}
+                </div>
+            `).join('');
+
+            return `
+                <div class="tl-year-group" style="position:relative">
+                    <div class="tl-year-marker" style="background:${typeColor}">${year.slice(2)}</div>
+                    <div class="tl-year-label" style="color:${typeColor}">${year}년 &nbsp;<span style="font-size:11px;font-weight:600;color:var(--gray)">${cases.length}건</span></div>
+                    ${cards}
+                </div>`;
+        }).join('') +
+    `</div>`;
+};
+
+window.setTimelineType = (type, btn) => {
+    activeTimelineType = type;
+    document.querySelectorAll('.tl-type-btn').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    // 유형 버튼 재색상 처리 없이 content만 재렌더
+    const TYPE_COLORS = {
+        '선하증권':'#2B4C7E','해상보험':'#2F855A','선박충돌':'#C53030',
+        '화물손해':'#D97706','용선계약':'#6B46C1','해난구조':'#0987A0'
+    };
+    const col = TYPE_COLORS[type] || 'var(--navy)';
+    document.querySelectorAll('.tl-type-btn.active').forEach(b => {
+        b.style.background = col; b.style.borderColor = col;
+    });
+    renderTimeline();
+};
+
+// --- [8-0] 최근 열람 히스토리 ---
+window.renderHistory = () => {
+    const container = document.getElementById('historyResults');
+    if(!container) return;
+
+    // 뱃지 표시 갱신
+    const histBadge = document.getElementById('sb-history-badge');
+    if(histBadge) {
+        if(window.historyLog.length > 0) { histBadge.style.display=''; histBadge.innerText = window.historyLog.length; }
+        else histBadge.style.display = 'none';
+    }
+
+    if(!window.historyLog.length) {
+        container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🕐</div><p>아직 열람한 판례가 없습니다</p><p style="font-size:13px;margin-top:8px;color:var(--gray)">판례를 클릭하면 자동으로 기록됩니다</p></div>`;
+        return;
+    }
+
+    const cases = window.historyLog.map((id,idx) => {
+        const c = window.CASES.find(x => String(x.id) === id);
+        if(!c) return '';
+        const bm = window.bookmarks.has(String(c.id));
+        return `
+        <div class="result-card" onclick="openDetail('${c.id}')">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                <span style="font-size:10px;font-weight:800;color:#fff;background:var(--navy);border-radius:3px;padding:2px 7px;font-family:'Inter',sans-serif">${idx+1}</span>
+                <div class="result-card-title">${c.title||c.caseNum}</div>
+                <span class="badge badge-blue">${c.type||'기타'}</span>
+            </div>
+            <div class="result-card-meta">${c.flag||'🌐'} ${c.court||''} &nbsp;|&nbsp; ${c.date||''}</div>
+            <div class="result-card-summary">${c.summary||''}</div>
+            <div class="result-card-footer">
+                <span class="badge" style="background:var(--lgray);color:var(--gray);border:1px solid var(--border)">${c.caseNum}</span>
+                <button class="bm-btn${bm?' bookmarked':''}" onclick="event.stopPropagation();toggleBookmark('${c.id}',this)">${bm?'🔖 저장됨':'🔖 북마크'}</button>
+            </div>
+        </div>`;
+    }).join('');
+
+    container.innerHTML = cases || `<div class="empty-state"><div class="empty-state-icon">🕐</div><p>열람 기록을 찾을 수 없습니다</p></div>`;
+};
+
+window.clearHistory = () => {
+    window.historyLog = [];
+    const histBadge = document.getElementById('sb-history-badge');
+    if(histBadge) histBadge.style.display = 'none';
+    renderHistory();
+    showToast('열람 기록이 초기화되었습니다');
 };
 
 // --- [8] 토스트 ---
