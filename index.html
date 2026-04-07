@@ -275,13 +275,23 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 .print-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#fff;border:1px solid var(--border);border-radius:4px;font-size:13px;font-weight:600;color:var(--gray);cursor:pointer;transition:all 0.15s;font-family:'Noto Sans KR',sans-serif}
 .print-btn:hover{border-color:var(--navy);color:var(--navy);background:var(--lgray)}
 @media print{
-  .sidebar,.topbar,.detail-back,.detail-tabs,.print-btn,.bm-btn,.mob-tabbar,.mob-menu,.notif,.tb-btn{display:none!important}
+  .sidebar,.topbar,.detail-back,.detail-tabs,.print-btn,.bm-btn,.mob-tabbar,.mob-menu,.notif,.tb-btn,
+  .cmp-float,.graph-toolbar,.graph-hint,button{display:none!important}
   .main{overflow:visible!important}.content{overflow:visible!important;padding:0!important}
   .view{display:none!important}.view.active{display:block!important}
   body{background:#fff!important;display:block!important;height:auto!important}
-  .original-wrap{border:none!important;box-shadow:none!important;padding:0!important}
-  .detail-info-grid{page-break-inside:avoid}
-  #tab-ai{display:block!important}
+  .original-wrap{border:none!important;box-shadow:none!important;padding:8px 0!important}
+  .detail-info-grid{page-break-inside:avoid;margin-bottom:24px}
+  /* 탭 콘텐츠 모두 표시, 각 탭 앞에 페이지 나누기 */
+  .tab-pane{display:block!important}
+  #tab-ai{page-break-before:always;padding-top:24px}
+  /* 인용 관계 탭은 SVG 미지원이므로 PDF에서 숨김 */
+  #tab-citation{display:none!important}
+  /* 탭 제목 구분선 */
+  #tab-org::before{content:'■ 판결 원문';display:block;font-size:14px;font-weight:800;color:#101D33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #101D33}
+  #tab-ai::before{content:'■ AI 분석 요약';display:block;font-size:14px;font-weight:800;color:#101D33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #101D33}
+  .detail-header{page-break-inside:avoid}
+  a{color:inherit!important;text-decoration:none!important}
 }
 </style>
 </head>
@@ -380,10 +390,10 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
           <div class="stat-sub" id="stat-total-sub">Firestore 실시간</div>
         </div>
         <div class="stat-card" style="--accent:#2F855A;--icon-bg:#F0FFF4">
-          <div class="stat-icon">🤖</div>
-          <div class="stat-label">AI 분석 완료</div>
+          <div class="stat-icon">📋</div>
+          <div class="stat-label">원문 보유</div>
           <div class="stat-val" id="stat-ai-rate">—</div>
-          <div class="stat-sub" id="stat-ai-sub">원문 보유</div>
+          <div class="stat-sub" id="stat-ai-sub">전문 등록 건수</div>
         </div>
         <div class="stat-card" style="--accent:#D97706;--icon-bg:#FFFBEB">
           <div class="stat-icon">📅</div>
@@ -401,7 +411,7 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
 
       <!-- 최신 판례 테이블 -->
       <div class="section-head"><h3>최신 등록 판례</h3><button class="view-all" onclick="nav('search')">전체 보기 →</button></div>
-      <div class="table-wrap"><table><thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>AI 분석</th></tr></thead><tbody id="dashTable"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>사건번호</th><th>사건유형</th><th>국가/법원</th><th>선고일</th><th>원문</th></tr></thead><tbody id="dashTable"></tbody></table></div>
 
       <!-- 트렌드 -->
       <div class="section-head" style="margin-top:32px"><h3>판례 트렌드</h3><span style="font-size:12px;color:var(--gray);font-weight:500">유형별 분포 현황</span></div>
@@ -429,11 +439,26 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
         </div>
         <div class="filter-divider"></div>
         <div class="filter-group">
+          <span class="filter-label">유형</span>
+          <div class="filter-select-wrap">
+            <select class="filter-select" id="f-type" onchange="renderSearch()">
+              <option value="전체">📂 전체</option>
+              <option value="선하증권">선하증권</option>
+              <option value="해상보험">해상보험</option>
+              <option value="선박충돌">선박충돌</option>
+              <option value="화물손해">화물손해</option>
+              <option value="용선계약">용선계약</option>
+              <option value="해난구조">해난구조</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group">
           <span class="filter-label">정렬</span>
           <div class="filter-select-wrap">
             <select class="filter-select" id="f-sort" onchange="renderSearch()">
               <option value="최신순">🕐 최신순</option>
-              <option value="신뢰도순">⭐ 신뢰도순</option>
+              <option value="오래된순">📅 오래된순</option>
             </select>
           </div>
         </div>
@@ -493,7 +518,10 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
           <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#2F855A"></div>이 판례를 인용한 판례</div>
           <div class="graph-legend-item"><div class="graph-legend-dot" style="background:#A0AEC0"></div>DB 미등록 판례</div>
         </div>
-        <button onclick="renderFullGraph()" style="margin-left:auto;padding:7px 14px;border:1px solid var(--border);border-radius:4px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);font-family:'Noto Sans KR',sans-serif">↺ 새로고침</button>
+        <div style="margin-left:auto;display:flex;gap:8px">
+          <button onclick="renderFullGraph()" style="padding:7px 14px;border:1px solid var(--border);border-radius:4px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);font-family:'Noto Sans KR',sans-serif">↺ 새로고침</button>
+          <button onclick="document.querySelector('#fullGraphCanvas svg')&&d3.select('#fullGraphCanvas svg').transition().duration(500).call(d3.zoom().transform,d3.zoomIdentity)" style="padding:7px 14px;border:1px solid var(--border);border-radius:4px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;color:var(--gray);font-family:'Noto Sans KR',sans-serif">⊙ 초기화</button>
+        </div>
       </div>
       <div class="graph-canvas" id="fullGraphCanvas" style="height:520px">
         <div class="graph-hint">드래그로 이동 · 스크롤로 확대/축소</div>
@@ -710,7 +738,6 @@ window.openDetail = (id) => {
             <div class="detail-info-item"><div class="detail-info-label">사건 유형</div><div class="detail-info-val"><span class="badge badge-blue">${c.type||'—'}</span></div></div>
             <div class="detail-info-item"><div class="detail-info-label">국가</div><div class="detail-info-val">${c.flag||''} ${c.country||'—'}</div></div>
             <div class="detail-info-item"><div class="detail-info-label">선고일</div><div class="detail-info-val">${c.date||'—'}</div></div>
-            <div class="detail-info-item"><div class="detail-info-label">신뢰도</div><div class="detail-info-val">${c.conf!=null?Math.round(c.conf*100)+'%':'—'}</div></div>
             ${c.vessel ? `<div class="detail-info-item" style="grid-column:1/-1"><div class="detail-info-label">⚓ 선박명</div><div class="detail-info-val" style="display:flex;align-items:center;gap:8px">${c.vessel}<button onclick="searchByVessel('${c.vessel.replace(/'/g,'\\\'')}')" style="font-size:11px;padding:2px 8px;border:1px solid var(--border);border-radius:3px;background:#fff;cursor:pointer;color:var(--blue);font-weight:700">동명 선박 판례 검색 🔍</button></div></div>` : ''}
         </div>
         <div class="detail-tabs">
@@ -754,9 +781,9 @@ function renderDashboard() {
     if($('dash-date'))     $('dash-date').innerText = new Date().toLocaleDateString('ko-KR', {year:'numeric',month:'long',day:'numeric',weekday:'long'}) + ' 기준 현황';
 
     if(total) {
-        const aiDone = window.CASES.filter(c => c.original && c.original.length > 200).length;
-        if($('stat-ai-rate')) $('stat-ai-rate').innerText = Math.round(aiDone/total*100) + '%';
-        if($('stat-ai-sub'))  $('stat-ai-sub').innerText  = aiDone + '건 원문 보유';
+        const withOriginal = window.CASES.filter(c => c.original && c.original.length > 100).length;
+        if($('stat-ai-rate')) $('stat-ai-rate').innerText = withOriginal;
+        if($('stat-ai-sub'))  $('stat-ai-sub').innerText  = '전체 ' + total + '건 중';
 
         const now = new Date();
         const cutoff = new Date(now.getFullYear(), now.getMonth()-1, now.getDate());
@@ -943,6 +970,7 @@ window.renderSearch = () => {
     const q       = (document.getElementById('mainSearch')?.value||'').toLowerCase().trim();
     const country = document.getElementById('f-country')?.value || '전체';
     const sort    = document.getElementById('f-sort')?.value    || '최신순';
+    const typeDropdown = document.getElementById('f-type')?.value || '전체';
 
     let filtered = window.CASES.filter(c => {
         const lawsText = (c.laws||[]).join(' ').toLowerCase();
@@ -954,11 +982,13 @@ window.renderSearch = () => {
             (c.vessel||'').toLowerCase().includes(q) ||
             lawsText.includes(q);
         const matchCountry = country === '전체' || countryFlagToName(c.flag||'') === country || (c.country&&c.country===country);
-        const matchType = activeFilter === '전체' || c.type === activeFilter;
+        // 사이드바 태그 필터 + 드롭다운 필터 모두 적용 (드롭다운 우선)
+        const effectiveType = typeDropdown !== '전체' ? typeDropdown : activeFilter;
+        const matchType = effectiveType === '전체' || c.type === effectiveType;
         return matchQ && matchCountry && matchType;
     });
 
-    if(sort === '신뢰도순') filtered.sort((a,b) => (b.conf||0)-(a.conf||0));
+    if(sort === '오래된순') filtered.sort((a,b) => new Date(a.date||0)-new Date(b.date||0));
     else filtered.sort((a,b) => new Date(b.date||0)-new Date(a.date||0));
 
     const rc = document.getElementById('resultCount');
@@ -1051,92 +1081,166 @@ function buildAllLinks(numToId) {
     return links;
 }
 
-// D3 그래프 공통 렌더러
+// D3 그래프 공통 렌더러 (개선판)
 function drawD3Graph(container, nodes, links, opts = {}) {
-    const W = container.offsetWidth || 700;
-    const H = opts.height || 440;
-    container.innerHTML = '';
+    if(typeof d3 === 'undefined') { container.innerHTML = '<div style="padding:40px;text-align:center;color:#718096">D3.js 로딩 중...</div>'; return; }
+    const W = container.offsetWidth || 720;
+    const H = opts.height || 460;
+    // 기존 SVG 제거 (hint div 보존)
+    container.querySelectorAll('svg').forEach(s => s.remove());
+
+    const ROLE_COLOR  = { center:'#101D33', cited:'#2B6CB0', citing:'#276749', 'cited-ext':'#A0AEC0', node:'#3A5A99' };
+    const ROLE_STROKE = { center:'#4A90D9', cited:'#63B3ED', citing:'#68D391', 'cited-ext':'#CBD5E0', node:'#7EB3F5' };
+    const LINK_COLOR  = { center:'#2B6CB0', citing:'#276749', default:'#A0AEC0' };
+
+    // 노드 반지름: 연결 수에 따라 차등 (최소 14, 최대 30)
+    const degMap = {};
+    links.forEach(l => {
+        const s = typeof l.source==='object'?l.source.id:l.source;
+        const t = typeof l.target==='object'?l.target.id:l.target;
+        degMap[s] = (degMap[s]||0)+1;
+        degMap[t] = (degMap[t]||0)+1;
+    });
+    const nodeR = d => d.role==='center' ? 26 : Math.max(14, Math.min(22, 14 + (degMap[d.id]||0)*2));
 
     const svg = d3.select(container).append('svg')
-        .attr('width', '100%').attr('height', H)
-        .attr('viewBox', `0 0 ${W} ${H}`)
-        .style('font-family', "'Inter','Noto Sans KR',sans-serif");
+        .attr('width','100%').attr('height',H)
+        .attr('viewBox',`0 0 ${W} ${H}`)
+        .style('background','#F7F9FC')
+        .style('border-radius','8px');
 
-    // 줌/패닝
+    // 줌/패닝 (더블클릭으로 초기화)
+    const zoom = d3.zoom().scaleExtent([0.25,5]).on('zoom', e => g.attr('transform', e.transform));
+    svg.call(zoom);
+    svg.on('dblclick.zoom', () => svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity));
+
     const g = svg.append('g');
-    svg.call(d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => g.attr('transform', e.transform)));
 
-    // 화살표 마커
     const defs = svg.append('defs');
-    [['cited','#2B4C7E'],['citing','#2F855A'],['ext','#A0AEC0'],['all','#718096']].forEach(([id, color]) => {
-        defs.append('marker').attr('id','arrow-'+id)
-            .attr('viewBox','0 -4 8 8').attr('refX', opts.nodeR ? opts.nodeR+8 : 24)
-            .attr('refY',0).attr('markerWidth',6).attr('markerHeight',6).attr('orient','auto')
-            .append('path').attr('d','M0,-4L8,0L0,4').attr('fill', color);
+    // 그라디언트 배경
+    const bg = defs.append('radialGradient').attr('id','graph-bg').attr('cx','50%').attr('cy','50%').attr('r','70%');
+    bg.append('stop').attr('offset','0%').attr('stop-color','#EEF2FF').attr('stop-opacity','0.5');
+    bg.append('stop').attr('offset','100%').attr('stop-color','#F7F9FC').attr('stop-opacity','0');
+    svg.insert('rect','g').attr('width',W).attr('height',H).attr('fill','url(#graph-bg)');
+
+    // 화살표 마커 (깔끔한 삼각형)
+    Object.entries({cited:'#2B6CB0', citing:'#276749', ext:'#A0AEC0', all:'#A0AEC0'}).forEach(([id,col]) => {
+        defs.append('marker').attr('id','mk-'+id)
+            .attr('viewBox','-2 -3 10 6').attr('refX',0).attr('refY',0)
+            .attr('markerWidth',7).attr('markerHeight',7).attr('orient','auto')
+            .append('path').attr('d','M0,-3L6,0L0,3Z').attr('fill',col).attr('opacity','0.85');
     });
 
-    const simulation = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links).id(d => d.id).distance(opts.linkDist || 130))
-        .force('charge', d3.forceManyBody().strength(opts.charge || -350))
-        .force('center', d3.forceCenter(W/2, H/2))
-        .force('collision', d3.forceCollide(opts.nodeR ? opts.nodeR+10 : 34));
-
-    const ROLE_COLOR = { center:'#101D33', cited:'#2B4C7E', citing:'#2F855A', 'cited-ext':'#A0AEC0', node:'#4A6FA5' };
-    const LINK_COLOR = { center:'#2B4C7E', cited:'#2B4C7E', citing:'#2F855A', default:'#718096' };
-
-    const link = g.append('g').selectAll('line').data(links).join('line')
+    // 링크 (곡선 path)
+    const linkSel = g.append('g').attr('class','links').selectAll('path').data(links).join('path')
+        .attr('fill','none')
         .attr('stroke', d => {
-            const src = nodes.find(n => n.id === (typeof d.source==='object'?d.source.id:d.source));
+            const sid = typeof d.source==='object'?d.source.id:d.source;
+            const src = nodes.find(n=>n.id===sid);
             return LINK_COLOR[src?.role] || LINK_COLOR.default;
         })
-        .attr('stroke-width', 1.5).attr('stroke-opacity', 0.6)
+        .attr('stroke-width', d => {
+            const sid = typeof d.source==='object'?d.source.id:d.source;
+            const src = nodes.find(n=>n.id===sid);
+            return src?.role==='center' ? 2 : 1.5;
+        })
+        .attr('stroke-opacity', 0.55)
         .attr('marker-end', d => {
-            const src = nodes.find(n => n.id === (typeof d.source==='object'?d.source.id:d.source));
-            const mk = src?.role === 'center' ? 'cited' : src?.role === 'citing' ? 'citing' : 'all';
-            return `url(#arrow-${mk})`;
+            const sid = typeof d.source==='object'?d.source.id:d.source;
+            const src = nodes.find(n=>n.id===sid);
+            const mk = src?.role==='center'?'cited':src?.role==='citing'?'citing':'all';
+            return `url(#mk-${mk})`;
         });
 
-    const node = g.append('g').selectAll('g').data(nodes).join('g')
-        .attr('cursor', d => d.role !== 'cited-ext' ? 'pointer' : 'default')
+    // 노드 그룹
+    const nodeSel = g.append('g').attr('class','nodes').selectAll('g').data(nodes).join('g')
+        .attr('cursor', d => d.role!=='cited-ext'?'pointer':'default')
         .call(d3.drag()
-            .on('start', (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
-            .on('drag', (e,d) => { d.fx=e.x; d.fy=e.y; })
-            .on('end', (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; })
+            .on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+            .on('drag', (e,d)=>{ d.fx=e.x; d.fy=e.y; })
+            .on('end',  (e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; })
         )
-        .on('click', (e,d) => { if(opts.onNodeClick) opts.onNodeClick(d); });
+        .on('click',(e,d)=>{ e.stopPropagation(); if(opts.onNodeClick) opts.onNodeClick(d); })
+        .on('mouseenter',(e,d)=>{ d3.select(e.currentTarget).select('circle').attr('filter','drop-shadow(0 3px 8px rgba(0,0,0,0.22))'); })
+        .on('mouseleave',(e,d)=>{ d3.select(e.currentTarget).select('circle').attr('filter', d.role==='center'?'drop-shadow(0 2px 6px rgba(0,0,0,0.2))':'none'); });
 
-    node.append('circle')
-        .attr('r', d => d.role==='center' ? (opts.nodeR||20)+4 : (opts.nodeR||18))
-        .attr('fill', d => ROLE_COLOR[d.role] || ROLE_COLOR.node)
-        .attr('stroke', '#fff').attr('stroke-width', 2)
-        .attr('filter', d => d.role==='center' ? 'drop-shadow(0 2px 6px rgba(0,0,0,0.25))' : '');
+    // 노드 외곽 링 (center만)
+    nodeSel.filter(d=>d.role==='center').append('circle')
+        .attr('r', d=>nodeR(d)+6)
+        .attr('fill','none').attr('stroke','#101D33').attr('stroke-width',1.5).attr('stroke-dasharray','4 3').attr('opacity',0.35);
 
-    // 노드 내부 텍스트 (짧은 연도/번호)
-    node.append('text')
-        .text(d => {
-            const num = d.caseNum || '';
-            const yr = num.match(/\d{4}/)?.[0] || '';
-            return yr ? `'${yr.slice(2)}` : num.slice(-4);
+    // 노드 원
+    nodeSel.append('circle')
+        .attr('r', nodeR)
+        .attr('fill', d => ROLE_COLOR[d.role]||ROLE_COLOR.node)
+        .attr('stroke', d => ROLE_STROKE[d.role]||'#fff')
+        .attr('stroke-width', 2.5)
+        .attr('filter', d => d.role==='center'?'drop-shadow(0 2px 6px rgba(0,0,0,0.2))':'none');
+
+    // 노드 아이콘 (유형별 이모지 or 연도)
+    nodeSel.append('text')
+        .text(d=>{
+            const num = d.caseNum||'';
+            const yr = num.match(/\d{4}/)?.[0]||'';
+            return yr?`'${yr.slice(2)}`:'?';
         })
-        .attr('text-anchor','middle').attr('dy','0.35em')
-        .attr('font-size', d => d.role==='center' ? '9px' : '8px')
-        .attr('fill','#fff').attr('font-weight','800').attr('pointer-events','none');
+        .attr('text-anchor','middle').attr('dy','0.4em')
+        .attr('font-size', d=>d.role==='center'?'12px':'10px')
+        .attr('fill','#fff').attr('font-weight','800')
+        .attr('font-family',"'Inter',sans-serif").attr('pointer-events','none');
 
-    // 노드 아래 레이블
-    node.append('text')
-        .text(d => { const t = d.title || d.caseNum || ''; return t.length > 16 ? t.slice(0,16)+'…' : t; })
-        .attr('text-anchor','middle')
-        .attr('dy', d => (d.role==='center' ? (opts.nodeR||20)+4 : (opts.nodeR||18)) + 14)
-        .attr('font-size','9px').attr('fill','#4A5568').attr('pointer-events','none')
-        .attr('font-family',"'Noto Sans KR',sans-serif");
-
-    simulation.on('tick', () => {
-        link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
-            .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-        node.attr('transform', d => `translate(${Math.max(30,Math.min(W-30,d.x))},${Math.max(30,Math.min(H-30,d.y))})`);
+    // 노드 이름 레이블 (배경 포함)
+    nodeSel.each(function(d) {
+        const label = (d.title||d.caseNum||'').replace(/대법원|고등법원|지방법원/g,'').trim();
+        const short = label.length>18?label.slice(0,18)+'…':label;
+        const r = nodeR(d);
+        const labelGroup = d3.select(this).append('g').attr('pointer-events','none');
+        // 배경 pill
+        labelGroup.append('rect')
+            .attr('x', -(short.length*3.4))
+            .attr('y', r+6)
+            .attr('width', short.length*6.8)
+            .attr('height', 16)
+            .attr('rx', 8)
+            .attr('fill','rgba(255,255,255,0.92)')
+            .attr('stroke','#E2E8F0')
+            .attr('stroke-width',1);
+        labelGroup.append('text')
+            .text(short)
+            .attr('text-anchor','middle').attr('y', r+17)
+            .attr('font-size','9.5px').attr('fill','#2D3748')
+            .attr('font-family',"'Noto Sans KR',sans-serif")
+            .attr('font-weight', d.role==='center'?'700':'500');
     });
 
-    return simulation;
+    // tooltip (SVG title)
+    nodeSel.append('title')
+        .text(d=>`${d.title||d.caseNum||''}\n${d.flag||''} ${d.court||''} · ${d.date||''}`);
+
+    // 시뮬레이션
+    const sim = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d=>d.id).distance(d=>{
+            const sid=typeof d.source==='object'?d.source.id:d.source;
+            const src=nodes.find(n=>n.id===sid);
+            return src?.role==='center'?130:110;
+        }).strength(0.7))
+        .force('charge', d3.forceManyBody().strength(d=>d.role==='center'?-600:-320))
+        .force('center', d3.forceCenter(W/2, H/2).strength(0.08))
+        .force('collision', d3.forceCollide(d=>nodeR(d)+18))
+        .alphaDecay(0.028);
+
+    sim.on('tick', () => {
+        linkSel.attr('d', d => {
+            const sx=d.source.x, sy=d.source.y, tx=d.target.x, ty=d.target.y;
+            const tr=nodeR(d.target), dist=Math.hypot(tx-sx,ty-sy)||1;
+            const ex=tx-(tx-sx)/dist*tr, ey=ty-(ty-sy)/dist*tr;
+            const mx=(sx+tx)/2+(ty-sy)*0.15, my=(sy+ty)/2-(tx-sx)*0.15;
+            return `M${sx},${sy} Q${mx},${my} ${ex},${ey}`;
+        });
+        nodeSel.attr('transform', d=>`translate(${Math.max(36,Math.min(W-36,d.x))},${Math.max(36,Math.min(H-36,d.y))})`);
+    });
+
+    return sim;
 }
 
 // 판례 상세 탭 — 1-hop 인용 그래프
@@ -1565,17 +1669,73 @@ window.showToast = (msg) => {
 };
 
 // --- [9] 실시간 동기화 ---
-onSnapshot(collection(db, "cases"), (snap) => {
-    window.CASES = snap.docs.map(d => ({ ...d.data(), id: d.id }));
-    renderDashboard();
-    if(currentView === 'search') renderSearch();
-    if(currentView === 'bookmarks') renderBookmarks();
-});
 
-onSnapshot(collection(db, "experts"), (snap) => {
-    window.EXPERTS = snap.docs.map(d => d.data());
-    if(currentView === 'experts') applyExpertFilters();
-});
+// 로딩 표시
+function setLoadingState(loading) {
+    const badge = document.getElementById('sb-total-badge');
+    if(badge) badge.innerText = loading ? '…' : window.CASES.length;
+    const statTotal = document.getElementById('stat-total');
+    if(statTotal && loading) statTotal.innerText = '로딩 중…';
+}
+
+setLoadingState(true);
+
+// ── 첫 진입 즉시 getDocs로 빠르게 로드 (onSnapshot 지연 방지) ──
+(async () => {
+    try {
+        const [casesSnap, expertsSnap] = await Promise.all([
+            getDocs(collection(db, "cases")),
+            getDocs(collection(db, "experts"))
+        ]);
+        if(window.CASES.length === 0) { // onSnapshot이 먼저 응답하지 않은 경우만
+            window.CASES = casesSnap.docs.map(d => ({ ...d.data(), id: d.id }));
+            window.EXPERTS = expertsSnap.docs.map(d => d.data());
+            setLoadingState(false);
+            renderDashboard();
+            if(currentView === 'search') renderSearch();
+        }
+    } catch(e) {
+        console.warn('[getDocs 초기로드]', e.code, e.message);
+    }
+})();
+
+// cases 실시간 구독
+const unsubCases = onSnapshot(
+    collection(db, "cases"),
+    (snap) => {
+        window.CASES = snap.docs.map(d => ({ ...d.data(), id: d.id }));
+        setLoadingState(false);
+        renderDashboard();
+        if(currentView === 'search') renderSearch();
+        if(currentView === 'bookmarks') renderBookmarks();
+        if(currentView === 'history') renderHistory();
+    },
+    (err) => {
+        console.error('[Firestore cases] 오류:', err.code, err.message);
+        setLoadingState(false);
+        // 에러 코드별 안내
+        let msg = '데이터 로드 실패';
+        if(err.code === 'permission-denied') msg = '⚠️ Firestore 보안 규칙 오류 — 읽기 권한을 확인하세요 (Rules: allow read)';
+        else if(err.code === 'unavailable') msg = '⚠️ 네트워크 연결을 확인하세요';
+        else msg = '⚠️ ' + err.message;
+        showToast(msg);
+        // 대시보드에 오류 표시
+        const tbody = document.getElementById('dashTable');
+        if(tbody) tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#C53030;padding:24px;font-weight:600">${msg}</td></tr>`;
+    }
+);
+
+// experts 실시간 구독
+onSnapshot(
+    collection(db, "experts"),
+    (snap) => {
+        window.EXPERTS = snap.docs.map(d => d.data());
+        if(currentView === 'experts') applyExpertFilters();
+    },
+    (err) => {
+        console.error('[Firestore experts] 오류:', err.code, err.message);
+    }
+);
 
 // 초기화
 nav('dashboard');
