@@ -539,12 +539,43 @@ tr:hover td{background:#F7FAFC;cursor:pointer}
     </div>
 
     <div class="view" id="v-admin">
-      <h2 style="margin-bottom:20px">데이터 통합 관리 <span style="font-size:12px;color:red;border:1px solid red;padding:2px 6px;border-radius:3px;">🔒 관리자</span></h2>
-      <select id="admin-upload-type" class="filter-select" style="margin-bottom:16px"><option value="case">📄 판례 데이터</option><option value="expert" selected>🤝 전문가 프로필 (로펌 / 감정사 / 선박 대리점)</option></select>
-      <textarea id="admin-json-input" style="width:100%; height:400px; padding:16px; border:1px solid var(--border); border-radius:4px; font-family:monospace;"></textarea>
-      <div id="admin-preview-area" style="display:none"><p style="font-size:12px;font-weight:700;color:var(--gray)">로고 미리보기:</p><div class="preview-box" id="imgPreview"></div></div>
-      <button onclick="uploadJsonToFirebase()" style="background:var(--navy); color:#fff; padding:12px 24px; border:none; border-radius:4px; font-weight:700; cursor:pointer;">🚀 업로드</button>
-      <div id="upload-status" style="margin-top:16px; font-weight:600;"></div>
+      <h2 style="margin-bottom:16px">데이터 통합 관리 <span style="font-size:12px;color:red;border:1px solid red;padding:2px 6px;border-radius:3px;">🔒 관리자</span></h2>
+
+      <!-- 어드민 탭 -->
+      <div style="display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px">
+        <button class="detail-tab active" onclick="switchAdminTab(this,'admin-single')">📄 단건 업로드</button>
+        <button class="detail-tab" onclick="switchAdminTab(this,'admin-bulk')">📦 일괄 업로드 (JSON 배열)</button>
+      </div>
+
+      <!-- 단건 업로드 -->
+      <div id="admin-single">
+        <select id="admin-upload-type" class="filter-select" style="margin-bottom:16px">
+          <option value="case">📄 판례 데이터</option>
+          <option value="expert">🤝 전문가 프로필</option>
+        </select>
+        <textarea id="admin-json-input" style="width:100%;height:360px;padding:16px;border:1px solid var(--border);border-radius:4px;font-family:monospace;font-size:12px;" placeholder='{"caseNum":"...", "title":"...", ...}'></textarea>
+        <div id="admin-preview-area" style="display:none"><p style="font-size:12px;font-weight:700;color:var(--gray)">로고 미리보기:</p><div class="preview-box" id="imgPreview"></div></div>
+        <button onclick="uploadJsonToFirebase()" style="margin-top:12px;background:var(--navy);color:#fff;padding:12px 24px;border:none;border-radius:4px;font-weight:700;cursor:pointer;">🚀 업로드</button>
+        <div id="upload-status" style="margin-top:16px;font-weight:600;"></div>
+      </div>
+
+      <!-- 일괄 업로드 -->
+      <div id="admin-bulk" style="display:none">
+        <div style="background:#FFFBEB;border:1px solid #F6E05E;border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;color:#744210;line-height:1.6">
+          ⚡ <b>사용법:</b> 판례 JSON 배열 <code style="background:#FEF3C7;padding:1px 5px;border-radius:3px">[{...}, {...}, ...]</code>을 붙여넣고 일괄 업로드 버튼을 누르세요.<br>
+          각 항목은 <code>caseNum</code> 필드가 필수입니다. ID는 caseNum 기반으로 자동 생성됩니다.
+        </div>
+        <textarea id="bulk-json-input" style="width:100%;height:360px;padding:16px;border:1px solid var(--border);border-radius:4px;font-family:monospace;font-size:11.5px;line-height:1.5;" placeholder='[&#10;  {"caseNum":"...", "title":"...", "flag":"🇬🇧", ...},&#10;  {"caseNum":"...", ...}&#10;]'></textarea>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+          <button onclick="uploadBulkJson()" style="background:var(--navy);color:#fff;padding:12px 24px;border:none;border-radius:4px;font-weight:700;cursor:pointer;">📦 일괄 업로드</button>
+          <button onclick="document.getElementById('bulk-json-input').value=''" style="padding:12px 16px;border:1px solid var(--border);border-radius:4px;background:#fff;font-weight:700;cursor:pointer;color:var(--gray)">🗑 초기화</button>
+          <span id="bulk-count" style="font-size:13px;color:var(--gray);margin-left:auto"></span>
+        </div>
+        <div style="margin-top:12px;background:#1A202C;border-radius:6px;padding:14px;font-family:monospace;font-size:12px;max-height:180px;overflow-y:auto;line-height:1.7;display:none" id="bulk-log"></div>
+        <div id="bulk-progress-wrap" style="display:none;margin-top:10px">
+          <div style="height:6px;background:#E2E8F0;border-radius:3px;overflow:hidden"><div id="bulk-progress-fill" style="height:100%;background:linear-gradient(90deg,#2B4C7E,#2F855A);border-radius:3px;transition:width 0.3s;width:0%"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -905,6 +936,84 @@ window.uploadJsonToFirebase = async () => {
         showToast('❌ 에러: ' + e.message);
         if(statusEl) { statusEl.innerHTML = `<span style="color:#C53030">❌ ${e.message}</span>`; }
     }
+};
+
+// --- 어드민 탭 전환 ---
+window.switchAdminTab = (btn, tabId) => {
+    // 버튼 active 토글
+    btn.closest('div').querySelectorAll('.detail-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // 패널 전환
+    ['admin-single','admin-bulk'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = id === tabId ? '' : 'none';
+    });
+};
+
+// --- 일괄 업로드 (JSON 배열) ---
+window.uploadBulkJson = async () => {
+    const textarea = document.getElementById('bulk-json-input');
+    const logEl    = document.getElementById('bulk-log');
+    const progWrap = document.getElementById('bulk-progress-wrap');
+    const progFill = document.getElementById('bulk-progress-fill');
+    const countEl  = document.getElementById('bulk-count');
+
+    const input = textarea?.value.trim();
+    if(!input) { showToast('⚠️ JSON 데이터를 입력해주세요'); return; }
+
+    let items;
+    try {
+        items = JSON.parse(input);
+        if(!Array.isArray(items)) throw new Error('최상위가 배열([...])이어야 합니다');
+    } catch(e) {
+        showToast('❌ JSON 파싱 오류: ' + e.message);
+        return;
+    }
+
+    const total = items.length;
+    if(total === 0) { showToast('⚠️ 배열이 비어 있습니다'); return; }
+
+    // UI 초기화
+    logEl.style.display = 'block';
+    logEl.innerHTML = '';
+    progWrap.style.display = 'block';
+    progFill.style.width = '0%';
+    countEl.textContent = `0 / ${total}`;
+
+    const log = (msg, color='#A0AEC0') => {
+        logEl.innerHTML += `<div style="color:${color}">${msg}</div>`;
+        logEl.scrollTop = logEl.scrollHeight;
+    };
+
+    log(`📦 총 ${total}건 업로드 시작...`, '#F6E05E');
+
+    let ok = 0, fail = 0;
+    for(let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const caseNum = item.caseNum || item.id;
+        if(!caseNum) {
+            log(`[${i+1}] ❌ caseNum 없음 — 건너뜀`, '#FC8181');
+            fail++;
+        } else {
+            const docId = String(caseNum).replace(/[\s/]/g, '_');
+            try {
+                await setDoc(doc(db, 'cases', docId), { ...item, updatedAt: new Date().toISOString() }, { merge: true });
+                log(`[${i+1}/${total}] ✅ ${docId}`, '#68D391');
+                ok++;
+            } catch(e) {
+                log(`[${i+1}/${total}] ❌ ${docId} — ${e.message}`, '#FC8181');
+                fail++;
+            }
+        }
+        const pct = Math.round(((i+1)/total)*100);
+        progFill.style.width = pct + '%';
+        countEl.textContent = `${i+1} / ${total}`;
+    }
+
+    const summary = `완료: ✅ ${ok}건 성공 / ❌ ${fail}건 실패`;
+    log('─'.repeat(40), '#4A5568');
+    log(summary, ok === total ? '#68D391' : '#F6AD55');
+    showToast(summary);
 };
 
 document.getElementById('admin-json-input')?.addEventListener('input', (e) => {
