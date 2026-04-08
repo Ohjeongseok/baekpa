@@ -746,11 +746,13 @@ window.openDetail = (id) => {
     const issuesHtml = (c.issues||[]).length
         ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">⚖️ 주요 쟁점</h4><ul style="padding-left:20px;line-height:1.9">${(c.issues||[]).map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
 
-    const implHtml = (c.implications||[]).length
-        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">💡 실무적 시사점</h4><ul style="padding-left:20px;line-height:1.9">${(c.implications||[]).map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
+    const _implArr = Array.isArray(c.implications) ? c.implications : (c.implications ? String(c.implications).split(/(?<=[.!?])\s+/).filter(Boolean) : []);
+    const implHtml = _implArr.length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">💡 실무적 시사점</h4><ul style="padding-left:20px;line-height:1.9">${_implArr.map(i=>`<li style="font-size:13px">${i}</li>`).join('')}</ul></div>` : '';
 
-    const relatedHtml = (c.related||[]).length
-        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">🔗 관련 판례</h4><div style="display:flex;flex-direction:column;gap:6px">${(c.related||[]).map(r=>`<div style="padding:8px 12px;background:var(--lgray);border-radius:4px;font-size:12px">${r.flag||''} ${r.text||''}</div>`).join('')}</div></div>` : '';
+    const _relArr = Array.isArray(c.related) ? c.related : [];
+    const relatedHtml = _relArr.length
+        ? `<div style="margin-top:20px"><h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px">🔗 관련 판례</h4><div style="display:flex;flex-direction:column;gap:6px">${_relArr.map(r=>`<div style="padding:8px 12px;background:var(--lgray);border-radius:4px;font-size:12px">${(typeof r==='object'&&r!==null)?(r.flag||'')+'  '+(r.text||''):String(r)}</div>`).join('')}</div></div>` : '';
 
     const bm = window.bookmarks.has(String(c.id));
 
